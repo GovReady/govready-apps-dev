@@ -1,0 +1,31 @@
+id: project
+title: I want to complete a FedRAMP System Security Plan (SSP) for a Low/Moderate System
+type: project
+version: 1
+introduction:
+  format: markdown
+  template: |
+    This project will help you complete a FedRAMP System Security Plan (SSP) for a Low/Moderate system.
+
+questions:
+  - id: information_system_name_title
+    title: Information System Name and Title
+    type: module
+    module-id: information_system_name_title
+    tab: Basic Info
+    group: About the Information System
+
+  - id: information_types
+    title: Information Types
+    type: module-set
+    module-id: information_type
+    tab: Basic Info
+    group: Information Types
+
+output:
+  - tab: Basic Info
+    format: markdown
+    template: |
+      # Basic Info
+
+      General information about {{project}}.
