@@ -17,27 +17,51 @@ def construct_question(information_type, path):
 	# General question metadata.
 	q = OrderedDict([
 		("id", information_type["code"].replace(".", "_").lower()),
-		("title", information_type["title"] + " Type"),
-		("prompt", information_type["description"]["text"]), # interpreted as Markdown
+		("title", information_type["title"]),
+		("prompt", None), # set below
 		("type", "choice"),
 		("choices", []),
 	])
 	questions.append(q)
 
 	# Choices and questions for any subtypes that have their own subtypes.
+	has_leaf = False
+	has_branch = False
 	for itype in information_type["subtypes"]:
-		q["choices"].append({
-			"key": itype["code"],
-			"text": "%s (%s)" % (itype["title"], itype["code"]),
-			"help": itype["description"]["text"],
-		})
-		subpath = path + [(q["id"], itype["code"])]
+		# Append the choice.
+		choice = OrderedDict([
+			("key", itype["code"]),
+			("text", "%s (%s %s)" % (
+				itype["title"],
+				"Category" if "subtypes" in itype else "Information Type",
+				itype["code"])),
+			("help", itype["description"]["text"]),
+		])
+		q["choices"].append(choice)
+
+		# Add this answer to the 'path' passed to the next recursive call.
+		subpath = path + [(q["id"], choice["key"])]
+
+		# Do we go recursively?
 		if "subtypes" in itype:
-			# This choice leads to other choices.
+			# This choice leads to other choices. Construct the questions
+			# for the subtypes.
 			construct_question(itype, subpath)
+			has_branch = True
 		else:
 			# This is a leaf choice.
 			final_logic.append((subpath, itype))
+			has_leaf = True
+
+	# Set the prompt.
+	if len(path) == 0: # root
+		q["prompt"] = "What category of information type best describes the information you have in mind?"
+	elif has_leaf and has_branch:
+		q["prompt"] = "What information type or category within %s best describes the information you have in mind?" % information_type["title"]
+	elif has_branch:
+		q["prompt"] = "What category of information type within %s best describes the information you have in mind?" % information_type["title"]
+	else:
+		q["prompt"] = "Which information type within %s best describes the information you have in mind?" % information_type["title"]
 
 	# Skip this question if the user chooses something other than this
 	# for the parent. Not applicable for the root question.
@@ -56,64 +80,48 @@ root = {
 }
 construct_question(root, [])
 
-# Construct a hidden question that computes the final values based on the choices made by the user.
-# Since we can't go forward from questions to answer later questions, we have to construct
-# a complex list of impute conditions to select values from the information type that the user chose.
-def construct_final_logic_question(q, f):
-	global questions
+# Construct a hidden question that houses the metadata about the information type selected by the user.
+# We use a long list of impute conditions to determine which information type the user selected, and
+# then the impute condition that matched yields a raw YAML/Python data structure with metadata about
+# the information type.
+metadata_q = OrderedDict([
+	("id", "selected_information_type"),
+	("title", "Selected Information Type"),
+	("prompt", None), # not used
+	("type", "raw"), # not really supported but flags that the answer value is a raw Python data structure
+	("impute", []),
+])
+questions.append(metadata_q)
+for path, information_type in final_logic:
+	metadata_q["impute"].append({
+		# the impute condition tests that the user made a certain set of choices down the
+		# hierarchy of information type categories to a particular information type
+		"condition": " and ".join(
+			"%s==%s" % (parent_q, repr(child_value))
+			for parent_q, child_value
+			in path
+		),
 
-	q = OrderedDict(
-		(k, q[k])
-		for k in ("id", "title", "prompt")
-	)
+		# and then if so, yields a dict of information about that information type
+		# -- in fact, the original information type data structure that we parsed
+		# in the other script
+		"value": information_type,
+	})
 
-	q["type"] = "text"
-
-	q["impute"] = []
-	for path, information_type in final_logic:
-		q["impute"].append({
-			"condition": " and ".join(
-				"%s==%s" % (parent_q, repr(child_value))
-				for parent_q, child_value
-				in path
-			),
-			"value": f(information_type),
-		})
-
-	questions.append(q)
-
-# These questions are not intended to be answered by the user. They merely
-# collect the chosen information type's values through imput conditions.
-
-construct_final_logic_question({
-	"id": "name",
-	"title": "Information Type Name",
-	"prompt": "What is the NIST SP 800-60 Information Type?",
-	},
-	lambda information_type : information_type["title"])
-
-construct_final_logic_question({
-	"id": "identifier",
-	"title": "Information Type Identifier",
-	"prompt": "What is the identifier of the NIST SP 800-60 Information Type?",
-	},
-	lambda information_type : information_type["code"])
-
-
+# Now add three more pairs of questions for the user to override the recommended
+# classification levels.
 for key in ("confidentiality", "integrity", "availability"):
-	construct_final_logic_question({
-		"id": "recommended_classification_%s" % key,
-		"title": "Recommended classification for %s" % key,
-		"prompt": "What is the recommended %s classification for {{name}}?" % key,
-		},
-		lambda information_type : information_type.get(key, {}).get("level"))
-
-	# These questions are answered by the user.
-
 	q = OrderedDict([
-		("id", "change_classification_%s" % key),
-		("title", "Change classification for %s?" % key),
-		("prompt", "The recommended %s classification level for **{{name}}** is **{{recommended_classification_%s}}**. Do you want to change it?" % (key, key)),
+		("id", "keep_classification_%s" % key),
+		("title", "Keep classification for %s?" % key),
+		("prompt", """The recommended **%s** classification level for {{selected_information_type.title}} is **{{selected_information_type.%s.level}}**.
+
+[NIST Special Publication 800-60 Volume II](http://csrc.nist.gov/publications/nistpubs/800-60-rev1/SP800-60_Vol2-Rev1.pdf) explains:
+
+> {{selected_information_type.%s.text}}
+
+Is this classification level appropriate for your information system?"""
+		 % (key, key, key)),
 		("type", "yesno"),
 	])
 	questions.append(q)
@@ -121,7 +129,7 @@ for key in ("confidentiality", "integrity", "availability"):
 	q = OrderedDict([
 		("id", "classification_%s" % key),
 		("title", "Classification for %s" % key),
-		("prompt", "The recommended %s classification level for **{{name}}** is **{{recommended_classification_%s}}**.\n\nWhat classification level is appropriate for your information system?" % (key, key)),
+		("prompt", "You said you wanted to change the **%s** classification level for {{selected_information_type.title}} from its recommended level **{{selected_information_type.%s.level}}**.\n\nWhat classification level is appropriate for the information system?" % (key, key)),
 		("type", "choice"),
 		("choices", [
 			{
@@ -155,8 +163,8 @@ A severe or catastrophic adverse effect means that, for example, the loss of con
 		]),
 		("impute", [
 			{
-				"condition": "change_classification_%s == 'no'" % key,
-				"value": "recommended_classification_%s" % key,
+				"condition": "keep_classification_%s == 'yes'" % key,
+				"value": "selected_information_type.%s.level" % key,
 				"value-mode": "expression",
 			}
 		])
