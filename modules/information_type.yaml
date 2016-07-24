@@ -4,7 +4,7 @@ instance-name: '{{selected_information_type.code}} {{selected_information_type.t
   (integrity, {{classification_integrity}}), (availability, {{classification_availability}})}'
 introduction:
   format: markdown
-  template: >
+  template: |
     The System Security Plan describes how the information types used by the information
     system are categorized for confidentiality, integrity, and availability sensitivity
     levels.
@@ -24,210 +24,42 @@ questions:
   - key: C.2
     text: Services Delivery Support Information (Category C.2)
     help: >
-      Services delivery support functions provide the critical policy, programmatic,
-      and managerial foundation to support Federal government operations. Security
-      objectives and impact levels for service delivery support information and systems
-      are generally determined by the natures of the supported direct services and
-      constituencies being supported. If a system stores, processes, or communicates
-      national security information, it is defined as a national security system,
-      and is outside the scope of this guideline. 12 Service delivery support activities
-      are defined in this section.
+      Critical policy, programmatic, and managerial foundation to support Federal government operations.
   - key: C.3
     text: Government Resource Management (Category C.3)
     help: >
-      Information
-
-      Resource management functions are the back office support activities that enable
-      the government to operate effectively. Security objectives and impacts for resource
-      management functions are determined by the direct service missions and constituencies
-      ultimately being supported. It is likely that all Federal government information
-      systems store, process, and operate under the control of IT infrastructure maintenance
-      information (e.g., password files and file and network access settings). A basic
-      set of security controls will apply to this information and processes to combat
-      potential corruption, misuse, or abuse of system information and processes.
+      Back office support activities that enable the government to operate effectively.
   - key: D.1
     text: Defense and National Security (Information Type D.1)
     help: >
-      Defense and national security operations protect and advance U.S. National Security
-      interests and, if deterrence fails, decisively defeat threats to those interests.
-      Defense and national security activities include military operations, border
-      protection, and intelligence gathering. Defense operations are subdivided into
-      the following sub-elements:
-
-      •
-
-
-      28
-
-
-      Strategic National and Theater Defense – Establishing national and multinational
-
-      military objectives, sequencing initiatives, defining limits and assessing risks
-      for the use of military and other instruments of national power, developing
-      global plans or theater war plans to achieve these objectives, and providing
-      military forces and other capabilities in accordance with strategic plans;
-
-
-      As mode of delivery of mission-based services, the security categorization of
-      Direct Services to Citizens subfunctions Military Operations and Civilian Operation
-      is dependent on the mission services delivered to the citizens [e.g., Health
-      Care; Emergency Response, Environmental Remediation] should be categorized in
-      accordance with the mission-based information type.
-
-      •
-
-
-      •
-
-
-      Operational Defense – Linking tactics and strategy by establishing operational
-
-      objectives needed to accomplish the strategic objectives, sequencing events
-      to
-
-      achieve the operational objectives, initiating actions, and applying resources
-      to bring about and sustain these events; and
-
-      Tactical Defense – The ordered arrangement and maneuver of combat elements in
-
-      relation to each other and to the enemy to achieve combat objectives.
-
-
-      Impacts to information and many information systems associated with defense
-      and national security missions may affect the security of a broad range of critical
-      infrastructures and key national assets. Systems that, involve command and control
-      of military forces, weapons control 29 , involve equipment that is an integral
-      part of a weapon or weapons system, are critical to the direct fulfillment of
-      military missions or are otherwise employed in strictly military operations
-      30 are defined under Public Law as national security systems. National security
-      information and national security systems are outside the scope of this guideline.
-      Information assurance responsibilities are delegated to the Department of Defense
-      for systems that are operated by the Department of Defense, or another entity
-      on behalf of the Department of Defense 31 . Security objectives and impact levels
-      associated with these systems are determined by the Department of Defense.
+      Military operations, border protection, and intelligence gathering.
   - key: D.2
     text: Homeland Security (Category D.2)
     help: >
-      Homeland Security involves protecting the nation against terrorist attacks.
-      This includes analyzing threats and intelligence, guarding borders and airports,
+      Analyzing threats and intelligence, guarding borders and airports,
       protecting critical infrastructure, and coordinating the response emergencies.
-      The Homeland Security Line of Business is defined by the President’s Strategy
-      on Homeland Security. Note: Some of the Critical Mission Areas from the President’s
-      strategy are included in other information classes and categories.
   - key: D.3
     text: Intelligence Operations (Information Type D.3)
     help: >
-      Intelligence operations involve the development and management of accurate,
-
-      comprehensive, and timely foreign intelligence on national security topics.
-      Information systems, the function, operation, or use of, which involve intelligence
-      activities or are critical to the direct fulfillment of intelligence missions
-      32 are defined under Public Law 33 as national security systems. National security
-      information and national security systems are outside the scope of this guideline.
-      Security objectives and impact levels associated with national security systems
-      are determined by the head of each agency exercising control of the system 34
-      .
-
-      Intelligence operations are subdivided into the following sub-elements:
-
-      • Intelligence Planning Information Type – Intelligence Planning involves developing
-
-
-      •
-
-      •
-
-
-      •
-
-      •
-
-
-      strategies focused on intelligence requirements, prioritizing these requirements,
-      and managing these requirements (adding, deleting and modifying).
-
-      Intelligence Collection Information Type – Intelligence Collection involves
-      acquiring raw data and provisioning the data to processing elements.
-
-      Intelligence Analysis and Production Information Type – Intelligence Analysis
-      and Production consists of integrating, evaluating, and/or interpreting information
-      from single or multiple sources into intelligence satisfying consumer needs
-      and preparing intelligence products in support of known or anticipated consumers.
-
-      Intelligence Dissemination Information Type – Intelligence Dissemination consists
-      of delivering the intelligence products to consumers.
-
-      Intelligence Processing Information Type – Intelligence processing involves
-      converting collected raw data into forms suitable for analysis.
-
-
-      Some agencies are charged with gathering domestic intelligence. Much domestic
-      intelligence information is classified. Other domestic intelligence information
-      may not be classified (e.g., some information obtained from state and local
-      government sources). All classified information is treated under separate rules
-      established for national security information. The recommended categorization
-      for unclassified domestic intelligence information follows:
-
-      Security Category = {(confidentiality, High), (integrity, High), (availability,
-      High)}
-
-
-      32
-
-
-      Systems that do not involve a) intelligence activities, b) cryptologic activities
-      related to national security, c) command and control of military forces, d)
-      equipment that is an integral part of a weapon or weapons system or 5) information
-      classified by an act of Congress or under an Executive order are not designated
-      as national security systems if they are used exclusively for routine business
-      or administrative applications even if they are critical to the direct fulfillment
-      of military or intelligence missions. Routine business or administrative applications
-      are defined as including payroll, finance, logistics, and personnel management
-      applications. [Federal Information Security Management Act of 2002, Public Law
-      107-347, Subchapter III – Information Security, Sec. 3547 – National security
-      systems, 12/17/02]
-
-      33
-
-      Clinger-Cohen Act, Public Law 104-106, National Defense Authorization Act For
-      Fiscal Year 1996, Division E – Information Technology Reform, Sec. 5142 – National
-      Security Systems Defined, 8/8/96; Homeland Security Act of 2002, Public Law
-      107-296, Title X – Information Security, Subchapter II, Sec. 3532 – Definitions,
-      11/25/02; and Federal Information Security Management Act of 2002, Public Law
-      107-347, Subchapter III – Information Security, Sec. 3542 – Definitions, 12/17/02.
-
-      34
-
-      Federal Information Security Management Act of 2002, Public Law 107-347, Subchapter
-      III – Information Security, Sec. 3547 – National security systems, 12/17/02.
+      Development and management of accurate, comprehensive, and timely foreign intelligence
+      on national security topics.
   - key: D.4
     text: Disaster Management (Category D.4)
     help: >
-      Disaster management involves the activities required to prepare for, mitigate,
-      respond to, and repair the effects of all physical and humanitarian disasters
-      whether natural or man-made. Compromise of much information associated with
-      any of the missions within the disaster management mission area may seriously
-      impact the security of a broad range of critical infrastructures and key national
-      assets.
+      Activities required to prepare for, mitigate, respond to, and repair the effects 
+      of all physical and humanitarian disasters whether natural or man-made.
   - key: D.5
     text: International Affairs and Commerce (Category D.5)
     help: >
-      International Affairs and Commerce involves the non-military activities that
-      promote U.S. policies and interests beyond our national borders, including the
+      Non-military activities that promote U.S. policies and interests beyond our national borders, including the
       negotiation of conflict resolution, treaties, and agreements. In addition, this
       function includes: foreign economic development and social/political development;
       diplomatic relations with other Nations; humanitarian, technical and other developmental
-      assistance to key Nations; and global trade. Information that is protected by
-      procedures established and authorized under criteria specified in an Executive
-      Order or an Act of Congress to be kept classified in the interests of foreign
-      policy are national security related 35 . Security objectives and impact levels
-      associated with such national security information are determined by the head
-      of each agency exercising control of the system and are outside the scope of
-      this guideline.
+      assistance to key Nations; and global trade.
   - key: D.6
     text: Natural Resources (Category D.6)
     help: >
-      The Natural Resources mission area includes all activities involved in conservation
+      All activities involved in conservation
       planning, land management, and national park/monument tourism that affect the
       nation's natural and recreational resources, both private and federal. Note:
       Energy-related natural resources are covered in the Energy Management mission
@@ -235,12 +67,9 @@ questions:
   - key: D.7
     text: Energy (Category D.7)
     help: >
-      Energy refers to all actions performed by the government to ensure the procurement
-      and management of energy resources, including the production, sale and distribution
-      of energy, as well as the management of spent fuel resources. Energy management
-      includes all types of massproduced energy (e.g., hydroelectric, nuclear, wind,
-      solar, or fossil fuels). Also included in this mission area is the oversight
-      of private industry.
+      Procurement and management of energy resources, including the production, sale and distribution
+      of energy, as well as the management of spent fuel resources. Also included in this mission area
+      is the oversight of private industry.
   - key: D.8
     text: Environmental Management (Category D.8)
     help: |
@@ -249,7 +78,7 @@ questions:
   - key: D.9
     text: Economic Development (Category D.9)
     help: >
-      Economic Development includes the activities required to promote commercial/industrial
+      Activities required to promote commercial/industrial
       development and to regulate the American financial industry to protect investors.
       It also includes the management and control of the domestic economy and the
       money supply, and the protection of intellectual property and innovation. Note:
@@ -258,95 +87,74 @@ questions:
   - key: D.10
     text: Community and Social Services (Category D.10)
     help: >
-      Community and Social Services includes all activities aimed at creating, expanding,
+      Creating, expanding,
       or improving community and social development, social relationships, and social
-      services in the United States. This includes all activities aimed at locality-specific
-      or nationwide social development and general social services and general community
-      development and social services programs, as well as earned and unearned benefit
-      programs that promote these objectives.
+      services in the United States.
   - key: D.11
     text: Transportation (Category D.11)
     help: >
-      Transportation involves all federally supported activities related to the safe
-      passage, conveyance, or transportation of goods and/or people. Note that impacts
-      to some information and many information systems associated with transportation
-      activities may affect the security of, not only the transportation infrastructure,
-      but also to a broad range of other critical infrastructures and key national
-      assets.
+      Federally supported activities related to the safe
+      passage, conveyance, or transportation of goods and/or people.
   - key: D.12
     text: Education (Category D.12)
     help: >
-      Education refers to those activities that impart knowledge or understanding
-      of a particular subject to the public. Education can take place at a formal
-      school, college, university or other training program. This mission area includes
+      Activities that impart knowledge or understanding
+      of a particular subject to the public. This mission area includes
       all government programs that promote the education of the public, including
       both earned and unearned benefit programs.
   - key: D.13
     text: Workforce Management (Category D.13)
     help: >
-      Workforce Management includes those activities that promote the welfare and
+      Activities that promote the welfare and
       effectiveness of the Nation’s workforce by improving their proficiency, working
       conditions, advancing opportunities for profitable employment, and strengthening
       free collective bargaining.
   - key: D.14
     text: Health (Category D.14)
     help: >
-      Public Health involves Federal programs and activities charged with ensuring
-      and providing for the health and well being of the public. This includes the
-      direct provision of health care services and immunizations as well as the monitoring
+      Direct provision of health care services and immunizations, monitoring
       and tracking of public health indicators for the detection of trends and identification
-      of widespread illnesses/diseases. It also includes both earned and unearned
-      health care benefit programs. Note that impacts to some public health information
-      and information systems may affect the security of critical elements of the
-      public health infrastructure.
+      of widespread illnesses/diseases, earned and unearned
+      health care benefit programs.
   - key: D.15
     text: Income Security (Category D.15)
     help: >
-      Income Security includes activities designed to ensure that members of the public
+      Ativities designed to ensure that members of the public
       are provided with the necessary means – both financial and otherwise – to sustain
       an adequate level of existence. This includes all benefit programs, both earned
       and unearned, that promote these goals for members of the public.
   - key: D.16
     text: Law Enforcement (Category D.16)
     help: >
-      Law enforcement involves the protection of people, places, and things from criminal
+      Protection of people, places, and things from criminal
       activity resulting from non-compliance with U.S. laws. This includes patrols,
       undercover operations, response to emergency calls, as well as arrests, raids,
-      and seizures of property. Impacts to some information and information systems
-      associated with law enforcement missions may affect the security of a broad
-      range of critical infrastructures and key national assets. Some information
-      associated with Federal law enforcement is categorized as national security
-      information. Rules governing establishment of impact levels and controls associated
-      with national security information are governed by a separate set of policies
-      and are outside the scope of this guideline. Confidentiality and integrity impacts
-      are often determined by statutory and regulatory requirements that vary by violation.
+      and seizures of property.
   - key: D.17
     text: Litigation and Judicial Activities (Category D.17)
     help: |
-      Litigation and judicial activities involve all activities necessary for the development and oversight of Federal programs.
+      All activities necessary for the development and oversight of Federal programs.
   - key: D.18
     text: Federal Correctional Activities (Category D.18)
     help: |
-      Correctional Activities involves all Federal activities that ensure the effective incarceration and rehabilitation of convicted criminals.
+      All Federal activities that ensure the effective incarceration and rehabilitation of convicted criminals.
   - key: D.19
     text: General Sciences and Innovation (Category D.19)
     help: >
-      General Science and Innovation includes all Federal activities to meet the national
-      need to advance knowledge in this area. This includes general research and technology
+      General research and technology
       programs, space exploration activities, and other research and technology programs
       that have diverse goals and cannot be readily classified into another mission
       area or information type.
   - key: D.20
     text: Knowledge Creation and Management (Category D.20)
     help: >
-      Knowledge Creation and Management involves the programs and activities in which
-      the Federal Government creates or develops a body or set of knowledge, the manipulation
+      Creating or developing a body or set of knowledge, the manipulation
       and analysis of which can provide inherent benefits for both the Federal and
       private sector.
   - key: D.21
     text: Regulatory Compliance and Enforcement (Category D.21)
     help: >
-      Regulatory Compliance and Enforcement involves the direct monitoring and oversight
+      Direct monitoring and oversight
       of a specific individual, group, industry, or community participating in a regulated
       activity via market mechanisms, command and control features, or other means
       to control or govern conduct or behavior.
@@ -359,24 +167,24 @@ questions:
   - key: D.23
     text: Federal Financial Assistance (Category D.23)
     help: >
-      Federal Financial Assistance is the provision of earned and unearned financial
+      Provision of earned and unearned financial
       or monetary-like benefits to individuals, groups, or corporations.
   - key: D.24
     text: Credit and Insurance (Category D.24)
     help: >
-      Credit and Insurance involves the use of government funds to cover the subsidy
+      The use of government funds to cover the subsidy
       cost of a direct loan or loan guarantee or to protect/indemnify members of the
       public from financial losses.
   - key: D.25
     text: Transfers to State/Local Governments (Category D.25)
     help: >
-      Transfers to States and Local Governments involve the transfer of funds or financial
+      The transfer of funds or financial
       assistance from the Federal government to State and Local governments and Indian
       tribes.
   - key: D.26
     text: Direct Services for Citizens (Category D.26)
     help: >
-      Direct Services for Citizens refers to the delivery of a good or service to
+      Delivery of a good or service to
       (or on behalf of) the citizenry by the federal government with no other intervening
       persons, conditions, or organizations.
 - id: c_2
