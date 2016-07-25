@@ -87,6 +87,14 @@ questions:
       - key: not_applicable
         text: Not Applicable
 
+  - id: planned_implementation_date
+    title: Planned Implementation Date
+    prompt: What is the planned implementation date for this control?
+    type: date
+    impute:
+      - condition: "'planned' not in implementation_status"
+        value: ~
+
   - id: control_origination
     title: Control Origination
     prompt: |
@@ -145,6 +153,7 @@ output:
       (b)(2): {{parameter_b_2.text}}
 
       Implementation Status: {{implementation_status.text}}
+      {% if planned_implementation_date %}{{planned_implementation_date.text}}{% endif %}
 
       Control Origination: {{control_origination.text}}
 
