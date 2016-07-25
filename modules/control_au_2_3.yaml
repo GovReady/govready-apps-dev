@@ -3,6 +3,8 @@ title: AU-2 (3) Control Enhancement to AU-2 Audit Events
 introduction:
   format: markdown
   template: |
+    ![AU icon](control-au.png)
+
     In this section you will provide the responsible role, parameters, implementation status, control origination, and solution/implementation for AU-2 (3).
 
     AU-2 (3) states:
