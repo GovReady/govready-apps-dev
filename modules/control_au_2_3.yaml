@@ -32,6 +32,7 @@ questions:
     title: Implementation Status
     prompt: What is the implementation status of this control?
     type: multiple-choice
+    min: 1
     choices:
       - key: implemented
         text: Implemented
@@ -49,7 +50,7 @@ questions:
     prompt: What is the planned implementation date for this control?
     type: date
     impute:
-      - condition: "'planned' not in implementation_status"
+      - condition: "implementation_status is none or 'planned' not in implementation_status"
         value: ~
 
   - id: control_origination
@@ -57,6 +58,7 @@ questions:
     prompt: |
       What is this control's origination?
     type: multiple-choice
+    min: 1
     choices:
       - key: service_provider_corporate
         text: Service Provider Corporate
@@ -80,7 +82,7 @@ questions:
     type: module
     module-id: fedramp_authorization
     impute:
-      - condition: "'inherited' not in control_origination"
+      - condition: "control_origination is none or 'inherited' not in control_origination"
         value: ~
 
   - id: implementation
@@ -91,18 +93,62 @@ questions:
 
 output:
   - title: Your Answers
-    format: markdown
+    format: html
     template: |
-      Responsible Role: {{responsible_role.text}}
+      <table class="table">
+        <thead>
+          <th colspan="2">
+            <div class="row">
+              <div class="col-xs-3">
+                AU-1
+              </div>
+              <div class="col-xs-9">
+                Control Summary Information
+              </div>
+            </div>
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Responsible Role:</th>
+            <td>{{responsible_role.text}}</td>
+          </tr>
+          <tr>
+            <td>Parameter:</th>
+            <td>{{parameter.text}}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Implementation Status:</div>
+              {% for value in implementation_status %}
+                <div>{{value.text}} {% if value == "planned" %} ({{planned_implementation_date.text}}){% endif %}</div>
+              {% else %}
+                <div>(no implementation status selected)</div>
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Control Origination:</div>
+              {% for value in control_origination %}
+                <div>{{value.text}} {% if value == "inherited" %} ({{inherited_authorization.title}}){% endif %}</div>
+              {% else %}
+                <div>(no control origination selected)</div>
+              {% endfor %}
+            </td>
+          </tr>
+        </body>
+      </table>
 
-      Parameter: {{parameter}}
-
-      Implementation Status: {{implementation_status.text}}
-      {% if planned_implementation_date %}{{planned_implementation_date.text}}{% endif %}
-
-      Control Origination: {{control_origination.text}}
-      {% if 'inherited' in control_origination %}({{inherited_authorization.title}}){% endif %}
-
-      Implementation:
-
-      {{implementation}}
+      <table class="table">
+        <thead>
+          <th colspan="2">
+            AU-2 (3) What is the solution and how is it implemented?
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2">{{implementation.text}}</td>
+          </tr>
+        </tbody>
+      </table>

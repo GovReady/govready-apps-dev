@@ -75,6 +75,7 @@ questions:
     title: Implementation Status
     prompt: What is the implementation status of this control?
     type: multiple-choice
+    min: 1
     choices:
       - key: implemented
         text: Implemented
@@ -92,7 +93,7 @@ questions:
     prompt: What is the planned implementation date for this control?
     type: date
     impute:
-      - condition: "'planned' not in implementation_status"
+      - condition: "implementation_status is none or 'planned' not in implementation_status"
         value: ~
 
   - id: control_origination
@@ -102,6 +103,7 @@ questions:
 
       (Note: The -1 Controls, including this one, cannot be inherited and must be described in some way by the service provider.)
     type: multiple-choice
+    min: 1
     choices:
       - key: service_provider_corporate
         text: Service Provider Corporate
@@ -140,25 +142,75 @@ questions:
 
 output:
   - title: Your Answers
-    format: markdown
+    format: html
     template: |
-      Responsible Role: {{responsible_role.text}}
+      <table class="table">
+        <thead>
+          <th colspan="2">
+            <div class="row">
+              <div class="col-xs-3">
+                AU-1
+              </div>
+              <div class="col-xs-9">
+                Control Summary Information
+              </div>
+            </div>
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Responsible Role:</th>
+            <td>{{responsible_role.text}}</td>
+          </tr>
+          <tr>
+            <td>Parameter (a):</th>
+            <td>{{parameter_a.text}}</td>
+          </tr>
+          <tr>
+            <td>Parameter (b)(1):</th>
+            <td>{{parameter_b_1.text}}</td>
+          </tr>
+          <tr>
+            <td>Parameter (b)(2):</th>
+            <td>{{parameter_b_2.text}}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Implementation Status:</div>
+              {% for value in implementation_status %}
+                <div>{{value.text}} {% if value == "planned" %} ({{planned_implementation_date.text}}){% endif %}</div>
+              {% else %}
+                <div>(no implementation status selected)</div>
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Control Origination:</div>
+              {% for value in control_origination %}
+                <div>{{value.text}} {% if value == "inherited" %} ({{inherited_authorization.title}}){% endif %}</div>
+              {% else %}
+                <div>(no control origination selected)</div>
+              {% endfor %}
+            </td>
+          </tr>
+        </body>
+      </table>
 
-      Parameters:
-
-      (a): {{parameter_a.text}}
-
-      (b)(1): {{parameter_b_1.text}}
-
-      (b)(2): {{parameter_b_2.text}}
-
-      Implementation Status: {{implementation_status.text}}
-      {% if planned_implementation_date %}{{planned_implementation_date.text}}{% endif %}
-
-      Control Origination: {{control_origination.text}}
-
-      Implementation:
-
-      (a): {{implementation_a}}
-
-      (b): {{implementation_b}}
+      <table class="table">
+        <thead>
+          <th colspan="2">
+            AU-1 What is the solution and how is it implemented?
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><nobr>Part a</nobr></th>
+            <td>{{implementation_a.text}}</td>
+          </tr>
+          <tr>
+            <td><nobr>Part b</nobr></th>
+            <td>{{implementation_b.text}}</td>
+          </tr>
+        </tbody>
+      </table>
