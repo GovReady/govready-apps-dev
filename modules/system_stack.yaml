@@ -58,6 +58,37 @@ questions:
       - condition: what_kind_of_system != 'application'
         value: ~
 
+  # REMOVE
+  - id: control_implementation_au_2_3
+    title: Control Implementation for AU-2(3)
+    type: text
+  # REMOVE
+
+  - id: control_implementation_au_2_3_cloud_provider
+    title: Control Implementation for AU-2(3) for Cloud Provider
+    type: text
+    impute:
+      - condition: what_kind_of_system == 'application' and application_where_hosted == 'cloud' and cloud_provider == 'aws'
+        value: >
+          AWS is responsible for audit and accountability controls for the AWS infrastructure.
+          [To update: Customers are responsible for reviewing and updating the list of auditable events annually
+          or whenever there is a change in the threat environment.]
+      - condition: "1"
+        value: ~
+        # skip if nothing else applies
+
+  - id: control_implementation_au_2_3_application
+    title: Control Implementation for AU-2(3) for Application Stack
+    type: text
+    impute:
+      - condition: what_kind_of_system == 'application' and application_software == 'django'
+        value: >
+          Audit events at the Operating System level are reviewed by RESPONSIBLE_PERSON annually and after incidents to determine the events audited need to be modified.
+          Audit events at the Python+Django application level are reviewed by RESPONSIBLE_PERSON annually and after incidents to determine the events audited need to be modified.
+      - condition: "1"
+        value: ~
+        # skip if nothing else applies
+
 output:
   - title: Your Answers
     format: markdown

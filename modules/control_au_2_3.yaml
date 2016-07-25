@@ -17,7 +17,7 @@ introduction:
 questions:
   - id: keep_responsible_role
     title: Keep Default Responsible Role
-    prompt: Is {{project.responsible_roles.AU}} the responsible role for the implementation of this control?
+    prompt: Is {{project.responsible_roles.AU.text}} the responsible role for the implementation of this control?
     type: yesno
     impute:
       - condition: project.responsible_roles.AU is none
@@ -43,30 +43,30 @@ questions:
       How often does the organization review and update the audited events? FedRAMP specifies annually or whenever there is a change in the threat environment.
     type: text
 
-  - id: implementation_status
-    title: Implementation Status
-    prompt: What is the implementation status of this control?
-    type: multiple-choice
-    min: 1
-    choices:
-      - key: implemented
-        text: Implemented
-      - key: partially_implemented
-        text: Partially Implemented
-      - key: planned
-        text: Planned
-      - key: alternative_implementation
-        text: Alternative Implementation
-      - key: not_applicable
-        text: Not Applicable
+  # - id: implementation_status
+  #   title: Implementation Status
+  #   prompt: What is the implementation status of this control?
+  #   type: multiple-choice
+  #   min: 1
+  #   choices:
+  #     - key: implemented
+  #       text: Implemented
+  #     - key: partially_implemented
+  #       text: Partially Implemented
+  #     - key: planned
+  #       text: Planned
+  #     - key: alternative_implementation
+  #       text: Alternative Implementation
+  #     - key: not_applicable
+  #       text: Not Applicable
 
-  - id: planned_implementation_date
-    title: Planned Implementation Date
-    prompt: What is the planned implementation date for this control?
-    type: date
-    impute:
-      - condition: "implementation_status is none or 'planned' not in implementation_status"
-        value: ~
+  # - id: planned_implementation_date
+  #   title: Planned Implementation Date
+  #   prompt: What is the planned implementation date for this control?
+  #   type: date
+  #   impute:
+  #     - condition: "implementation_status is none or 'planned' not in implementation_status"
+  #       value: ~
 
   - id: control_origination
     title: Control Origination
@@ -94,6 +94,9 @@ questions:
       - key: inherited
         text: Inherited from pre-existing FedRAMP Authorization
         help: You'll choose the authorization document next.
+    impute:
+      - condition: project.system_stack.cloud_provider == 'aws'
+        value: [shared]
 
   - id: inherited_authorization
     title: Inherited Authorization
@@ -109,22 +112,28 @@ questions:
     prompt: |
       What is the solution for this control enhancement and how is it implemented?
 
-      {% if project.system_stack.cloud_provider != 'other' %}
-      Your cloud provider is **{{project.system_stack.cloud_provider.text}}**. The solution and implementation for this control enhancement will include your cloud provider's auditing practices.
+      {% if project.system_stack.control_implementation_au_2_3_cloud_provider %}
+      Your cloud provider is **{{project.system_stack.cloud_provider.text}}**. The solution and implementation for this control enhancement will include the following:
+
+        > {{project.system_stack.control_implementation_au_2_3_cloud_provider}}
+
       {% endif %}
 
-      {% if project.system_stack.application_software != 'other' %}
-      Your application is based on **{{project.system_stack.application_software.text}}**. The solution and implementation for this control enhancement will include your application layer's auditing practices.
+      {% if project.system_stack.control_implementation_au_2_3_application %}
+      Your application is based on **{{project.system_stack.application_software.text}}**.. The solution and implementation for this control enhancement will include the following:
+
+        > {{project.system_stack.control_implementation_au_2_3_application}}
+
       {% endif %}
 
-      {% if project.system_stack.cloud_provider != 'other' or project.system_stack.application_software != 'other'%}
+      {% if project.system_stack.control_implementation_au_2_3_cloud_provider or project.system_stack.control_implementation_au_2_3_application %}
       Do you have anything to add?
       {% endif %}
 
     type: longtext
 
 output:
-  - title: Your Answers
+  - title: SSP Control Snippet
     format: html
     template: |
       <table class="table">
@@ -151,16 +160,6 @@ output:
           </tr>
           <tr>
             <td colspan="2">
-              <div style="margin-bottom: .5em">Implementation Status:</div>
-              {% for value in implementation_status %}
-                <div>{{value.text}} {% if value == "planned" %} ({{planned_implementation_date.text}}){% endif %}</div>
-              {% else %}
-                <div>(no implementation status selected)</div>
-              {% endfor %}
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
               <div style="margin-bottom: .5em">Control Origination:</div>
               {% for value in control_origination %}
                 <div>{{value.text}} {% if value == "inherited" %} ({{inherited_authorization.title}}){% endif %}</div>
@@ -181,16 +180,22 @@ output:
         <tbody>
           <tr>
             <td colspan="2">
-              {% if project.system_stack.cloud_provider != 'other' %}
-              <p>[{{project.system_stack.cloud_provider.text}} solution/implementation here]</p>
-              {% endif %}
+              <p>{{project.system_stack.control_implementation_au_2_3_cloud_provider}}</p>
 
-              {% if project.system_stack.application_software != 'other' %}
-              <p>[{{project.system_stack.application_software.text}} solution/implementation here]</p>
-              {% endif %}
+              <p>{{project.system_stack.control_implementation_au_2_3_application}}</p>
 
               {{implementation.text}}
             </td>
           </tr>
         </tbody>
       </table>
+#          <tr>
+#            <td colspan="2">
+#              <div style="margin-bottom: .5em">Implementation Status:</div>
+#              {% for value in implementation_status %}
+#                <div>{{value.text}} {% if value == "planned" %} ({{planned_implementation_date.text}}){% endif %}</div>
+#              {% else %}
+#                <div>(no implementation status selected)</div>
+#              {% endfor %}
+#            </td>
+#          </tr>
