@@ -1,0 +1,76 @@
+id: system_stack
+title: Information System Stack
+questions:
+  - id: what_kind_of_system
+    title: What Kind of System
+    prompt: What kind of information system is this?
+    type: choice
+    choices:
+      - key: application
+        text: Major Application
+      - key: support
+        text: General Support System
+
+  - id: application_where_hosted
+    title: Where Is The Application Hosted
+    prompt: Where is the application hosted?
+    type: choice
+    choices:
+      - key: cloud
+        text: In The Cloud
+      - key: onpremesis
+        text: In an On-Premesis Data Center
+    impute:
+      - condition: what_kind_of_system != 'application'
+        value: ~
+
+  - id: cloud_provider
+    title: Cloud Provider
+    prompt: What cloud provider is the application hosted in?
+    type: choice
+    choices:
+      - key: aws
+        text: Amazon Web Services
+      - key: pcf
+        text: Pivotal Cloud Foundry
+      - key: aure
+        text: Microsoft Azure
+      - key: other-fedramp
+        text: Other FedRAMP Certified Cloud Service Provider
+      - key: other
+        text: Other (not a FedRAMP Certified Cloud Service Provider)
+    impute:
+      - condition: application_where_hosted != 'cloud'
+        value: ~
+
+  - id: application_software
+    title: What Application Software Stack
+    prompt: What application-level software does the information system use?
+    type: choice
+    choices:
+      - key: django
+        text: Python+Django
+      - key: drupal
+        text: PHP+Drupal
+      - key: other
+        text: Other
+    impute:
+      - condition: what_kind_of_system != 'application'
+        value: ~
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      System Type: {{what_kind_of_system.text}}
+
+      {% if what_kind_of_system == "application" %}
+      Hosted: {{application_where_hosted.text}}
+
+      {% if application_where_hosted == "cloud" %}
+      Cloud Provider: {{cloud_provider.text}}
+      {% endif %}
+
+      Software Stack: {{application_software.text}}
+
+      {% endif %}

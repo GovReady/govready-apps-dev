@@ -15,6 +15,13 @@ questions:
     tab: Basic Info
     group: About the Information System
 
+  - id: system_stack
+    title: About Your System Stack
+    type: module
+    module-id: system_stack
+    tab: Basic Info
+    group: About the Information System
+
   - id: information_types
     title: Information Types
     type: module-set

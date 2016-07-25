@@ -57,6 +57,10 @@ questions:
     title: Control Origination
     prompt: |
       What is this control's origination?
+
+      {% if project.system_stack.cloud_provider == 'aws' %}
+      **Your cloud provider is {{project.system_stack.cloud_provider.text}} so you must choose Inherited from pre-existing FedRAMP Authorization, and any other control originations as applicable.**
+      {% endif %}
     type: multiple-choice
     min: 1
     choices:
@@ -89,6 +93,19 @@ questions:
     title: Solution and Implementation
     prompt: |
       What is the solution for this control enhancement and how is it implemented?
+
+      {% if project.system_stack.cloud_provider != 'other' %}
+      Your cloud provider is **{{project.system_stack.cloud_provider.text}}**. The solution and implementation for this control enhancement will include your cloud provider's auditing practices.
+      {% endif %}
+
+      {% if project.system_stack.application_software != 'other' %}
+      Your application is based on **{{project.system_stack.application_software.text}}**. The solution and implementation for this control enhancement will include your application layer's auditing practices.
+      {% endif %}
+
+      {% if project.system_stack.cloud_provider != 'other' or project.system_stack.application_software != 'other'%}
+      Do you have anything to add?
+      {% endif %}
+
     type: longtext
 
 output:
@@ -148,7 +165,17 @@ output:
         </thead>
         <tbody>
           <tr>
-            <td colspan="2">{{implementation.text}}</td>
+            <td colspan="2">
+              {% if project.system_stack.cloud_provider != 'other' %}
+              <p>[{{project.system_stack.cloud_provider.text}} solution/implementation here]</p>
+              {% endif %}
+
+              {% if project.system_stack.application_software != 'other' %}
+              <p>[{{project.system_stack.application_software.text}} solution/implementation here]</p>
+              {% endif %}
+
+              {{implementation.text}}
+            </td>
           </tr>
         </tbody>
       </table>
