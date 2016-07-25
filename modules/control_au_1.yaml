@@ -1,0 +1,155 @@
+id: control_au_1
+title: AU-1 Audit and Accountability Policy and Procedures
+introduction:
+  format: markdown
+  template: |
+    In this section you will provide the responsible role, parameters, implementation status, control origination, and solution/implementation for AU-1.
+
+    AU-1 states:
+
+    > The organization:
+    >
+    > a) Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]:
+    >
+    >   1) An audit and accountability policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and
+    >
+    >   2) Procedures to facilitate the implementation of the audit and accountability policy and associated audit and accountability controls; and
+    >
+    > b) Reviews and updates the current:
+    >
+    >   1) Audit and accountability policy [FedRAMP Assignment: at every 3 years]; and
+    >
+    >   2) Audit and accountability procedures [FedRAMP Assignment: at least annually].
+
+questions:
+  - id: responsible_role
+    title: Responsible Role
+    prompt: Who is responsible for the implementation of this control?
+    type: text
+
+  - id: parameter_a
+    title: Parameter AU-1(a)
+    prompt: |
+      Part (a) has a parameter:
+
+      > The organization:
+      >
+      > a) Develops, documents, and disseminates to **[Assignment: organization-defined personnel or roles]**:
+      >
+      >   1) An audit and accountability policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and
+      >
+      >   2) Procedures to facilitate the implementation of the audit and accountability policy and associated audit and accountability controls; and
+
+      Who is assigned this responsibility? The assignment is drawn from organization-defined personnel or roles.
+    type: text
+
+  - id: parameter_b_1
+    title: Parameter AU-1(b)(1)
+    prompt: |
+      Part (b)(1) has a parameter:
+
+      > The organization:
+      >
+      > b) Reviews and updates the current:
+      >
+      >   1) Audit and accountability policy [FedRAMP Assignment: at every 3 years]
+
+      How often is the audit and accountability **policy** reviewed and updated? FedRAMP specifies at every 3 years.
+    type: text
+
+  - id: parameter_b_2
+    title: Parameter AU-1(b)(2)
+    prompt: |
+      Part (b)(2) has a parameter:
+
+      > The organization:
+      >
+      > b) Reviews and updates the current:
+      >
+      >   2) Audit and accountability procedures [FedRAMP Assignment: at least annually].
+
+      How often are the audit and accountability **procedures** reviewed and updated? FedRAMP specifies at least annually.
+    type: text
+
+  - id: implementation_status
+    title: Implementation Status
+    prompt: What is the implementation status of this control?
+    type: multiple-choice
+    choices:
+      - key: implemented
+        text: Implemented
+      - key: partially_implemented
+        text: Partially Implemented
+      - key: planned
+        text: Planned
+      - key: alternative_implementation
+        text: Alternative Implementation
+      - key: not_applicable
+        text: Not Applicable
+
+  - id: control_origination
+    title: Control Origination
+    prompt: |
+      What is this control's origination?
+
+      (Note: The -1 Controls, including this one, cannot be inherited and must be described in some way by the service provider.)
+    type: multiple-choice
+    choices:
+      - key: service_provider_corporate
+        text: Service Provider Corporate
+      - key: service_provider_system_specific
+        text: Service Provider System Specific
+      - key: service_provider_hybrid
+        text: Service Provider Hybrid (Corporate and System Specific)
+
+  - id: implementation_a
+    title: Solution and Implementation for (a)
+    prompt: |
+      What is the solution for part (a) and how is it implemented? Part (a) is:
+
+      > The organization:
+      >
+      > a) Develops, documents, and disseminates to *{{parameter_a.text}}*:
+      >
+      >   1) An audit and accountability policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and
+      >
+      >   2) Procedures to facilitate the implementation of the audit and accountability policy and associated audit and accountability controls; and
+    type: longtext
+
+  - id: implementation_b
+    title: Solution and Implementation for (b)
+    prompt: |
+      What is the solution for part (b) and how is it implemented? Part (b) is:
+
+      > The organization:
+      >
+      > b) Reviews and updates the current:
+      >
+      >   1) Audit and accountability policy *{{parameter_b_1.text}}*; and
+      >
+      >   2) Audit and accountability procedures *{{parameter_b_2.text}}*.
+    type: longtext
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Responsible Role: {{responsible_role.text}}
+
+      Parameters:
+
+      (a): {{parameter_a.text}}
+
+      (b)(1): {{parameter_b_1.text}}
+
+      (b)(2): {{parameter_b_2.text}}
+
+      Implementation Status: {{implementation_status.text}}
+
+      Control Origination: {{control_origination.text}}
+
+      Implementation:
+
+      (a): {{implementation_a}}
+
+      (b): {{implementation_b}}

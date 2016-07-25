@@ -22,6 +22,20 @@ questions:
     tab: Basic Info
     group: Information Types
 
+  - id: control_au_1
+    title: AU-1 Audit and Accountability Policy and Procedures
+    type: module
+    module-id: control_au_1
+    tab: Controls
+    group: Audit and Accountability (AU)
+
+  - id: control_au_2_3
+    title: AU-2 (3) Control Enhancement to AU-2 Audit Events
+    type: module
+    module-id: control_au_2_3
+    tab: Controls
+    group: Audit and Accountability (AU)
+
 output:
   - tab: Basic Info
     format: markdown

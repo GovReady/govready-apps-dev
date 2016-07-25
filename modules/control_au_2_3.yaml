@@ -1,0 +1,99 @@
+id: control_au_2_3
+title: AU-2 (3) Control Enhancement to AU-2 Audit Events
+introduction:
+  format: markdown
+  template: |
+    In this section you will provide the responsible role, parameters, implementation status, control origination, and solution/implementation for AU-2 (3).
+
+    AU-2 (3) states:
+
+    > The organization reviews and updates the audited events [FedRAMP Assignment: annually or whenever there is a change in the threat environment].
+
+    AU-2 (3) Additional FedRAMP Requirements and Guidance: 
+
+    > Guidance: Annually or whenever changes in the threat environment are communicated to the service provider by the JAB/AO.
+questions:
+  - id: responsible_role
+    title: Responsible Role
+    prompt: Who is responsible for the implementation of this control?
+    type: text
+
+  - id: parameter
+    title: Parameter AU-2(3)
+    prompt: |
+      This control enhancement has a parameter:
+
+      > The organization reviews and updates the audited events **[FedRAMP Assignment: annually or whenever there is a change in the threat environment]**.
+
+      How often does the organization review and update the audited events? FedRAMP specifies annually or whenever there is a change in the threat environment.
+    type: text
+
+  - id: implementation_status
+    title: Implementation Status
+    prompt: What is the implementation status of this control?
+    type: multiple-choice
+    choices:
+      - key: implemented
+        text: Implemented
+      - key: partially_implemented
+        text: Partially Implemented
+      - key: planned
+        text: Planned
+      - key: alternative_implementation
+        text: Alternative Implementation
+      - key: not_applicable
+        text: Not Applicable
+
+  - id: control_origination
+    title: Control Origination
+    prompt: |
+      What is this control's origination?
+    type: multiple-choice
+    choices:
+      - key: service_provider_corporate
+        text: Service Provider Corporate
+      - key: service_provider_system_specific
+        text: Service Provider System Specific
+      - key: service_provider_hybrid
+        text: Service Provider Hybrid (Corporate and System Specific)
+      - key: configured_by_customer
+        text: Configured by Customer (Customer System Specific)
+      - key: provided_by_customer
+        text: Provided by Customer (Customer System Specific)
+      - key: shared
+        text: Shared (Service Provider and Customer Responsibility)
+      - key: inherited
+        text: Inherited from pre-existing FedRAMP Authorization
+        help: You'll choose the authorization document next.
+
+  - id: inherited_authorization
+    title: Inherited Authorization
+    prompt: What pre-existing FedRAMP Authorization does this control origination inherit from?
+    type: module
+    module-id: fedramp_authorization
+    impute:
+      - condition: "'inherited' not in control_origination"
+        value: ~
+
+  - id: implementation
+    title: Solution and Implementation
+    prompt: |
+      What is the solution for this control enhancement and how is it implemented?
+    type: longtext
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Responsible Role: {{responsible_role.text}}
+
+      Parameter: {{parameter}}
+
+      Implementation Status: {{implementation_status.text}}
+
+      Control Origination: {{control_origination.text}}
+      {% if 'inherited' in control_origination %}({{inherited_authorization.title}}){% endif %}
+
+      Implementation:
+
+      {{implementation}}
