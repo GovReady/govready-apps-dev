@@ -15,6 +15,13 @@ questions:
     tab: Basic Info
     group: About the Information System
 
+  - id: responsible_roles
+    title: Responsible Roles
+    type: module
+    module-id: responsible_roles
+    tab: Basic Info
+    group: About the Information System
+
   - id: system_stack
     title: About Your System Stack
     type: module
