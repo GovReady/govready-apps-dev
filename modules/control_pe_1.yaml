@@ -1,0 +1,283 @@
+id: control_pe_1
+title: PE-1 Physical And Environmental Protection Policy And Procedures
+introduction:
+  format: markdown
+  template: |
+
+    In this section you will provide the responsible role, parameters, implementation status, control origination, and solution/implementation for PE-1.
+
+    ![AU example](contol-au23-example.png)
+
+    PE-1 states:
+
+    > The organization General Federal Agency:
+    >
+    > a) Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]:
+    >
+    >   1. A physical and environmental protection policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, > and compliance; and
+    >
+    >   2. Procedures to facilitate the implementation of the physical and environmental protection policy and associated physical and environmental protection controls; and
+    >
+    > b) Reviews and updates the current:
+    >
+    >   1. Physical and environmental protection policy [Assignment: organization-defined frequency]; and
+    >
+    >   2. Physical and environmental protection procedures [Assignment: organization-defined frequency].
+
+questions:
+  - id: keep_responsible_role
+    title: Keep Default Responsible Role
+    prompt: Is {{project.responsible_roles.PE.text}} the responsible role for the implementation of this control?
+    type: yesno
+    impute:
+      - condition: project.responsible_roles.PE is none
+        value: no
+
+  - id: responsible_role
+    title: Responsible Role
+    prompt: Who is responsible for the implementation of this control?
+    type: module
+    module-id: responsible_role
+    impute:
+      - condition: keep_responsible_role == 'yes'
+        value: project.responsible_roles.PE
+        value-mode: expression
+
+  - id: parameter_a
+    title: Parameter PE-1(a)
+    prompt: |
+      This control enhancement has a parameter:
+
+      > The organization General Federal Agency:
+      >
+      > a) Develops, documents, and disseminates to **[Assignment: organization-defined personnel or roles]**
+      >
+      >   1. A physical and environmental protection policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, > and compliance; and
+      >
+      >   2. Procedures to facilitate the implementation of the physical and environmental protection policy and associated physical and environmental protection controls
+
+      How often does the organization review and update the physical and environmental protection policy? Many systems specify annually or whenever there is a change in the threat environment.
+    type: text
+
+  - id: parameter_b_1
+    title: Parameter PE-1(b)(1)
+    prompt: |
+      This control enhancement has a parameter:
+
+      > The organization General Federal Agency:
+      >
+      > b) Reviews and updates the current:
+      >
+      >   1. Physical and environmental protection policy **[Assignment: organization-defined frequency]**
+
+      How often does the organization review and update the physical and environmental protection policy? Many systems specify annually or whenever there is a change in the threat environment.
+    type: text
+
+  - id: parameter_b_2
+    title: Parameter PE-1(b)(2)
+    prompt: |
+      This control enhancement has a parameter:
+
+      > The organization General Federal Agency:
+      >
+      > b) Reviews and updates the current:
+      >
+      >   2. Physical and environmental protection procedures **[Assignment: organization-defined frequency]**.
+
+      How often does the organization review and update the physical and environmental protection policy? Many systems specify annually or whenever there is a change in the threat environment.
+    type: text
+
+  # - id: implementation_status
+  #   title: Implementation Status
+  #   prompt: What is the implementation status of this control?
+  #   type: multiple-choice
+  #   min: 1
+  #   choices:
+  #     - key: implemented
+  #       text: Implemented
+  #     - key: partially_implemented
+  #       text: Partially Implemented
+  #     - key: planned
+  #       text: Planned
+  #     - key: alternative_implementation
+  #       text: Alternative Implementation
+  #     - key: not_applicable
+  #       text: Not Applicable
+
+  # - id: planned_implementation_date
+  #   title: Planned Implementation Date
+  #   prompt: What is the planned implementation date for this control?
+  #   type: date
+  #   impute:
+  #     - condition: "implementation_status is none or 'planned' not in implementation_status"
+  #       value: ~
+
+  - id: control_origination
+    title: Control Origination
+    prompt: |
+      What is this control's origination?
+
+      (Note: The -1 Controls, including this one, cannot be inherited and must be described in some way by the service provider.)
+    type: multiple-choice
+    min: 1
+    choices:
+      - key: service_provider_corporate
+        text: Service Provider Corporate
+      - key: service_provider_system_specific
+        text: Service Provider System Specific
+      - key: service_provider_hybrid
+        text: Service Provider Hybrid (Corporate and System Specific)
+
+  - id: implementation_a
+    title: Solution and Implementation for (a)
+    prompt: |
+      What is the solution for part (a) and how is it implemented? Part (a) is:
+
+      > The organization General Federal Agency:
+      >
+      > a) Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]
+      >
+      >   1. A physical and environmental protection policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, > and compliance; and
+      >
+      >   2. Procedures to facilitate the implementation of the physical and environmental protection policy and associated physical and environmental protection controls
+
+      {% if project.system_stack.control_implementation_pe_1_a_cloud_provider %}
+      Your cloud provider is **{{project.system_stack.cloud_provider.text}}**. The solution and implementation for this control enhancement will include the following:
+
+        > {{project.system_stack.control_implementation_pe_1_a_cloud_provider}}
+
+      {% endif %}
+
+      {% if project.system_stack.control_implementation_pe_1_a_cloud_provider %}
+      Do you have anything to add?
+      {% endif %}
+    type: longtext
+
+  - id: implementation_b
+    title: Solution and Implementation for (b)
+    prompt: |
+      What is the solution for part (b) and how is it implemented? Part (b) is:
+
+      > The organization General Federal Agency:
+      >
+      > b) Reviews and updates the current:
+      >
+      >   1. Physical and environmental protection policy [Assignment: organization-defined frequency]; and
+      >
+      >   2. Physical and environmental protection procedures [Assignment: organization-defined frequency].
+    type: longtext
+
+output:
+  - title: SSP Control Snippet
+    format: html
+    template: |
+      <h3>PE-1 Physical And Environmental Protection Policy And Procedures</h3>
+
+      <p>The organization General Federal Agency:
+
+      <p>a) Develops, documents, and disseminates to <i>{{parameter_a.text}}</i>:</p>
+      <ol>
+      <li>
+      <p>A physical and environmental protection policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and
+      </li>
+      <li>
+      <p>Procedures to facilitate the implementation of the physical and environmental protection policy and associated physical and environmental protection controls; and
+      </li>
+      </ol>
+      <p>Reviews and updates the current:
+      <ol>
+      <li>
+      <p>Physical and environmental protection policy <i>{{parameter_b_1.text}}</i>; and
+      </li>
+      <li>
+      <p>Physical and environmental protection procedures <i>{{parameter_b_2.text}}</i>.
+      </li>
+      </ol>
+
+      <table class="table" style="margin-top: 1.5em">
+        <thead>
+          <th colspan="2">
+            <div class="row">
+              <div class="col-xs-3">
+                PE-1
+              </div>
+              <div class="col-xs-9">
+                Control Summary Information
+              </div>
+            </div>
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%">Responsible Role:</th>
+            <td>{{responsible_role}}</td>
+          </tr>
+          <tr>
+            <td>Parameter (a):</th>
+            <td>{{parameter_a.text}}</td>
+          </tr>
+          <tr>
+            <td>Parameter (b)(1):</th>
+            <td>{{parameter_b_1.text}}</td>
+          </tr>
+          <tr>
+            <td>Parameter (b)(2):</th>
+            <td>{{parameter_b_2.text}}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Implementation Status:</div>
+              {% for key, text in [
+      ["implemented", "Implemented"],
+      ["partially_implemented", "Partially Implemented"],
+      ["planned", "Planned"],
+      ["alternative_implementation", "Alternative Implementation"],
+      ["not_applicable", "Not Applicable"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key == "implemented" %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Control Origination:</div>
+
+              {% for key, text in [["service_provider_corporate", "Service Provider Corporate"],
+      ["service_provider_system_specific", "Service Provider System Specific"],
+      ["service_provider_hybrid", "Service Provider Hybrid (Corporate and System Specific)"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key in control_origination %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
+              {% endfor %}
+            </td>
+          </tr>
+        </body>
+      </table>
+
+      <table class="table">
+        <thead>
+          <th colspan="2">
+            PE-1 What is the solution and how is it implemented?
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%"><nobr>Part a</nobr></th>
+            <td>
+              <p>{{project.system_stack.control_implementation_pe_1_a_cloud_provider}}</p>
+              {% if implementation_a %}
+              {{implementation_a.text}}
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td><nobr>Part b</nobr></th>
+            <td>{{implementation_b.text}}</td>
+          </tr>
+        </tbody>
+      </table>

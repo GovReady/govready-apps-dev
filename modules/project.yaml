@@ -50,6 +50,13 @@ questions:
     tab: Controls
     group: Audit and Accountability (AU)
 
+  - id: control_pe_1
+    title: PE-1 Physical And Environmental Protection Policy And Procedures
+    type: module
+    module-id: control_pe_1
+    tab: Controls
+    group: Physical And Environmental Protection (PE)
+
 output:
   - tab: Basic Info
     format: markdown
