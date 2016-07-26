@@ -123,3 +123,7 @@ output:
       {% if control_au_2_3 and control_au_2_3.rendered_outputs() != [] %}
       {{control_au_2_3.rendered_outputs()[0].html|safe}}
       {% endif %}
+
+      {% if control_pe_1 and control_pe_1.rendered_outputs() != [] %}
+      {{control_pe_1.rendered_outputs()[0].html|safe}}
+      {% endif %}
