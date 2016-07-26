@@ -89,8 +89,8 @@ questions:
         value: ~
         # skip if nothing else applies
 
-  - id: control_implementation_pe_1_cloud_provider
-    title: Control Implementation for PE-1 for Application Stack
+  - id: control_implementation_pe_1_a_cloud_provider
+    title: Control Implementation for PE-1(a) for Application Stack
     type: text
     impute:
       - condition: what_kind_of_system == 'application' and application_where_hosted == 'cloud' and cloud_provider == 'aws'
