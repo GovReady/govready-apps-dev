@@ -3,7 +3,13 @@ title: AU-1 Audit and Accountability Policy and Procedures
 introduction:
   format: markdown
   template: |
+    ![AU icon](control-au.png)
+
     In this section you will provide the responsible role, parameters, implementation status, control origination, and solution/implementation for AU-1.
+
+    ### AU Control example:
+  
+    ![AU example](contol-au23-example.png)
 
     AU-1 states:
 
@@ -22,10 +28,23 @@ introduction:
     >   2) Audit and accountability procedures [FedRAMP Assignment: at least annually].
 
 questions:
+  - id: keep_responsible_role
+    title: Keep Default Responsible Role
+    prompt: Is {{project.responsible_roles.AU.text}} the responsible role for the implementation of this control?
+    type: yesno
+    impute:
+      - condition: project.responsible_roles.AU is none
+        value: no
+
   - id: responsible_role
     title: Responsible Role
     prompt: Who is responsible for the implementation of this control?
-    type: text
+    type: module
+    module-id: responsible_role
+    impute:
+      - condition: keep_responsible_role == 'yes'
+        value: project.responsible_roles.AU
+        value-mode: expression
 
   - id: parameter_a
     title: Parameter AU-1(a)
@@ -71,30 +90,30 @@ questions:
       How often are the audit and accountability **procedures** reviewed and updated? FedRAMP specifies at least annually.
     type: text
 
-  - id: implementation_status
-    title: Implementation Status
-    prompt: What is the implementation status of this control?
-    type: multiple-choice
-    min: 1
-    choices:
-      - key: implemented
-        text: Implemented
-      - key: partially_implemented
-        text: Partially Implemented
-      - key: planned
-        text: Planned
-      - key: alternative_implementation
-        text: Alternative Implementation
-      - key: not_applicable
-        text: Not Applicable
+  # - id: implementation_status
+  #   title: Implementation Status
+  #   prompt: What is the implementation status of this control?
+  #   type: multiple-choice
+  #   min: 1
+  #   choices:
+  #     - key: implemented
+  #       text: Implemented
+  #     - key: partially_implemented
+  #       text: Partially Implemented
+  #     - key: planned
+  #       text: Planned
+  #     - key: alternative_implementation
+  #       text: Alternative Implementation
+  #     - key: not_applicable
+  #       text: Not Applicable
 
-  - id: planned_implementation_date
-    title: Planned Implementation Date
-    prompt: What is the planned implementation date for this control?
-    type: date
-    impute:
-      - condition: "implementation_status is none or 'planned' not in implementation_status"
-        value: ~
+  # - id: planned_implementation_date
+  #   title: Planned Implementation Date
+  #   prompt: What is the planned implementation date for this control?
+  #   type: date
+  #   impute:
+  #     - condition: "implementation_status is none or 'planned' not in implementation_status"
+  #       value: ~
 
   - id: control_origination
     title: Control Origination
@@ -141,10 +160,32 @@ questions:
     type: longtext
 
 output:
-  - title: Your Answers
+  - title: SSP Control Snippet
     format: html
     template: |
-      <table class="table">
+      <h3>AU-1 Control Enhancement</h3>
+
+      <p>The organization:</p>
+      <p>a) Develops, documents, and disseminates to <i>{{parameter_a.text}}</i>:</p>
+      <ol>
+      <li>
+      <p>An audit and accountability policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and</p>
+      </li>
+      <li>
+      <p>Procedures to facilitate the implementation of the audit and accountability policy and associated audit and accountability controls; and</p>
+      </li>
+      </ol>
+      <p>b) Reviews and updates the current:</p>
+      <ol>
+      <li>
+      <p>Audit and accountability policy <i>{{parameter_b_1.text}}</i>; and</p>
+      </li>
+      <li>
+      <p>Audit and accountability procedures <i>{{parameter_b_2.text}}</i>.</p>
+      </li>
+      </ol>
+
+      <table class="table" style="margin-top: 1.5em">
         <thead>
           <th colspan="2">
             <div class="row">
@@ -159,8 +200,8 @@ output:
         </thead>
         <tbody>
           <tr>
-            <td>Responsible Role:</th>
-            <td>{{responsible_role.text}}</td>
+            <td width="30%">Responsible Role:</th>
+            <td>{{responsible_role}}</td>
           </tr>
           <tr>
             <td>Parameter (a):</th>
@@ -169,28 +210,41 @@ output:
           <tr>
             <td>Parameter (b)(1):</th>
             <td>{{parameter_b_1.text}}</td>
-          </tr>
-          <tr>
+           </tr>
+           <tr>
             <td>Parameter (b)(2):</th>
             <td>{{parameter_b_2.text}}</td>
-          </tr>
+           </tr>
           <tr>
             <td colspan="2">
               <div style="margin-bottom: .5em">Implementation Status:</div>
-              {% for value in implementation_status %}
-                <div>{{value.text}} {% if value == "planned" %} ({{planned_implementation_date.text}}){% endif %}</div>
-              {% else %}
-                <div>(no implementation status selected)</div>
+              {% for key, text in [
+      ["implemented", "Implemented"],
+      ["partially_implemented", "Partially Implemented"],
+      ["planned", "Planned"],
+      ["alternative_implementation", "Alternative Implementation"],
+      ["not_applicable", "Not Applicable"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key == "implemented" %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
               {% endfor %}
             </td>
           </tr>
           <tr>
             <td colspan="2">
               <div style="margin-bottom: .5em">Control Origination:</div>
-              {% for value in control_origination %}
-                <div>{{value.text}} {% if value == "inherited" %} ({{inherited_authorization.title}}){% endif %}</div>
-              {% else %}
-                <div>(no control origination selected)</div>
+
+              {% for key, text in [["service_provider_corporate", "Service Provider Corporate"],
+      ["service_provider_system_specific", "Service Provider System Specific"],
+      ["service_provider_hybrid", "Service Provider Hybrid (Corporate and System Specific)"],
+      ] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key in control_origination %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
               {% endfor %}
             </td>
           </tr>
@@ -205,7 +259,7 @@ output:
         </thead>
         <tbody>
           <tr>
-            <td><nobr>Part a</nobr></th>
+            <td width="30%"><nobr>Part a</nobr></th>
             <td>{{implementation_a.text}}</td>
           </tr>
           <tr>

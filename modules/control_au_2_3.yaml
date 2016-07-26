@@ -7,6 +7,8 @@ introduction:
 
     In this section you will provide the responsible role, parameters, implementation status, control origination, and solution/implementation for AU-2 (3).
 
+    ![AU example](contol-au23-example.png)
+
     AU-2 (3) states:
 
     > The organization reviews and updates the audited events [FedRAMP Assignment: annually or whenever there is a change in the threat environment].
@@ -136,12 +138,21 @@ output:
   - title: SSP Control Snippet
     format: html
     template: |
-      <table class="table">
+      <h3>AU-2 (3) Control Enhancement</h3>
+
+      <p>The organization reviews and updates the audited events <i>{{parameter.text}}</i>.</p>
+
+      <ul>
+      <p>AU-2 (3) Additional FedRAMP Requirements and Guidance:</p>
+      <p><b>Guidance:</b> Annually or whenever changes in the threat environment are communicated to the service provider by the JAB/AO.</p>
+      </ul>
+
+      <table class="table" style="margin-top: 1.5em">
         <thead>
           <th colspan="2">
             <div class="row">
               <div class="col-xs-3">
-                AU-1
+                AU-2(3)
               </div>
               <div class="col-xs-9">
                 Control Summary Information
@@ -151,7 +162,7 @@ output:
         </thead>
         <tbody>
           <tr>
-            <td>Responsible Role:</th>
+            <td width="30%">Responsible Role:</th>
             <td>{{responsible_role}}</td>
           </tr>
           <tr>
@@ -160,11 +171,37 @@ output:
           </tr>
           <tr>
             <td colspan="2">
+              <div style="margin-bottom: .5em">Implementation Status:</div>
+              {% for key, text in [
+      ["implemented", "Implemented"],
+      ["partially_implemented", "Partially Implemented"],
+      ["planned", "Planned"],
+      ["alternative_implementation", "Alternative Implementation"],
+      ["not_applicable", "Not Applicable"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key == "implemented" %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
               <div style="margin-bottom: .5em">Control Origination:</div>
-              {% for value in control_origination %}
-                <div>{{value.text}} {% if value == "inherited" %} ({{inherited_authorization.title}}){% endif %}</div>
-              {% else %}
-                <div>(no control origination selected)</div>
+
+              {% for key, text in [["service_provider_corporate", "Service Provider Corporate"],
+      ["service_provider_system_specific", "Service Provider System Specific"],
+      ["service_provider_hybrid", "Service Provider Hybrid (Corporate and System Specific)"],
+      ["configured_by_customer", "Configured by Customer (Customer System Specific)"],
+      ["provided_by_customer", "Provided by Customer (Customer System Specific)"],
+      ["shared", "Shared (Service Provider and Customer Responsibility)"],
+      ["inherited", "Inherited from pre-existing FedRAMP Authorization"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key in control_origination %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
               {% endfor %}
             </td>
           </tr>
@@ -184,7 +221,9 @@ output:
 
               <p>{{project.system_stack.control_implementation_au_2_3_application}}</p>
 
-              {{implementation.text}}
+              {% if implementation %}
+                {{implementation.text}}
+              {% endif %}
             </td>
           </tr>
         </tbody>
