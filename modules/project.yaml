@@ -57,3 +57,62 @@ output:
       # Basic Info
 
       General information about {{project}}.
+
+  - title: SSP Output
+    format: html
+    template: |
+      <style> {# repeated in module-finished.html #}
+      table.table {
+        border: 1px solid #0369a3;
+      }
+      .table>tbody>tr>td {
+        border-top: 1px solid #0369a3;
+      }
+      thead {
+        background-color: #dbe5f1;
+      }
+      </style>
+
+      <h2>FedRAMP System Security Plan (SSP)</h2>
+
+      {% if information_system_name_title %}
+      <p>Information System: {{information_system_name_title.name.text}}</p>
+      {% endif %}
+
+      <hr>
+
+      {% if information_types %}
+      <h3>Information Types</h3>
+
+      <table class="table">
+      <thead>
+        <tr>
+          <th>Information Type</th>
+          <th>NIST 800-60 identifier</th>
+          <th>Confidentiality</th>
+          <th>Integrity</th>
+          <th>Availability</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for itype in information_types %}
+        <tr>
+          <td>{{itype.selected_information_type.title}}</td>
+          <td>{{itype.selected_information_type.code}}</td>
+          <td>{{itype.classification_confidentiality}}</td>
+          <td>{{itype.classification_integrity}}</td>
+          <td>{{itype.classification_availability}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+      </table>
+      <hr>
+      {% endif %}
+
+      {% if control_au_1 and control_au_1.rendered_outputs() != [] %}
+      {{control_au_1.rendered_outputs()[0].html|safe}}
+      {% endif %}
+      
+      {% if control_au_2_3 and control_au_2_3.rendered_outputs() != [] %}
+      {{control_au_2_3.rendered_outputs()[0].html|safe}}
+      {% endif %}
