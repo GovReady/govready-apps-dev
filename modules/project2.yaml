@@ -1,0 +1,24 @@
+id: project2
+title: I want to be compliant with some control families.
+type: project
+version: 1
+introduction:
+  format: markdown
+  template: |
+    This project will help you become compliant with several NIST 800-53 control families.
+
+questions:
+  - id: system_stack
+    title: About Your System Stack
+    type: module
+    module-id: system_stack_2
+    tab: Basic Info
+    group: About the Information System
+
+output:
+  - tab: Basic Info
+    format: markdown
+    template: |
+      # Basic Info
+
+      General information about {{project}}.
