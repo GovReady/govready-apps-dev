@@ -131,10 +131,10 @@ output:
       Cloud Provider: {{cloud_provider.text}}
       {% endif %}
 
-      Who Supports It: {{who_supports_it.text}}
-
       {% else %}
 
       General Service Type: {% if what_kind_of_general_service != "other" %}{{what_kind_of_general_service}}{% else %}{{what_kind_of_general_service_other.text}}{% endif %}
 
       {% endif %}
+
+      Who Supports It: {{who_supports_it.text}}
