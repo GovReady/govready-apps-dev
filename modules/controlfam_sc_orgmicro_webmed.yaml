@@ -1,0 +1,24 @@
+id: controlfam_sc_orgmicro_webmed
+title: "SC - System and Communications Protection (Organization: Medium; Web: Medium)"
+introduction:
+  format: markdown
+  template: |
+    Welcome to the System and Communications Protection Module!
+
+    When you finish this section you will have a plan for protecting your
+    {{project.system_stack.what_kind_of_application}} from Denial of Service
+    attacks and other attacks related to online communications.
+
+    [Idea – Embedded video]
+
+questions:
+  - id: cdn
+    title: Content Distribution Network (CDN)
+    prompt: Are you using a Content Distribution Network (CDN)?
+    type: yesno
+
+output:
+  - tab: Your Answers
+    format: markdown
+    template: |
+      CDN: {{cdn.text}}

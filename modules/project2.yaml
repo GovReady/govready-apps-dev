@@ -15,6 +15,16 @@ questions:
     tab: Basic Info
     group: About the Information System
 
+  - id: controlfam_sc_orgmicro_webmed
+    title: SC - System and Communications Protection
+    type: module
+    module-id: controlfam_sc_orgmicro_webmed
+    tab: Controls
+    group: Control Families
+    impute:
+      - condition: "not(organization.organization_details.organization_size=='micro' and project.system_stack.web_page_views == 'medium')"
+        value: ~
+
 output:
   - tab: Basic Info
     format: markdown
