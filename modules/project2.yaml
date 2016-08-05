@@ -25,6 +25,17 @@ questions:
       - condition: "not(organization.organization_details.organization_size=='micro' and project.system_stack.web_page_views == 'medium')"
         value: ~
 
+  - id: controlfam_sc_orglarge
+    title: SC - System and Communications Protection
+    type: module
+    module-id: controlfam_sc_orglarge
+    tab: Controls
+    group: Control Families
+    impute:
+      - condition: "not(organization.organization_details.organization_size=='large')"
+        value: ~
+
+
 output:
   - tab: Basic Info
     format: markdown
