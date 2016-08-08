@@ -2,6 +2,15 @@ id: project2
 title: Develop System Security Plan (SSP) for FISMA
 type: project
 version: 1
+
+snippet:
+  format: html
+  template: |
+    {% set x=system_stack.rendered_outputs() %}
+    {% if x|length > 0 %}
+      {{x[0].html|safe}}
+    {% endif %}
+
 introduction:
   format: markdown
   template: |
