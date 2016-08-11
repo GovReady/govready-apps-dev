@@ -1,21 +1,14 @@
-id: controlfam_sc_orgmicro_webmed
-title: "System and Communications Protection (SC)"
+id: controlfam_sc_orgstartup_webmed
+title: "SC - System and Communications Protection (s)"
 introduction:
   format: html
   template: |
-    <p>A secure web application is partitioned to isolate its different parts.</p>
+    <h3>System and Communications Protection for Startups</h3>
 
-    <p>A secure web application uses various techniques to protect its internal
-    and external communications.</p>
+    <p>In this section we'll make sure the your application is partitioned to 
+    make it more secure and that application communications are secure.</p>
 
-    <p>In this section we'll help you document how your application is partitioned and make sure you
-    configuring your application to communicate securely.</p>
-
-    <p>Completing this section will show you are doing things like encrypting communications with users and reducing risk from Denial of Service attacks.</p>
-
-    <p>Watch the video below for a short overview.</p>
-
-    <iframe width="420" height="315" src="https://www.youtube.com/embed/ZTBzAr2Tu0o" frameborder="0" allowfullscreen></iframe>
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
 
 questions:
   - id: has_firewall
