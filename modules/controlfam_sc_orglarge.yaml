@@ -151,7 +151,10 @@ output:
       ["inherited", "Inherited from pre-existing FedRAMP Authorization"]] %}
               <div class="radio">
                 <label>
-                  <input type="checkbox" disabled="disabled" {% if key == "service_provider_corporate" %}checked="checked"{% endif %}> {{text}} 
+                  <input type="checkbox" disabled="disabled"
+                    {% if key == "service_provider_corporate" and using_enterprise_dmz == "no" %}checked="checked"{% endif %}
+                    {% if key == "inherited" and using_enterprise_dmz == "yes" %}checked="checked"{% endif %}
+                    > {{text}} 
                 </label>
               </div>
               {% endfor %}
