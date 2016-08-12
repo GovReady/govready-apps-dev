@@ -78,29 +78,114 @@ questions:
         value: ~
 
 output:
-  - title: Your Answers
-    format: markdown
+  - title: SSP Control Template
+    format: html
     template: |
-      {% if project.system_stack.application_where_hosted != "onpremesis" %}
+      <h3>SC-7 (3) Control Enhancement</h3>
 
-      Your system is not hosted on premesis and so it does not need a DMZ.
+      <p>The organization something something DMZ.</p>
 
-      {% elif using_enterprise_dmz == 'yes' %}
-        {% if 0 %}
-        {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
-        {{using_enterprise_dmz_yes}}
-        {% endif %}
-      
-      Your system is using your enterprise DMZ.
+      <table class="table" style="margin-top: 1.5em">
+        <thead>
+          <th colspan="2">
+            <div class="row">
+              <div class="col-xs-3">
+                SC-7(3)
+              </div>
+              <div class="col-xs-9">
+                Control Summary Information
+              </div>
+            </div>
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%">Responsible Role:</th>
+            <td>
+              {% if project.system_stack.application_where_hosted == "onpremesis" and have_other_dmz == 'ad_hoc_dmz' %}
+                {{who_responsible_for_dmz}}
+              {% else %}
+              N/A
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td>Parameter:</th>
+            <td>
+              {% if project.system_stack.application_where_hosted != "onpremesis" %}
+              Not hosted on premesis and so does not need a DMZ.
+              {% elif using_enterprise_dmz == 'yes' %}
+              Enterprise DMZ.
+              {% else %}
+              System-specific DMZ.
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Implementation Status:</div>
+              {% for key, text in [
+      ["implemented", "Implemented"],
+      ["partially_implemented", "Partially Implemented"],
+      ["planned", "Planned"],
+      ["alternative_implementation", "Alternative Implementation"],
+      ["not_applicable", "Not Applicable"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key == "implemented" %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Control Origination:</div>
 
-      {% else %}
+              {% for key, text in [["service_provider_corporate", "Service Provider Corporate"],
+      ["service_provider_system_specific", "Service Provider System Specific"],
+      ["service_provider_hybrid", "Service Provider Hybrid (Corporate and System Specific)"],
+      ["configured_by_customer", "Configured by Customer (Customer System Specific)"],
+      ["provided_by_customer", "Provided by Customer (Customer System Specific)"],
+      ["shared", "Shared (Service Provider and Customer Responsibility)"],
+      ["inherited", "Inherited from pre-existing FedRAMP Authorization"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key == "service_provider_corporate" %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
+              {% endfor %}
+            </td>
+          </tr>
+        </body>
+      </table>
 
-      Your system is not using your enterprise DMZ.
+      <table class="table">
+        <thead>
+          <th colspan="2">
+            SC-7 (3) What is the solution and how is it implemented?
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2">
+              {% if project.system_stack.application_where_hosted != "onpremesis" %}
+                The system is not hosted on premesis and so it does not need a DMZ.
 
-      Reason: {{have_other_dmz.text}}
+              {% elif using_enterprise_dmz == 'yes' %}
+                {% if 0 %}
+                {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
+                {{using_enterprise_dmz_yes}}
+                {% endif %}
+              
+                The system is using our enterprise DMZ.
 
-      {% if have_other_dmz == 'ad_hoc_dmz' %}
-      Responsible for DMZ: {{who_responsible_for_dmz}}
-      {% endif %}
+              {% else %}
 
-      {% endif %}
+                The system is not using our enterprise DMZ. {{have_other_dmz.text}}
+
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
