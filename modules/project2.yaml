@@ -55,6 +55,15 @@ questions:
       - condition: "not(organization.organization_details.organization_size=='large')"
         value: ~
 
+  - id: controlfam_pl_orglarge.yaml
+    title: PL - Planning
+    type: module
+    module-id: controlfam_pl_orglarge
+    tab: Controls
+    group: Control Families
+    impute:
+      - condition: "not(organization.organization_details.organization_size=='large')"
+        value: ~
 
 output:
   - tab: Basic Info
