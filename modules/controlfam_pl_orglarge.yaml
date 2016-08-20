@@ -15,128 +15,39 @@ introduction:
 
 questions:
   - id: architecture_links
-    title: Using Enterprise DMZ (Yes)
+    title: Reference Architecture Links
     type: interstitial
     prompt: |
+
+      Here are some useful links for understanding Information Security Architecture
+
+      I found "An Introduction to Information Security Architecture" helpful in explaining a “security architecture”:
+      "The term 'architecture' is somewhat ambiguous, and can mean different things to different people. Within an IT context, architecture is probably commonly viewed as technology implementation design." - page 3, An Introduction to Information Security Architecture
+
       * [NiST Cloud Computing Security Reference Architecture](http://docplayer.net/14197050-Nist-cloud-computing-security-reference-architecture-sp-500-299-draft.html)
-      * NIST 800-53 Standardized Architecture on the AWS Cloud: Quick Start Reference Deployment 
-      * AWS Enterprise Accelerator – Compliance: Standardized Architecture for NIST-based Assurance Frameworks on the AWS Cloud
-      * AWS Architecture Center - AWS Quick Start Reference Deployments
-      * AWS Architecture and Security Recommendations for FedRAMP(SM) Compliance
-      * Elizabeth created Google doc `GlobalNet_Security_Design_Document_v2.0
+      * [NIST 800-53 Standardized Architecture on the AWS Cloud: Quick Start Reference Deployment](https://aws.amazon.com/about-aws/whats-new/2016/01/nist-800-53-standardized-architecture-on-the-aws-cloud-quick-start-reference-deployment/)
+      * [AWS Enterprise Accelerator – Compliance: Standardized Architecture for NIST-based Assurance Frameworks on the AWS Cloud](http://docs.aws.amazon.com/quickstart/latest/accelerator-nist/welcome.html)
+      * [AWS Architecture Center - AWS Quick Start Reference Deployments](https://aws.amazon.com/architecture/)
+      * [AWS Architecture and Security Recommendations for FedRAMP(SM) Compliance](https://d0.awsstatic.com/whitepapers/aws-architecture-and-security-recommendations-for-fedramp-compliance.pdf)
+      * [Elizabeth created Google doc `GlobalNet_Security_Design_Document_v2.0](https://docs.google.com/document/d/1RI-XMrpoD8MSm6i_80-nUQHmK0i-YOv89ImAnlpCJUA/edit)
+
+
+  - id: architecture_dummy_question
+    title: Dummy question
+    type: yesno
+    prompt: |
+      This is a dummy question.
+
+      Is your favorite color blue?
+
 
 output:
   - title: SSP Control Template
     format: html
     template: |
-      <h3>SC-7 (3) Control Enhancement</h3>
+      <h3>PL-8 Information Security Architecture</h3>
 
-      <p>The organization something something DMZ.</p>
+      <p>Content to be completed</p>
+      <p>info {{architecture_links}}</p>
 
-      <table class="table" style="margin-top: 1.5em">
-        <thead>
-          <th colspan="2">
-            <div class="row">
-              <div class="col-xs-3">
-                SC-7(3)
-              </div>
-              <div class="col-xs-9">
-                Control Summary Information
-              </div>
-            </div>
-          </th>
-        </thead>
-        <tbody>
-          <tr>
-            <td width="30%">Responsible Role:</th>
-            <td>
-              {% if project.system_stack.application_where_hosted == "onpremesis" and have_other_dmz == 'ad_hoc_dmz' %}
-                {{who_responsible_for_dmz}}
-              {% else %}
-              N/A
-              {% endif %}
-            </td>
-          </tr>
-          <tr>
-            <td>Parameter:</th>
-            <td>
-              {% if project.system_stack.application_where_hosted != "onpremesis" %}
-              Not hosted on premesis and so does not need a DMZ.
-              {% elif using_enterprise_dmz == 'yes' %}
-              Enterprise DMZ.
-              {% else %}
-              System-specific DMZ.
-              {% endif %}
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <div style="margin-bottom: .5em">Implementation Status:</div>
-              {% for key, text in [
-      ["implemented", "Implemented"],
-      ["partially_implemented", "Partially Implemented"],
-      ["planned", "Planned"],
-      ["alternative_implementation", "Alternative Implementation"],
-      ["not_applicable", "Not Applicable"]] %}
-              <div class="radio">
-                <label>
-                  <input type="checkbox" disabled="disabled" {% if key == "implemented" %}checked="checked"{% endif %}> {{text}} 
-                </label>
-              </div>
-              {% endfor %}
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <div style="margin-bottom: .5em">Control Origination:</div>
 
-              {% for key, text in [["service_provider_corporate", "Service Provider Corporate"],
-      ["service_provider_system_specific", "Service Provider System Specific"],
-      ["service_provider_hybrid", "Service Provider Hybrid (Corporate and System Specific)"],
-      ["configured_by_customer", "Configured by Customer (Customer System Specific)"],
-      ["provided_by_customer", "Provided by Customer (Customer System Specific)"],
-      ["shared", "Shared (Service Provider and Customer Responsibility)"],
-      ["inherited", "Inherited from pre-existing FedRAMP Authorization"]] %}
-              <div class="radio">
-                <label>
-                  <input type="checkbox" disabled="disabled"
-                    {% if key == "service_provider_corporate" and using_enterprise_dmz == "no" %}checked="checked"{% endif %}
-                    {% if key == "inherited" and using_enterprise_dmz == "yes" %}checked="checked"{% endif %}
-                    > {{text}} 
-                </label>
-              </div>
-              {% endfor %}
-            </td>
-          </tr>
-        </body>
-      </table>
-
-      <table class="table">
-        <thead>
-          <th colspan="2">
-            SC-7 (3) What is the solution and how is it implemented?
-          </th>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="2">
-              {% if project.system_stack.application_where_hosted != "onpremesis" %}
-                The system is not hosted on premesis and so it does not need a DMZ.
-
-              {% elif using_enterprise_dmz == 'yes' %}
-                {% if 0 %}
-                {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
-                {{using_enterprise_dmz_yes}}
-                {% endif %}
-              
-                The system is using our enterprise DMZ.
-
-              {% else %}
-
-                The system is not using our enterprise DMZ. {{have_other_dmz.text}}
-
-              {% endif %}
-            </td>
-          </tr>
-        </tbody>
-      </table>

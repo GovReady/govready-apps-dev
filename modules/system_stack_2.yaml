@@ -49,13 +49,13 @@ questions:
     type: choice
     choices:
     - key: micro
-      text: Micro (range TBD)
+      text: Micro (1K)
     - key: small
-      text: Small (range TBD)
+      text: Small (10K - 250K)
     - key: medium
-      text: Medium (range TBD)
+      text: Medium (250K - 1M)
     - key: large
-      text: Large (range TBD)
+      text: Large (1M+)
     impute:
     - condition: what_kind_of_application != "web"
       value: ~

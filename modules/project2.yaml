@@ -7,10 +7,6 @@ snippet:
   format: html
   template: |
     {{system_stack.what_kind_of_system.text}} - {{system_stack.what_kind_of_application.text}} - {{system_stack.application_where_hosted.text}}
-    {% set x=system_stack.rendered_outputs() %}
-    {% if x|length > 0 %}
-      {{x[0].html|safe}}
-    {% endif %}
 
 introduction:
   format: markdown
