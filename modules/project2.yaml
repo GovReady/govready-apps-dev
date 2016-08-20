@@ -2,69 +2,165 @@ id: project2
 title: Develop System Security Plan (SSP) for FISMA
 type: project
 version: 1
-
 snippet:
   format: html
   template: |
     {{system_stack.what_kind_of_system.text}} - {{system_stack.what_kind_of_application.text}} - {{system_stack.application_where_hosted.text}}
-
 introduction:
   format: markdown
   template: |
     This project will help you become compliant with several NIST 800-53 control families.
-
 questions:
-  - id: system_stack
-    title: About Your System Stack
-    type: module
-    module-id: system_stack_2
-    tab: Basic Info
-    group: About the Information System
+- id: system_stack
+  title: About Your System Stack
+  type: module
+  module-id: system_stack_2
+  tab: Basic Info
+  group: About the Information System
 
-  - id: controlfam_sc_orgmicro_webmed
-    title: SC - System and Communications Protection
-    type: module
-    module-id: controlfam_sc_orgstartup_webmed
-    tab: Controls
-    group: Control Families
-    impute:
-      - condition: "not(organization.organization_details.organization_size=='startup`' and project.system_stack.web_page_views == 'medium')"
-        value: ~
+- id: controlfam_ac
+  title: AC - Access Control
+  type: module
+  module-id: controlfam_ac
+  tab: Controls
+  group: Control Families
+- id: controlfam_at
+  title: AT - Awareness and Training
+  type: module
+  module-id: controlfam_at
+  tab: Controls
+  group: Control Families
+- id: controlfam_au
+  title: AU - Audit and Accountability
+  type: module
+  module-id: controlfam_au
+  tab: Controls
+  group: Control Families
+- id: controlfam_ca
+  title: CA - Security Assessment and Authorization
+  type: module
+  module-id: controlfam_ca
+  tab: Controls
+  group: Control Families
+- id: controlfam_cm
+  title: CM - Configuration Management
+  type: module
+  module-id: controlfam_cm
+  tab: Controls
+  group: Control Families
+- id: controlfam_cp
+  title: CP - Contingency Planning
+  type: module
+  module-id: controlfam_cp
+  tab: Controls
+  group: Control Families
+- id: controlfam_ia
+  title: IA - Identification and Authentication
+  type: module
+  module-id: controlfam_ia
+  tab: Controls
+  group: Control Families
+- id: controlfam_ir
+  title: IR - Incident Response
+  type: module
+  module-id: controlfam_ir
+  tab: Controls
+  group: Control Families
+- id: controlfam_ma
+  title: MA - Maintenance
+  type: module
+  module-id: controlfam_ma
+  tab: Controls
+  group: Control Families
+- id: controlfam_mp
+  title: MP - Media Protection
+  type: module
+  module-id: controlfam_mp
+  tab: Controls
+  group: Control Families
+- id: controlfam_pe
+  title: PE - Physical and Environmental Protection
+  type: module
+  module-id: controlfam_pe
+  tab: Controls
+  group: Control Families
 
-  - id: controlfam_sc_orgmicro_webmed
-    title: SC - System and Communications Protection
-    type: module
-    module-id: controlfam_sc_orgmicro_webmed
-    tab: Controls
-    group: Control Families
-    impute:
-      - condition: "not(organization.organization_details.organization_size=='micro' and project.system_stack.web_page_views == 'medium')"
-        value: ~
+- id: controlfam_pl_orglarge.yaml
+  title: PL - Planning
+  type: module
+  module-id: controlfam_pl_orglarge
+  tab: Controls
+  group: Control Families
+  impute:
+  - condition: not(organization.organization_details.organization_size=='large')
+    value: ~
 
-  - id: controlfam_sc_orglarge
-    title: SC - System and Communications Protection
-    type: module
-    module-id: controlfam_sc_orglarge
-    tab: Controls
-    group: Control Families
-    impute:
-      - condition: "not(organization.organization_details.organization_size=='large')"
-        value: ~
+- id: controlfam_pm
+  title: PM - Program Management
+  type: module
+  module-id: controlfam_pm
+  tab: Controls
+  group: Control Families
+- id: controlfam_ps
+  title: PS - Personnel Security
+  type: module
+  module-id: controlfam_ps
+  tab: Controls
+  group: Control Families
+- id: controlfam_ra
+  title: RA - Risk Assessment
+  type: module
+  module-id: controlfam_ra
+  tab: Controls
+  group: Control Families
+- id: controlfam_sa
+  title: SA - System and Services Acquisition
+  type: module
+  module-id: controlfam_sa
+  tab: Controls
+  group: Control Families
 
-  - id: controlfam_pl_orglarge.yaml
-    title: PL - Planning
-    type: module
-    module-id: controlfam_pl_orglarge
-    tab: Controls
-    group: Control Families
-    impute:
-      - condition: "not(organization.organization_details.organization_size=='large')"
-        value: ~
+- id: controlfam_sc_orgmicro_webmed
+  title: SC - System and Communications Protection
+  type: module
+  module-id: controlfam_sc_orgstartup_webmed
+  tab: Controls
+  group: Control Families
+  impute:
+  - condition: not(organization.organization_details.organization_size=='startup`'
+      and project.system_stack.web_page_views == 'medium')
+    value: ~
+- id: controlfam_sc_orgmicro_webmed
+  title: SC - System and Communications Protection
+  type: module
+  module-id: controlfam_sc_orgmicro_webmed
+  tab: Controls
+  group: Control Families
+  impute:
+  - condition: not(organization.organization_details.organization_size=='micro' and
+      project.system_stack.web_page_views == 'medium')
+    value: ~
+- id: controlfam_sc_orglarge
+  title: SC - System and Communications Protection
+  type: module
+  module-id: controlfam_sc_orglarge
+  tab: Controls
+  group: Control Families
+  impute:
+  - condition: not(organization.organization_details.organization_size=='large')
+    value: ~
+
+- id: controlfam_si
+  title: SI - System and Information Integrity
+  type: module
+  module-id: controlfam_si
+  tab: Controls
+  group: Control Families
 
 output:
-  - tab: Basic Info
-    format: markdown
-    template: |
-      # Basic Info
+- tab: Basic Info
+  format: markdown
+  template: |
+    # Basic Info
 
-      General information about {{project}}.
+    General information about {{project}}.
