@@ -1,15 +1,19 @@
 id: controlfam_sc_orglarge
 title: "SC - System and Communications Protection (Organization: Large)"
 introduction:
-  format: markdown
+  format: html
   template: |
-    Welcome to the System and Communications Protection Module!
+    <p>In this section, we'll guide you through setting up secure communications for your web application 
+    in accorance with official {{organization}} policies and procedures.</p>
 
-    When you finish this section you will have a plan for protecting your
-    {{project.system_stack.what_kind_of_application}} from Denial of Service
-    attacks and other attacks related to online communications.
+    <p>Completing this section will document the controls you have in place to prevent network-based attacks.</p>
 
-    [Idea – Embedded video]
+    <p>Watch the video below for a short overview.</p>
+
+    <iframe src="https://player.vimeo.com/video/180259912" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+    <h3>References</h3>
+    <a href="#">FCC System and Communications Protection Policy</a>
 
 questions:
   - id: using_enterprise_dmz
@@ -81,7 +85,7 @@ output:
   - title: SSP Control Template
     format: html
     template: |
-      <h3>SC-7 (3) Control Enhancement</h3>
+      <h3>SC-7 Boundary Protection</h3>
 
       <p>The organization something something DMZ.</p>
 
@@ -90,7 +94,7 @@ output:
           <th colspan="2">
             <div class="row">
               <div class="col-xs-3">
-                SC-7(3)
+                SC-7
               </div>
               <div class="col-xs-9">
                 Control Summary Information

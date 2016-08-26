@@ -65,11 +65,11 @@ questions:
     prompt: What cloud provider is the application hosted in?
     type: choice
     choices:
-    - key: aws
+    - key: AWS
       text: Amazon Web Services
-    - key: pcf
+    - key: PWS
       text: Pivotal Cloud Foundry
-    - key: aure
+    - key: Azure
       text: Microsoft Azure
     - key: other-fedramp
       text: Other FedRAMP Certified Cloud Service Provider

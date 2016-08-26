@@ -3,19 +3,13 @@ title: "System and Communications Protection (SC)"
 introduction:
   format: html
   template: |
-    <p>A secure web application is partitioned to isolate its different parts.</p>
+    <p>In this section, we'll guide you through setting up secure communications for your web application.</p>
 
-    <p>A secure web application uses various techniques to protect its internal
-    and external communications.</p>
-
-    <p>In this section we'll help you document how your application is partitioned and make sure you
-    configuring your application to communicate securely.</p>
-
-    <p>Completing this section will show you are doing things like encrypting communications with users and reducing risk from Denial of Service attacks.</p>
+    <p>Completing this section will document the controls you have in place to prevent network-based attacks.</p>
 
     <p>Watch the video below for a short overview.</p>
 
-    <iframe width="420" height="315" src="https://www.youtube.com/embed/ZTBzAr2Tu0o" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://player.vimeo.com/video/180259912" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 questions:
   - id: has_firewall
@@ -24,24 +18,35 @@ questions:
     prompt: |
       A secure system is protected by a firewall.
 
-      {% if project.system_stack.cloud_provider == "aws" %}
+      {% if project.system_stack.cloud_provider == "AWS" %}
       Amazon Web Services's "security groups" are firewalls that protect machine instances in EC2.
       Besides the AWS security groups, does your system have an additional firewall?
 
       {% elif project.system_stack.application_where_hosted == "cloud" %}
-      Cloud providers, such as {{project.system_stack.cloud_provider}}, often have firewall
-      services built-in. Besides the firewall services provided by {{project.system_stack.cloud_provider}},
+      Cloud providers, such as {{project.system_stack.cloud_provider.text}}, often have firewall
+      services built-in. Besides the firewall services provided by {{project.system_stack.cloud_provider.text}},
       does your system have an additional firewall?
 
       {% else %}
       Does your system have a firewall?
       {% endif %}
 
+  - id: who_configures_aws_security_groups
+    title: Who Configures The AWS Security Groups?
+    type: text
+    prompt: |
+      {{project.system_stack.cloud_provider.text}} Security Groups must be properly configured.
+
+      Who in your organization is responsible for configuring {{project.system_stack.cloud_provider.text}}  Security Groups?
+    impute:
+      - condition: has_firewall == 'yes'
+        value: ~
+
   - id: who_configures_firewall
     title: Who Configures The Firewall?
     type: text
     prompt: |
-      A secure system is protected by a properly configured firewall.
+      A secure firewall must be properly configured.
 
       Who in your organization is responsible for configuring your system's firewall?
     impute:
@@ -52,9 +57,9 @@ questions:
     title: How To Know That The Firewall Is Configured
     type: interstitial
     prompt: |
-      A system security plan (SSP) should show evidence of a properly configured firewall.
+      A System Security Plan includes evidence of a properly configured firewall.
       
-      Good evidence for your SSP that your firewall is configured is a screenshot of the firewall
+      Good evidence that your firewall is configured is a screenshot of the firewall
       configuration settings. Next, we will help you get that evidence.
 
   - id: evidence_that_firewall_is_configured
@@ -84,16 +89,21 @@ output:
   - title: SSP Control Template
     format: html
     template: |
-      <h3>SC-7 (3) Control Enhancement</h3>
+      <h3>SC-7 Boundary Protection</h3>
 
-      <p>The organization something something firewall.</p>
+      <h3>Control Description</h3>
+
+      <p>The information system:</p>
+      <p>a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system;<p>
+      <p>b.  Implements subnetworks for publicly accessible system components that are [Selection: physically; logically] separated from internal organizational networks; and</p>
+      <p>c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture.</p>
 
       <table class="table" style="margin-top: 1.5em">
         <thead>
           <th colspan="2">
             <div class="row">
               <div class="col-xs-3">
-                SC-7(3)
+                SC-7
               </div>
               <div class="col-xs-9">
                 Control Summary Information
@@ -104,12 +114,20 @@ output:
         <tbody>
           <tr>
             <td width="30%">Responsible Role:</th>
-            <td>{{who_configures_firewall.text}}</td>
+            <td>
+              {% if has_firewall %}
+                {{who_configures_firewall.text}}
+              {% else %}
+                {{who_configures_aws_security_groups.text}}
+              {% endif %}
+            </td>
           </tr>
+          {% if has_firewall %}
           <tr>
             <td>Parameter:</th>
-            <td>Has Firewall: {{has_firewall.text}}</td>
+            <td>Has standalone firewall: {{has_firewall.text}}</td>
           </tr>
+          {% endif %}
           <tr>
             <td colspan="2">
               <div style="margin-bottom: .5em">Implementation Status:</div>
@@ -121,7 +139,7 @@ output:
       ["not_applicable", "Not Applicable"]] %}
               <div class="radio">
                 <label>
-                  <input type="checkbox" disabled="disabled" {% if key == "implemented" %}checked="checked"{% endif %}> {{text}} 
+                  <input type="checkbox" disabled="disabled" {% if key == "implemented" %}checked="checked"{% endif %}> {{text}}
                 </label>
               </div>
               {% endfor %}
@@ -140,7 +158,7 @@ output:
       ["inherited", "Inherited from pre-existing FedRAMP Authorization"]] %}
               <div class="radio">
                 <label>
-                  <input type="checkbox" disabled="disabled" {% if key == "service_provider_corporate" %}checked="checked"{% endif %}> {{text}} 
+                  <input type="checkbox" disabled="disabled" {% if key == "service_provider_corporate" %}checked="checked"{% endif %}> {{text}}
                 </label>
               </div>
               {% endfor %}
@@ -152,7 +170,7 @@ output:
       <table class="table">
         <thead>
           <th colspan="2">
-            SC-7 (3) What is the solution and how is it implemented?
+            SC-7 What is the solution and how is it implemented?
           </th>
         </thead>
         <tbody>
@@ -162,7 +180,13 @@ output:
               <p>Evidence: {{evidence_that_firewall_is_configured.text}}</p>
               <p>Last Monitored: {{firewall_log_date.text}}</p>
               {% else %}
-              n/a
+
+              <p>The {{project}} information system:</p>
+              <p>a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with {{project.system_stack.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.<p>
+              <p>b.  Implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by configuring different security groups to establish logically separated subnetworks; and</p>
+              <p>c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using {{project.system_stack.cloud_provider.text}} Security Groups which are required in {{project.system_stack.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.</p>
+
+
               {% endif %}
             </td>
           </tr>
