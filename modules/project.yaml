@@ -1,129 +1,32 @@
 id: project
-title: "[Deprecated] Generate control implementation content for Audit controls (version 1)"
+title: Develop System Security Plan (SSP) for FISMA
 type: project
 version: 1
+snippet:
+  format: html
+  template: ""
 introduction:
   format: markdown
   template: |
-    This project will help you complete a FedRAMP System Security Plan (SSP) for a Low/Moderate system.
-
+    This project will help you become compliant with several NIST 800-53 control families.
 questions:
-  - id: information_system_name_title
-    title: Information System Name and Title
-    type: module
-    module-id: information_system_name_title
-    tab: Basic Info
-    group: About the Information System
+- id: system_stack
+  title: About Your System Stack
+  type: module
+  module-id: system_stack
+  tab: Basic Info
+  group: About the Information System
 
-  - id: responsible_roles
-    title: Responsible Roles
-    type: module
-    module-id: responsible_roles
-    tab: Basic Info
-    group: About the Information System
+- id: control_sc_7
+  title: SC-7 Boundary Protection
+  type: module
+  module-id: control_sc_7
+  tab: Controls
+  group: Secure Communications
 
-  - id: system_stack
-    title: About Your System Stack
-    type: module
-    module-id: system_stack
-    tab: Basic Info
-    group: About the Information System
-
-  - id: information_types
-    title: Information Types
-    type: module-set
-    module-id: information_type
-    tab: Basic Info
-    group: Information Types
-
-  - id: control_au_1
-    title: AU-1 Audit and Accountability Policy and Procedures
-    type: module
-    module-id: control_au_1
-    tab: Controls
-    group: Audit and Accountability (AU)
-
-  - id: control_au_2_3
-    title: AU-2 (3) Control Enhancement to AU-2 Audit Events
-    type: module
-    module-id: control_au_2_3
-    tab: Controls
-    group: Audit and Accountability (AU)
-
-  - id: control_pe_1
-    title: PE-1 Physical And Environmental Protection Policy And Procedures
-    type: module
-    module-id: control_pe_1
-    tab: Controls
-    group: Physical And Environmental Protection (PE)
-
-output:
-  - tab: Basic Info
-    format: markdown
-    template: |
-      # Basic Info
-
-      General information about {{project}}.
-
-  - title: SSP Output
-    format: html
-    template: |
-      <style> {# repeated in module-finished.html #}
-      table.table {
-        border: 1px solid #0369a3;
-      }
-      .table>tbody>tr>td {
-        border-top: 1px solid #0369a3;
-      }
-      thead {
-        background-color: #dbe5f1;
-      }
-      </style>
-
-      <h2>FedRAMP System Security Plan (SSP)</h2>
-
-      {% if information_system_name_title %}
-      <p>Information System: {{information_system_name_title.name.text}}</p>
-      {% endif %}
-
-      <hr>
-
-      {% if information_types %}
-      <h3>Information Types</h3>
-
-      <table class="table">
-      <thead>
-        <tr>
-          <th>Information Type</th>
-          <th>NIST 800-60 identifier</th>
-          <th>Confidentiality</th>
-          <th>Integrity</th>
-          <th>Availability</th>
-        </tr>
-      </thead>
-      <tbody>
-      {% for itype in information_types %}
-        <tr>
-          <td>{{itype.selected_information_type.title}}</td>
-          <td>{{itype.selected_information_type.code}}</td>
-          <td>{{itype.classification_confidentiality}}</td>
-          <td>{{itype.classification_integrity}}</td>
-          <td>{{itype.classification_availability}}</td>
-        </tr>
-      {% endfor %}
-      </tbody>
-      </table>
-      <hr>
-      {% endif %}
-
-      {% if control_au_1 and control_au_1.rendered_outputs() != [] %}
-      {{control_au_1.rendered_outputs()[0].html|safe}}
-      {% endif %}
-      
-      {% if control_au_2_3 and control_au_2_3.rendered_outputs() != [] %}
-      {{control_au_2_3.rendered_outputs()[0].html|safe}}
-      {% endif %}
-
-      {% if control_pe_1 and control_pe_1.rendered_outputs() != [] %}
-      {{control_pe_1.rendered_outputs()[0].html|safe}}
-      {% endif %}
+- id: ssp
+  title: Preview Draft SSP
+  type: module
+  module-id: ssp
+  tab: Draft SSP
+  group: Draft SSP
