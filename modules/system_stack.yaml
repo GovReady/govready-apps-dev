@@ -3,102 +3,112 @@ title: Information System Stack
 questions:
   - id: what_kind_of_system
     title: What Kind of System
-    prompt: What kind of information system is this?
+    prompt: What kind of information technology system is this?
     type: choice
     choices:
-      - key: application
-        text: Major Application
-      - key: support
-        text: General Support System
+    - key: application
+      text: Application
+      help: Web site, desktop software, server software, software as a aervice.
+    - key: service
+      text: General Service
+      help: Other.
+
+  - id : what_kind_of_application
+    title: What Kind of Application
+    prompt: What kind of application is it?
+    type: choice
+    choices:
+    - key: web
+      text: Web Site
+    - key: desktop
+      text: Desktop Software
+    - key: server
+      text: Server Software
+    - key: saas
+      text: Software as a Service
+    impute:
+    - condition: what_kind_of_system != 'application'
+      value: ~
 
   - id: application_where_hosted
     title: Where Is The Application Hosted
     prompt: Where is the application hosted?
     type: choice
     choices:
-      - key: cloud
-        text: In The Cloud
-      - key: onpremesis
-        text: In an On-Premesis Data Center
+    - key: cloud
+      text: In The Cloud
+    - key: onpremesis
+      text: In an On-Premesis Data Center
     impute:
-      - condition: what_kind_of_system != 'application'
-        value: ~
+    - condition: what_kind_of_application not in ['web', 'server', 'saas']
+      value: ~
+
+  - id: web_page_views
+    title: Website Page Views Per Month
+    prompt: How many page views per month does the website serve or is it expected to serve?
+    type: choice
+    choices:
+    - key: micro
+      text: Micro (1K)
+    - key: small
+      text: Small (10K - 250K)
+    - key: medium
+      text: Medium (250K - 1M)
+    - key: large
+      text: Large (1M+)
+    impute:
+    - condition: what_kind_of_application != "web"
+      value: ~
 
   - id: cloud_provider
     title: Cloud Provider
     prompt: What cloud provider is the application hosted in?
     type: choice
     choices:
-      - key: aws
-        text: Amazon Web Services
-      - key: pcf
-        text: Pivotal Cloud Foundry
-      - key: aure
-        text: Microsoft Azure
-      - key: other-fedramp
-        text: Other FedRAMP Certified Cloud Service Provider
-      - key: other
-        text: Other (not a FedRAMP Certified Cloud Service Provider)
+    - key: AWS
+      text: Amazon Web Services
+    - key: PWS
+      text: Pivotal Cloud Foundry
+    - key: Azure
+      text: Microsoft Azure
+    - key: other-fedramp
+      text: Other FedRAMP Certified Cloud Service Provider
+    - key: other
+      text: Other (not a FedRAMP Certified Cloud Service Provider)
     impute:
-      - condition: application_where_hosted != 'cloud'
-        value: ~
+    - condition: application_where_hosted != 'cloud'
+      value: ~
 
-  - id: application_software
-    title: What Application Software Stack
-    prompt: What application-level software does the information system use?
+  - id: what_kind_of_general_service
+    title: What Kind of General Service
+    prompt: What kind of general service is the application?
     type: choice
     choices:
-      - key: django
-        text: Python+Django
-      - key: drupal
-        text: PHP+Drupal
-      - key: other
-        text: Other
+    - key: network-system
+      text: Network System
+    - key: other
+      text: Other
     impute:
-      - condition: what_kind_of_system != 'application'
-        value: ~
+    - condition: what_kind_of_system != 'service'
+      value: ~
 
-  # REMOVE
-  - id: control_implementation_au_2_3
-    title: Control Implementation for AU-2(3)
-    type: text
-  # REMOVE
-
-  - id: control_implementation_au_2_3_cloud_provider
-    title: Control Implementation for AU-2(3) for Cloud Provider
+  - id: what_kind_of_general_service_other
+    title: What Kind of General Service (Other)
+    prompt: What kind of general service is the application?
     type: text
     impute:
-      - condition: what_kind_of_system == 'application' and application_where_hosted == 'cloud' and cloud_provider == 'aws'
-        value: >
-          AWS is responsible for audit and accountability controls for the AWS infrastructure.
-          [To update: Customers are responsible for reviewing and updating the list of auditable events annually
-          or whenever there is a change in the threat environment.]
-      - condition: "1"
-        value: ~
-        # skip if nothing else applies
+    - condition: what_kind_of_general_service != 'other'
+      value: ~
 
-  - id: control_implementation_au_2_3_application
-    title: Control Implementation for AU-2(3) for Application Stack
-    type: text
-    impute:
-      - condition: what_kind_of_system == 'application' and application_software == 'django'
-        value: >
-          Audit events at the Operating System level are reviewed by RESPONSIBLE_PERSON annually and after incidents to determine the events audited need to be modified.
-          Audit events at the Python+Django application level are reviewed by RESPONSIBLE_PERSON annually and after incidents to determine the events audited need to be modified.
-      - condition: "1"
-        value: ~
-        # skip if nothing else applies
-
-  - id: control_implementation_pe_1_a_cloud_provider
-    title: Control Implementation for PE-1(a) for Application Stack
-    type: text
-    impute:
-      - condition: what_kind_of_system == 'application' and application_where_hosted == 'cloud' and cloud_provider == 'aws'
-        value: >
-          As per AWS FedRAMP package: AWS has put in place written physical and environmental protection policy and procedures. AWS reviews the policy annually.
-      - condition: "1"
-        value: ~
-        # skip if nothing else applies
+  - id: who_supports_it
+    title: Who Develops and Supports It
+    prompt: Who develops and supports the application?
+    type: multiple-choice
+    choices:
+    - key: employees
+      text: Employees
+    - key: contractors
+      text: Contractors
 
 output:
   - title: Your Answers
@@ -107,12 +117,24 @@ output:
       System Type: {{what_kind_of_system.text}}
 
       {% if what_kind_of_system == "application" %}
+      Application Type: {{what_kind_of_application.text}}
+
+      {% if application_where_hosted %}
       Hosted: {{application_where_hosted.text}}
+      {% endif %}
+
+      {% if web_page_views %}
+      Monthly Page Views: {{web_page_views.text}}
+      {% endif %}
 
       {% if application_where_hosted == "cloud" %}
       Cloud Provider: {{cloud_provider.text}}
       {% endif %}
 
-      Software Stack: {{application_software.text}}
+      {% else %}
+
+      General Service Type: {% if what_kind_of_general_service != "other" %}{{what_kind_of_general_service}}{% else %}{{what_kind_of_general_service_other.text}}{% endif %}
 
       {% endif %}
+
+      Who Supports It: {{who_supports_it.text}}
