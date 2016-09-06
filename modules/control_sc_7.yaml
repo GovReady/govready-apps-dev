@@ -17,14 +17,40 @@ introduction:
 
 questions:
 
-  - id: using_cloud
-    title: Using cloud
+  - id: has_firewall
+    title: Have a Firewall?
     type: yesno
     prompt: |
-      blah blah
+      A secure system is protected by a firewall.
+
+      {% if project.system_stack.cloud_provider == "AWS" %}
+      Amazon Web Services's "security groups" are firewalls that protect machine instances in EC2.
+      Besides the AWS security groups, does your system have an additional firewall?
+
+      {% elif project.system_stack.application_where_hosted == "cloud" %}
+      Cloud providers, such as {{project.system_stack.cloud_provider.text}}, often have firewall
+      services built-in. Besides the firewall services provided by {{project.system_stack.cloud_provider.text}},
+      does your system have an additional firewall?
+
+      {% else %}
+      Does your system have a firewall?
+      {% endif %}
+
     impute:
       - condition: project.system_stack.application_where_hosted and not(project.system_stack.application_where_hosted == "cloud")
         value: ~
+
+  - id: who_configures_aws_security_groups
+    title: Who Configures The AWS Security Groups?
+    type: text
+    prompt: |
+      {{project.system_stack.cloud_provider.text}} Security Groups must be properly configured.
+
+      Who in your organization is responsible for configuring {{project.system_stack.cloud_provider.text}}  Security Groups?
+    impute:
+      - condition: has_firewall == 'yes'
+        value: ~
+
 
   - id: using_enterprise_dmz
     title: Using Enterprise DMZ?
@@ -108,12 +134,20 @@ output:
 
       <!-- Amazon stuff -->
 
-       using_cloud? {{using_cloud}}
+        {% if has_firewall %}
+        <p>Evidence: {evidence_that_firewall_is_configured.text}</p>
+        <p>Last Monitored: {firewall_log_date.text}</p>
+        {% else %}
 
-        The system is hosted in the cloud.
+        The {{project}} information system:
+        
+        a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with {{project.system_stack.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
 
+        b.  Implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by configuring different security groups to establish logically separated subnetworks; and
+        
+        c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using {{project.system_stack.cloud_provider.text}} Security Groups which are required in {{project.system_stack.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
 
-
+        {% endif %}
 
       <!-- Amazon stuff -->
 
