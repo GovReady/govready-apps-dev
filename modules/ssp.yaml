@@ -19,7 +19,7 @@ output:
         h3 { border-bottom:0.5px solid #aaa; } 
         h4 { font-weight:bold; font-size:0.9em; }
         blockquote { color: #666; font-size:0.8em;}
-        .class {color: red; font-size:3.0em;}
+        .notice {color: red; font-size:3.0em; text-align:center;}
     </style>
 
     <div class="notice">* DRAFT *</div>

@@ -33,9 +33,6 @@ questions:
     title: Using Enterprise DMZ (Yes)
     type: interstitial
     prompt: |
-      Since your system is hosted in the {{organization}}'s internal data center, your
-      communications boundary protection is provided by the {{organization}} enterprise IT.
-
       The {{project}} system inherits this control from the {{organization}} enterprise IT.
     impute:
       - condition: not(using_enterprise_dmz == "yes")

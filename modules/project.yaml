@@ -10,78 +10,87 @@ introduction:
   template: |
     ## Preparing a System Security Plan
 
-    This project will guide you through preparing a System Security Plan (SSP) under the NIST Risk Management Framework to get an Authority to Operate the {{project}}.
+    This project will guide you through preparing a System Security Plan (SSP) under the NIST Risk Management Framework to get the {{project}} its Authority to Operate.
 
-    As you answer questions, you will be guided step-by-step on how to secure the {{project}} system according to {{organization}} policy. Your answers will be automatically incorporated into your SSP.
+    As you and your team answer questions, you will be guided step-by-step on how to secure the {{project}} system according to {{organization}} policy. Your answers will be automatically incorporated into your SSP.
+
+    At any time you can view and print your SSP, share with it, or export the data for import into other systems.
 
 questions:
+- id: howto_ssp
+  title: "SSP 101: What's a System Security Plan"
+  type: module
+  module-id: howto_ssp
+  tab: 1. How To
+  group: Start Here
+
 - id: system_stack
-  title: About Your System Stack
+  title: About your system stack
   type: module
   module-id: system_stack
-  tab: Basic Info
-  group: About the Information System
+  tab: 2. Basic Info
+  group: About Your Information System
 
-- id: control_au_1
-  title: AU-1 Audit And Accountability Policy And Procedures
+- id: howto_security_stories
+  title: Add security stories to your sprints
   type: module
-  module-id: control_au_1
-  tab: Org Responsibilities
-  group: Policy
+  module-id: howto_security_stories
+  tab: 2. Basic Info
+  group: About Your Information System
 
 - id: control_au_multi
   title: Audit and Logs Module
   type: module
   module-id: control_au_multi
-  tab: System Responsibilities
+  tab: 3. System Design
   group: Audit and Logs
 
 - id: control_sc_7
   title: SC-7 Boundary Protection
   type: module
   module-id: control_sc_7
-  tab: System Responsibilities
+  tab: 3. System Design
   group: Secure Communications
 
+- id: control_au_1
+  title: AU-1 Audit And Accountability Policy And Procedures
+  type: module
+  module-id: control_au_1
+  tab: 4. System Operations
+  group: Policy
+
 - id: ssp
-  title: Preview Draft SSP
+  title: Preview draft SSP
   type: module
   module-id: ssp
   tab: Preview SSP
   group: Draft 
 
-- id: howto_ssp
-  title: "SSP 101: What's a System Security Plan"
-  type: module
-  module-id: howto_ssp
-  tab: How To
-  group: Tutorials
-
 - id: howto_security_categorization
-  title: FIPS 199 and Categorizing Your System Security Sensitivity
+  title: FIPS 199 and categorizing your system security sensitivity
   type: module
   module-id: howto_security_categorization
-  tab: How To
-  group: Tutorials
+  tab: 1. How To
+  group: Additional Tutorials
 
 - id: howto_scan
-  title: Scanning Your System for STIG Compliance
+  title: Scanning your system for stig compliance
   type: module
   module-id: howto_scan
-  tab: How To
-  group: Tutorials
+  tab: 1. How To
+  group: Additional Tutorials
 
 - id: howto_govready_kbs
   title: Using the GovReady Knowledgebase
   type: module
   module-id: howto_govready_kbs
-  tab: How To
+  tab: 1. How To
   group: Reference
 
 - id: howto_official_policy
-  title: Finding and Using Official Policies
+  title: Finding and using official policies
   type: module
   module-id: howto_official_policy
-  tab: How To
+  tab: 1. How To
   group: Reference
 
