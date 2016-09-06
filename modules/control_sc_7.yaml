@@ -16,6 +16,16 @@ introduction:
     <a href="#">FCC System and Communications Protection Policy</a>
 
 questions:
+
+  - id: using_cloud
+    title: Using cloud
+    type: yesno
+    prompt: |
+      blah blah
+    impute:
+      - condition: project.system_stack.application_where_hosted and not(project.system_stack.application_where_hosted == "cloud")
+        value: ~
+
   - id: using_enterprise_dmz
     title: Using Enterprise DMZ?
     type: yesno
@@ -94,7 +104,19 @@ output:
 
 
       {% if project.system_stack.application_where_hosted and project.system_stack.application_where_hosted != "onpremesis" %}
-        The system is not hosted on premesis and so it does not need a DMZ.
+
+
+      <!-- Amazon stuff -->
+
+       using_cloud? {{using_cloud}}
+
+        The system is hosted in the cloud.
+
+
+
+
+      <!-- Amazon stuff -->
+
 
       {% elif using_enterprise_dmz == 'yes' %}
         {% if 0 %}
