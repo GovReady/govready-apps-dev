@@ -14,498 +14,218 @@ output:
 - format: markdown
   title: System Security Plan
   template: |
-    # Information System Name/Title  
-  
-    <table class="table">
+    <style type = "text/css" scoped>
+        # h2 { border-bottom:1px solid #888; }
+        h3 { border-bottom:0.5px solid #aaa; } 
+        h4 { font-weight:bold; font-size:0.9em; }
+        blockquote { color: #666; font-size:0.8em;}
+        .class {color: red; font-size:3.0em;}
+    </style>
+
+    <div class="notice">* DRAFT *</div>
+
+    # 1 Information System Name/Title
+
+    This System Security Plan provides an overview of the security requirements for the {{project}} system and describes the controls in place or planned for implementation to provide a level of security appropriate for the information to be transmitted, processed or stored by the system. Information security is an asset vital to our critical infrastructure and its effective performance and protection is a key component of our national security program. Proper management of information technology systems is essential to ensure the confidentiality, integrity and availability of the data transmitted, processed or stored by the information system.
+
+    The security safeguards implemented for {{project}} meet the policy and control requirements set forth in this System Security Plan (SSP). All systems are subject to monitoring consistent with applicable laws, regulations, agency policies, procedures and practices.
+
+    <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
       <thead>
         <th>DITPR ID</th>
         <th>Information System</th>
+        <th>Nickname/Abbreviation</th>
       </thead>
       <tbody>
         <tr>
           <td></td>
-    <td>
-
-    {{project}}
-
-    </td>
+          <td>{{project}}</td>
+          <td></td>
         </tr>
       </tbody>
     </table>
 
-    # Control Descriptions
+    # 2 Information System Categorization & Security Objective Impact Level
 
-    ## AC-1
-    
-    ## AC-2
-    
-    ## AC-2(4)
-    
-    ## AC-2(7)
-    
-    ## AC-2(9)
-    
-    ## AC-2(13)
-    
-    ## AC-3
-    
-    ## AC-3(4)
-    
-    ## AC-5
-    
-    ## AC-6
-    
-    ## AC-6(8)
-    
-    ## AC-6(9)
-    
-    ## AC-6(10)
-    
-    ## AC-7
-    
-    ## AC-8
-    
-    ## AC-16
-    
-    ## AC-16(3)
-    
-    ## AC-22
-    
-    ## AU-1
-    
-    ## AU-2
-    
-    ## AU-3
-    
-    ## AU-4
-    
-    ## AU-5
-    
-    ## AU-6(1)(10)
-    
-    ## AU-6(3)(4)
-    
-    ## AU-7
-    
-    ## AU-8
-    
-    ## AU-9
-    
-    ## AU-9(2)
-    
-    ## AU-9(4)
-    
-    ## AU-11
-    
-    ## AU-11(1)
-    
-    ## AU-12(1)(3)
-    
-    ## AU-14(1)(2)(3)
-    
-    ## AT-1
-    
-    ## AT-2
-    
-    ## AT-2(2)
-    
-    ## AT-3
-    
-    ## AT-3(2)
-    
-    ## AT-3(4)
-    
-    ## AT-4
-    
-    ## CM-1
-    
-    ## CM-2
-    
-    ## CM-2(1)
-    
-    ## CM-3
-    
-    ## CM-3(4)
-    
-    ## CM-3(6)
-    
-    ## CM-4
-    
-    ## CM-5
-    
-    ## CM-5(5)
-    
-    ## CM-5(6)
-    
-    ## CM-6
-    
-    ## CM-7
-    
-    ## CM-7(1)
-    
-    ## CM-7(2)
-    
-    ## CM-7(3)
-    
-    ## CM-7(5)
-    
-    ## CM-8
-    
-    ## CM-8(2)
-    
-    ## CM-8(3)
-    
-    ## CM-9
-    
-    ## CM-10
-    
-    ## CM-10(1)
-    
-    ## CM-11
-    
-    ## CM-11(2)
-    
-    ## CP-1
-    
-    ## CP-2
-    
-    ## CP-3
-    
-    ## CP-4
-    
-    ## CP-9
-    
-    ## CP-10
-    
-    ## IA-1
-    
-    ## IA-2
-    
-    ## IA-2(1)
-    
-    ## IA-2(2)
-    
-    ## IA-2(5)
-    
-    ## IA-2(8)
-    
-    ## IA-2(11)
-    
-    ## IA-2(12)
-    
-    ## IA-3
-    
-    ## IA-4
-    
-    ## IA-4(4)
-    
-    ## IA-5
-    
-    ## IA-5(1)
-    
-    ## IA-5(4)
-    
-    ## IA-5(7)
-    
-    ## IA-5(8)
-    
-    ## IA-5(11)
-    
-    ## IA-5(13)
-    
-    ## IA-5(14)
-    
-    ## IA-6
-    
-    ## IA-7
-    
-    ## IA-8
-    
-    ## IA-8(1)
-    
-    ## IA-8(2)
-    
-    ## IA-8(3)
-    
-    ## IA-8(4)
-    
-    ## IR-1
-    
-    ## PS-1
-    
-    ## PS-2
-    
-    ## PS-3
-    
-    ## PS-4
-    
-    ## PS-5
-    
-    ## PL-1
-    
-    ## PL-2
-    
-    ## PL-4
-    
-    ## PL-8
-    
-    ## PL-8(1)
-    
-    ## PL-8(2)
-    
-    ## PM-2
-    
-    ## PM-3
-    
-    ## PM-4
-    
-    ## PM-5
-    
-    ## PM-6
-    
-    ## PM-7
-    
-    ## PM-8
-    
-    ## PM-9
-    
-    ## PM-10
-    
-    ## PM-11
-    
-    ## PM-12
-    
-    ## PM-13
-    
-    ## PM-14
-    
-    ## PM-15
-    
-    ## PM-16
-    
-    ## RA-1
-    
-    ## RA-2
-    
-    ## RA-3
-    
-    ## RA-5
-    
-    ## RA-5(1)
-    
-    ## RA-5(2)
-    
-    ## RA-5(4)
-    
-    ## RA-5(5)
-    
-    ## CA-1
-    
-    ## CA-2
-    
-    ## CA-2(1)
-    
-    ## CA-3
-    
-    ## CA-3(1)
-    
-    ## CA-3(3)
-    
-    ## CA-3(5)
-    
-    ## CA-5
-    
-    ## CA-6
-    
-    ## CA-7
-    
-    ## CA-9
-    
-    ## SC-1
-    
-    ## SC-4
-    
-    ## SC-5
-    
-    ## SC-5(1)
-    
-    ## SC-7
+    The Federal Information Processing Standard 199 (FIPS-199) Categorization Security Categorization report is a key document in the {{project}} security authorization package. The FIPS-199 Categorization report includes the determination of the security impact level for {{project}} System and has been staffed through {{project}} staff and approved by the Program Manager. The scope of the FIPS-199 Categorization template includes the assessment of the information type categories as defined in the NIST Special Publication 800-60 Volume 2 Revision 1 document.
+
+    The overall information system sensitivity categorization for {{project}} is {low} and is noted in the table that follows.
+
+    <table class="table" style="width:300px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
+      <tbody>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Low</th>
+          <td>&nbsp;</td>
+        </tr> 
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Moderate</th>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>High</th>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
+      <thead>
+        <th>Security</th>
+        <th>Low, Moderate, or Moderate</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Confidentiality</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Integrity</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Availability</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    # 3 Information System Owner
+
+    The following individual is identified as the system owner or functional proponent/advocate for this system.
+
+
+    <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
+      <thead>
+        <th>Field</th>
+        <th>Value</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Name</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Title</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Company / Organization</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Phone Number</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Email Address</td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    # 7 General System Description
+    This section includes a general description of the {{project}}.
+
+    ## 7.1 System Function or Purpose
+    {System description}
+
+    ## 7.2 Information System Components and Boundaries
+
+    {Accreditation Boundary description}
+
+    # 8 Control Descriptions
+
+    ## 8.1 AU - Audit and Accountability
+
+    ### 8.1.1 AU-1 Audit And Accountability Policy And Procedures
+
+    {% if project.control_au_1.is_finished() %}
+    <div>{{project.control_au_1.rendered_outputs()[0].html|safe}}</div>
+    {% elif project.control_au_1 %}
+    *Finish the [Audit And Accountability Policy And Procedures]({{project.control_au_1.task_link}}) module to complete this section.*
+    {% else %}
+    *Start the [Audit And Accountability Policy And Procedures]({{project.control_au_1.edit_link}}) module to complete this section.*
+    {% endif %}
+
+    ### 8.1.2 AU-2 Audit Events 
+
+    {% if project.control_au_multi.is_finished() %}
+    <div>{{project.control_au_multi.rendered_outputs()[0].html|safe}}</div>
+    {% elif project.control_au_multi %}
+    *Finish the [Audit Details]({{project.control_au_multi.task_link}}) module to complete this section.*
+    {% else %}
+    *Start the [Audit Details]({{project.control_au_multi.edit_link}}) module to complete this section.*
+    {% endif %}
+
+    ### 8.1.3 AU-3 Audit Content 
+
+    {% if project.control_au_multi.is_finished() %}
+    <div>{{project.control_au_multi.rendered_outputs()[0].html|safe}}</div>
+    {% elif project.control_au_multi %}
+    *Finish the [Audit Details]({{project.control_au_multi.task_link}}) module to complete this section.*
+    {% else %}
+    *Start the [Audit Details]({{project.control_au_multi.edit_link}}) module to complete this section.*
+    {% endif %}
+
+    ### 8.1.4 AU-4 Audit Storage Capacity 
+
+    {% if project.control_au_multi.is_finished() %}
+    <div>{{project.control_au_multi.rendered_outputs()[0].html|safe}}</div>
+    {% elif project.control_au_multi %}
+    *Finish the [Audit Details]({{project.control_au_multi.task_link}}) module to complete this section.*
+    {% else %}
+    *Start the [Audit Details]({{project.control_au_multi.edit_link}}) module to complete this section.*
+    {% endif %}
+
+    ### 8.1.5 AU-5 Response to Audit Processing Failures 
+
+    {% if project.control_au_multi.is_finished() %}
+    <div>{{project.control_au_multi.rendered_outputs()[0].html|safe}}</div>
+    {% elif project.control_au_multi %}
+    *Finish the [Audit Details]({{project.control_au_multi.task_link}}) module to complete this section.*
+    {% else %}
+    *Start the [Audit Details]({{project.control_au_multi.edit_link}}) module to complete this section.*
+    {% endif %}
+
+    ## 8.2 CM - Configuration Management 
+
+    ### 8.2.1 CM-1 Configuration Management Policy
+    
+    ### 8.2.2 CM-2 Baseline Configuration
+    
+    ### 8.2.3 CM-3 Configuration Change Control
+
+    ## 8.3 IA - Identification and Authentication
+    
+    ### 8.3.1 IA-1 Identification And Authentication Policy And Procedures 
+    
+    ### 8.3.2 IA-2 Identification And Authentication (Organizational Users)
+    
+    ## 8.4 SC - System and Communications Protection
+
+    ### 8.4.1 SC- System And Communications Protection Policy And Procedures
+    
+    ### 8.4.2 SC-7 Boundary Protection
     
     {% if project.control_sc_7.is_finished() %}
     <div>{{project.control_sc_7.rendered_outputs()[0].html|safe}}</div>
     {% elif project.control_sc_7 %}
-    *Finish the [Boundary Protection]({{project.control_sc_7.task_link}}) module to complete this section.*
+    <span style="color: red;">
+        *Finish the [Boundary Protection]({{project.control_sc_7.task_link}}) module to complete this section.*
+    </span>
     {% else %}
     *Start the [Boundary Protection]({{project.control_sc_7.edit_link}}) module to complete this section.*
     {% endif %}
 
-    ## SC-7(3)
+    ## 8.5 SA - System and Services Acquisition
+
+    ### 8.5.1 SA-1 System And Information Integrity Policy And Procedures
     
-    ## SC-7(4)
+    ### 8.5.2 SA-2 Flaw Remediation
     
-    ## SC-7(5)
+    ### 8.5.3 SA-3 Malicious Code Protection
     
-    ## SC-7(7)
-    
-    ## SC-7(8)
-    
-    ## SC-7(9)
-    
-    ## SC-7(10)
-    
-    ## SC-7(11)
-    
-    ## SC-7(12)
-    
-    ## SC-7(13)
-    
-    ## SC-7(14)
-    
-    ## SC-8
-    
-    ## SC-8(1)
-    
-    ## SC-12
-    
-    ## SC-13
-    
-    ## SC-15
-    
-    ## SC-17
-    
-    ## SC-18
-    
-    ## SC-18(1)
-    
-    ## SC-18(2)
-    
-    ## SC-18(3)
-    
-    ## SC-18(4)
-    
-    ## SC-19
-    
-    ## SC-20
-    
-    ## SC-21
-    
-    ## SC-22
-    
-    ## SC-23
-    
-    ## SC-23(1)
-    
-    ## SC-23(3)
-    
-    ## SC-23(5)
-    
-    ## SC-28
-    
-    ## SC-28(1)
-    
-    ## SC-38
-    
-    ## SC-39
-    
-    ## SI-1
-    
-    ## SI-2
-    
-    ## SI-2(1)
-    
-    ## SI-2(2)
-    
-    ## SI-2(3)
-    
-    ## SI-2(6)
-    
-    ## SI-3
-    
-    ## SI-3(1)
-    
-    ## SI-3(2)
-    
-    ## SI-3(10)
-    
-    ## SI-4
-    
-    ## SI-4(1)
-    
-    ## SI-4(4)
-    
-    ## SI-4(5)
-    
-    ## SI-4(11)
-    
-    ## SI-4(12)
-    
-    ## SI-4(14)
-    
-    ## SI-4(15)
-    
-    ## SI-4(16)
-    
-    ## SI-4(19)
-    
-    ## SI-4(20)
-    
-    ## SI-4(22)
-    
-    ## SI-4(23)
-    
-    ## SI-5
-    
-    ## SI-7
-    
-    ## SI-7(6)
-    
-    ## SI-7(14)
-    
-    ## SI-11
-    
-    ## SI-12
-    
-    ## SA-1
-    
-    ## SA-2
-    
-    ## SA-3
-    
-    ## SA-4
-    
-    ## SA-4(7)
-    
-    ## SA-4(9)
-    
-    ## SA-4(10)
-    
-    ## SA-5
-    
-    ## SA-8
-    
-    ## SA-9
-    
-    ## SA-9(1)
-    
-    ## SA-9(2)
-    
-    ## SA-9(5)
-    
-    ## SA-10
-    
-    ## SA-10(1)
-    
-    ## SA-12
-    
-    ## SA-15
-    
-    ## SA-15(9)
-    
-    ## SA-17
-    
-    ## SA-19
-    
-    ## SA-21
-    
-    ##   
-    
+    ### 8.5.4 SA-4 Information System Monitoring 
+

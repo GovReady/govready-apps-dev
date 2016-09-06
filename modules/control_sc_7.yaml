@@ -20,11 +20,11 @@ questions:
     title: Using Enterprise DMZ?
     type: yesno
     prompt: |
-      Since your system is hosted in your agency's internal data center, your
-      communications boundary protection is provided your enterprise IT organization.
+      Since your system is hosted in the {{organization}}'s internal data center, your
+      communications boundary protection is provided the {{organization}} enterprise IT.
 
       Do you plan for your system to use the enterprise boundary protection services
-      provided by your agency's internal data center?
+      provided by enterprise IT?
     impute:
       - condition: project.system_stack.application_where_hosted and not(project.system_stack.application_where_hosted == "onpremesis")
         value: ~
@@ -33,10 +33,10 @@ questions:
     title: Using Enterprise DMZ (Yes)
     type: interstitial
     prompt: |
-      Since your system is hosted in your agency's internal data center, your
-      communications boundary protection is provided your enterprise IT organization.
+      Since your system is hosted in the {{organization}}'s internal data center, your
+      communications boundary protection is provided by the {{organization}} enterprise IT.
 
-      You are able to inherit this control from your enterprise service.
+      The {{project}} system inherits this control from the {{organization}} enterprise IT.
     impute:
       - condition: not(using_enterprise_dmz == "yes")
         value: ~
@@ -82,9 +82,20 @@ questions:
         value: ~
 
 output:
-  - title: SSP Control Template
+  - title: Control Text
     format: markdown
     template: |
+      From the NIST SP 800-53
+
+      > The information system:
+      > 
+      > a. Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system;
+      > 
+      > b. Implements subnetworks for publicly accessible system components that are [Selection: physically; logically] separated from internal organizational networks; and
+      > 
+      > c. Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture.
+
+
       {% if project.system_stack.application_where_hosted and project.system_stack.application_where_hosted != "onpremesis" %}
         The system is not hosted on premesis and so it does not need a DMZ.
 
@@ -93,8 +104,18 @@ output:
         {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
         {{using_enterprise_dmz_yes}}
         {% endif %}
+
+        Status: Implemented
       
-        The system is using our enterprise DMZ.
+        The {{project}} inherits this control from the {{organization}} enterpize DMZ.
+
+        The {{organization}} enterpise DMZ:
+
+        a. Monitors and controls communications via the FCC proxy gateway managed by the FCC NSOC at the external boundary of the {{project}} system and at key internal boundaries within the system;
+
+        b. Implements subnetworks for publicly accessible system components that are logically separated from internal {{organization}} networks; and
+
+        c. Connects to external networks or information systems only through the managed interfaces the {{organization}} network proxy gateway in accordance with the {{organization}} security architecture.
 
       {% else %}
 
@@ -105,3 +126,121 @@ output:
         {% endif %}
 
       {% endif %}
+
+  - title: Formatted Control Table
+    format: html
+    template: |
+      <h3>SC-7 Boundary Protection</h3>
+      <p>The organization something something DMZ.</p>
+      <table class="table" style="margin-top: 1.5em">
+        <thead>
+          <th colspan="2">
+            <div class="row">
+              <div class="col-xs-3">
+                SC-7
+              </div>
+              <div class="col-xs-9">
+                Control Summary Information
+              </div>
+            </div>
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%">Responsible Role:</th>
+            <td>
+              {% if project.system_stack.application_where_hosted == "onpremesis" and have_other_dmz == 'ad_hoc_dmz' %}
+                {{who_responsible_for_dmz}}
+              {% else %}
+              N/A
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td>Parameter:</th>
+            <td>
+              {% if project.system_stack.application_where_hosted != "onpremesis" %}
+              Not hosted on premesis and so does not need a DMZ.
+              {% elif using_enterprise_dmz == 'yes' %}
+              Enterprise DMZ.
+              {% else %}
+              System-specific DMZ.
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Implementation Status:</div>
+              {% for key, text in [
+      ["implemented", "Implemented"],
+      ["partially_implemented", "Partially Implemented"],
+      ["planned", "Planned"],
+      ["alternative_implementation", "Alternative Implementation"],
+      ["not_applicable", "Not Applicable"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key == "implemented" %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Control Origination:</div>
+              {% for key, text in [["service_provider_corporate", "Service Provider Corporate"],
+      ["service_provider_system_specific", "Service Provider System Specific"],
+      ["service_provider_hybrid", "Service Provider Hybrid (Corporate and System Specific)"],
+      ["configured_by_customer", "Configured by Customer (Customer System Specific)"],
+      ["provided_by_customer", "Provided by Customer (Customer System Specific)"],
+      ["shared", "Shared (Service Provider and Customer Responsibility)"],
+      ["inherited", "Inherited from enterprise IT service"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled"
+                    {% if key == "service_provider_corporate" and using_enterprise_dmz == "no" %}checked="checked"{% endif %}
+                    {% if key == "inherited" and using_enterprise_dmz == "yes" %}checked="checked"{% endif %}
+                    > {{text}} 
+                </label>
+              </div>
+              {% endfor %}
+            </td>
+          </tr>
+        </body>
+      </table>
+      <table class="table">
+        <thead>
+          <th colspan="2">
+            SC-7 (3) What is the solution and how is it implemented?
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2">
+              {% if project.system_stack.application_where_hosted != "onpremesis" %}
+                The system is not hosted on premesis and so it does not need a DMZ.
+              {% elif using_enterprise_dmz == 'yes' %}
+                {% if 0 %}
+                {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
+                {{using_enterprise_dmz_yes}}
+                {% endif %}
+                      
+                <p>The {{project}} inherits this control from the {{organization}} enterpize DMZ.</p>
+
+                <p>The {{organization}} enterpise DMZ:</p>
+
+                <p>a. Monitors and controls communications via the FCC proxy gateway managed by the FCC NSOC at the external boundary of the {{project}} system and at key internal boundaries within the system;
+
+                <p>b. Implements subnetworks for publicly accessible system components that are logically separated from internal {{organization}} networks; and
+                </p>
+
+                <p>c. Connects to external networks or information systems only through the managed interfaces the {{organization}} network proxy gateway in accordance with the {{organization}} security architecture.
+                </p>
+
+              {% else %}
+                The system is not using our enterprise DMZ. {{have_other_dmz.text}}
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>

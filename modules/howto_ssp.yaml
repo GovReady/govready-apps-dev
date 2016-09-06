@@ -1,0 +1,21 @@
+id: howto_ssp
+title: "SSP 101: What's a System Security Plan"
+introduction:
+  format: html
+  template: |
+    Intro text goes here!
+
+questions:
+  - id: dummy_question
+    title: Dummy question
+    type: yesno
+    prompt: |
+      This is a dummy question.
+      Is your favorite color blue?
+
+output:
+  - title: SSP Control Template
+    format: html
+    template: |
+      ## Template
+      {{dummy_question}}
