@@ -1,9 +1,13 @@
 id: howto_ssp
 title: "SSP 101: What's a System Security Plan"
 introduction:
-  format: html
+  format: markdown
   template: |
-    Intro text goes here!
+    If you here, it is most likely because you've been told you need to prepare a System Security Plan for your information system and you aren't exactly sure what that means.
+
+    No worries. This module will give you a gentle, 8 minute introduction to the why's and wherefore's of a System Security Plan, AKA SSP.
+
+    Ready to get started?
 
 questions:
   - id: dummy_question
