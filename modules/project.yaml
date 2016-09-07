@@ -94,3 +94,10 @@ questions:
   tab: 1. How To
   group: Reference
 
+- id: evidence
+  title: Create an evidence bag
+  type: module-set
+  module-id: evidence
+  tab: 2. Basic Info
+  group: Supporting documents
+

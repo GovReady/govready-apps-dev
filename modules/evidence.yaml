@@ -1,0 +1,86 @@
+id: evidence
+title: Evidence Bag
+instance-name: "{{title.text}}"
+introduction:
+  format: markdown
+  template: |
+    An evidence bag provides supporting documentation for the implementation of a control.
+
+    In this module you will put evidence of the implementation of a control into a virtual evidence bag.
+questions:
+  - id: type
+    title: Evidence Type
+    prompt: What sort of evidence are you providing?
+    type: choice
+    choices:
+    - key: documentation
+      text: Documentation of Your System Configuration
+    - key: reference
+      text: An Excerpt from Reference Materials
+    - key: other
+      text: Other
+
+  - id: media
+    title: Media Upload
+    prompt: |
+      If you can upload a screenshot or other documentation to put in this evidence bag, please do so.
+
+      If there is no file to upload, click Skip.
+    type: file
+
+  - id: description
+    title: Description
+    prompt: |
+      {% if type == "reference" %}
+      Paste the excerpt from the reference document here {% if media %}and describe the file you uploaded{% endif %}.
+      {% elif media %}
+      Describe the contents of the file you uploaded.
+      {% else %}
+      Describe the evidence.
+      {% endif %}
+    type: longtext
+
+  - id: link
+    title: Link
+    prompt: |
+      Enter the address to a web page where the evidence can be retrieved or validated, if applicable.
+
+      {% if media %}
+      If you took a screenshot of a web page, enter that page's address. If the file you uploaded can be downloaded from the web, enter the address the file can be downloaded from.
+      {% endif %}
+    type: url
+
+  - id: instruction
+    title: Instruction
+    prompt: |
+      {% if type == "reference" %}
+      Enter the name of the document you are referencing and explain where in the document the excerpt is from, such as by section or page number.
+      {% else %}
+      Explain how the evidence can be validated.
+      {% endif %}
+    type: longtext
+
+  - id: title
+    title: Title
+    prompt: Give this evidence bag a title.
+    type: text
+
+output:
+  - title: Evidence Bag
+    format: markdown
+    template: |
+      # {{title}}
+
+      Type: {{type.text}}
+
+      {% if media %}
+      ![screenshot]({{media.url}})
+      {% endif %}
+
+      {{description.text}}
+
+      {% if link %}
+        {{link}}
+      {% endif %}
+
+      {{instruction.text}}
