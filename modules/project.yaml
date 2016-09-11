@@ -45,19 +45,19 @@ questions:
   tab: 2. Basic Info
   group: About your information system
 
-- id: control_au_multi
-  title: Audit and Logs Module
-  type: module
-  module-id: control_au_multi
-  tab: 3. System Design
-  group: Audit and Logs
-
 - id: control_sc_7
   title: SC-7 Boundary Protection
   type: module
   module-id: control_sc_7
   tab: 3. System Design
   group: Secure Communications
+
+- id: control_au_multi
+  title: Audit and Logs Module
+  type: module
+  module-id: control_au_multi
+  tab: 3. System Design
+  group: Audit and Logs
 
 - id: control_au_1
   title: AU-1 Audit And Accountability Policy And Procedures

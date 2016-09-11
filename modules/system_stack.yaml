@@ -1,5 +1,14 @@
 id: system_stack
 title: Information system stack
+introduction:
+  format: markdown
+  template: |
+    ## Share basic information about your system stack
+
+    This module will ask you a few basic, high level questions about the *{{project}}* information system.
+
+    This information will be used to tailor questions to your particular type and scale of your information system.
+
 questions:
   - id: what_kind_of_system
     title: What Kind of System
@@ -8,10 +17,10 @@ questions:
     choices:
     - key: application
       text: Application
-      help: Web site, desktop software, server software, software as a aervice.
+      help: Any type of end-user facing software application including websites
     - key: service
       text: General Service
-      help: Other.
+      help: Any type network or infrastructure component (e.g., storage system)
 
   - id : what_kind_of_application
     title: What Kind of Application
@@ -43,23 +52,6 @@ questions:
     - condition: what_kind_of_application not in ['web', 'server', 'saas']
       value: ~
 
-  - id: web_page_views
-    title: Website Page Views Per Month
-    prompt: How many page views per month does the website serve or is it expected to serve?
-    type: choice
-    choices:
-    - key: micro
-      text: Micro (1K)
-    - key: small
-      text: Small (10K - 250K)
-    - key: medium
-      text: Medium (250K - 1M)
-    - key: large
-      text: Large (1M+)
-    impute:
-    - condition: what_kind_of_application != "web"
-      value: ~
-
   - id: cloud_provider
     title: Cloud Provider
     prompt: What cloud provider is the application hosted in?
@@ -77,6 +69,23 @@ questions:
       text: Other (not a FedRAMP Certified Cloud Service Provider)
     impute:
     - condition: application_where_hosted != 'cloud'
+      value: ~
+
+  - id: web_page_views
+    title: Website Page Views Per Month
+    prompt: How many page views per month is the website designed to support?
+    type: choice
+    choices:
+    - key: micro
+      text: Micro (1K monthly views)
+    - key: small
+      text: Small (10K - 250K monthly views)
+    - key: medium
+      text: Medium (250K - 1M monthly views)
+    - key: large
+      text: Large (1M+ monthly views)
+    impute:
+    - condition: what_kind_of_application != "web"
       value: ~
 
   - id: what_kind_of_general_service
@@ -111,16 +120,16 @@ questions:
       text: Contractors
 
 output:
-  - title: Your Answers
+  - title: Preliminary system stack summary
     format: markdown
     template: |
 
-      You've now gathered a high level view of *{{project}}*. Future questions will be tailored based on this information.
+      You've gathered a high level view of *{{project}}*. Future questions will be tailored to your indicated type of information system.
 
       # System Stack Summary
 
       {% if what_kind_of_system == "application" %}
-        {{project}} is a {% if web_page_views %} {{web_page_views.text}} size {% endif %} {{what_kind_of_application.text}} {{what_kind_of_system.text}} {% if application_where_hosted %} hosted {{application_where_hosted.text}}{% endif %}{% if application_where_hosted == "cloud" %} at Cloud Service Provider {{cloud_provider.text}}{% endif %}.
+        The {{organization}}'s *{{project}}* information system is a {% if web_page_views %} {{web_page_views.text}} size {% endif %} {{what_kind_of_application.text}} {{what_kind_of_system.text}} {% if application_where_hosted %} hosted {{application_where_hosted.text}}{% endif %}{% if application_where_hosted == "cloud" %} at {{cloud_provider.text}}{% endif %}.
 
       {% else %}
 
@@ -128,4 +137,4 @@ output:
 
       {% endif %}
 
-      {{project}} system is primarily supported by {{who_supports_it.text}}.
+      The {{project}} system is primarily supported by {{who_supports_it.text}}.

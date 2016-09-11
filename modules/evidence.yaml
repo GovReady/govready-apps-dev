@@ -8,37 +8,59 @@ introduction:
 
     In this module you will put evidence of the implementation of a control into a virtual evidence bag.
 questions:
+  - id: title
+    title: Title
+    prompt: Give this evidence bag a title.
+    type: text
+    placeholder: e.g., "Firewall configuration", "Security Policy", "Scan test results Mar 3, 2016"
+
+  - id: description
+    title: Description
+    prompt: |
+      Briefly explain what the evidence verifies about the *{{project}}* system security and/or compliance.
+    type: text
+    help: |
+      Example: "The following excerpt verifies the content of our database audit files conforms to policy."
+
+
   - id: type
     title: Evidence Type
     prompt: What sort of evidence are you providing?
     type: choice
     choices:
-    - key: documentation
-      text: Documentation of Your System Configuration
-    - key: reference
-      text: An Excerpt from Reference Materials
+    - key: url
+      text: Persistent URL to piece of evidence
+    - key: document
+      text: An attached document
+      help: (e.g. policy, report)
+    - key: document_excerpt
+      text: Pasted excerpt from document
+    - key: code
+      text: Code, script, or code snippet
+    - key: screenshot
+      text: Screenshot
+    - key: media
+      text: Photograph, video, or other media
     - key: other
       text: Other
+
+  - id: evidence_body_text
+    title: Description
+    prompt: |
+      {% if type == "document_excerpt" or type == "code" %}
+      Paste document excerpt or code below.
+      {% endif %}
+    type: longtext
 
   - id: media
     title: Media Upload
     prompt: |
-      If you can upload a screenshot or other documentation to put in this evidence bag, please do so.
+      {% if type == "screenshot" or type == "media" %}
+      Attach document (docx pdf md html) or media file (png jpg gif tiff mpeg).
 
       If there is no file to upload, click Skip.
-    type: file
-
-  - id: description
-    title: Description
-    prompt: |
-      {% if type == "reference" %}
-      Paste the excerpt from the reference document here {% if media %}and describe the file you uploaded{% endif %}.
-      {% elif media %}
-      Describe the contents of the file you uploaded.
-      {% else %}
-      Describe the evidence.
       {% endif %}
-    type: longtext
+    type: file
 
   - id: link
     title: Link
@@ -50,37 +72,64 @@ questions:
       {% endif %}
     type: url
 
-  - id: instruction
-    title: Instruction
-    prompt: |
-      {% if type == "reference" %}
-      Enter the name of the document you are referencing and explain where in the document the excerpt is from, such as by section or page number.
-      {% else %}
-      Explain how the evidence can be validated.
-      {% endif %}
-    type: longtext
-
-  - id: title
-    title: Title
-    prompt: Give this evidence bag a title.
-    type: text
-
 output:
   - title: Evidence Bag
-    format: markdown
+    format: html
     template: |
-      # {{title}}
+      <style type = "text/css" scoped>
+        table.gridtable {
+          border-width: 1px;
+          border-color: #666666;
+          border-collapse: collapse;
+        }
+        table.gridtable td.field {
+          border-width: 1px;
+          padding: 8px;
+          border-style: solid;
+          border-color: #666666;
+          background-color: #dedede;
+        }
+        table.gridtable td {
+          border-width: 1px;
+          padding: 8px;
+          border-style: solid;
+          border-color: #666666;
+          background-color: #ffffff;
+        }
+      </style>
 
-      Type: {{type.text}}
 
-      {% if media %}
-      ![screenshot]({{media.url}})
-      {% endif %}
+      <table class="gridtable">
+        <tr>
+          <td class="field">title</td>
+          <td>{{title}}</td>
+        </tr>
+        <tr>
+          <td class="field">type</td>
+          <td>{{type.text}}</td>
+        </tr>
+        <tr>
+          <td class="field">description</td>
+          <td>{{description.text}}</td>
+        </tr>
+        <tr>
+          <td class="field">link</td>
+          <td><a href="{{link.text}}">{{link.text}}</a></td>
+        </tr>
+        <tr>
+          <td colspan=2>
+          {% if media and type=="screenshot" %}
+            <img src="{{media.url}}" width="100%" alt-text="screenshot {{description.text}}">
+          {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <td colspan=2>
+          {% if type == "document_excerpt" or type == "code" %}
+          {{evidence_body_text.text}}
+          {% endif %}
+          </td>
+        </tr>
+      </table>
 
-      {{description.text}}
 
-      {% if link %}
-        {{link}}
-      {% endif %}
-
-      {{instruction.text}}

@@ -1,23 +1,45 @@
 id: system_name
 title: Information name
 introduction:
-  format: html
+  format: markdown
   template: |
-    This module will assist you in putting together a reusable system description.
+    ## Naming your system
+
+    Information systems benefit from having an official name, acronym/abbreviation and description. Standardized references make the system easier to track in documents and databases.
+
+    An official system name, acronym/abbreviation and description will be needed for your SSP.
+
+    Your organization may also require you to register your system and refer to it by an unique identifier.
+
+    Let's document the names of the *{{project}}* system.
 
 questions:
+  - id: system_name_is_project
+    title: Use name as official name
+    type: interstitial
+    prompt: |
+      An SSP requires an official information system name.
+
+      Let's use  "*{{project}}*" as the preferred, official name of your system.
+
   - id: system_abbreviation_exists
     title: System Abbreviation Exists
-    prompt: Does *{{project}}* system have an abbreviation or acronym?
+    prompt: |
+      It's common for organizations to use a shorter name or acronym to refer to an information styem.
+
+      Does *{{project}}* system have an abbreviation or acronym?
     type: yesno
 
   - id: system_abbreviation
     title: System Abbreviation
-    prompt: What is the preferred abbreviation or acronym for the *{{project}}* system?
+    prompt: |
+      You've indicated a short name or acronym exists for {{project}} system.
+
+      What is the preferred abbreviation or acronym?
     type: text
     impute:
     - condition: system_abbreviation_exists == 'no'
-      value: n/a
+      value: not applicable
 
   - id : what_kind_of_application
     title: What Kind of Application

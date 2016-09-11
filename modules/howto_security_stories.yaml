@@ -3,11 +3,13 @@ title: "Adding security stories to your sprints"
 introduction:
   format: html
   template: |
+    The best way to secure your system is during development.
+
     This module will guide you through adding Security-related stories to your sprints.
 
-    By adding security-reated stories to your sprints, it will be easier to prepare your System Security Plan as you  develop your system.
+    By adding security-reated stories to your sprints, it will be easier to prepare your System Security Plan as you develop your system.
 
-    <img src="/static/img/brand/add_sec_stories_gif.gif">
+    <!--img src="/static/img/brand/add_sec_stories_gif.gif"-->
 questions:
 
   - id: benefit
@@ -15,8 +17,6 @@ questions:
     type: interstitial
     prompt: |
       
-      The best way to secure your system is during development.
-
       Gather user-stories from your organization's security team just as you would any other customer or end user. Add those stories to your sprint backlog.
 
       Add one or two security-related users stories to each sprint to bake security and compliance into your system.
@@ -52,7 +52,11 @@ questions:
 
       IssuePacks works with GitHub or Redmine. 
 
-      First you athenticate using OAuth, then you can select a repository/project and pack of issues/stories and add them instantly to your backlog with a single click.
+  - id: module_helpful
+    title: Was module helpful
+    type: yesno
+    prompt: |
+      Did you find this module helpful?
 
   - id: plan_to_add_stories
     title: Plan to add stories
@@ -68,12 +72,6 @@ questions:
     impute:
     - condition: plan_to_add_stories == 'no'
       value: no
-
-  - id: module_helpful
-    title: Was module helpful
-    type: yesno
-    prompt: |
-      Did you find this module helpful?
 
 output:
   - title: Adding Security Stories to Your Sprints
