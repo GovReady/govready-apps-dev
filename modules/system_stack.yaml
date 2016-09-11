@@ -114,22 +114,13 @@ output:
   - title: Your Answers
     format: markdown
     template: |
-      System Type: {{what_kind_of_system.text}}
+
+      You've now gathered a high level view of *{{project}}*. Future questions will be tailored based on this information.
+
+      # System Stack Summary
 
       {% if what_kind_of_system == "application" %}
-      Application Type: {{what_kind_of_application.text}}
-
-      {% if application_where_hosted %}
-      Hosted: {{application_where_hosted.text}}
-      {% endif %}
-
-      {% if web_page_views %}
-      Monthly Page Views: {{web_page_views.text}}
-      {% endif %}
-
-      {% if application_where_hosted == "cloud" %}
-      Cloud Provider: {{cloud_provider.text}}
-      {% endif %}
+        {{project}} is a {% if web_page_views %} {{web_page_views.text}} size {% endif %} {{what_kind_of_application.text}} {{what_kind_of_system.text}} {% if application_where_hosted %} hosted {{application_where_hosted.text}}{% endif %}{% if application_where_hosted == "cloud" %} at Cloud Service Provider {{cloud_provider.text}}{% endif %}.
 
       {% else %}
 
@@ -137,4 +128,4 @@ output:
 
       {% endif %}
 
-      Who Supports It: {{who_supports_it.text}}
+      {{project}} system is primarily supported by {{who_supports_it.text}}.

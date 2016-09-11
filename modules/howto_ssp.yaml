@@ -3,23 +3,24 @@ title: "SSP 101: What's a System Security Plan"
 introduction:
   format: markdown
   template: |
-    If you here, it is most likely because you've been told you need to prepare a System Security Plan for your information system and you aren't exactly sure what that means.
+    Have you've been told you need to prepare a System Security Plan, or "SSP", for your software or general IT support system?
 
-    No worries. This module will give you a gentle, 8 minute introduction to the why's and wherefore's of a System Security Plan, AKA SSP.
+    No worries. This module will introduce the why's and wherefore's of a System Security Plan.
 
     Ready to get started?
 
 questions:
-  - id: dummy_question
-    title: Dummy question
+  - id: sample_question
+    title: Sample question
     type: yesno
     prompt: |
-      This is a dummy question.
-      Is your favorite color blue?
+      Do you now feel like you understands the basic of what a System Security Plan?
 
 output:
   - title: SSP Control Template
     format: html
     template: |
-      ## Template
-      {{dummy_question}}
+      Congratulations! You've passed SSP 101!
+
+      You've learned System Security Plan basics.
+      <!-- {{sample_question}} -->

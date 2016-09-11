@@ -14,13 +14,14 @@ questions:
     title: Benefit
     type: interstitial
     prompt: |
-      ## Benefit of user stories about security
+      
+      The best way to secure your system is during development.
 
-      Just like it's better to install a sprinkler system during construction of a building than after the paint is dry, it's better to add in security controls while your information system is still under construction.
+      Gather user-stories from your organization's security team just as you would any other customer or end user. Add those stories to your sprint backlog.
 
-      A great way to do that is to treat your organization's security team as a customer and gather user-stories from them, too. Then you can add a few security features to each sprint and bake-in security and compliance as you go.
+      Add one or two security-related users stories to each sprint to bake security and compliance into your system.
 
-      Another added benefit is writing automated tests for the security stories just like you would for any other feature. Not only will your automated test tell you when something breaks security, you'll also be putting continuous monitoring in place and make security reviews a breeze. 
+      Remember to write automated tests for the security stories just like you would for any other feature. Not only will your automated test tell you when something breaks security, you'll also be putting continuous monitoring in place and make security reviews a breeze. 
 
       Next, you'll see a couple examples of security-related user stories.
 
@@ -28,45 +29,17 @@ questions:
     title: Example stories
     type: interstitial
     prompt: |
+      Below are two example security-related user stories.
 
-      ## Example user security stories
+      ## Example 1 - Points of Contact
 
-      <table class="table">
-        <tr>
-          <td>
-              <b>Story</b>
-              <p>As an Information Security Officer, I want to be able to know who are primary points of contact (POC) for the system. I need to know this information to be able to timely share threat assessments and other information for the secure operation of the system. For each POC, I would like to know name, title, organization, phone number(s), email address.
-              </p>
-              <p>Common Points of Content include: Information System Owner, SSP Point of Contact, Technical Point of Contact, Hosting or Cloud Service Provicer Security Point of Contact.
-              </p>
-          </td>
-        </tr>
-      </table>
+       As an Information Security Officer, I want to be able to know who are primary points of contact (POC) for the system. I need to know this information to be able to timely share threat assessments and other information for the secure operation of the system. For each POC, I would like to know name, title, organization, phone number(s), email address.
 
+      Common Points of Content include: Information System Owner, SSP Point of Contact, Technical Point of Contact, Hosting or Cloud Service Provicer Security Point of Contact.
 
-      <table class="table">
-        <tr>
-          <td>
-              <b>Story</b>
-              <p>As an Information Security Officer (Authorizing Official, Assessor), I am required to have each operating information system security impact level determined in accordance with the Federal Information Processing Standard 199 (FIPS-199), Standards for Security Categorization of Federal Information and Information Systems.
-              </p>
-              <b>More information</b>
-              <p>Categorizing the information system is not as difficult as it sounds. Determination considers the security categories of the different types of information found on the information system and considering the impact to the organization respective to the confidentiality, integrity, and availability of that information.
-              </p>
-              <p>To categorize information types and determine security impact level of the information system, follow these steps:
-              </p>
-              <ol>
-              <li>Make a short list of the kind of information stored in the information system in your own words.</li>
-              <li>Look for similar types of information in NIST SP 800-60, Volume II: Appendices to Gui</li>de for Mapping Types of Information and Information Systems to Security Categories.</li>
-              <li>Identify which official NIST 800-60 category of information your information most resembles</li>
-              <li>Identify your information types an impact levels accordingly.</li>
-              <li>If you are unsure, do as much as possible and then contact the System Owner and/or your security team for further assistance.</li>
-              </ol>
-          </td>
-        </tr>
-      </table>
+      ## Example 2 - Categorize information types
+      As an Information Security Officer (Authorizing Official, Assessor), I am required to have each operating information system security impact level determined in accordance with the Federal Information Processing Standard 199 (FIPS-199), Standards for Security Categorization of Federal Information and Information Systems.
 
-      Next, you'll see where to get starter sets of user-stories for security. 
 
   - id: issuepacks
     title: IssuePacks

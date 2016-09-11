@@ -118,6 +118,11 @@ output:
   - title: Control Text
     format: markdown
     template: |
+
+      Enough information exists to prepare your control implementation for SC-7 Boundary Protection.
+
+      ## SC-7 Boundary Protection
+
       From the NIST SP 800-53
 
       > The information system:
@@ -213,7 +218,7 @@ output:
             <td>Parameter:</th>
             <td>
               {% if project.system_stack.application_where_hosted != "onpremesis" %}
-              Not hosted on premesis and so does not need a DMZ.
+                &nbsp;
               {% elif using_enterprise_dmz == 'yes' %}
               Enterprise DMZ.
               {% else %}
@@ -253,6 +258,9 @@ output:
                   <input type="checkbox" disabled="disabled"
                     {% if key == "service_provider_corporate" and using_enterprise_dmz == "no" %}checked="checked"{% endif %}
                     {% if key == "inherited" and using_enterprise_dmz == "yes" %}checked="checked"{% endif %}
+
+                    {% if key == "shared" and project.system_stack.application_where_hosted and project.system_stack.application_where_hosted != "onpremesis" %}checked="checked"{% endif %}
+
                     > {{text}} 
                 </label>
               </div>
@@ -264,14 +272,43 @@ output:
       <table class="table">
         <thead>
           <th colspan="2">
-            SC-7 (3) What is the solution and how is it implemented?
+            SC-7 What is the solution and how is it implemented?
           </th>
         </thead>
         <tbody>
           <tr>
             <td colspan="2">
-              {% if project.system_stack.application_where_hosted != "onpremesis" %}
-                The system is not hosted on premesis and so it does not need a DMZ.
+
+              <!--{  % if project.system_stack.application_where_hosted != "onpremesis" %  } -->
+
+              {% if project.system_stack.application_where_hosted and project.system_stack.application_where_hosted != "onpremesis" %}
+
+
+              <!-- Amazon stuff -->
+
+                {% if has_firewall %}
+                <p>Evidence: {evidence_that_firewall_is_configured.text}</p>
+                <p>Last Monitored: {firewall_log_date.text}</p>
+                {% else %}
+
+                <p>The {{project}} information system:</p>
+                
+                <p>a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with {{project.system_stack.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
+                </p>
+                <p>b.  Implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by configuring different security groups to establish logically separated subnetworks; and
+                </p>                
+                <p>c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using {{project.system_stack.cloud_provider.text}} Security Groups which are required in {{project.system_stack.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
+                </p>
+
+                {% endif %}
+
+              <!-- Amazon stuff -->
+
+
+      
+
+
+
               {% elif using_enterprise_dmz == 'yes' %}
                 {% if 0 %}
                 {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}

@@ -8,7 +8,7 @@ snippet:
 introduction:
   format: markdown
   template: |
-    ## Preparing a System Security Plan
+    ## SSP 101: Preparing a System Security Plan
 
     This project will guide you through preparing a System Security Plan (SSP) under the NIST Risk Management Framework to get the {{project}} its Authority to Operate.
 
@@ -24,19 +24,26 @@ questions:
   tab: 1. How To
   group: Start Here
 
+- id: system_name
+  title: System name and details
+  type: module
+  module-id: system_name
+  tab: 2. Basic Info
+  group: About your information system
+
 - id: system_stack
   title: About your system stack
   type: module
   module-id: system_stack
   tab: 2. Basic Info
-  group: About Your Information System
+  group: About your information system
 
 - id: howto_security_stories
   title: Add security stories to your sprints
   type: module
   module-id: howto_security_stories
   tab: 2. Basic Info
-  group: About Your Information System
+  group: About your information system
 
 - id: control_au_multi
   title: Audit and Logs Module

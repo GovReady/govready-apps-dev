@@ -1,0 +1,68 @@
+id: system_name
+title: Information name
+introduction:
+  format: html
+  template: |
+    This module will assist you in putting together a reusable system description.
+
+questions:
+  - id: system_abbreviation_exists
+    title: System Abbreviation Exists
+    prompt: Does *{{project}}* system have an abbreviation or acronym?
+    type: yesno
+
+  - id: system_abbreviation
+    title: System Abbreviation
+    prompt: What is the preferred abbreviation or acronym for the *{{project}}* system?
+    type: text
+    impute:
+    - condition: system_abbreviation_exists == 'no'
+      value: n/a
+
+  - id : what_kind_of_application
+    title: What Kind of Application
+    prompt: What kind of application is it?
+    type: choice
+    choices:
+    - key: web
+      text: Web Site
+    - key: desktop
+      text: Desktop Software
+    - key: server
+      text: Server Software
+    - key: saas
+      text: Software as a Service
+    impute:
+    - condition: what_kind_of_system != 'application'
+      value: ~
+
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Congratulations! You've completed some essential information for the first part of your SSP. Section 1 your SSP will look like this:
+
+      # 1 Information System Name/Title
+
+      This System Security Plan provides an overview of the security requirements for the {{project}} system and describes the controls in place or planned for implementation to provide a level of security appropriate for the information to be transmitted, processed or stored by the system. Information security is an asset vital to our critical infrastructure and its effective performance and protection is a key component of our national security program. Proper management of information technology systems is essential to ensure the confidentiality, integrity and availability of the data transmitted, processed or stored by the information system.
+
+      The security safeguards implemented for {{project}} meet the policy and control requirements set forth in this System Security Plan (SSP). All systems are subject to monitoring consistent with applicable laws, regulations, agency policies, procedures and practices.
+
+
+      <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
+      <thead>
+        <th>DITPR ID</th>
+        <th>Information System</th>
+        <th>Nickname/Abbreviation</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td>{{project}}</td>
+          <td>{{system_abbreviation}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+
