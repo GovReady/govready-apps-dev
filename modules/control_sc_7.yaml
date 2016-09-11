@@ -115,7 +115,7 @@ questions:
         value: ~
 
 output:
-  - title: Control Text
+  - title: Control text snippet
     format: markdown
     template: |
 

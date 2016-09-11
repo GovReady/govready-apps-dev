@@ -1,5 +1,5 @@
 id: ssp
-title: System Security Plan (SSP)
+title: System Security Plan Preview
 version: 1
 questions:
 
@@ -22,7 +22,7 @@ output:
         .notice {color: red; font-size:3.0em; text-align:center;}
     </style>
 
-    <div class="notice">* DRAFT *</div>
+    <div class="notice">PREVIEW</div>
 
     # 1 Information System Name/Title
 
@@ -40,7 +40,7 @@ output:
         <tr>
           <td></td>
           <td>{{project}}</td>
-          <td></td>
+          <td>{{project.system_name.system_abbreviation}}</td>
         </tr>
       </tbody>
     </table>
@@ -62,7 +62,7 @@ output:
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td>High</th>
+          <td style="background-color: rgb(219,229,241); width:200px;">High</th>
           <td>&nbsp;</td>
         </tr>
       </tbody>
