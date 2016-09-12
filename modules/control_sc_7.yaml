@@ -114,6 +114,16 @@ questions:
       - condition: not(have_other_dmz == 'ad_hoc_dmz')
         value: ~
 
+  - id: evidence
+    title: Evidence
+    type: module
+    module-id: evidence
+    prompt: |
+      Provide evidence of your properly configured firewall, if possible.
+    impute:
+      - condition: not(have_other_dmz == 'ad_hoc_dmz')
+        value: ~
+
 output:
   - title: Control text snippet
     format: markdown
@@ -181,6 +191,10 @@ output:
 
         {% if have_other_dmz == 'ad_hoc_dmz' %}
          Responsible for DMZ: {{who_responsible_for_dmz}}
+
+        {% if evidence %}
+        Evidence: {{evidence.type.text}} ({{evidence.description}})
+        {% endif %}
         {% endif %}
 
       {% endif %}
@@ -328,7 +342,12 @@ output:
                 </p>
 
               {% else %}
-                The system is not using our enterprise DMZ. {{have_other_dmz.text}}
+                <p>The system is not using our enterprise DMZ. {{have_other_dmz.text}}</p>
+
+                {% if evidence %}
+                  <p>Evidence:</p>
+                  {{evidence.rendered_outputs()[0].html|safe}}
+                {% endif %}
               {% endif %}
             </td>
           </tr>

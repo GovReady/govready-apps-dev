@@ -114,7 +114,13 @@ output:
         </tr>
         <tr>
           <td class="field">link</td>
-          <td><a href="{{link.text}}">{{link.text}}</a></td>
+          <td>
+          {% if link %}
+            <a href="{{link.text}}">{{link.text}}</a>
+          {% else %}
+            none
+          {% endif %}
+          </td>
         </tr>
         <tr>
           <td colspan=2>
