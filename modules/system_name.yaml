@@ -16,11 +16,23 @@ introduction:
 questions:
   - id: system_name_is_project
     title: Use name as official name
-    type: interstitial
     prompt: |
       An SSP requires an official information system name.
 
-      Let's use  "*{{project}}*" as the preferred, official name of your system.
+      Is "*{{project}}*" the preferred, official name of your system?
+    type: yesno
+
+  - id: official_system_name
+    title: Official system name
+    prompt: |
+      You've indicated *{{project}}* is not the prefferred official name of the system.
+
+      What is the preferred official name of  *{{project}}*?
+    type: text
+    impute:
+    - condition: system_name_is_project == 'yes'
+      value: project
+      value-mode: expression
 
   - id: system_abbreviation_exists
     title: System Abbreviation Exists
@@ -83,7 +95,7 @@ output:
           <td></td>
           <td>
 
-      {{project}}
+      {{official_system_name}}
 
       </td>
       <td>
