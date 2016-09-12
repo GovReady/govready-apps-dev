@@ -16,12 +16,23 @@ questions:
     title: Benefit
     type: interstitial
     prompt: |
+
+      It's easier to secure and harden your system if you treat security as you would any other customer and gather user stories related to security needs.
+
+      Instead of rushing to bolt-on security features and make your system compliant just before launch, you'll be incorporating improved security with every sprint.
+
+      The work of security will also be distributed among your team instead of being the responsibility of a single individual.
+
+  - id: security_customer
+    title: Treating security as a customer
+    type: interstitial
+    prompt: |
       
-      Gather user-stories from your organization's security team just as you would any other customer or end user. Add those stories to your sprint backlog.
+      First, collect security-related user stories from your organization's security team.
 
-      Add one or two security-related users stories to each sprint to bake security and compliance into your system.
+      Second, add one or two security-related users stories to each sprint to bake security and compliance into your system as you build.
 
-      Remember to write automated tests for the security stories just like you would for any other feature. Not only will your automated test tell you when something breaks security, you'll also be putting continuous monitoring in place and make security reviews a breeze. 
+      Third, write automated tests for the security stories just like you would for any other feature. Not only will your automated test tell you when something breaks security, you'll also be putting continuous monitoring in place and make security reviews a breeze.
 
       Next, you'll see a couple examples of security-related user stories.
 
@@ -78,7 +89,7 @@ output:
     format: markdown
     template: |
       ## Adding Security Stories to Your Sprints
-      <!--{{benefit}} {{example_stories}} {{issuepacks}}-->
+      <!--{{benefit}} {{security_customer}} {{example_stories}} {{issuepacks}}-->
 
       This module explained how to add security-related user stories to your sprints.
 
