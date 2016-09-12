@@ -39,7 +39,7 @@ questions:
     type: text
     impute:
     - condition: system_abbreviation_exists == 'no'
-      value: not applicable
+      value: n/a
 
   - id : what_kind_of_application
     title: What Kind of Application
@@ -81,8 +81,16 @@ output:
       <tbody>
         <tr>
           <td></td>
-          <td>{{project}}</td>
-          <td>{{system_abbreviation}}</td>
+          <td>
+
+      {{project}}
+
+      </td>
+      <td>
+
+      {{system_abbreviation}}
+
+      </td>
         </tr>
         </tbody>
       </table>
