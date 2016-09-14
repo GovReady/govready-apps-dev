@@ -39,8 +39,16 @@ output:
       <tbody>
         <tr>
           <td></td>
-          <td>{{project}}</td>
-          <td>{{project.system_name.system_abbreviation}}</td>
+          <td>
+
+    {{project.system_name.official_system_name}}
+
+    </td>
+          <td>
+
+    {{project.system_name.system_abbreviation}}
+
+    </td>
         </tr>
       </tbody>
     </table>
