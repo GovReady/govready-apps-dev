@@ -4,7 +4,7 @@ introduction:
   format: html
   template: |
     <p>In this section, we'll guide you through setting up secure communications for your web application 
-    in accorance with official {{organization}} policies and procedures.</p>
+    in accordance with official {{organization}} policies and procedures.</p>
 
     <p>Completing this section will document the controls you have in place to prevent network-based attacks.</p>
 
