@@ -24,7 +24,9 @@ Questions fall into three categories:
 
   * Since you are hosting in your agency's an internal data center, your communications boundary protection is normally provided your enterprise IT organization. You said you are not using those services but your organiation policy says that you should have boundary protections. . . . Do you have boundary protections / an alternative solution / would you like to request a waiver?
 
+### Managing image assets
 
+Place all image and other file assets associated with module in the `modules/assets` directory
 
 ## Deployment
 
