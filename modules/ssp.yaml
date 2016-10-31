@@ -7,7 +7,7 @@ questions:
   title: dummy
   type: raw
   impute:
-    - condition: true
+    - condition: "true"
       value: ~
 
 output:
