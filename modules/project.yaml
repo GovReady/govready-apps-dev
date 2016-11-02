@@ -2,9 +2,11 @@ id: project
 title: Develop System Security Plan (SSP) for FISMA
 type: project
 version: 1
+
 snippet:
   format: html
   template: ""
+
 introduction:
   format: markdown
   template: |
@@ -15,6 +17,8 @@ introduction:
     As you and your team answer questions, you will be guided step-by-step on how to secure the {{project}} system according to {{organization}} policy. Your answers will be automatically incorporated into your SSP.
 
     At any time you can preview your SSP, share it or export the data for import into other systems.
+
+export_button_label: Export System Description and Control Information
 
 questions:
 - id: howto_ssp
