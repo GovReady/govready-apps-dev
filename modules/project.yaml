@@ -108,3 +108,101 @@ questions:
   tab: 2. Basic Info
   group: Supporting documents
 
+output:
+- title: Dashboard
+  glyphicon: dashboard
+  format: html
+  template: |
+      <link href="https://plugin.govready.com/app.dist.css" rel="stylesheet">
+
+      <div class="container text-center" id="auth0-widget" style="display: none;max-width:700px;margin: 0 auto;">
+          <p>To get started, create a new GovReady account (or login with your
+          existing account) and we'll connect your site to our monitoring
+          API.</p><!-- WIDGET -->
+          <div class="widget-container" id="widget-container" style="margin: 1em auto;width:300px;"></div>
+          <p>By creating and connecting to an account, you are opting in to the
+          GovReady Terms of Service (@todo: link to Terms of Service). GovReady
+          will contact your site periodically to collect information about your
+          WordPress plugins, users and server information. 
+          <a href="https://github.com/GovReady/GovReady-CMS-API/wiki/Security" target="_blank">Learn more</a>.</p>
+      </div>
+      <div id="root" style="height: 100%"></div>
+      <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+      <script>
+        // Creates a new cookie
+        function setCookie(cname, cvalue, exmins) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exmins*60*1000));
+          var expires = "expires="+ d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        // Gets the value of a cookie
+        function getCookie(cname) {
+          var name = cname + "=";
+          var ca = document.cookie.split(';');
+          for(var i = 0; i <ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0)==' ') {
+                  c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {
+                  return c.substring(name.length,c.length);
+              }
+          }
+          return "";
+        }
+
+        // After you login, we reload the page, so we want to set the active tab as Dashboard.
+        if (getCookie('dashboardLoginRedirect')) {
+          setTimeout(function(){ 
+            $('#project-tabs li a[href="#document-1"]').click(); 
+          }, 1000);
+          
+          setCookie('dashboardLoginRedirect', false, 0);
+        }
+
+        // Add the settings
+        window.govready = {
+          mode: 'agent', // Embedded in GovReady Q, is only Manual Measures, etc
+          //mode: 'agent' : Embeded in GovReady Q, but has a agent (WP/Drupal)
+          connectUrl: 'https://plugin.govready.com/v1.0', // If this is set, then we need to talk to the GovReady API directly.
+          domain: 'govready.auth0.com',
+          client_id: 'HbYZO5QXKfgNshjKlhZGizskiaJH9kGH',
+          access_token: getCookie('govreadyDashboardToken')
+        };
+
+        // Show the Auth0 Authenicate box if necessary
+        if (!window.govready.access_token) {
+          //jQuery('#auth0-widget').show();
+          document.getElementById("auth0-widget").style.display = 'block';
+          document.getElementById("root").style.display = 'none';
+
+          var lock = new Auth0Lock(window.govready.client_id, window.govready.domain);
+
+          // Show the Auth0 signin modal, and deal with the response
+          lock.show({
+            icon: 'https://avatars1.githubusercontent.com/u/6815262?v=3&s=200',
+            container: 'widget-container',
+            focusInput: false,
+            popup: false,
+            authParams: {
+              scope: 'openid'
+            },
+            device: 'govready-q'
+          }, function (err, profile, token) {
+            if (err) {
+              return;
+            }
+
+            setCookie('govreadyDashboardToken', token, 60);
+            setCookie('dashboardLoginRedirect', true, 60);
+
+            location.reload();
+          });
+
+        }
+      </script>
+      <script src="https://plugin.govready.com/vendor.dist.js" type="text/javascript"></script>
+      <script src="https://plugin.govready.com/app.dist.js" type="text/javascript"></script>
+
