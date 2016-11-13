@@ -121,7 +121,7 @@ output:
           API.</p><!-- WIDGET -->
           <div class="widget-container" id="widget-container" style="margin: 1em auto;width:300px;"></div>
           <p>By creating and connecting to an account, you are opting in to the
-          GovReady Terms of Service (@todo: link to Terms of Service). GovReady
+          GovReady Terms of Service. GovReady
           will contact your site periodically to collect information about your
           WordPress plugins, users and server information. 
           <a href="https://github.com/GovReady/GovReady-CMS-API/wiki/Security" target="_blank">Learn more</a>.</p>
@@ -153,6 +153,14 @@ output:
           return "";
         }
 
+        // Deletes a cookie
+        function deleteCookie(cname) {
+          var cvalue = getCookie( cname );
+          if( cvalue ) {
+            document.cookie = cname + "=" + cvalue + ";expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/";
+          }
+        }
+
         // After you login, we reload the page, so we want to set the active tab as Dashboard.
         if (getCookie('dashboardLoginRedirect')) {
           setTimeout(function(){ 
@@ -164,7 +172,7 @@ output:
 
         // Add the settings
         window.govready = {
-          mode: 'agent', // Embedded in GovReady Q, is only Manual Measures, etc
+          mode: 'standalone', // Embedded in GovReady Q, is only Manual Measures, etc
           //mode: 'agent' : Embeded in GovReady Q, but has a agent (WP/Drupal)
           connectUrl: 'https://plugin.govready.com/v1.0', // If this is set, then we need to talk to the GovReady API directly.
           domain: 'govready.auth0.com',
