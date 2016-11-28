@@ -5,9 +5,10 @@ questions:
 
 - id: dummy
   title: dummy
+  prompt: dummy
   type: raw
   impute:
-    - condition: true
+    - condition: "true"
       value: ~
 
 output:

@@ -15,8 +15,9 @@ questions:
   - id: dummy
     title: dummy
     type: raw
+    prompt: dummy
     impute:
-      - condition: true
+      - condition: "true"
         value: ~
 
 output:
