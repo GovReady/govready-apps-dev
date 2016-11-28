@@ -78,9 +78,10 @@ questions:
     title: Using Enterprise DMZ (No)
     type: interstitial
     prompt: |
-      You know, hey, it's organization policy to have boundary protections. You said you are not using your enterprise services.
-
-      Let's talk about why not.
+      You know, hey, it's organization policy to have boundary protections. You said you are not using your enterprise services. Let's talk about why not.
+    impute:
+      - condition: not(using_enterprise_dmz == "no")
+        value: ~
 
   - id: have_other_dmz
     title: Do You Have Another DMZ?
