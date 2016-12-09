@@ -1,0 +1,121 @@
+id: sample_data_call_1
+title: Sample Data Call 1
+instance-name: "{{system.text}}"
+invitation-message: "Please complete this data call for {{system.text}}. Thanks!"
+
+introduction:
+  format: markdown
+  template: |
+    This is a data call module. The data call asks about use of unauthorized software in DoD systems.
+
+questions:
+  - id: system
+    title: System
+    prompt: Which system is replying to this data call?
+    type: text
+    help: e.g., "USA.gov website", "RCPN"
+
+  - id: software
+    title: Software
+    prompt: List the unauthorized software that needs to be replaced in {{system.text}}.
+    type: longtext
+    help: e.g., Apache Tomcat Version 2.3
+
+  - id: start
+    title: Are you able to answer this data call?
+    prompt: |
+      This is a data call gathering information about use of unauthorized software in DoD systems.
+
+      Responding to this data call requires knowledge of the system architecture of {{system.text}}
+      and ability to put together a plan to replace software used in systems that have not
+      been approved for use by the DoD.
+
+      Are you the right person to answer this data call?
+    type: yesno
+    help: If the answer is no, you can invite someone else to take over this question by using the Help link below.
+
+  - id: about
+    title: About the Data Call
+    prompt: |
+      On December 1, 2015 DoD issued a Task Order XX-YY regarding the removal of all unauthorized
+      software from DoD systems by July 1, 2017.
+
+      DSCA Cybersecurity has looked at {{system.text}}'s System Security Plan and determined that
+      it is using unauthorized software. We are asking you to communicate a plan for the replacement
+      of the unauthorized software by July 1, 2017.
+    type: interstitial
+
+  - id: question
+    title: Question
+    prompt: |
+      According to {{system.text}}'s System Security Plan, {{system.text}} uses the following
+      unauthorized software:
+
+          {{software.text}}
+      
+      Are you still using any of this software?
+    type: yesno
+    impute:
+      - condition: start != "yes"
+        value: ~
+
+  - id: has_hardship
+    title: Is There A Hardship?
+    prompt: |
+      Does any of the unauthorized software represent a hardship to replace?
+    type: yesno
+    impute:
+      - condition: question != "yes"
+        value: ~
+
+  - id: hardship_software
+    title: Hardship Software
+    prompt: |
+      What unauthorized software would be a hardship to replace, and why?
+    type: longtext
+    impute:
+      - condition: has_hardship != "yes"
+        value: ~
+
+  - id: replacement_date
+    title: Replacement Date
+    prompt: |
+      DoD Memo XX-YY requires all unauthorized software to be replaced with DoD authorized software
+      by July 1, 2017.
+
+      By what date do you think you can have all of your unauthorized software replaced?
+    type: date
+    impute:
+      - condition: question != "yes"
+        value: ~
+
+  - id: plan
+    title: Plan
+    prompt: |
+      Please describe your plan for replacing the unauthorized software.
+
+      Click [here](http://www.google.com) to review a sample software update plan.
+    type: longtext
+    impute:
+      - condition: question != "yes"
+        value: ~
+
+output:
+  - title: Answers
+    format: markdown
+    template: |
+      System: {{system.text}}
+
+      Software:
+
+          {{software.text}}
+
+      Answer: {{question.text}}
+
+      Hardship Software:
+
+          {{hardship_software.text}}
+
+      Replacement Date: {{replacement_date.text}}
+
+      Plan: {{plan.text}}
