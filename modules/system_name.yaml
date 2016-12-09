@@ -5,9 +5,9 @@ introduction:
   template: |
     ## Naming your system
 
-    Information systems benefit from having an official name, acronym/abbreviation and description. Standardized references make the system easier to track in documents and databases.
+    Information systems benefit from having an official name and nickname. Standardized references make the system easier to track in documents and databases.
 
-    An official system name, acronym/abbreviation and description will be needed for your SSP.
+    An official system name will be needed for your SSP.
 
     Your organization may also require you to register your system and refer to it by an unique identifier.
 
@@ -37,45 +37,28 @@ questions:
   - id: system_abbreviation_exists
     title: System Abbreviation Exists
     prompt: |
-      It's common for organizations to use a shorter name or acronym to refer to an information styem.
+      It's common for organizations to use a nickname or acronym to refer to an information styem.
 
-      Does *{{project}}* system have an abbreviation or acronym?
+      Does *{{project}}* system have a nickname or acronym?
     type: yesno
 
   - id: system_abbreviation
     title: System Abbreviation
     prompt: |
-      You've indicated a short name or acronym exists for {{project}} system.
+      You've indicated a nickname exists for {{project}}.
 
-      What is the preferred abbreviation or acronym?
+      What is the preferred nickname or acronym?
     type: text
     impute:
     - condition: system_abbreviation_exists == 'no'
       value: n/a
-
-  - id : what_kind_of_application
-    title: What Kind of Application
-    prompt: What kind of application is it?
-    type: choice
-    choices:
-    - key: web
-      text: Web Site
-    - key: desktop
-      text: Desktop Software
-    - key: server
-      text: Server Software
-    - key: saas
-      text: Software as a Service
-    impute:
-    - condition: what_kind_of_system != 'application'
-      value: ~
 
 
 output:
   - title: Your Answers
     format: markdown
     template: |
-      Congratulations! You've completed some essential information for the first part of your SSP. Section 1 your SSP will look like this:
+      Congratulations! You've named your system.  Section 1 your System Security Plan will look like this:
 
       # 1 Information System Name/Title
 

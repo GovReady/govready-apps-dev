@@ -8,7 +8,7 @@ snippet:
 introduction:
   format: markdown
   template: |
-    ## SSP 101: Preparing a System Security Plan
+    ## Preparing a System Security Plan
 
     This project will guide you through preparing a System Security Plan (SSP) under the NIST Risk Management Framework to get the {{project}} its Authority to Operate.
 
