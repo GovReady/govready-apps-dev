@@ -112,6 +112,13 @@ questions:
   tab: 2. Basic Info
   group: Supporting documents
 
+- id: issuepack
+  title: Create a Jira IssuePack
+  type: module-set
+  module-id: issuepack
+  tab: 3. IssuePacks
+  group: IssuePacks
+
 output:
 - title: Dashboard
   glyphicon: dashboard

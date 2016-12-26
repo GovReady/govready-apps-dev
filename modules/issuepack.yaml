@@ -1,0 +1,41 @@
+id: issuepack
+title: Issue Pack
+introduction:
+  format: markdown
+  template: |
+    This module will deploy an IssuePack in your Jira account.
+questions:
+  - id: jira_username
+    title: Jira Username
+    prompt: What is your Jira username?
+    type: text
+    placeholder: username
+
+  - id: jira_password
+    title: Jira Password
+    prompt: What is your Jira password?
+    type: password
+
+  - id: jira_project_key
+    title: Jira Project Key
+    prompt: What is your Jira Project Key (prefixes all issues in project)?
+    type: text
+
+  - id: jira_project_base_uri
+    title: Jira Project Base URI
+    prompt: What is your Jira Project's base URI?
+    type: url
+    placeholder: https://jira.govready.com
+
+  - id: create_issue_pack
+    title: Create IssuePack
+    prompt: Click Submit to create the IssuePack.
+    type: external-function
+    function: create_issue_pack 
+
+output:
+  - format: markdown
+    template: |
+      {{create_issue_pack.log}}
+
+
