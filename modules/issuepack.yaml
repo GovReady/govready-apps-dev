@@ -1,5 +1,6 @@
 id: issuepack
 title: Issue Pack
+instance-name: Issue Pack for {{jira_project_base_uri}}#{{jira_project_key}}
 introduction:
   format: markdown
   template: |
