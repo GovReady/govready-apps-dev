@@ -33,10 +33,13 @@ def create_issue_pack(q, answers):
         # and then we have new vulnerabilities.
         import subprocess
         output = subprocess.check_output([
-            "/bin/echo",
-            "-n", # showing an argument
-            answers['jira_project_base_uri'],
-            answers['jira_project_key'],
+            'issue-pack',
+            '-t=jira',
+            '-u=' + answers['jira_username'],
+            '-p=' + answers['jira_password'],
+            '-k=' + answers['jira_project_key'],
+            '-b=' + answers['jira_project_base_uri'],
+            '/codedata/code/Issue-Packs/examples/au_80053_audit_set1.yaml',
         ]).decode("utf8")
         status = "success"
     except Exception as e:
