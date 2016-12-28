@@ -1,4 +1,8 @@
 def create_issue_pack(q, answers):
+    for field in ('jira_username', 'jira_password', 'jira_project_key', 'jira_project_base_uri'):
+        if answers[field] is None:
+            raise ValueError("One of the preceding questions was skipped or your Jira password needs to be re-entered.")
+
     # Pull out the project info that we'll save in the database
     # (not user credentials). If the user re-submits this question,
     # and if the project info has changed, then we'll forget the
