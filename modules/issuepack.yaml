@@ -16,6 +16,7 @@ questions:
     title: Jira Password
     prompt: What is your Jira password?
     type: password
+    encrypt: emphemeral-user-key
 
   - id: jira_project_key
     title: Jira Project Key
