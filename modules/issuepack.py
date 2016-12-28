@@ -35,7 +35,7 @@ def create_issue_pack(q, answers):
     try:
         # TODO: Replace this. Using a subprocess is easy to get wrong
         # and then we have new vulnerabilities.
-        import subprocess
+        import subprocess, os.path
         output = subprocess.check_output([
             'issue-pack',
             '-t=jira',
@@ -43,7 +43,7 @@ def create_issue_pack(q, answers):
             '-p=' + answers['jira_password'],
             '-k=' + answers['jira_project_key'],
             '-b=' + answers['jira_project_base_uri'],
-            '/codedata/code/Issue-Packs/examples/au_80053_audit_set1.yaml',
+            os.path.join(os.path.dirname(__file__), 'au_80053_audit_set1.yaml'),
         ]).decode("utf8")
         status = "success"
     except Exception as e:
