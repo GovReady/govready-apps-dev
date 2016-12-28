@@ -31,7 +31,7 @@ issues:
       - security
       - compliance
 
-  - title: As the CIO, I need the system to alert my team of an audit failure so that we may take necessary actions to avoid further data loss/corruption.
+  - title: As the CIO, I need my team alerted whenever the information system's logging subsystem fails so steps can be taken to avoid further loss of audit data.
     body: |
 
       *Why*
@@ -62,11 +62,12 @@ issues:
       - security
       - compliance
 
-  - title: As the CISO, I want to tag logged transactions with a UTC or GMT timestamp.
+  - title: As the CISO, I want transactions in logs to clearly use a UTC timestamps so data can be synchronized with less processing.
 
     body: |
       *Why*
       Reports need to be timestamped with an universally understood format to assist in analysis of events and system/data recovery.
+      When different logs use different timezones and/or non-standard formats, it is harder to collate and compare events across different logs.
 
 
       *How*
@@ -89,12 +90,12 @@ issues:
       - security
       - compliance
 
-  - title: As the CIO [OIG], I want to retain log file long enough to meet regulations and to investigate security incidents that happened weeks or months ago.
+  - title: As the CISO, I want to retain log files long enough to investigate security incidents that happened weeks or months ago.
 
     body: |
 
       *Why*
-      We may not learn of a penetration or security incident when it happens.
+      We may not learn of a penetration or security incident when it happens. Also, there may be regulatory requirements for retaining audit records.
 
 
       *How*
