@@ -24,6 +24,8 @@ Questions fall into three categories:
 
   * Since you are hosting in your agency's an internal data center, your communications boundary protection is normally provided your enterprise IT organization. You said you are not using those services but your organiation policy says that you should have boundary protections. . . . Do you have boundary protections / an alternative solution / would you like to request a waiver?
 
+Thought on "training": Training is something a dog does. It's about rote/muscle memory. When we talk about training and rote activity, we should guard against insulting users who have been _hired to think creatively_ by always talking at the same time about how the training is _for_ and _in the service of_ a higher-level actitivty that does involve creative thinking.
+
 ### Managing image assets
 
 Place all image and other file assets associated with module in the `modules/assets` directory
