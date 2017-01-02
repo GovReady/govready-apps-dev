@@ -115,7 +115,7 @@ questions:
   title: Create a Jira IssuePack
   type: module-set
   module-id: issuepack
-  tab: 3. IssuePacks
+  tab: 5. IssuePacks
   group: IssuePacks
 
 output:
