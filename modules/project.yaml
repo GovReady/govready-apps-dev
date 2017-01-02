@@ -74,8 +74,7 @@ questions:
   title: Preview draft SSP
   type: module
   module-id: ssp
-  tab: Preview SSP
-  group: Draft 
+  placement: action-buttons
 
 - id: howto_security_categorization
   title: FIPS 199 and categorizing your system security sensitivity
