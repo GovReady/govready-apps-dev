@@ -4,7 +4,11 @@ instance-name: Issue Pack for {{jira_project_base_uri}}#{{jira_project_key}}
 introduction:
   format: markdown
   template: |
-    This module will deploy an IssuePack in your Jira account.
+    The best way to secure your system is during development.
+
+    {{organization}} has prepared a set of security-related user stories for {{project}}'s product feature backlog.
+
+    Complete the following steps to automatically add these user stories to Jira.
 questions:
   - id: jira_username
     title: Jira Username
