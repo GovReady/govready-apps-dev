@@ -37,7 +37,12 @@ questions:
     title: Create IssuePack
     prompt: Click Submit to create the IssuePack.
     type: external-function
-    function: create_issue_pack 
+    function: create_issue_pack
+    ask-first:
+      - jira_username
+      - jira_password
+      - jira_project_key
+      - jira_project_base_uri
 
 output:
   - format: markdown
