@@ -35,7 +35,7 @@ questions:
 
   - id: create_issue_pack
     title: Create IssuePack
-    prompt: Click Submit to create the IssuePack.
+    prompt: Click Go to create the IssuePack.
     type: external-function
     function: create_issue_pack
     ask-first:
