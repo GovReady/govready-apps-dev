@@ -1,3 +1,10 @@
+def match_jira_url(url):
+    import re
+    m = re.match(r"(?P<baseurl>https://.+.atlassian.net)/projects/(?P<key>[^/]+)", url)
+    if not m:
+        return None
+    return m.groupdict()
+
 def create_issue_pack(q, answers):
     for field in ('jira_username', 'jira_password', 'jira_project_key', 'jira_project_base_uri'):
         if answers[field] is None:

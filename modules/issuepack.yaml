@@ -1,6 +1,6 @@
 id: issuepack
-title: Issue Pack
-instance-name: Issue Pack for {{jira_project_base_uri}}#{{jira_project_key}}
+title: User Stories
+instance-name: User Stories for {{jira_project_base_uri}}#{{jira_project_key}}
 introduction:
   format: markdown
   template: |
@@ -8,30 +8,54 @@ introduction:
 
     {{organization}} has prepared a set of security-related user stories for {{project}}'s product feature backlog.
 
+    {% if match_jira_url(project.system_basics.issue_tracker) %}
+    We already know your Jinja project is at {{match_jira_url(project.system_basics.issue_tracker).baseurl}}.
+    {% endif %}
+
     Complete the following steps to automatically add these user stories to Jira.
+
+external-functions:
+  # This function is defined in issuepack.py.
+  - match_jira_url
+
 questions:
-  - id: jira_username
-    title: Jira Username
-    prompt: What is your Jira username?
-    type: text
-    placeholder: username
-
-  - id: jira_password
-    title: Jira Password
-    prompt: What is your Jira password?
-    type: password
-    encrypt: emphemeral-user-key
-
-  - id: jira_project_key
-    title: Jira Project Key
-    prompt: What is your Jira Project Key (prefixes all issues in project)?
-    type: text
-
   - id: jira_project_base_uri
     title: Jira Project Base URI
     prompt: What is your Jira Project's base URI?
     type: url
     placeholder: https://jira.govready.com
+    impute:
+      - condition: match_jira_url(project.system_basics.issue_tracker) is not none
+        value: match_jira_url(project.system_basics.issue_tracker).baseurl
+        value-mode: expression
+
+  - id: jira_project_key
+    title: Jira Project Key
+    prompt: What is your Jira Project Key (prefixes all issues in project)?
+    type: text
+    impute:
+      - condition: match_jira_url(project.system_basics.issue_tracker) is not none
+        value: match_jira_url(project.system_basics.issue_tracker).key
+        value-mode: expression
+
+  - id: jira_username
+    title: Jira Username
+    prompt: What is your Jira username at {{jira_project_base_uri}}?
+    type: text
+    placeholder: username
+    ask-first:
+      - jira_project_base_uri
+      - jira_project_key
+
+  - id: jira_password
+    title: Jira Password
+    prompt: What is your Jira password for {{jira_username}} at {{jira_project_base_uri}}?
+    type: password
+    encrypt: emphemeral-user-key
+    ask-first:
+      - jira_project_base_uri
+      - jira_project_key
+      - jira_username
 
   - id: create_issue_pack
     title: Create IssuePack
@@ -39,13 +63,23 @@ questions:
     type: external-function
     function: create_issue_pack
     ask-first:
+      - jira_project_base_uri
+      - jira_project_key
       - jira_username
       - jira_password
-      - jira_project_key
-      - jira_project_base_uri
 
 output:
-  - format: markdown
+  - title: User Stories
+    format: markdown
+    template: |
+      {% if create_issue_pack.status == "success" %}
+        Congratulations, you've created user stories in Jira.
+      {% else %}
+        There was a problem creating the user stories. See the details for more information.
+      {% endif %}
+
+  - title: Details
+    format: markdown
     template: |
       {{create_issue_pack.log}}
 

@@ -1,9 +1,9 @@
-id: system_name
-title: Information name
+id: system_name_and_details
+title: System Name and Details
 introduction:
   format: markdown
   template: |
-    ## Naming your system
+    ### Naming your system
 
     Information systems benefit from having an official name and nickname. Standardized references make the system easier to track in documents and databases.
 
@@ -12,6 +12,10 @@ introduction:
     Your organization may also require you to register your system and refer to it by an unique identifier.
 
     Let's document the names of the *{{project}}* system.
+
+    ### Project management
+
+    Lorem ipsum.
 
 questions:
   - id: system_name_is_project
@@ -53,13 +57,75 @@ questions:
     - condition: system_abbreviation_exists == 'no'
       value: n/a
 
+  - id: what_kind_of_system
+    title: What Kind of System
+    prompt: What kind of information technology system is this?
+    type: choice
+    choices:
+    - key: application
+      text: Application
+      help: Any type of end-user facing software application including websites
+    - key: service
+      text: General Service
+      help: Any type network or infrastructure component (e.g., storage system)
+
+  - id: what_kind_of_application
+    title: What Kind of Application
+    prompt: What kind of application is it?
+    type: choice
+    choices:
+    - key: desktop
+      text: Desktop Software
+    - key: mobile
+      text: Mobile Application
+    - key: web
+      text: Web Site
+    - key: server
+      text: Server Software
+    impute:
+    - condition: what_kind_of_system != 'application'
+      value: ~
+
+  - id: code_repo
+    title: Code Repository Address
+    prompt: Where is the source code repository for this information system?
+    type: url
+    help: "Example: https://github.com/GovReady/compliancelib-python"
+
+  - id: issue_tracker
+    title: Issue Tracker Address
+    prompt: Where are you tracking software and security development issues? Enter the address of your issue tracker.
+    type: url
+    help: "Example: https://myco.atlassian.net/projects/project1"
+
+  - id: launch_date
+    title: Launch Date
+    prompt: When do you expect to launch {{official_system_name}}, or if the system is already launched, what was its launch date?
+    type: date
 
 output:
   - title: Your Answers
     format: markdown
     template: |
-      Congratulations! You've named your system.  Section 1 your System Security Plan will look like this:
+      Congratulations! You've named your system:
 
+      System Name: {{official_system_name.text}}
+
+      System Abbreviation: {{system_abbreviation.text}}
+
+      System Type: {{what_kind_of_system.text}}
+
+      Application Type: {{what_kind_of_application.text}}
+
+      Code Repository: {% if not code_repo %}{{code_repo.text}}{% else %}[{{code_repo}}]({{code_repo}}){% endif %}
+
+      Issue Tracker: {% if not issue_tracker %}{{issue_tracker.text}}{% else %}[{{issue_tracker}}]({{issue_tracker}}){% endif %}
+
+      Launch Date: {{launch_date.text}}
+
+  - title: System Security Plan Preview
+    format: markdown
+    template: |
       # 1 Information System Name/Title
 
       This System Security Plan provides an overview of the security requirements for the {{project}} system and describes the controls in place or planned for implementation to provide a level of security appropriate for the information to be transmitted, processed or stored by the system. Information security is an asset vital to our critical infrastructure and its effective performance and protection is a key component of our national security program. Proper management of information technology systems is essential to ensure the confidentiality, integrity and availability of the data transmitted, processed or stored by the information system.
