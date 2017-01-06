@@ -150,53 +150,13 @@ output:
 
     ### 8.1.1 AU-1 Audit And Accountability Policy And Procedures
 
-    {% if project.control_au_1.is_finished() %}
-    <div>{{project.control_au_1.rendered_outputs()[0].html|safe}}</div>
-    {% elif project.control_au_1 %}
-    *Finish the [Audit And Accountability Policy And Procedures]({{project.control_au_1.task_link}}) module to complete this section.*
-    {% else %}
-    *Start the [Audit And Accountability Policy And Procedures]({{project.control_au_1.edit_link}}) module to complete this section.*
-    {% endif %}
-
     ### 8.1.2 AU-2 Audit Events 
-
-    {% if project.control_au_multi.is_finished() %}
-    <div>{{project.control_au_multi.rendered_outputs()[0].html|safe}}</div>
-    {% elif project.control_au_multi %}
-    *Finish the [Audit Details]({{project.control_au_multi.task_link}}) module to complete this section.*
-    {% else %}
-    *Start the [Audit Details]({{project.control_au_multi.edit_link}}) module to complete this section.*
-    {% endif %}
 
     ### 8.1.3 AU-3 Audit Content 
 
-    {% if project.control_au_multi.is_finished() %}
-    <div>{{project.control_au_multi.rendered_outputs()[0].html|safe}}</div>
-    {% elif project.control_au_multi %}
-    *Finish the [Audit Details]({{project.control_au_multi.task_link}}) module to complete this section.*
-    {% else %}
-    *Start the [Audit Details]({{project.control_au_multi.edit_link}}) module to complete this section.*
-    {% endif %}
-
     ### 8.1.4 AU-4 Audit Storage Capacity 
 
-    {% if project.control_au_multi.is_finished() %}
-    <div>{{project.control_au_multi.rendered_outputs()[0].html|safe}}</div>
-    {% elif project.control_au_multi %}
-    *Finish the [Audit Details]({{project.control_au_multi.task_link}}) module to complete this section.*
-    {% else %}
-    *Start the [Audit Details]({{project.control_au_multi.edit_link}}) module to complete this section.*
-    {% endif %}
-
     ### 8.1.5 AU-5 Response to Audit Processing Failures 
-
-    {% if project.control_au_multi.is_finished() %}
-    <div>{{project.control_au_multi.rendered_outputs()[0].html|safe}}</div>
-    {% elif project.control_au_multi %}
-    *Finish the [Audit Details]({{project.control_au_multi.task_link}}) module to complete this section.*
-    {% else %}
-    *Start the [Audit Details]({{project.control_au_multi.edit_link}}) module to complete this section.*
-    {% endif %}
 
     ## 8.2 CM - Configuration Management 
 
