@@ -91,7 +91,7 @@ output:
     template: |
       <div style="text-align:center;">
 
-      ## Sytem Profile
+      ## System Profile
 
       ![](icon_system_capital.png)
 
