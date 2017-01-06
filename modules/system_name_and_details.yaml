@@ -31,7 +31,7 @@ questions:
       value-mode: expression
 
   - id: system_abbreviation_exists
-    title: System Abbreviation Exists
+    title: System abbreviation exists
     prompt: |
       It's common for organizations to use a nickname or acronym to refer to an information styem.
 
@@ -39,7 +39,7 @@ questions:
     type: yesno
 
   - id: system_abbreviation
-    title: System Abbreviation
+    title: System abbreviation
     prompt: |
       You've indicated a nickname exists for {{project}}.
 
@@ -97,7 +97,7 @@ questions:
     help: "Example: https://myco.atlassian.net/projects/project1"
 
   - id: launch_date
-    title: Launch Date
+    title: Launch date
     prompt: |
       When do you expect to launch *{{official_system_name}}* to users?
 

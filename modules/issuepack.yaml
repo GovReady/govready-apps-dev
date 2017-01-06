@@ -23,7 +23,8 @@ questions:
     title: Jira Project Base URI
     prompt: What is your Jira Project's base URI?
     type: url
-    placeholder: https://jira.govready.com
+    placeholder: https://myco.atlassian.net
+    help: "Example: https://myco.atlassian.net"
     impute:
       - condition: match_jira_url(project.system_basics.issue_tracker) is not none
         value: match_jira_url(project.system_basics.issue_tracker).baseurl
@@ -71,7 +72,7 @@ output:
     format: markdown
     template: |
       {% if not create_issue_pack %}
-        The issues have not yet been created
+        The issues have not yet been created.
       {% elif create_issue_pack.status == "success" %}
         Congratulations, you've created user stories in Jira.
       {% else %}
