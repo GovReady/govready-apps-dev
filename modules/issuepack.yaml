@@ -31,7 +31,7 @@ questions:
 
   - id: jira_project_key
     title: Jira Project Key
-    prompt: What is your Jira Project Key (prefixes all issues in project)?
+    prompt: What is your Jira Project Key at {{jira_project_base_uri}} (it prefixes all issues in project)?
     type: text
     impute:
       - condition: match_jira_url(project.system_basics.issue_tracker) is not none
@@ -44,7 +44,6 @@ questions:
     type: text
     placeholder: username
     ask-first:
-      - jira_project_base_uri
       - jira_project_key
 
   - id: jira_password
@@ -53,15 +52,14 @@ questions:
     type: password
     encrypt: emphemeral-user-key
     ask-first:
-      - jira_project_base_uri
       - jira_project_key
-      - jira_username
 
   - id: create_issue_pack
     title: Create IssuePack
     prompt: Click Go to create the IssuePack.
     type: external-function
     function: create_issue_pack
+    required: true # don't consider the module finished until this is run
     ask-first:
       - jira_project_base_uri
       - jira_project_key
