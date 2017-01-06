@@ -86,14 +86,41 @@ questions:
   placement: action-buttons
 
 output:
-  - tab: System Info
+  - tab: System Profile
     format: markdown
     template: |
-      ![](add_sec_stories_gif.gif)
+      ## Sytem Profile
 
-  - tab: User Stories
+      ![](icon_system_capital.svg)
+
+      Create a basic system profile
+
+      * Official system name
+      * Code repo issue tracker
+      * Re-usable descriptions
+      * Risk profile
+
+  - tab: Agile Security Stories
     format: markdown
     template: |
-      ![](add_sec_stories_gif.gif)
+      ## Add security stories to your backlog
 
-      ## Let's add security stories to your backlog
+      ![](govready_security_stories_small.png)
+
+      ### Make your system more secure with every sprint
+
+      * Security is just another customer
+      * Developer-friendly language user stories
+
+  - tab: System Security Controls
+    format: markdown
+    template: |
+      ## Prepare your system security controls
+
+      ![](icon_fisma_compliance.svg)
+
+      Don't panic. We can do this together.
+
+      * Learn-as-you go explanations
+      * Questions pre-tailored to your system
+      * Discuss answers with team
