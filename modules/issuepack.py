@@ -1,8 +1,16 @@
 def match_jira_url(url):
+    # Was a URL entered in the system name & details module?
+    if url is None:
+        return None
+
+    # Does the URL look like Jira?
     import re
     m = re.match(r"(?P<baseurl>https://.+.atlassian.net)/projects/(?P<key>[^/]+)", url)
     if not m:
         return None
+
+    # Return the URL components as a dict like
+    # { "baseurl": "http://....atlassian.net", "key": "myproject" }
     return m.groupdict()
 
 def create_issue_pack(q, answers):

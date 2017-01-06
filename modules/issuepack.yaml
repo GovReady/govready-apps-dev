@@ -72,7 +72,9 @@ output:
   - title: User Stories
     format: markdown
     template: |
-      {% if create_issue_pack.status == "success" %}
+      {% if not create_issue_pack %}
+        The issues have not yet been created
+      {% elif create_issue_pack.status == "success" %}
         Congratulations, you've created user stories in Jira.
       {% else %}
         There was a problem creating the user stories. See the details for more information.
@@ -81,6 +83,8 @@ output:
   - title: Details
     format: markdown
     template: |
+      {% if create_issue_pack %}
       {{create_issue_pack.log}}
+      {% endif %}
 
 
