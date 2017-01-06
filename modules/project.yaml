@@ -10,13 +10,15 @@ snippet:
 interstitial:
   format: markdown
   template: |
-    ## Preparing a System Security Plan
+    ## Prepare a System Security Plan
 
-    You are about to be guided through preparing a System Security Plan (SSP) under the NIST Risk Management Framework to get the {{project}} its Authority to Operate.
+    Been told you need an ATO (Authority to Operate)?
 
-    As you and your team answer questions, you will be guided step-by-step on how to secure the {{project}} system according to {{organization}} policy. Your answers will be automatically incorporated into your SSP.
+    No sweat! We'll help your team...
 
-    At any time you can preview your SSP, share it or export the data for import into other systems.
+    - Describe the *{{project}}* system and assess your risk impact level
+    - Secure *{{project}}* to official {{organization}} policies
+    - Prepare various assessment package artifacts
 
     Are you ready?
 
@@ -29,32 +31,53 @@ export_button_label: Export System Description and Control Information
 
 questions:
 - id: system_basics
-  title: System name and details
+  title: Document official system name and details
   type: module
   module-id: system_name_and_details
-  tab: System Info
-  group: System Basics
+  tab: System Profile
+  group: System Description
+
+- id: coming_soon_1
+  title: Prepare re-usable system descriptions
+  type: module
+  module-id: coming_soon
+  tab: System Profile
+  group: System Description
+
+- id: coming_soon_2
+  title: Identify Points of Contact
+  type: module
+  module-id: coming_soon
+  tab: System Profile
+  group: System Description
+
+- id: issuepack
+  title: Add security stories to your issue tracker
+  type: module-set
+  module-id: issuepack
+  tab: Agile Security Stories
+  group: Security User Stories
 
 - id: control_sc_7
-  title: SC-7 Boundary Protection
+  title: Protect your system's boundary
   type: module
   module-id: control_sc_7
-  tab: System Design
-  group: Secure Communications
+  tab: System Security Controls
+  group: SC - System and Communications Protection
 
-- id: control_au_multi
-  title: Audit and Logs Module
-  type: module
-  module-id: control_au_multi
-  tab: System Design
-  group: Audit and Logs
+- id: evidence
+  title: Create evidence artifact
+  type: module-set
+  module-id: evidence
+  tab: System Security Controls
+  group: Supporting documents
 
-- id: control_au_1
-  title: AU-1 Audit And Accountability Policy And Procedures
+- id: coming_soon_3
+  title: Review artifacts
   type: module
-  module-id: control_au_1
-  tab: System Operations
-  group: Policy
+  module-id: coming_soon
+  tab: Review
+  group: Review
 
 - id: ssp
   title: Preview draft SSP
@@ -62,26 +85,12 @@ questions:
   module-id: ssp
   placement: action-buttons
 
-- id: evidence
-  title: Create an evidence bag
-  type: module-set
-  module-id: evidence
-  tab: System Design
-  group: Supporting documents
-
-- id: issuepack
-  title: Create User Stories In Your Issue Tracker
-  type: module-set
-  module-id: issuepack
-  tab: User Stories
-  group: Security User Stories
-
 output:
   - tab: System Info
     format: markdown
     template: |
       ![](add_sec_stories_gif.gif)
-  
+
   - tab: User Stories
     format: markdown
     template: |

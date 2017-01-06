@@ -3,19 +3,11 @@ title: System Name and Details
 introduction:
   format: markdown
   template: |
-    ### Naming your system
+    ### System Profile
 
-    Information systems benefit from having an official name and nickname. Standardized references make the system easier to track in documents and databases.
+    An official name (and nickname!) makes your system easier to track in documents and databases.
 
-    An official system name will be needed for your SSP.
-
-    Your organization may also require you to register your system and refer to it by an unique identifier.
-
-    Let's document the names of the *{{project}}* system.
-
-    ### Project management
-
-    Lorem ipsum.
+    Let's document the names of the *{{project}}* system for your System Security Plan, plus some basic system information.
 
 questions:
   - id: system_name_is_project
@@ -58,7 +50,7 @@ questions:
       value: n/a
 
   - id: what_kind_of_system
-    title: What Kind of System
+    title: System type
     prompt: What kind of information technology system is this?
     type: choice
     choices:
@@ -70,7 +62,7 @@ questions:
       help: Any type network or infrastructure component (e.g., storage system)
 
   - id: what_kind_of_application
-    title: What Kind of Application
+    title: Application type
     prompt: What kind of application is it?
     type: choice
     choices:
@@ -87,41 +79,40 @@ questions:
       value: ~
 
   - id: code_repo
-    title: Code Repository Address
-    prompt: Where is the source code repository for this information system?
+    title: Code repository
+    prompt: |
+      Great code is best managed in a code repository. We're sure your code is great.
+
+      What is the URL to main source code repository for *{{official_system_name}}*?
     type: url
     help: "Example: https://github.com/GovReady/compliancelib-python"
 
   - id: issue_tracker
-    title: Issue Tracker Address
-    prompt: Where are you tracking software and security development issues? Enter the address of your issue tracker.
+    title: Issue tracker
+    prompt: |
+      No doubt you have already set up an issue tracker for project tasks and user stories.
+
+      What is the URL to the main project page of the issue tracker for *{{official_system_name}}*?
     type: url
     help: "Example: https://myco.atlassian.net/projects/project1"
 
   - id: launch_date
     title: Launch Date
-    prompt: When do you expect to launch {{official_system_name}}, or if the system is already launched, what was its launch date?
+    prompt: |
+      When do you expect to launch *{{official_system_name}}* to users?
+
+      (If already launched, enter date system went live.)
     type: date
 
 output:
   - title: Your Answers
     format: markdown
     template: |
-      Congratulations! You've named your system:
+      Congratulations! You've created a basic system profile!
 
-      System Name: {{official_system_name.text}}
+      We've already started drafting your System Security Plan.
 
-      System Abbreviation: {{system_abbreviation.text}}
-
-      System Type: {{what_kind_of_system.text}}
-
-      Application Type: {{what_kind_of_application.text}}
-
-      Code Repository: {% if not code_repo %}{{code_repo.text}}{% else %}[{{code_repo}}]({{code_repo}}){% endif %}
-
-      Issue Tracker: {% if not issue_tracker %}{{issue_tracker.text}}{% else %}[{{issue_tracker}}]({{issue_tracker}}){% endif %}
-
-      Launch Date: {{launch_date.text}}
+      Click "System Security Plan Preview" to see the first section.
 
   - title: System Security Plan Preview
     format: markdown
