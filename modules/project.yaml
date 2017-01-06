@@ -93,7 +93,7 @@ output:
 
       ## Sytem Profile
 
-      ![](icon_system_capital.svg)
+      ![](icon_system_capital.png)
 
       ### Create a basic system profile
 
@@ -125,10 +125,10 @@ output:
     format: markdown
     template: |
       <div style="text-align:center;">
-      
+
       ## Prepare your system security controls
 
-      ![](icon_fisma_compliance.svg)
+      ![](icon_fisma_compliance.png)
 
       ### Don't panic. We can do this together.
 
