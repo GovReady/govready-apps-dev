@@ -42,12 +42,12 @@ output:
           <td></td>
           <td>
 
-    {{project.system_name.official_system_name}}
+    {{project.system_basics.official_system_name}}
 
     </td>
           <td>
 
-    {{project.system_name.system_abbreviation}}
+    {{project.system_basics.system_abbreviation}}
 
     </td>
         </tr>
