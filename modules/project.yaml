@@ -100,17 +100,11 @@ output:
     template: |
       <div style="text-align:center;">
 
-      ## System Profile
+      ## Create a profile for your system
 
       ![](icon_system_capital.png)
 
-      ### Create a basic system profile
-
-
-      • Official system name •<br />
-      • Code repo issue tracker •<br />
-      • Re-usable descriptions •<br />
-      • Risk profile •<br />
+      ### No sweat! We'll capture the details quickly.
 
       </div>
 
@@ -125,9 +119,6 @@ output:
 
       ### Make your system more secure with every sprint
 
-      • Security is just another customer •<br />
-      • Developer-friendly language user stories •<br />
-
       </div>
 
   - tab: System Security Controls
@@ -141,8 +132,17 @@ output:
 
       ### Don't panic. We can do this together.
 
-      • Learn-as-you go explanations •<br />
-      • Questions pre-tailored to your system •<br />
-      • Discuss answers with team •<br />
+      </div>
+
+  - tab: Review
+    format: markdown
+    template: |
+      <div style="text-align:center;">
+
+      ## Review your stuff
+
+      ![](icon_fisma_compliance.png)
+
+      ### Almost done! Let's check what you did.
 
       </div>
