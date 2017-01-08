@@ -45,12 +45,13 @@ questions:
       text: Other
 
   - id: evidence_body_text
-    title: Description
+    title: Paste Excerpt or Code
     prompt: |
-      {% if type == "document_excerpt" or type == "code" %}
       Paste document excerpt or code below.
-      {% endif %}
     type: longtext
+    impute:
+      - condition: not(type == "document_excerpt" or type == "code")
+        value: ~
 
   - id: media
     title: Media Upload

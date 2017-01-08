@@ -57,7 +57,7 @@ questions:
     type: yesno
     prompt: |
       Since your system is hosted in the {{organization}}'s internal data center, your
-      communications boundary protection is provided the {{organization}} enterprise IT.
+      communications boundary protection is provided by the {{organization}} enterprise IT.
 
       Do you plan for your system to use the enterprise boundary protection services
       provided by enterprise IT?
