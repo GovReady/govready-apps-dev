@@ -8,104 +8,17 @@ introduction:
 
     <p>Completing this section will document the controls you have in place to prevent network-based attacks.</p>
 
-    <style>
-    .comic-strip-frame {
-        /* positioning */
-        position: relative; /* necessary for overflow: hidden */
-        overflow: hidden; /* hide the comic-strip-frame-open panel when not hovering */
-        margin: 15px 0; /* same as the bootstrap column gutter */
-
-        /* frame outline */
-        border: 1px solid #444;
-        background-color: #777;
-        border-radius: 10px;
-        cursor: default;
-
-        /* general text styles */
-        font-family: Hind;
-        line-height: 130%;
-    }
-        .comic-strip-frame-content {
-            /* vertical centering */
-            position: relative;
-            top: 50%;
-            transform: translate(0, -50%);
-            -webkit-transform: translate(0, -50%); /* iOS still needs this */
-        }
-        .comic-strip-frame-closed {
-            height: 100%; /* necessary for .comic-strip-frame-content vertical centering */
-
-            /* text styles */
-            text-align: center;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-shadow: 0.1em 0.1em 0.2em black;
-        }
-        .comic-strip-frame-open {
-             /* start this content hidden *just above the top* of its parent */
-            position: absolute;
-            top: -100%;
-            width: 100%;
-            height: 100%;
-            
-            /* when un-hovering, return it to its original position */
-            transition: top 1.5s;
-
-            /* background/framing */
-            background-color: rgba(20,70,40,.8);
-            padding: 1em;
-
-            /* text styles */
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            text-shadow: 0.1em 0.1em 0.2em black;
-        }
-            /* :active is used for iOS --- see the script for activation by touchstart event */
-            .comic-strip-frame:hover .comic-strip-frame-open, .comic-strip-frame:active .comic-strip-frame-open {
-                /* animate the content to slide down so that it is directly over the parent */
-                top: 0;
-                transition: top .5s;
-            }
-            .comic-strip-frame-open .frame-caption {
-                font-size: 23px;
-                padding-bottom: 2px;
-                border-bottom: 1px solid white;
-            }
-    </style>
+    <link rel="stylesheet" href="{{static_asset_path_for('comicframes.css')}}">
+    <srcipt src="{{static_asset_path_for('comicframes.js')}}"></script>
     <style>
     .comic-strip-frame {
         /* the height must be tweaked to hold the content at any
            viewport width */
         height: 12em;
-
         background-image: url('/static/comic-frames-bg.png');
         background-size: 400%;
     }
-        .comic-strip-frame.frame-0 {
-            background-position: 0 0;
-        }
-        .comic-strip-frame.frame-1 {
-            background-position: -100% 0;
-        }
-        .comic-strip-frame.frame-2 {
-            background-position: -200% 0;
-        }
-        .comic-strip-frame.frame-3 {
-            background-position: -300% 0;
-        }
     </style>
-
-    <script>
-    /* iOS only activates :hover on elements that have click behavior.
-       But more responsive is to use touchstart, rather than click, which
-       activates :active. Here we add a function that makes everything
-       touchable?? I'm not sure if we should restrict this just to the
-       .comic-strip-frame elements, but this works. */
-    document.addEventListener("touchstart", function() {}, false);
-    </script>
 
     <div class="comic-strip-frames">
         <div class="row">

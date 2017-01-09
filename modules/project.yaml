@@ -96,7 +96,7 @@ questions:
   group: Review
 
 - id: ssp
-  title: Preview draft SSP
+  title: Preview Draft SSP
   type: module
   module-id: ssp
   placement: action-buttons
