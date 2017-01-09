@@ -33,7 +33,7 @@ questions:
   - id: system_abbreviation_exists
     title: System abbreviation exists
     prompt: |
-      It's common for organizations to use a nickname or acronym to refer to an information styem.
+      It's common for organizations to use a nickname or acronym to refer to an information system.
 
       Does *{{project}}* system have a nickname or acronym?
     type: yesno
