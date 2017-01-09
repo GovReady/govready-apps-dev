@@ -1,14 +1,8 @@
-id: issuepack
-title: User Stories
-instance-name: User Stories for {{jira_project_base_uri}}#{{jira_project_key}}
+id: about_ssp
+title: About System Security Plans
 introduction:
-  format: markdown
+  format: html
   template: |
-    User stories are part of an agile approach that helps shift the focus from writing
-    about requirements to talking about them. All agile user stories include a written
-    sentence or two and, more importantly, a series of conversations about the desired
-    functionality.
-
     <style>
     .comic-strip-frame {
         /* positioning */
@@ -114,13 +108,14 @@ introduction:
                 <div class="comic-strip-frame frame-0">
                     <div class="comic-strip-frame-closed">
                         <div class="comic-strip-frame-content">
-                            What is a User Story?
+                            SSP Purpose
                         </div>
                     </div>
                     <div class="comic-strip-frame-open">
                         <div class="comic-strip-frame-content">
-                            <p class="frame-caption">What is a User Story?</p>
-                            <p>User stories are short, simple descriptions of a feature told from the perspective of the person who desires the new capability, usually a user or customer of the system.</p>
+                          The purpose of the system security plan is to provide an overview of the
+                          security requirements of the system and describe the controls in place or
+                          planned for meeting those requirements.
                         </div>
                     </div>
                 </div>
@@ -131,13 +126,13 @@ introduction:
                 <div class="comic-strip-frame frame-1">
                     <div class="comic-strip-frame-closed">
                         <div class="comic-strip-frame-content">
-                            User Story Format
+                            Responsibilities and Behaviors
                         </div>
                     </div>
                     <div class="comic-strip-frame-open">
                         <div class="comic-strip-frame-content">
-                            <p class="frame-caption">User Story Format</p>
-                            <p>User stories follow a simple template: As a <i>TYPE OF USER</i>, I want <i>SOME GOAL</i> so that <i>SOME REASON</i>.</p>
+                          The system security plan also delineates responsibilities and expected behavior
+                          of all individuals who access the system.
                         </div>
                     </div>
                 </div>
@@ -146,13 +141,13 @@ introduction:
                 <div class="comic-strip-frame frame-2">
                     <div class="comic-strip-frame-closed">
                         <div class="comic-strip-frame-content">
-                            User Story Example
+                            Process Documentation
                         </div>
                     </div>
                     <div class="comic-strip-frame-open">
                         <div class="comic-strip-frame-content">
-                            <p class="frame-caption">User Story Example</p>
-                            <p>As a user, while backing up my hard drive I can indicate folders not to include so that my backup drive isn&rsquo;t filled up with things I don&rsquo;t need.</p>
+                          The system security plan should be viewed as documentation of the structured process
+                          of planning adequate, cost-effective security protection for a system.
                         </div>
                     </div>
                 </div>
@@ -163,12 +158,13 @@ introduction:
                 <div class="comic-strip-frame frame-3">
                     <div class="comic-strip-frame-closed">
                         <div class="comic-strip-frame-content">
-                            Who Writes User Stories?
+                            Reflect Stakeholder Inputs
                         </div>
                     </div>
                     <div class="comic-strip-frame-open">
                         <div class="comic-strip-frame-content">
-                                Anyone can write user stories. It&rsquo;s the product owner&rsquo;s responsibility to make sure a product backlog of agile user stories exists, but that doesn&rsquo;t mean that the product owner is the one who writes them. Over the course of a good agile project, you should expect to have user story examples written by each team member. Also, note that who writes a user story is far less important than who is involved in the discussions of it.
+                          It should reflect input from various stakeholders with responsibilities
+                          concerning the system, including information owners, the system owner, etc.
                         </div>
                     </div>
                 </div>
@@ -176,87 +172,4 @@ introduction:
         </div>
     </div>
 
-
-    The best way to secure your system is during development.
-
-    {{organization}} has prepared a set of security-related user stories for {{project}}'s product feature backlog.
-
-    {% if match_jira_url(project.system_basics.issue_tracker) %}
-    We already know your Jinja project is at {{match_jira_url(project.system_basics.issue_tracker).baseurl}}.
-    {% endif %}
-
-    Complete the following steps to automatically add these user stories to Jira.
-
-external-functions:
-  # This function is defined in issuepack.py.
-  - match_jira_url
-
-questions:
-  - id: jira_project_base_uri
-    title: Jira Project Base URI
-    prompt: What is your Jira Project's base URI?
-    type: url
-    placeholder: https://myco.atlassian.net
-    help: "Example: https://myco.atlassian.net"
-    impute:
-      - condition: match_jira_url(project.system_basics.issue_tracker) is not none
-        value: match_jira_url(project.system_basics.issue_tracker).baseurl
-        value-mode: expression
-
-  - id: jira_project_key
-    title: Jira Project Key
-    prompt: What is your Jira Project Key at {{jira_project_base_uri}} (it prefixes all issues in project)?
-    type: text
-    impute:
-      - condition: match_jira_url(project.system_basics.issue_tracker) is not none
-        value: match_jira_url(project.system_basics.issue_tracker).key
-        value-mode: expression
-
-  - id: jira_username
-    title: Jira Username
-    prompt: What is your Jira username at {{jira_project_base_uri}}?
-    type: text
-    placeholder: username
-    ask-first:
-      - jira_project_key
-
-  - id: jira_password
-    title: Jira Password
-    prompt: What is your Jira password for {{jira_username}} at {{jira_project_base_uri}}?
-    type: password
-    encrypt: emphemeral-user-key
-    ask-first:
-      - jira_project_key
-
-  - id: create_issue_pack
-    title: Create IssuePack
-    prompt: Click Go to create the IssuePack.
-    type: external-function
-    function: create_issue_pack
-    required: true # don't consider the module finished until this is run
-    ask-first:
-      - jira_project_base_uri
-      - jira_project_key
-      - jira_username
-      - jira_password
-
-output:
-  - title: User Stories
-    format: markdown
-    template: |
-      {% if not create_issue_pack %}
-        The issues have not yet been created.
-      {% elif create_issue_pack.status == "success" %}
-        Congratulations, you've created user stories in Jira.
-      {% else %}
-        There was a problem creating the user stories. See the details for more information.
-      {% endif %}
-
-  - title: Details
-    format: markdown
-    template: |
-      {% if create_issue_pack %}
-      {{create_issue_pack.log}}
-      {% endif %}
-
-
+questions: []
