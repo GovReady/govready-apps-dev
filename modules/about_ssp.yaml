@@ -10,7 +10,7 @@ introduction:
         /* the height must be tweaked to hold the content at any
            viewport width */
         height: 12em;
-        background-image: url('/static/comic-frames-bg.png');
+        background-image: url('{{static_asset_path_for('comic-frames.jpg')}}');
         background-size: 400%;
     }
     </style>
@@ -20,7 +20,7 @@ introduction:
             <div class="col-xs-12">
                 <div class="comic-strip-frame frame-0">
                     <div class="comic-strip-frame-closed">
-                        <div class="comic-strip-frame-content">
+                        <div class="comic-strip-frame-content big bigbig">
                             SSP Purpose
                         </div>
                     </div>
@@ -38,7 +38,7 @@ introduction:
             <div class="col-sm-6">
                 <div class="comic-strip-frame frame-1">
                     <div class="comic-strip-frame-closed">
-                        <div class="comic-strip-frame-content">
+                        <div class="comic-strip-frame-content big bigbig">
                             Responsibilities and Behaviors
                         </div>
                     </div>
@@ -53,7 +53,7 @@ introduction:
             <div class="col-sm-6">
                 <div class="comic-strip-frame frame-2">
                     <div class="comic-strip-frame-closed">
-                        <div class="comic-strip-frame-content">
+                        <div class="comic-strip-frame-content big bigbig">
                             Process Documentation
                         </div>
                     </div>
@@ -70,7 +70,7 @@ introduction:
             <div class="col-xs-12">
                 <div class="comic-strip-frame frame-3">
                     <div class="comic-strip-frame-closed">
-                        <div class="comic-strip-frame-content">
+                        <div class="comic-strip-frame-content big bigbig">
                             Reflect Stakeholder Inputs
                         </div>
                     </div>

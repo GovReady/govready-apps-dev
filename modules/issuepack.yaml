@@ -4,11 +4,6 @@ instance-name: User Stories for {{jira_project_base_uri}}#{{jira_project_key}}
 introduction:
   format: markdown
   template: |
-    User stories are part of an agile approach that helps shift the focus from writing
-    about requirements to talking about them. All agile user stories include a written
-    sentence or two and, more importantly, a series of conversations about the desired
-    functionality.
-
     <link rel="stylesheet" href="{{static_asset_path_for('comicframes.css')}}">
     <srcipt src="{{static_asset_path_for('comicframes.js')}}"></script>
     <style>
@@ -16,7 +11,7 @@ introduction:
         /* the height must be tweaked to hold the content at any
            viewport width */
         height: 12em;
-        background-image: url('/static/comic-frames-bg.png');
+        background-image: url('{{static_asset_path_for('comic-frames.jpg')}}');
         background-size: 400%;
     }
     </style>
@@ -26,14 +21,15 @@ introduction:
             <div class="col-xs-12">
                 <div class="comic-strip-frame frame-0">
                     <div class="comic-strip-frame-closed">
-                        <div class="comic-strip-frame-content">
-                            What is a User Story?
+                        <div class="comic-strip-frame-content big">
+                            Let&rsquo;s treat security as another customer.
                         </div>
                     </div>
                     <div class="comic-strip-frame-open">
                         <div class="comic-strip-frame-content">
-                            <p class="frame-caption">What is a User Story?</p>
-                            <p>User stories are short, simple descriptions of a feature told from the perspective of the person who desires the new capability, usually a user or customer of the system.</p>
+                            <p>Your security team will love you and you&rsquo;ll save time
+                            if every code sprint makes your system stronger.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -44,13 +40,13 @@ introduction:
                 <div class="comic-strip-frame frame-1">
                     <div class="comic-strip-frame-closed">
                         <div class="comic-strip-frame-content">
-                            User Story Format
+                            <p class="frame-caption">User Story Format</p>
+                            <p>As a <i>TYPE OF USER</i>, I want <i>SOME GOAL</i> so that <i>SOME REASON</i>.</p>
                         </div>
                     </div>
                     <div class="comic-strip-frame-open">
                         <div class="comic-strip-frame-content">
-                            <p class="frame-caption">User Story Format</p>
-                            <p>User stories follow a simple template: As a <i>TYPE OF USER</i>, I want <i>SOME GOAL</i> so that <i>SOME REASON</i>.</p>
+                            <p>As the CISO, I want to retain log files long enough to investigate security incidents that happened months ago.</p>
                         </div>
                     </div>
                 </div>
@@ -59,29 +55,16 @@ introduction:
                 <div class="comic-strip-frame frame-2">
                     <div class="comic-strip-frame-closed">
                         <div class="comic-strip-frame-content">
-                            User Story Example
+                            <p>1. Enter Jira account</p>
+                            <p>2. Hit submit...</p>
+                            <p>3. Security stories added to {{project}}</p>
                         </div>
                     </div>
                     <div class="comic-strip-frame-open">
                         <div class="comic-strip-frame-content">
-                            <p class="frame-caption">User Story Example</p>
-                            <p>As a user, while backing up my hard drive I can indicate folders not to include so that my backup drive isn&rsquo;t filled up with things I don&rsquo;t need.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="comic-strip-frame frame-3">
-                    <div class="comic-strip-frame-closed">
-                        <div class="comic-strip-frame-content">
-                            Who Writes User Stories?
-                        </div>
-                    </div>
-                    <div class="comic-strip-frame-open">
-                        <div class="comic-strip-frame-content">
-                                Anyone can write user stories. It&rsquo;s the product owner&rsquo;s responsibility to make sure a product backlog of agile user stories exists, but that doesn&rsquo;t mean that the product owner is the one who writes them. Over the course of a good agile project, you should expect to have user story examples written by each team member. Also, note that who writes a user story is far less important than who is involved in the discussions of it.
+                            <p class="frame-caption">How It Works</p>
+                            <p>GovReady has a library of security-related user stories.
+                            We use Jira&rsquo;s API to add the stories to your project.</p>
                         </div>
                     </div>
                 </div>
@@ -89,8 +72,7 @@ introduction:
         </div>
     </div>
 
-
-    The best way to secure your system is during development.
+    <div style="height: 2em">&nbsp;</div>
 
     {{organization}} has prepared a set of security-related user stories for {{project}}'s product feature backlog.
 

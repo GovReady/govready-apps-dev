@@ -39,12 +39,12 @@ invitation_to_task_interstitial:
 export_button_label: Export System Description and Control Information
 
 questions:
-- id: about_ssp
-  title: About System Security Plans
-  type: module
-  module-id: about_ssp
-  tab: System Profile
-  group: Learn about System Security Plans
+# - id: about_ssp
+#   title: About System Security Plans
+#   type: module
+#   module-id: about_ssp
+#   tab: System Profile
+#   group: Learn about System Security Plans
 
 - id: system_basics
   title: Document official system name and details

@@ -3,10 +3,9 @@ title: SC-7 Boundary Protection
 introduction:
   format: html
   template: |
-    <p>In this section, we'll guide you through setting up secure communications for your web application 
-    in accordance with official {{organization}} policies and procedures.</p>
-
-    <p>Completing this section will document the controls you have in place to prevent network-based attacks.</p>
+    <p>Let&rsquo;s prevent network-based attacks on your system and set up secure
+    communications to your system according to official {{organization}} policies
+    and procedures.</p>
 
     <link rel="stylesheet" href="{{static_asset_path_for('comicframes.css')}}">
     <srcipt src="{{static_asset_path_for('comicframes.js')}}"></script>
@@ -15,7 +14,7 @@ introduction:
         /* the height must be tweaked to hold the content at any
            viewport width */
         height: 12em;
-        background-image: url('/static/comic-frames-bg.png');
+        background-image: url('{{static_asset_path_for('comic-frames.jpg')}}');
         background-size: 400%;
     }
     </style>
@@ -25,18 +24,16 @@ introduction:
             <div class="col-xs-12">
                 <div class="comic-strip-frame frame-0">
                     <div class="comic-strip-frame-closed">
-                        <div class="comic-strip-frame-content">
-                            The Information System
+                        <div class="comic-strip-frame-content big">
+                          Do you know the boundaries of your system?
                         </div>
                     </div>
                     <div class="comic-strip-frame-open">
                         <div class="comic-strip-frame-content">
-                          Monitors and controls communications at the external boundary of the system and
-                          at key internal boundaries within the system; Implements subnetworks for publicly
-                          accessible system components that are [Selection: physically; logically] separated
-                          from internal organizational networks; and Connects to external networks or
-                          information systems only through managed interfaces consisting of boundary protection
-                          devices arranged in accordance with an organizational security architecture.
+                          <p>Think about the points where the parts of the system you control
+                          connect with things you don&rsquo;t control.</p>
+                          <p>These are interfaces defining the boundaries of your system.</p>
+                          <p>What protection do you have in place at each boundary?</p>
                         </div>
                     </div>
                 </div>
@@ -45,7 +42,7 @@ introduction:
         <div class="row">
             <div class="col-sm-6">
                 <div class="comic-strip-frame frame-1">
-                    <div class="comic-strip-frame-closed">
+                    <div class="comic-strip-frame-closed big bigbig">
                         <div class="comic-strip-frame-content">
                             Managed Interfaces
                         </div>
@@ -62,32 +59,9 @@ introduction:
             </div>
             <div class="col-sm-6">
                 <div class="comic-strip-frame frame-2">
-                    <div class="comic-strip-frame-closed">
-                        <div class="comic-strip-frame-content">
-                            DMZs
-                        </div>
-                    </div>
-                    <div class="comic-strip-frame-open">
-                        <div class="comic-strip-frame-content">
-                          Subnetworks that are physically or logically separated from internal networks
-                          are referred to as demilitarized zones or DMZs.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="comic-strip-frame frame-3">
-                    <div class="comic-strip-frame-closed">
-                        <div class="comic-strip-frame-content">
-                            Related to
-                        </div>
-                    </div>
-                    <div class="comic-strip-frame-open">
-                        <div class="comic-strip-frame-content">
-                          AC-4, AC-17, CA-3, CM-7, CP-8, IR-4, RA-3, SC-5, SC-13
-                        </div>
+                    <div class="comic-strip-frame-closed" style="opacity: 1">
+                      <iframe src="https://player.vimeo.com/video/182652425" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
+                        style="width: 100%; height: 100%;"></iframe>
                     </div>
                 </div>
             </div>
