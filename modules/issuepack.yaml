@@ -40,7 +40,7 @@ introduction:
                 <div class="comic-strip-frame frame-1">
                     <div class="comic-strip-frame-closed">
                         <div class="comic-strip-frame-content">
-                            <p>As the CISO, I want to retain log files long enough to investigate security incidents that happened months ago.</p>
+                            <p>&ldquo;As the CISO, I want to retain log files long enough to investigate security incidents that happened months ago.&rdquo;</p>
                         </div>
                     </div>
                     <div class="comic-strip-frame-open">
