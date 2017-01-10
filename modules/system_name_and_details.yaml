@@ -78,6 +78,74 @@ questions:
     - condition: what_kind_of_system != 'application'
       value: ~
 
+  - id: desktop_operating_system
+    title: Desktop Applicaton Operating System
+    prompt: Which operating systems will the desktop application run on?
+    type: multiple-choice
+    choices:
+    - key: mswindows
+      text: Microsoft Windows
+    - key: macosx
+      text: Apple macOS (Macintosh OS X)
+    - key: linux
+      text: Unix/Linux
+    impute:
+    - condition: what_kind_of_application != 'desktop'
+      value: ~
+
+  - id: application_network_access
+    title: Applicaton Network Access
+    prompt: Will the application make connections to any Internet systems?
+    type: multiple-choice
+    choices:
+    - key: orgsystem
+      text: It will connect to a system managed by the organization.
+      help: Such as the organization's API, email server, or database.
+    - key: thirdpartysystem
+      text: It will connect to a system managed by a third party.
+      help: Such as a third-party API, transactional email provider, or CDN.
+    - key: usersystem
+      text: It will connect to systems identified by the end user not known at this time.
+      help: Such as if the user will enter a web address that the application will bring up in a web browser.
+    impute:
+    - condition: what_kind_of_application != 'mobile' and what_kind_of_application != 'desktop'
+      value: ~
+
+  - id: web_pageviews
+    title: Website Pageviews
+    prompt: How many monthly pageviews do you expect the website to have?
+    type: choice
+    choices:
+    - key: pv100k
+      text: up to 100,000 pageviews per month
+    - key: pv1m
+      text: 100,000 - 1 million pageviews per month
+    - key: pv20m
+      text: 1 - 20 million pageviews per month
+    - key: pvover20m
+      text: more than 20 million pageviews per month
+    impute:
+    - condition: what_kind_of_application != 'web'
+      value: ~
+
+  - id: information_types
+    title: Information Types
+    prompt: Will the application store or process any of the following types of information in unencrypted form?
+    type: multiple-choice
+    choices:
+    - key: pii
+      text: Personally Identifiable Information
+      help: Any information that could be used to contact or locate an end user.
+    - key: payment
+      text: Payment Information
+      help: Such as a bank account or credit card number.
+    - key: hipaa
+      text: Private Health Information (HIPAA)
+      help: Such as medical records, conversations about medical treatment, and information about health insurance and billing.
+    impute:
+    - condition: what_kind_of_application == 'desktop'
+      value: ~
+
   - id: code_repo
     title: Code repository
     prompt: |
