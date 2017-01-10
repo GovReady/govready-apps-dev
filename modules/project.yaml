@@ -116,15 +116,15 @@ output:
       </div>
 
   - tab: Agile Security Stories
-    format: markdown
+    format: html
     template: |
       <div style="text-align:center;">
 
-      ## Add security stories to your backlog
+      <h3>Add security stories to your backlog</h3>
 
-      ![](govready_security_stories_small.png)
+      <img src="{{static_asset_path_for('code-sprint.png')}}" />
 
-      ### Make your system more secure with every sprint
+      <h4> Make your system more secure with every sprint</h4>
 
       </div>
 
