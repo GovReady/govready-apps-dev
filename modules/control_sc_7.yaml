@@ -14,9 +14,12 @@ introduction:
         /* the height must be tweaked to hold the content at any
            viewport width */
         height: 12em;
-        background-image: url('{{static_asset_path_for('comic-frames.jpg')}}');
-        background-size: 400%;
+        background-image: url('{{static_asset_path_for('comicframes-2.jpg')}}');
+        background-size: 200%;
     }
+    .comic-strip-frame.frame-0 { background-position: 0 43%; }
+    .comic-strip-frame.frame-1 { background-position: -100% 0; }
+    .comic-strip-frame.frame-2 { background: #000000; }
     </style>
 
     <div class="comic-strip-frames">
@@ -59,7 +62,7 @@ introduction:
             </div>
             <div class="col-sm-6">
                 <div class="comic-strip-frame frame-2">
-                    <div class="comic-strip-frame-closed" style="opacity: 1">
+                    <div class="comic-strip-frame-closed" style="opacity: 1; padding: 4px;">
                       <iframe src="https://player.vimeo.com/video/182652425" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
                         style="width: 100%; height: 100%;"></iframe>
                     </div>

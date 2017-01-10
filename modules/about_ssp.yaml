@@ -10,7 +10,7 @@ introduction:
         /* the height must be tweaked to hold the content at any
            viewport width */
         height: 12em;
-        background-image: url('{{static_asset_path_for('comic-frames.jpg')}}');
+        background-image: url('{{static_asset_path_for('comicframes-1.jpg')}}');
         background-size: 400%;
     }
     </style>

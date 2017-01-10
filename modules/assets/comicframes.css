@@ -73,15 +73,3 @@
         text-transform: uppercase;
     }
 
-.comic-strip-frame.frame-0 {
-    background-position: -200% 33%;
-}
-.comic-strip-frame.frame-1 {
-    background-position: -100% 0;
-}
-.comic-strip-frame.frame-2 {
-    background-position: 0 0;
-}
-.comic-strip-frame.frame-3 {
-    background-position: -300% 0;
-}
