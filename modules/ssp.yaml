@@ -179,13 +179,17 @@ output:
     ### 8.4.2 SC-7 Boundary Protection
     
     {% if project.control_sc_7.is_finished() %}
-    <div>{{project.control_sc_7.rendered_outputs()[0].html|safe}}</div>
+    <div>
+      {{project.control_sc_7.rendered_outputs()[1].html|safe}}
+      {{project.control_sc_7.rendered_outputs()[2].html|safe}}
+    </div>
     {% elif project.control_sc_7 %}
     <span style="color: red;">
 
     *Finish the [Boundary Protection]({{project.control_sc_7.task_link}}) module to complete this section.*
 
     </span>
+    
     {% else %}
     *Start the [Boundary Protection]({{project.control_sc_7.edit_link}}) module to complete this section.*
     {% endif %}
