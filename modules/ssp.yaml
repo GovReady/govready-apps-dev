@@ -20,7 +20,7 @@ output:
         h3 { border-bottom:0.5px solid #aaa; } 
         h4 { font-weight:bold; font-size:0.9em; }
         blockquote { color: #666; font-size:0.8em;}
-        .notice {color: red; font-size:3.0em; text-align:center;}
+        .notice {color: red; font-size:3.0em; text-align:center; transform: scaleY(.85); font-weight: bold;}
     </style>
 
     <div class="notice">PREVIEW</div>
@@ -182,7 +182,9 @@ output:
     <div>{{project.control_sc_7.rendered_outputs()[0].html|safe}}</div>
     {% elif project.control_sc_7 %}
     <span style="color: red;">
-        *Finish the [Boundary Protection]({{project.control_sc_7.task_link}}) module to complete this section.*
+
+    *Finish the [Boundary Protection]({{project.control_sc_7.task_link}}) module to complete this section.*
+
     </span>
     {% else %}
     *Start the [Boundary Protection]({{project.control_sc_7.edit_link}}) module to complete this section.*
