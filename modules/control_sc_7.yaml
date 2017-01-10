@@ -8,7 +8,7 @@ introduction:
     and procedures.</p>
 
     <link rel="stylesheet" href="{{static_asset_path_for('comicframes.css')}}">
-    <srcipt src="{{static_asset_path_for('comicframes.js')}}"></script>
+    <script src="{{static_asset_path_for('comicframes.js')}}"></script>
     <style>
     .comic-strip-frame {
         /* the height must be tweaked to hold the content at any
