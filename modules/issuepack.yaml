@@ -128,8 +128,9 @@ questions:
 
   - id: create_issue_pack
     title: Create IssuePack
-    prompt: Click Go to create the IssuePack.
+    prompt: Click 'Go' to create the recommended user stories in {{jira_project_base_uri}}.
     type: external-function
+    help: This may take a few minutes.
     function: create_issue_pack
     required: true # don't consider the module finished until this is run
     ask-first:
@@ -156,5 +157,7 @@ output:
       {% if create_issue_pack %}
       {{create_issue_pack.log}}
       {% endif %}
+
+      Checkout your issues in  https://dfscto.atlassian.net/projects/TST2/issues
 
 
