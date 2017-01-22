@@ -47,7 +47,7 @@ questions:
 #   group: Learn about System Security Plans
 
 - id: system_basics
-  title: Document official system name and details
+  title: Document official system name and type
   type: module
   module-id: system_name_and_details
   tab: System Profile
