@@ -13,7 +13,7 @@ def match_jira_url(url):
     # { "baseurl": "http://....atlassian.net", "key": "myproject" }
     return m.groupdict()
 
-def create_issue_pack(q, answers):
+def create_issue_pack(question, answers, **kwargs):
     for field in ('jira_username', 'jira_password', 'jira_project_key', 'jira_project_base_uri'):
         if answers[field] is None:
             raise ValueError("One of the preceding questions was skipped or your Jira password needs to be re-entered.")
@@ -32,7 +32,7 @@ def create_issue_pack(q, answers):
     # can see if we've already created an IssuePack for this project.
     # If so, don't do it again, since the user probably doesn't want
     # duplicates.
-    current_data = answers.get(q['id'])
+    current_data = answers.get(question['id'])
     current_data_schema = 0
     if isinstance(current_data, dict) \
         and current_data["schema"] == current_data_schema \
