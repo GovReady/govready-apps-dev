@@ -1,6 +1,6 @@
 def match_jira_url(url):
     # Was a URL entered in the system name & details module?
-    if url is None:
+    if not isinstance(url, str):
         return None
 
     # Does the URL look like Jira?
