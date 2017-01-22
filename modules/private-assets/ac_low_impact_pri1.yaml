@@ -20,6 +20,7 @@ issues:
       * Access control policy
       * Access control policy version update page
       * Access control policy audit trail of reviews and updates
+      * Document control implementation for [{{project_name}} in GovReady Q]({{project_url}}#tab=system-security-controls)
 
       *Links:*
       https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AC-1
