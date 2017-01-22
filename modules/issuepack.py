@@ -33,7 +33,7 @@ def create_issue_pack(question, answers, project_name, project_url, **kwargs):
     # If so, don't do it again, since the user probably doesn't want
     # duplicates.
     current_data = answers.get(question['id'])
-    current_data_schema = 0
+    current_data_schema = 1
     if isinstance(current_data, dict) \
         and current_data["schema"] == current_data_schema \
         and current_data["status"] == "success" \
@@ -42,7 +42,7 @@ def create_issue_pack(question, answers, project_name, project_url, **kwargs):
         
         # An IssuePack has already been created. Just update status so
         # we can tell user what just happened.
-        current_data["log"] = "You already created an IssuePack."
+        current_data["log"] = ["You already created an IssuePack."]
         return current_data
 
     # Open the IssuePack YAML files and concatenate into a single YAML file.
@@ -63,8 +63,16 @@ def create_issue_pack(question, answers, project_name, project_url, **kwargs):
                 .replace("{{project_name}}", project_name)\
                 .replace("{{project_url}}", project_url)
 
+    # Form the answer data structure.
+    answer = {
+        "schema": current_data_schema,
+        "project": project_info,
+        "status": "error",
+    }
+
     # Create a new IssuePack by executing an external command, which
     # runs as the same Unix user as the Django process.
+    import json
     try:
         # TODO: Replace this. Using a subprocess is easy to get wrong
         # and then we have new vulnerabilities.
@@ -76,18 +84,20 @@ def create_issue_pack(question, answers, project_name, project_url, **kwargs):
             '-p=' + answers['jira_password'],
             '-k=' + answers['jira_project_key'],
             '-b=' + answers['jira_project_base_uri'],
+            '--json',
             '/proc/self/fd/0', # STDIN
             ],
             input=rtyaml.dump(issuepack).encode("utf8")
         ).decode("utf8")
-        status = "success"
-    except Exception as e:
-        output = "There was an error executing the IssuePack subprocess: " + str(e)
-        status = "error"
+        
+        try:
+            answer.update(json.loads(output))
+            if len(answer['issues']) > 0:
+                answer["status"] = "success"
+        except ValueError:
+            answer["log"] = ["Invalid Issue Packs output: " + output]
 
-    return {
-        "schema": current_data_schema,
-        "status": status,
-        "log": output,
-        "project": project_info,
-    }
+    except Exception as e:
+        answer["log"] = ["There was an error executing the IssuePack subprocess: " + str(e)]
+
+    return answer
