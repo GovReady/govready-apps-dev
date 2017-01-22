@@ -16,8 +16,8 @@ interstitial:
 
     No sweat! We'll help your team...
 
-    - Describe the *{{project}}* system and assess your risk impact level
-    - Secure *{{project}}* to official {{organization}} policies
+    - Describe the **{{project}}** system and assess your risk impact level
+    - Secure **{{project}}** to official {{organization}} policies
     - Prepare various assessment package artifacts
 
     Are you ready?
@@ -53,10 +53,10 @@ questions:
   tab: System Profile
   group: System Description
 
-- id: coming_soon_1
+- id: system_description
   title: Prepare re-usable system descriptions
   type: module
-  module-id: coming_soon
+  module-id: system_description
   tab: System Profile
   group: System Description
 
