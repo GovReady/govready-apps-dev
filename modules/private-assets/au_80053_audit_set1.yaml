@@ -21,7 +21,7 @@ issues:
       * Audit and accountability policy
       * Audit and accountability policy version update page
       * Audit and accountability policy audit trail of reviews and updates
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-1
@@ -52,7 +52,7 @@ issues:
 
       *Acceptance Criteria / Evidence*
       * List of the people and method to alert when there are issues with the audit system.
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links*
       * https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-5
@@ -70,17 +70,15 @@ issues:
       Reports need to be timestamped with an universally understood format to assist in analysis of events and system/data recovery.
       When different logs use different timezones and/or non-standard formats, it is harder to collate and compare events across different logs.
 
-
       *How*
       * Create organization standard for transaction record timestamp granularity of least 1 second
       * Create record timestamping mechanism that timestamps transactions with defined granularity in UTC or GMT
       * Timestamp with a system’s clock
 
-
       *Acceptance Criteria / Evidence*
       * Excerpt from STIG or SRG in use that defines timestamp granularity standard
       * Show example of logged events are being timestamped or configuration that forces timestamps
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links*
       * https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-8
@@ -108,7 +106,7 @@ issues:
       * Excerpt of audit and accountability policy specifying retention periods of audit logs
       * Copy of an after action report which includes audit log information
       * Excerpt from STIG or SRG in use that automatically sets or specifies audit retention periods
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links*
       * https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-10
@@ -135,6 +133,8 @@ issues:
       * Set up a google newsalert for FCC Hack,
       * Find a service that searches publicly available information for data spills; look for government services providers
 
+      *Acceptance Criteria / Evidence*
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links*
       * https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-12

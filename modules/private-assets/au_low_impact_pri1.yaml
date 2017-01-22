@@ -22,7 +22,7 @@ issues:
       * Audit and accountability policy
       * Audit and accountability policy version update page
       * Audit and accountability policy audit trail of reviews and updates
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       * https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-1
@@ -59,7 +59,7 @@ issues:
       * List of audit events
       * Frequency that each event will be audited to ensure data is being properly collected
       * Rationale for why the list of audit events is complete
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       * https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-2
@@ -88,7 +88,7 @@ issues:
       * The source of the event
       * The outcome of the event
       * The identity of any individuals or subjects associated with the event
- 
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       * https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-3
@@ -118,7 +118,7 @@ issues:
       * Copy of section of STIG or SRG that indicates audit retention requirements 
       * Demonstration of allocated storage (screenshot, service documentation, or configuration code
       * Demonstration of notification as max storage approached (screenshot or inspection)
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       * https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-4
@@ -147,10 +147,9 @@ issues:
       * Determine an effective test frequency and alert method (text, email, Slack).
       * Check the audit system monitors every two months to ensure they are working properly.
 
-
       *Acceptance Criteria / Evidence*
       * List of the people and method to alert when there are issues with the audit system.
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links*
       * https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AU-5
@@ -206,6 +205,7 @@ issues:
       *Acceptance Criteria / Evidence*
       * Excerpt from STIG or SRG in use that defines timestamp granularity standard
       * Show example of logged events are being timestamped or configuration that forces timestamps
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
 
       *Links*
@@ -233,6 +233,7 @@ issues:
 
       *Acceptance Criteria / Evidence:*
       * Provide list of privileged users with access to log generation, reduction reports and report-creating systems
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
 
       *Links:*
@@ -261,6 +262,7 @@ issues:
       * URL to audit and accountability policy
       * List of system components that generate logs and log retention
       * Excerpt from STIG or SRG in use that automatically sets or specifies log settings
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
 
       *Links:*

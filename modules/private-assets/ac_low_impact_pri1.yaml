@@ -63,7 +63,7 @@ issues:
       * Logs of process to allow access or a new account to IT systems
       * Logs of existing account review
       * Documented process for re-issuance of group-based credentials upon member change
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AC-2
@@ -86,7 +86,7 @@ issues:
 
       *Acceptance Criteria / Evidence:*
       * Retain equivalent documentation of access control methods for individual applications that you do for IT systems themselves.  
-
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AC-3
@@ -142,6 +142,7 @@ issues:
       * List of organization approved remote access types
       * Remote access policy
       * Remote access authorization policy
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AC-17
@@ -166,6 +167,7 @@ issues:
       *Acceptance Criteria / Evidence:*
       * Wireless access policy
       * Wireless access authorization policy
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AC-18
@@ -195,6 +197,7 @@ issues:
       *Acceptance Criteria / Evidence:*
       * Mobile device policy
       * Mobile device connection authorization policy
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AC-19
@@ -226,6 +229,7 @@ issues:
       * External access policy
       * External systems policy
       * List of exempt agencies/entities (if any)
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
       *Links:*
       https://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=AC-20

@@ -19,6 +19,7 @@ issues:
       * Excerpt of audit and accountability policy specifying retention periods of audit logs
       * Copy of an after action report which includes audit log information
       * Excerpt from STIG or SRG in use that automatically sets or specifies audit retention periods
+      * [Document control implementation in GovReady Q|{{project_url}}#tab=system-security-controls]
 
 
       *Links*
