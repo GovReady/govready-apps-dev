@@ -74,6 +74,13 @@ questions:
   tab: Agile Security Stories
   group: Security User Stories
 
+- id: au_part_1
+  title: Audit and Accountability Part 1
+  type: module
+  module-id: au_part_1
+  tab: System Security Controls
+  group: AU - Audit and Accountability
+
 - id: control_sc_7
   title: Protect your system's boundary
   type: module
