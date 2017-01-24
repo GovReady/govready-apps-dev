@@ -143,10 +143,23 @@ output:
   - title: User Stories
     format: markdown
     template: |
-      {% if not create_issue_pack %}
+      {% if not create_issue_pack or create_issue_pack.schema != 1 %}
         The issues have not yet been created.
+
       {% elif create_issue_pack.status == "success" %}
         Congratulations, you've created user stories in Jira.
+
+        Checkout your issues in [{{jira_project_base_uri}}/{{jira_project_key}}/issues]({{jira_project_base_uri}}/{{jira_project_key}}/issues):
+
+      {% for issuepack in create_issue_pack.issues %}
+      {% for issue in issuepack.issues %}
+      {% if issue.key %}
+      * [{{issue.title}}]({{jira_project_base_uri}}/browse/{{issue.key}})
+
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+
       {% else %}
         There was a problem creating the user stories. See the details for more information.
       {% endif %}
@@ -155,9 +168,9 @@ output:
     format: markdown
     template: |
       {% if create_issue_pack %}
-      {{create_issue_pack.log}}
+      {% for item in create_issue_pack.log %}* {{item}}
+      
+      {% endfor %}
       {% endif %}
-
-      Checkout your issues in  https://dfscto.atlassian.net/projects/TST2/issues
 
 
