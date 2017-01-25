@@ -149,7 +149,7 @@ output:
       {% elif create_issue_pack.status == "success" %}
         Congratulations, you've created user stories in Jira.
 
-        Checkout your issues in [{{jira_project_base_uri}}/{{jira_project_key}}/issues]({{jira_project_base_uri}}/{{jira_project_key}}/issues):
+        Checkout your issues in [{{jira_project_base_uri}}/projects/{{jira_project_key}}/issues]({{jira_project_base_uri}}/projects/{{jira_project_key}}/issues):
 
       {% for issuepack in create_issue_pack.issues %}
       {% for issue in issuepack.issues %}
