@@ -60,6 +60,13 @@ questions:
   tab: System Profile
   group: System Description
 
+- id: system_urls
+  title: Capture system URLs
+  type: module
+  module-id: system_urls
+  tab: System Profile
+  group: System Description
+
 - id: coming_soon_2
   title: Identify Points of Contact
   type: module
