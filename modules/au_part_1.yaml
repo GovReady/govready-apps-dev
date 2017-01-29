@@ -116,7 +116,7 @@ questions:
     title: Privileged activities
     type: yesno
     prompt: |
-      Does **{{project}}** currently audit those extra special, privileged activities creating and removing accounts and deleting information that normal users of **{{project}}** would not be able to do?
+      Does **{{project}}** currently audit those extra special, privileged activities like creating and removing accounts and deleting information that normal users of **{{project}}** would not be able to do?
 
   - id: audit_user_access_startstop
     title: User access start &amp; stop 
