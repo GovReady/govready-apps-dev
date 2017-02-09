@@ -223,7 +223,7 @@ output:
       <!-- Amazon stuff -->
 
 
-      {% elif using_enterprise_dmz == 'yes' %}
+      {% if using_enterprise_dmz == 'yes' %}
         {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
         {{using_enterprise_dmz_yes}}
 
@@ -365,7 +365,7 @@ output:
 
 
 
-              {% elif using_enterprise_dmz == 'yes' %}
+              {% if using_enterprise_dmz == 'yes' %}
 
                 {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
                 {{using_enterprise_dmz_yes}}
