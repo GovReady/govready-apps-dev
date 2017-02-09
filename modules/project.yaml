@@ -60,6 +60,20 @@ questions:
   tab: System Profile
   group: System Description
 
+- id: system_basics_technical
+  title: Document basic technical details
+  type: module
+  module-id: system_basics_technical
+  tab: System Profile
+  group: System Description
+
+- id: system_description
+  title: Prepare re-usable system descriptions
+  type: module
+  module-id: system_description
+  tab: System Profile
+  group: System Description
+
 - id: system_urls
   title: Capture system URLs
   type: module

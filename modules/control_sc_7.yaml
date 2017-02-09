@@ -78,30 +78,30 @@ questions:
     prompt: |
       A secure system is protected by a firewall.
 
-      {% if 0 and project.system_basics.cloud_provider == "AWS" %}
+      {% if project.system_basics_technical.cloud_provider == "AWS" %}
       Amazon Web Services's "security groups" are firewalls that protect machine instances in EC2.
       Besides the AWS security groups, does your system have an additional firewall?
 
-      {% elif 0 and project.system_basics.application_where_hosted == "cloud" %}
-      Cloud providers, such as {{project.system_basics.cloud_provider.text}}, often have firewall
-      services built-in. Besides the firewall services provided by {{project.system_basics.cloud_provider.text}},
+      {% elif project.system_basics_technical.application_where_hosted == "cloud" %}
+      Cloud providers, such as {{project.system_basics_technical.cloud_provider.text}}, often have firewall
+      services built-in. Besides the firewall services provided by {{project.system_basics_technical.cloud_provider.text}},
       does your system have an additional firewall?
 
       {% else %}
       Does your system have a firewall?
       {% endif %}
 
-    #impute:
-    #  - condition: project.system_basics.application_where_hosted and not(project.system_basics.application_where_hosted == "cloud")
-    #    value: ~
+    impute:
+      - condition: project.system_basics_technical.application_where_hosted and not(project.system_basics_technical.application_where_hosted == "cloud")
+        value: ~
 
   # - id: who_configures_aws_security_groups
   #   title: Who Configures The AWS Security Groups?
   #   type: text
   #   prompt: |
-  #     {{project.system_basics.cloud_provider.text}} Security Groups must be properly configured.
+  #     {{project.system_basics_technical.cloud_provider.text}} Security Groups must be properly configured.
 
-  #     Who in your organization is responsible for configuring {{project.system_basics.cloud_provider.text}}  Security Groups?
+  #     Who in your organization is responsible for configuring {{project.system_basics_technical.cloud_provider.text}}  Security Groups?
   #   impute:
   #     - condition: has_firewall == 'yes'
   #       value: ~
@@ -116,9 +116,9 @@ questions:
 
       Do you plan for your system to use the enterprise boundary protection services
       provided by enterprise IT?
-    # impute:
-    #   - condition: project.system_basics.application_where_hosted and not(project.system_basics.application_where_hosted == "onpremesis")
-    #     value: ~
+    impute:
+      - condition: project.system_basics_technical.application_where_hosted and not(project.system_basics_technical.application_where_hosted == "onpremesis")
+        value: ~
 
   - id: using_enterprise_dmz_yes
     title: Using Enterprise DMZ (Yes)
@@ -190,7 +190,7 @@ output:
       Click Control Text Segment to view whether enough information exists to prepare your
       control implementation. Click Formatted Control Table to view a version that you can
       copy/paste into your SSP.
-  
+
   - title: Control Text Segment
     format: markdown
     template: |
@@ -200,15 +200,15 @@ output:
       From the NIST SP 800-53
 
       > The information system:
-      > 
+      >
       > a. Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system;
-      > 
+      >
       > b. Implements subnetworks for publicly accessible system components that are [Selection: physically; logically] separated from internal organizational networks; and
-      > 
+      >
       > c. Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture.
 
 
-      {% if 0 and project.system_basics.application_where_hosted and project.system_basics.application_where_hosted != "onpremesis" %}
+      {% if 0 and project.system_basics_technical.application_where_hosted and project.system_basics_technical.application_where_hosted != "onpremesis" %}
 
 
       <!-- Amazon stuff -->
@@ -219,12 +219,12 @@ output:
         {% else %}
 
         The {{project}} information system:
-        
-        a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with {{project.system_basics.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
+
+        a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with {{project.system_basics_technical.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
 
         b.  Implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by configuring different security groups to establish logically separated subnetworks; and
-        
-        c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using {{project.system_basics.cloud_provider.text}} Security Groups which are required in {{project.system_basics.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
+
+        c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using {{project.system_basics_technical.cloud_provider.text}} Security Groups which are required in {{project.system_basics_technical.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
 
         {% endif %}
 
@@ -238,7 +238,7 @@ output:
         {% endif %}
 
         Status: Implemented
-      
+
         The {{project}} inherits this control from the {{organization}} enterpize DMZ.
 
         The {{organization}} enterpise DMZ:
@@ -284,7 +284,7 @@ output:
           <tr>
             <td width="30%">Responsible Role:</th>
             <td>
-              {% if 0 and project.system_basics.application_where_hosted == "onpremesis" and have_other_dmz == 'ad_hoc_dmz' %}
+              {% if 0 and project.system_basics_technical.application_where_hosted == "onpremesis" and have_other_dmz == 'ad_hoc_dmz' %}
                 {{who_responsible_for_dmz}}
               {% else %}
               N/A
@@ -294,7 +294,7 @@ output:
           <tr>
             <td>Parameter:</th>
             <td>
-              {% if 0 and project.system_basics.application_where_hosted != "onpremesis" %}
+              {% if 0 and project.system_basics_technical.application_where_hosted != "onpremesis" %}
                 &nbsp;
               {% elif using_enterprise_dmz == 'yes' %}
               Enterprise DMZ.
@@ -336,9 +336,9 @@ output:
                     {% if key == "service_provider_corporate" and using_enterprise_dmz == "no" %}checked="checked"{% endif %}
                     {% if key == "inherited" and using_enterprise_dmz == "yes" %}checked="checked"{% endif %}
 
-                    {% if key == "shared" and 0 and project.system_basics.application_where_hosted and project.system_basics.application_where_hosted != "onpremesis" %}checked="checked"{% endif %}
+                    {% if key == "shared" and 0 and project.system_basics_technical.application_where_hosted and project.system_basics_technical.application_where_hosted != "onpremesis" %}checked="checked"{% endif %}
 
-                    > {{text}} 
+                    > {{text}}
                 </label>
               </div>
               {% endfor %}
@@ -356,7 +356,7 @@ output:
           <tr>
             <td colspan="2">
 
-              {% if 0 and project.system_basics.application_where_hosted and project.system_basics.application_where_hosted != "onpremesis" %}
+              {% if 0 and project.system_basics_technical.application_where_hosted and project.system_basics_technical.application_where_hosted != "onpremesis" %}
 
 
               <!-- Amazon stuff -->
@@ -367,20 +367,17 @@ output:
                 {% else %}
 
                 <p>The {{project}} information system:</p>
-                
-                <p>a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with {{project.system_basics.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
+
+                <p>a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with {{project.system_basics_technical.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
                 </p>
                 <p>b.  Implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by configuring different security groups to establish logically separated subnetworks; and
-                </p>                
-                <p>c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using {{project.system_basics.cloud_provider.text}} Security Groups which are required in {{project.system_basics.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
+                </p>
+                <p>c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using {{project.system_basics_technical.cloud_provider.text}} Security Groups which are required in {{project.system_basics_technical.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
                 </p>
 
                 {% endif %}
 
               <!-- Amazon stuff -->
-
-
-      
 
 
 
@@ -389,7 +386,7 @@ output:
                 {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
                 {{using_enterprise_dmz_yes}}
                 {% endif %}
-                      
+
                 <p>The {{project}} inherits this control from the {{organization}} enterpize DMZ.</p>
 
                 <p>The {{organization}} enterpise DMZ:</p>
