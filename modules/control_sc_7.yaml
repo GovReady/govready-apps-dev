@@ -207,16 +207,8 @@ output:
       >
       > c. Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture.
 
-
-      {% if 0 and project.system_basics_technical.application_where_hosted and project.system_basics_technical.application_where_hosted != "onpremesis" %}
-
-
       <!-- Amazon stuff -->
-
-        {% if has_firewall %}
-        <p>Evidence: {evidence_that_firewall_is_configured.text}</p>
-        <p>Last Monitored: {firewall_log_date.text}</p>
-        {% else %}
+      {% if project.system_basics_technical.cloud_provider == "AWS" %}
 
         The {{project}} information system:
 
@@ -232,10 +224,8 @@ output:
 
 
       {% elif using_enterprise_dmz == 'yes' %}
-        {% if 0 %}
         {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
         {{using_enterprise_dmz_yes}}
-        {% endif %}
 
         Status: Implemented
 
@@ -336,7 +326,7 @@ output:
                     {% if key == "service_provider_corporate" and using_enterprise_dmz == "no" %}checked="checked"{% endif %}
                     {% if key == "inherited" and using_enterprise_dmz == "yes" %}checked="checked"{% endif %}
 
-                    {% if key == "shared" and 0 and project.system_basics_technical.application_where_hosted and project.system_basics_technical.application_where_hosted != "onpremesis" %}checked="checked"{% endif %}
+                    {% if key == "shared" and project.system_basics_technical.application_where_hosted and project.system_basics_technical.application_where_hosted != "onpremesis" %}checked="checked"{% endif %}
 
                     > {{text}}
                 </label>
@@ -356,15 +346,9 @@ output:
           <tr>
             <td colspan="2">
 
-              {% if 0 and project.system_basics_technical.application_where_hosted and project.system_basics_technical.application_where_hosted != "onpremesis" %}
-
+              {% if project.system_basics_technical.cloud_provider == "AWS" %}
 
               <!-- Amazon stuff -->
-
-                {% if has_firewall %}
-                <p>Evidence: {evidence_that_firewall_is_configured.text}</p>
-                <p>Last Monitored: {firewall_log_date.text}</p>
-                {% else %}
 
                 <p>The {{project}} information system:</p>
 
@@ -382,10 +366,10 @@ output:
 
 
               {% elif using_enterprise_dmz == 'yes' %}
-                {% if 0 %}
+
                 {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
                 {{using_enterprise_dmz_yes}}
-                {% endif %}
+
 
                 <p>The {{project}} inherits this control from the {{organization}} enterpize DMZ.</p>
 
