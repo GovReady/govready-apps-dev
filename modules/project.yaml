@@ -36,8 +36,6 @@ invitation_to_task_interstitial:
 
     We'll tell {{invitation.from_user}} you're getting started.
 
-export_button_label: Export System Description and Control Information
-
 questions:
 # - id: about_ssp
 #   title: About System Security Plans
