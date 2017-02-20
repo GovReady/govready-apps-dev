@@ -4,18 +4,19 @@
 #
 # Before running this script, acquire the PDF and convert it to text:
 #
-# $ wget http://csrc.nist.gov/publications/nistpubs/800-60-rev1/SP800-60_Vol2-Rev1.pdf
-# $	 pdftotext SP800-60_Vol2-Rev1.pdf
+# $ wget -O SP800-60v2r1.pdf http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf
+# $	pdftotext SP800-60v2r1.pdf
 #
 # Then run this script:
 #
-# python3 information_types.py > information_types.yaml
+# python3 information_types.py SP800-60v2r1.txt > information_types.yaml
 
 from collections import OrderedDict
+import sys
 import re
 import rtyaml
 
-text = open("SP800-60_Vol2-Rev1.txt").read()
+text = open(sys.argv[1]).read()
 
 # Chop off start and end.
 
@@ -31,9 +32,10 @@ text = text[:i]
 
 text = re.sub(r"\s*\d+\s*\x0c", "\n", text)
 
-# Remove a table that breaks parsing.
+# Remove tables that break parsing.
 
 text = re.sub(r"Table D-1: [\w\W]*?Civilian Operations", "", text)
+text = re.sub(r"Table D-2: [\w\W]*?(\nD.1 Defense and National Security)", r"\1", text)
 
 # Parse content - split up the text by information type.
 
