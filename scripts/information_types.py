@@ -40,10 +40,15 @@ text = re.sub(r"Table D-2: [\w\W]*?(\nD.1 Defense and National Security)", r"\1"
 # Parse content - split up the text by information type.
 
 # transition matrix between expected headings so we can parse strictly.
-TM = { "description": "Confidentiality", "confidentiality": "Integrity", "integrity": "Availability" }
+TM = {
+	("description", "confidentiality"),
+	("confidentiality", "integrity"),
+	("integrity", "availability"),
+}
 
 information_types = []
-parse_mode = None
+attr1 = None
+attr2 = None
 
 for line in text.split("\n"):
 	# Look for a line that starts a new information type.
@@ -54,7 +59,8 @@ for line in text.split("\n"):
 			("title", re.sub(" Information Type$|^Rationale and Factors for ", "", m.group("title"))),
 			("description", { "text": "" }),
 		]))
-		parse_mode = "description"
+		attr1 = "description"
+		attr2 = "text"
 		security_category = None
 		continue
 
@@ -69,14 +75,25 @@ for line in text.split("\n"):
 
 	# Look for a second-level heading. There is a strict order of headings. So we are testing
 	# for a heading line that is known to be the next heading, given where we are.
-	if parse_mode in TM and line.strip() == TM[parse_mode]:
+	transition = (attr1, line.strip().lower())
+	if transition in TM:
 		if not security_category: raise ValueError(information_types[-1])
-		parse_mode = line.strip().lower()
-		information_types[-1][parse_mode] = { "text": "", "level": security_category[parse_mode] }
+		attr1 = transition[1]
+		information_types[-1][attr1] = OrderedDict([
+			("level", security_category[attr1]),
+			("text", ""),
+		])
+		attr2 = "text"
 		continue
 
+	m = re.match("Special Factors Affecting (.*) Impact Determination: (.*)", line)
+	if m:
+		attr2 = "special_factors"
+		information_types[-1][attr1].setdefault(attr2, "")
+		line = m.group(2)
+
 	# This line of text continues the last recognized information type.
-	information_types[-1][parse_mode]["text"] += line + "\n"
+	information_types[-1][attr1][attr2] += line + "\n"
 
 # Clean up text.
 
