@@ -9,7 +9,7 @@
 #
 # Then run this script:
 #
-# python3 information_types.py SP800-60v2r1.txt > information_types.yaml
+# python3 information_types_scrape_from_pdf.py SP800-60v2r1.txt > information_types.yaml
 
 from collections import OrderedDict
 import sys
@@ -34,8 +34,7 @@ text = re.sub(r"\s*\d+\s*\x0c", "\n", text)
 
 # Remove tables that break parsing.
 
-text = re.sub(r"Table D-1: [\w\W]*?Civilian Operations", "", text)
-text = re.sub(r"Table D-2: [\w\W]*?(\nD.1 Defense and National Security)", r"\1", text)
+text = re.sub(r"APPENDIX D: [\w\W]*?(\nD.1 Defense and National Security)", r"\1", text)
 
 # Parse content - split up the text by information type.
 
@@ -116,6 +115,19 @@ for information_type in information_types:
 				text = re.sub(r"(.*)\n", line_break_remover, text)
 
 				information_type[key]["text"] = text
+
+			# Remove the recommended level from the end of the summary text
+			# and special factors text. We can't do this earlier because it's
+			# difficult to pick up on a line-by-line scan because of word wrapping.
+			# The sentence is redundant with the strucutured data we've already
+			# extracted and stored in 'level'.
+			for skey in ("text", "special_factors"):
+				if skey in information_type[key]:
+					text = information_type[key][skey]
+					text = re.sub(r"\s*(Subject to exception conditions described below, t|T)he recommended (provisional )?(security )?categorization for .* information type (is as )?follows:\s*Security Category = \{.*\}", "", text)
+					text = re.sub(r"\s*Recommended (\S+) Impact Level: [\s\S]*", "\n", text)
+					information_type[key][skey] = text
+
 
 # Group subsections under sections.
 
