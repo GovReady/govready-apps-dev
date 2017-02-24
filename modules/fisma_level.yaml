@@ -16811,52 +16811,63 @@ questions:
   title: Is the system owner a covered entity under HIPAA?
   type: choice
   prompt: |
-    Something something about HIPAA and Private Health Information.
+    {# NIST 800-66r1? #}
+    The HIPAA Privacy and Security Rules requires covered entities to ensure the
+    confidentiality, integrity, and availability of Protected Health Information
+    (PHI) in the information system.
 
     Are you one of these covered entities under HIPAA?
   choices:
-  - key: choice1
-    text: Covered Entity Type 1
-  - key: choice2
-    text: Covered Entity Type 2
+  - key: provider
+    text: Covered Healthcare Provider
+    help: Any provider of medical or other health services, or supplies.
+  - key: plan
+    text: Health Plan
+    help: Any individual or group plan that provides or pays the cost of medical care (e.g., a health insurance issuer and the Medicare and Medicaid programs).
+  - key: clearinghouse
+    text: Healthcare Clearinghouse
+    help: A public or private entity that processes another entity’s healthcare transactions between formats.
+  - key: sponsor
+    text: Medicare Prescription Drug Card Sponsor
+    help: A nongovernmental entity that offers an endorsed discount drug program under the Medicare Modernization Act.
   - key: not-covered
     text: Not a Covered Entity
-- id: phi_types_collected
-  title: What types of Private Health Information does the information system collect?
-  type: multiple-choice
+- id: phi_has_any_phi
+  title: Does the information system contain Protected Health Information (PHI)?
+  type: yesno
   prompt: |
-    Private Health Information (PHI) is ...
+    Protected Health Information (PHI) is information created or received by
+    a health care provider, health plan, public health authority, employer, life insurer,
+    school or university, or health care clearinghouse that relates to the past, present,
+    or future physical or mental health, condition, care, or payment for care of any individual.
 
-    What types of Private Health Information does the information system collect?
-  choices:
-  - key: choice1
-    text: Information Type 1
-  - key: choice2
-    text: Information Type 2
+    Does your information system contain Protected Health Information (PHI)?
   impute:
   - condition: phi_covered_entity == null or phi_covered_entity == "not-covered"
-    value: []
+    value: "no"
 - id: phi_impact_level
-  title: What is the impact level of a loss of confidentiality of Private Health Information?
+  title: What is the impact level for Protected Health Information?
   type: choice
   prompt: |
-    Some explanation here.
-    What is the impact of a loss of confidentiality, integrity, or availability of the Private Health Information in your information system?
+    The FISMA level of your information system depends on the impact of a loss of
+    confidentiality, integrity, or availability of the Protected Health Information (PHI)
+    in your information system.
+
+    Which level characterizes the impact of a loss of
+    confidentiality, integrity, or availability of the Protected Health Information (PHI)
+    in your information system?
   choices:
   - key: Low
     text: Low
-    help: A breach of the confidentiality at the low impact level would not cause
-      harm greater than inconvenience, such as...
+    help: A breach of the confidentiality of PHI at the low impact level would not cause harm greater than inconvenience, such as changing a private health care provider web portal password or telephone number. For example, a research team is using de-indentified or obfuscated medical data that cannot be traced back to the original dat source or PHI record but the organization may still have to comply with PHI protocols as a result of grant or contract conditions that mandate the data remains secure until a study is released to the public once the data analysis has been completed and authorized for public release.
   - key: Moderate
     text: Moderate
-    help: Financial loss due to identity theft or denial of benefits, public humiliation,
-      discrimination, and the potential for blackmail.
+    help: The types of harm that could be caused by a breach involving PHI at the moderate impact level include financial loss due to identity theft or denial of benefits, public humiliation, discrimination, and the potential for blackmail. From an organizational perspective it would also result in fines and loss of reputation or public confidence in the institution as a result of a PHI breach.  For example, an organization may lose a few PHI records after discovering  a hospital employee was using their access to medical records to notify the media of celebrity medical conditions.  This in turn, caused the covered entity to have to file an insurance claim to cover the mandated state and federal fines associated with the incident, termination of the employees and also resulted in bad press for the covered entity.  The covered entity (in this care a hospital) also had to legally settle lawsuits by the celebrities who who were impacted by the data that was publicly released.
   - key: High
     text: High
-    help: Serious physical, social, or financial harm, resulting in potential loss
-      of life, loss of livelihood, or inappropriate physical detention.
+    help: For example, if the breach by a covered entity is incredibly large and spans multiple interconnected covered entities where the fines for a massive breach would bankrupt the entity or entities, then that would be a reason to rate the harm as high.  Damages to a person could include being rated as uninsurable medically for life if the data were to be released in public as part of a breach based on severe or multiple pre-existing or chronic medical conditions that are financially costly to treat.  That could ultimately result in loss of life of the affected person and would make harm in this example High.
   impute:
-  - condition: phi_types_collected|length == 0
+  - condition: phi_has_any_phi == "no"
     value: Low
 - id: fisma_level
   title: FISMA Level
@@ -16870,17 +16881,17 @@ questions:
   - key: High
     text: High
   impute:
-  - condition: information_types_level == "High" or pii_impact_level == "High"
+  - condition: information_types_level == "High" or pii_impact_level == "High" or phi_impact_level == "High"
     value: High
-  - condition: information_types_level == "Moderate" or pii_impact_level == "Moderate"
+  - condition: information_types_level == "Moderate" or pii_impact_level == "Moderate" or phi_impact_level == "Moderate"
     value: Moderate
   - condition: 'True'
     value: Low
 - id: phi_level_review
-  title: Review the Impact Level for Private Health Information
+  title: Review the Impact Level for Protected Health Information
   type: interstitial
   prompt: |
-    Based on your answers about the Private Health Information contained within
+    Based on your answers about the Protected Health Information contained within
     the information system, the loss of confidentiality, integrity, or availability would
     have a {{phi_impact_level}} impact.
 output:
@@ -16897,6 +16908,6 @@ output:
 
     PII Impact Level: {{pii_impact_level.text}}
 
-    PHI Types: {{phi_types_collected.text}}
+    PHI? {{phi_has_any_phi.text}}
 
     PHI Impact Level: {{phi_impact_level.text}}
