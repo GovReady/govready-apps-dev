@@ -1,0 +1,65 @@
+id: fisma_level_project
+title: System Categorization (Determine FISMA Level)
+type: project
+version: 1
+
+snippet:
+  format: html
+  template: ""
+
+interstitial:
+  format: markdown
+  template: |
+    ## System Categorization (Determine FISMA Level)
+
+    Before you embark on your ATO under FISMA, you must know if your system is
+
+    - FISMA Low
+    - FISMA Moderate
+    - FISMA High
+
+    Your system's FISMA level is determined by the impact of a loss of confidentiality,
+    integrity, and availability of your system on your organization's mission and on
+    potential harm to others.
+
+    We'll help you figure out your system's FISMA level.
+
+    Are you ready?
+
+introduction:
+  format: markdown
+  template: |
+    This project will guide you through determining your system categorization under the NIST Risk Management Framework in order to get the {{project}} its Authority to Operate.
+
+invitation_to_task_interstitial:
+  format: markdown
+  template: |
+    ## Thanks for accepting {{invitation.from_user}}'s invitation
+
+    You've been asked to help with {{task.title}} for {{project}}.
+
+    We'll tell {{invitation.from_user}} you're getting started.
+
+questions:
+
+- id: fisma_level
+  title: Determine Your FISMA Level
+  type: module
+  module-id: fisma_level
+  tab: Questions
+  group: Questions
+
+
+output:
+  - tab: Questions
+    format: markdown
+    template: |
+      <div style="text-align:center;">
+
+      ## Need to Determine Your System Categorization (FISMA Level)?
+
+      ![](icon_system_capital.png)
+
+      ### No sweat! We'll ask you a few questions and will let you know.
+
+      </div>

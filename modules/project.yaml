@@ -79,13 +79,6 @@ questions:
   tab: System Profile
   group: System Description
 
-- id: fisma_level
-  title: Determine Your FISMA Level
-  type: module
-  module-id: fisma_level
-  tab: System Profile
-  group: FISMA Level
-
 - id: coming_soon_2
   title: Identify Points of Contact
   type: module
