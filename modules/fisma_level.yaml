@@ -2615,7 +2615,7 @@ questions:
   - condition: 'True'
     value: Low
 - id: information_types_confidentiality_review
-  title: Review the confidentiality impact level for the information contained in
+  title: Is the confidentiality impact level correct for the information contained in
     the system?
   type: yesno
   prompt: |
@@ -2679,7 +2679,8 @@ questions:
     * Would unauthorized disclosure/dissemination of elements of the information type
     violate laws, executive orders, or agency regulations?
 
-    Do you want to review the confidentiality impact level guidance from NIST SP 800-60 Volume 2?
+    Is this impact level correct for the confidentiality of the information contained in
+    the system?
 - id: information_types_confidentiality
   title: What is the confidentiality impact level for the information contained in
     the system?
@@ -2692,7 +2693,7 @@ questions:
   - key: High
     text: High
   impute:
-  - condition: information_types_confidentiality_review == "no"
+  - condition: information_types_confidentiality_review == "yes"
     value-mode: expression
     value: information_types_confidentiality_provisional
   prompt: >
@@ -8280,7 +8281,7 @@ questions:
     **What level of impact is appropriate for a loss of confidentiality in your information
     system?**
 - id: information_types_integrity_review
-  title: Review the integrity impact level for the information contained in the system?
+  title: Is the integrity impact level correct for the information contained in the system?
   type: yesno
   prompt: |
     Based on the information type(s) you chose from NIST SP 800-60 Volume 2, the provisional
@@ -8359,7 +8360,8 @@ questions:
     * Would unauthorized modification/destruction of elements of the information type
     violate laws, executive orders, or agency regulations?
 
-    Do you want to review the integrity impact level guidance from NIST SP 800-60 Volume 2?
+    Is this impact level correct for the integrity of the information contained in
+    the system?
 - id: information_types_integrity
   title: What is the integrity impact level for the information contained in the system?
   type: choice
@@ -8371,7 +8373,7 @@ questions:
   - key: High
     text: High
   impute:
-  - condition: information_types_integrity_review == "no"
+  - condition: information_types_integrity_review == "yes"
     value-mode: expression
     value: information_types_integrity_provisional
   prompt: >
@@ -12734,7 +12736,7 @@ questions:
     **What level of impact is appropriate for a loss of integrity in your information
     system?**
 - id: information_types_availability_review
-  title: Review the availability impact level for the information contained in the
+  title: Is the availability impact level correct for the information contained in the
     system?
   type: yesno
   prompt: |
@@ -12803,7 +12805,8 @@ questions:
     * Would disruption of access to or use of elements of the information type violate laws, executive
     orders, or agency regulations?
 
-    Do you want to review the availability impact level guidance from NIST SP 800-60 Volume 2?
+    Is this impact level correct for the availability of the information contained in
+    the system?
 - id: information_types_availability
   title: What is the availability impact level for the information contained in the
     system?
@@ -12816,7 +12819,7 @@ questions:
   - key: High
     text: High
   impute:
-  - condition: information_types_availability_review == "no"
+  - condition: information_types_availability_review == "yes"
     value-mode: expression
     value: information_types_availability_provisional
   prompt: >
