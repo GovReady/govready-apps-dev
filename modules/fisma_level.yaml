@@ -2634,7 +2634,7 @@ questions:
   type: yesno
   prompt: |
     Based on the information type(s) you chose from NIST SP 800-60 Volume 2, the provisional
-    impact of a loss of confidentiality is {{information_types_confidentiality_provisional}}.
+    impact of a loss of confidentiality is **{{information_types_confidentiality_provisional}}**.
 
     {# FIPS 199 #}
 
@@ -2693,8 +2693,8 @@ questions:
     * Would unauthorized disclosure/dissemination of elements of the information type
     violate laws, executive orders, or agency regulations?
 
-    Is this impact level correct for the confidentiality of the information contained in
-    the system?
+    Is **{{information_types_confidentiality_provisional}}** the correct impact level for
+    the **confidentiality** of the information contained in the system?
 - id: information_types_confidentiality
   title: What is the confidentiality impact level for the information contained in
     the system?
@@ -2711,12 +2711,8 @@ questions:
     value-mode: expression
     value: information_types_confidentiality_provisional
   prompt: >
-    Although the provisional impact of a loss of confidentiality is {{information_types_confidentiality_provisional}},
-    based on the information type(s) you chose from NIST SP 800-60 Volume 2, your
-    information system's function may require the selection of a {% if information_types_confidentiality_provisional
-    == "Low" %}higher {% elif information_types_confidentiality_provisional == "Moderate"
-    %}higher or lower {% elif information_types_confidentiality_provisional == "High"
-    %}lower{% endif %} level.
+    We've computed that the provisional impact of a loss of confidentiality is {{information_types_confidentiality_provisional}}.
+    But you've told us that it is not the correct impact level.
 
 
     The following guidance from NIST SP 800-60 Vol. 2 provides examples of when a
@@ -8300,7 +8296,7 @@ questions:
   type: yesno
   prompt: |
     Based on the information type(s) you chose from NIST SP 800-60 Volume 2, the provisional
-    impact of a loss of integrity is {{information_types_integrity_provisional}}.
+    impact of a loss of integrity is **{{information_types_integrity_provisional}}**.
 
     {# FIPS 199 #}
 
@@ -8375,8 +8371,8 @@ questions:
     * Would unauthorized modification/destruction of elements of the information type
     violate laws, executive orders, or agency regulations?
 
-    Is this impact level correct for the integrity of the information contained in
-    the system?
+    Is **{{information_types_integrity_provisional}}** the correct impact level for
+    the **integrity** of the information contained in the system?
 - id: information_types_integrity
   title: What is the integrity impact level for the information contained in the system?
   type: choice
@@ -8392,12 +8388,8 @@ questions:
     value-mode: expression
     value: information_types_integrity_provisional
   prompt: >
-    Although the provisional impact of a loss of integrity is {{information_types_integrity_provisional}},
-    based on the information type(s) you chose from NIST SP 800-60 Volume 2, your
-    information system's function may require the selection of a {% if information_types_integrity_provisional
-    == "Low" %}higher {% elif information_types_integrity_provisional == "Moderate"
-    %}higher or lower {% elif information_types_integrity_provisional == "High" %}lower{%
-    endif %} level.
+    We've computed that the provisional impact of a loss of integrity is {{information_types_integrity_provisional}}.
+    But you've told us that it is not the correct impact level.
 
 
     The following guidance from NIST SP 800-60 Vol. 2 provides examples of when a
@@ -12756,7 +12748,7 @@ questions:
   type: yesno
   prompt: |
     Based on the information type(s) you chose from NIST SP 800-60 Volume 2, the provisional
-    impact of a loss of availability is {{information_types_availability_provisional}}.
+    impact of a loss of availability is **{{information_types_availability_provisional}}**.
 
     {# FIPS 199 & NIST SP 800-60 Vol 1 #}
 
@@ -12820,8 +12812,8 @@ questions:
     * Would disruption of access to or use of elements of the information type violate laws, executive
     orders, or agency regulations?
 
-    Is this impact level correct for the availability of the information contained in
-    the system?
+    Is **{{information_types_availability_provisional}}** the correct impact level for
+    the **availability** of the information contained in the system?
 - id: information_types_availability
   title: What is the availability impact level for the information contained in the
     system?
@@ -12838,12 +12830,8 @@ questions:
     value-mode: expression
     value: information_types_availability_provisional
   prompt: >
-    Although the provisional impact of a loss of availability is {{information_types_availability_provisional}},
-    based on the information type(s) you chose from NIST SP 800-60 Volume 2, your
-    information system's function may require the selection of a {% if information_types_availability_provisional
-    == "Low" %}higher {% elif information_types_availability_provisional == "Moderate"
-    %}higher or lower {% elif information_types_availability_provisional == "High"
-    %}lower{% endif %} level.
+    We've computed that the provisional impact of a loss of availability is {{information_types_availability_provisional}}.
+    But you've told us that it is not the correct impact level.
 
 
     The following guidance from NIST SP 800-60 Vol. 2 provides examples of when a
