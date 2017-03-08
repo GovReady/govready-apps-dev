@@ -2499,19 +2499,25 @@ questions:
   impute:
   - condition: 'True'
     value-mode: expression
-    value: information_type_category_C_2_1 + information_type_category_C_2_2 + information_type_category_C_2_3
-      + information_type_category_C_2_4 + information_type_category_C_2_5 + information_type_category_C_2_6
-      + information_type_category_C_2_7 + information_type_category_C_2_8 + information_type_category_C_3_1
-      + information_type_category_C_3_2 + information_type_category_C_3_3 + information_type_category_C_3_4
-      + information_type_category_C_3_5 + information_type_category_D_2 + information_type_category_D_4
-      + information_type_category_D_5 + information_type_category_D_6 + information_type_category_D_7
-      + information_type_category_D_8 + information_type_category_D_9 + information_type_category_D_10
-      + information_type_category_D_11 + information_type_category_D_12 + information_type_category_D_13
-      + information_type_category_D_14 + information_type_category_D_15 + information_type_category_D_16
-      + information_type_category_D_17 + information_type_category_D_18 + information_type_category_D_19
-      + information_type_category_D_20 + information_type_category_D_21 + information_type_category_D_22
-      + information_type_category_D_23 + information_type_category_D_24 + information_type_category_D_25
-      + information_type_category_D_26
+    value: (information_type_category_C_2_1 or []) + (information_type_category_C_2_2
+      or []) + (information_type_category_C_2_3 or []) + (information_type_category_C_2_4
+      or []) + (information_type_category_C_2_5 or []) + (information_type_category_C_2_6
+      or []) + (information_type_category_C_2_7 or []) + (information_type_category_C_2_8
+      or []) + (information_type_category_C_3_1 or []) + (information_type_category_C_3_2
+      or []) + (information_type_category_C_3_3 or []) + (information_type_category_C_3_4
+      or []) + (information_type_category_C_3_5 or []) + (information_type_category_D_2
+      or []) + (information_type_category_D_4 or []) + (information_type_category_D_5
+      or []) + (information_type_category_D_6 or []) + (information_type_category_D_7
+      or []) + (information_type_category_D_8 or []) + (information_type_category_D_9
+      or []) + (information_type_category_D_10 or []) + (information_type_category_D_11
+      or []) + (information_type_category_D_12 or []) + (information_type_category_D_13
+      or []) + (information_type_category_D_14 or []) + (information_type_category_D_15
+      or []) + (information_type_category_D_16 or []) + (information_type_category_D_17
+      or []) + (information_type_category_D_18 or []) + (information_type_category_D_19
+      or []) + (information_type_category_D_20 or []) + (information_type_category_D_21
+      or []) + (information_type_category_D_22 or []) + (information_type_category_D_23
+      or []) + (information_type_category_D_24 or []) + (information_type_category_D_25
+      or []) + (information_type_category_D_26 or [])
   prompt: '[not used, always imputed]'
 - id: information_types_confidentiality_provisional
   title: What is the provisional confidentiality impact level?

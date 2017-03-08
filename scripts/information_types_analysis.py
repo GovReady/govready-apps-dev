@@ -79,7 +79,7 @@ infotype_questions["information_types"] = OrderedDict([
 		OrderedDict([
 			("condition", "True"),
 			("value-mode", "expression"),
-			("value", " + ".join(q["id"] for q in infotype_questions_actual)),
+			("value", " + ".join(("(%s or [])" % q["id"]) for q in infotype_questions_actual)),
 		])
 	]),
 ])
