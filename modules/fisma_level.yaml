@@ -2,29 +2,37 @@ id: fisma_level
 title: Determine Your FISMA Level
 introduction:
   format: markdown
-  template: "# Determine Your System's FISMA Level\n\nThe first step in becoming FISMA
-    compliant is categorization. In categorization, you\ndetermine the FISMA Level
-    of your system, which may be \"Low,\" \"Moderate,\" or \"High.\"\n\n{# FIPS 199
-    / NIST 800-60 Vol 1 #}\n\n* Your system is FISMA Low if the loss of confidentiality,
-    integrity, or availability could be\nexpected to have a limited adverse effect,
-    such as a degradation in mission capability, minor damage\nto organizational assets,
-    minor financial loss, or minor harm to individuals. \n\n* Your system is FISMA
-    Moderate if the loss of confidentiality, integrity, or availability could be\nexpected
-    to have a serious adverse effect, such as a significant degradation in mission
-    capability,\nsignificant damage to organizational assets, significant financial
-    loss, or significant harm to individuals\nthat does not involve loss of life or
-    serious life threatening injuries.\n\n* Your system is FISMA High if the loss
-    of confidentiality, integrity, or availability could be\nexpected to have a severe
-    or catastrophic adverse effect on organizational operations,\norganizational assets,
-    or individuals, such as a loss of mission capability, major damage to\norganizational
-    assets, major financial loss, or severe or catastrophic harm to individuals involving
-    loss\nof life or serious life threatening injuries. \n\nA FIMSA Moderate system
-    requires stronger security protections and compliance\ndocumentation than a FISMA
-    Low system. A FISMA High system requires the most security\nprotections and compliance
-    documentation.\n\nYour system's FISMA level is based on the information contained
-    in the system and the\nfunction of the system in achieving your agency's mission
-    objectives. We will ask you\nabout the information in and functions of your system
-    in terms of confidentiality,\nintegrity, and availability.\n"
+  template: |
+    # Determine Your System's FISMA Level
+
+    The first step in becoming FISMA compliant is categorization. In categorization, you
+    determine the FISMA Level of your system, which may be "Low," "Moderate," or "High."
+
+    {# FIPS 199 / NIST 800-60 Vol 1 #}
+
+    * Your system is FISMA Low if the loss of confidentiality, integrity, or availability could be
+    expected to have a limited adverse effect, such as a degradation in mission capability, minor damage
+    to organizational assets, minor financial loss, or minor harm to individuals.
+
+    * Your system is FISMA Moderate if the loss of confidentiality, integrity, or availability could be
+    expected to have a serious adverse effect, such as a significant degradation in mission capability,
+    significant damage to organizational assets, significant financial loss, or significant harm to individuals
+    that does not involve loss of life or serious life threatening injuries.
+
+    * Your system is FISMA High if the loss of confidentiality, integrity, or availability could be
+    expected to have a severe or catastrophic adverse effect on organizational operations,
+    organizational assets, or individuals, such as a loss of mission capability, major damage to
+    organizational assets, major financial loss, or severe or catastrophic harm to individuals involving loss
+    of life or serious life threatening injuries.
+
+    A FIMSA Moderate system requires stronger security protections and compliance
+    documentation than a FISMA Low system. A FISMA High system requires the most security
+    protections and compliance documentation.
+
+    Your system's FISMA level is based on the information contained in the system and the
+    function of the system in achieving your agency's mission objectives. We will ask you
+    about the information in and functions of your system in terms of confidentiality,
+    integrity, and availability.
 questions:
 - id: information_types_categories
   title: Which categories of information does your system contain?
@@ -2621,8 +2629,8 @@ questions:
   - condition: 'True'
     value: Low
 - id: information_types_confidentiality_review
-  title: Is the confidentiality impact level correct for the information contained in
-    the system?
+  title: Is the confidentiality impact level correct for the information contained
+    in the system?
   type: yesno
   prompt: |
     Based on the information type(s) you chose from NIST SP 800-60 Volume 2, the provisional
@@ -8287,7 +8295,8 @@ questions:
     **What level of impact is appropriate for a loss of confidentiality in your information
     system?**
 - id: information_types_integrity_review
-  title: Is the integrity impact level correct for the information contained in the system?
+  title: Is the integrity impact level correct for the information contained in the
+    system?
   type: yesno
   prompt: |
     Based on the information type(s) you chose from NIST SP 800-60 Volume 2, the provisional
@@ -12742,8 +12751,8 @@ questions:
     **What level of impact is appropriate for a loss of integrity in your information
     system?**
 - id: information_types_availability_review
-  title: Is the availability impact level correct for the information contained in the
-    system?
+  title: Is the availability impact level correct for the information contained in
+    the system?
   type: yesno
   prompt: |
     Based on the information type(s) you chose from NIST SP 800-60 Volume 2, the provisional
@@ -16653,42 +16662,65 @@ questions:
 - id: information_types_other_level
   title: Impact of Other Considerations
   type: choice
-  prompt: "## Aggregation\n\n{# NIST SP 800-60 #}\nSome information may have little
-    or no sensitivity in isolation but may be highly sensitive in\naggregation. In
-    some cases, aggregation of large quantities of a single information type can\nreveal
-    sensitive patterns and plans, or facilitate access to sensitive or critical systems.
-    In other\ncases, aggregation of information of several different and seemingly
-    innocuous types can have\nsimilar effects. In general, the sensitivity of a given
-    data element is likely to be greater in\ncontext than in isolation (e.g., association
-    of an account number with the identity of an individual\nand/or institution).\n\nThe
-    availability, routine operational employment, and sophistication of data\naggregation
-    and inference tools are all increasing rapidly. If review reveals increased sensitivity\nor
-    criticality associated with information aggregates, then the system security objective
-    impact\nlevels may need to be adjusted to a higher level than would be indicated
-    by the security impact\nlevels associated with any individual information type.
-    This could be implemented by\nincorporating a statement that explains the aggregation
-    and potential security objective affected\nas well as the modification to impact
-    levels. \n\n## Critical System functionality\n\nCompromise of some information
-    types may have low impact in the context of a system’s\nprimary function but may
-    have much more significance when viewed in the context of the\npotential impact
-    of compromising:\n\n* Other systems to which the system in question is connected,
-    or\n\n* Other systems which are dependent on that system’s information.\n\nAccess
-    control information for a system that processes only low impact information might\ninitially
-    be thought to have only low impact security objectives. However, if access to
-    that\nsystem might result in some form of access to other systems (e.g., over
-    a network), the sensitivity\nand criticality attributes of all systems to which
-    such indirect access can result needs to be\nconsidered. Similarly, some information
-    may, in general, have low sensitivity and/or criticality\nsecurity objectives.
-    However, that information may be used by other systems to enable\nextremely sensitive
-    or critical functions (e.g., air traffic control use of weather information or
-    use\nof commercial flight information to identify military combat transport systems).
-    Loss of data\nintegrity, availability, temporal context, or other context can
-    have catastrophic consequences. \n\n## Other considerations\n\nOther considerations
-    listed by NIST SP 800-60 Vol 1 include:\n\n* Extenuating Circumstances\n\n* Public
-    Information Integrity\n\n* Catastrophic Loss of System Availability\n\n* Large
-    Supporting and Interconnecting Systems \n\n* Critical Infrastructures and Key
-    Resources \n\n* Trade Secrets\n\n(We'll get to Privacy Information later.)\n\nDo
-    you want to adjust your system's FISMA level for any of these considerations?\n"
+  prompt: |
+    ## Aggregation
+
+    {# NIST SP 800-60 #}
+    Some information may have little or no sensitivity in isolation but may be highly sensitive in
+    aggregation. In some cases, aggregation of large quantities of a single information type can
+    reveal sensitive patterns and plans, or facilitate access to sensitive or critical systems. In other
+    cases, aggregation of information of several different and seemingly innocuous types can have
+    similar effects. In general, the sensitivity of a given data element is likely to be greater in
+    context than in isolation (e.g., association of an account number with the identity of an individual
+    and/or institution).
+
+    The availability, routine operational employment, and sophistication of data
+    aggregation and inference tools are all increasing rapidly. If review reveals increased sensitivity
+    or criticality associated with information aggregates, then the system security objective impact
+    levels may need to be adjusted to a higher level than would be indicated by the security impact
+    levels associated with any individual information type. This could be implemented by
+    incorporating a statement that explains the aggregation and potential security objective affected
+    as well as the modification to impact levels.
+
+    ## Critical System functionality
+
+    Compromise of some information types may have low impact in the context of a system’s
+    primary function but may have much more significance when viewed in the context of the
+    potential impact of compromising:
+
+    * Other systems to which the system in question is connected, or
+
+    * Other systems which are dependent on that system’s information.
+
+    Access control information for a system that processes only low impact information might
+    initially be thought to have only low impact security objectives. However, if access to that
+    system might result in some form of access to other systems (e.g., over a network), the sensitivity
+    and criticality attributes of all systems to which such indirect access can result needs to be
+    considered. Similarly, some information may, in general, have low sensitivity and/or criticality
+    security objectives. However, that information may be used by other systems to enable
+    extremely sensitive or critical functions (e.g., air traffic control use of weather information or use
+    of commercial flight information to identify military combat transport systems). Loss of data
+    integrity, availability, temporal context, or other context can have catastrophic consequences.
+
+    ## Other considerations
+
+    Other considerations listed by NIST SP 800-60 Vol 1 include:
+
+    * Extenuating Circumstances
+
+    * Public Information Integrity
+
+    * Catastrophic Loss of System Availability
+
+    * Large Supporting and Interconnecting Systems
+
+    * Critical Infrastructures and Key Resources
+
+    * Trade Secrets
+
+    (We'll get to Privacy Information later.)
+
+    Do you want to adjust your system's FISMA level for any of these considerations?
   choices:
   - key: Low
     text: No adjustment is needed for these considerations.
@@ -16832,13 +16864,16 @@ questions:
     help: Any provider of medical or other health services, or supplies.
   - key: plan
     text: Health Plan
-    help: Any individual or group plan that provides or pays the cost of medical care (e.g., a health insurance issuer and the Medicare and Medicaid programs).
+    help: Any individual or group plan that provides or pays the cost of medical care
+      (e.g., a health insurance issuer and the Medicare and Medicaid programs).
   - key: clearinghouse
     text: Healthcare Clearinghouse
-    help: A public or private entity that processes another entity’s healthcare transactions between formats.
+    help: A public or private entity that processes another entity’s healthcare transactions
+      between formats.
   - key: sponsor
     text: Medicare Prescription Drug Card Sponsor
-    help: A nongovernmental entity that offers an endorsed discount drug program under the Medicare Modernization Act.
+    help: A nongovernmental entity that offers an endorsed discount drug program under
+      the Medicare Modernization Act.
   - key: not-covered
     text: Not a Covered Entity
 - id: phi_has_any_phi
@@ -16853,7 +16888,7 @@ questions:
     Does your information system contain Protected Health Information (PHI)?
   impute:
   - condition: phi_covered_entity == null or phi_covered_entity == "not-covered"
-    value: "no"
+    value: 'no'
 - id: phi_impact_level
   title: What is the impact level for Protected Health Information?
   type: choice
@@ -16868,13 +16903,39 @@ questions:
   choices:
   - key: Low
     text: Low
-    help: A breach of the confidentiality of PHI at the low impact level would not cause harm greater than inconvenience, such as changing a private health care provider web portal password or telephone number. For example, a research team is using de-indentified or obfuscated medical data that cannot be traced back to the original dat source or PHI record but the organization may still have to comply with PHI protocols as a result of grant or contract conditions that mandate the data remains secure until a study is released to the public once the data analysis has been completed and authorized for public release.
+    help: A breach of the confidentiality of PHI at the low impact level would not
+      cause harm greater than inconvenience, such as changing a private health care
+      provider web portal password or telephone number. For example, a research team
+      is using de-indentified or obfuscated medical data that cannot be traced back
+      to the original dat source or PHI record but the organization may still have
+      to comply with PHI protocols as a result of grant or contract conditions that
+      mandate the data remains secure until a study is released to the public once
+      the data analysis has been completed and authorized for public release.
   - key: Moderate
     text: Moderate
-    help: The types of harm that could be caused by a breach involving PHI at the moderate impact level include financial loss due to identity theft or denial of benefits, public humiliation, discrimination, and the potential for blackmail. From an organizational perspective it would also result in fines and loss of reputation or public confidence in the institution as a result of a PHI breach.  For example, an organization may lose a few PHI records after discovering  a hospital employee was using their access to medical records to notify the media of celebrity medical conditions.  This in turn, caused the covered entity to have to file an insurance claim to cover the mandated state and federal fines associated with the incident, termination of the employees and also resulted in bad press for the covered entity.  The covered entity (in this care a hospital) also had to legally settle lawsuits by the celebrities who who were impacted by the data that was publicly released.
+    help: The types of harm that could be caused by a breach involving PHI at the
+      moderate impact level include financial loss due to identity theft or denial
+      of benefits, public humiliation, discrimination, and the potential for blackmail.
+      From an organizational perspective it would also result in fines and loss of
+      reputation or public confidence in the institution as a result of a PHI breach.  For
+      example, an organization may lose a few PHI records after discovering  a hospital
+      employee was using their access to medical records to notify the media of celebrity
+      medical conditions.  This in turn, caused the covered entity to have to file
+      an insurance claim to cover the mandated state and federal fines associated
+      with the incident, termination of the employees and also resulted in bad press
+      for the covered entity.  The covered entity (in this care a hospital) also had
+      to legally settle lawsuits by the celebrities who who were impacted by the data
+      that was publicly released.
   - key: High
     text: High
-    help: For example, if the breach by a covered entity is incredibly large and spans multiple interconnected covered entities where the fines for a massive breach would bankrupt the entity or entities, then that would be a reason to rate the harm as high.  Damages to a person could include being rated as uninsurable medically for life if the data were to be released in public as part of a breach based on severe or multiple pre-existing or chronic medical conditions that are financially costly to treat.  That could ultimately result in loss of life of the affected person and would make harm in this example High.
+    help: For example, if the breach by a covered entity is incredibly large and spans
+      multiple interconnected covered entities where the fines for a massive breach
+      would bankrupt the entity or entities, then that would be a reason to rate the
+      harm as high.  Damages to a person could include being rated as uninsurable
+      medically for life if the data were to be released in public as part of a breach
+      based on severe or multiple pre-existing or chronic medical conditions that
+      are financially costly to treat.  That could ultimately result in loss of life
+      of the affected person and would make harm in this example High.
   impute:
   - condition: phi_has_any_phi == "no"
     value: Low
@@ -16890,9 +16951,11 @@ questions:
   - key: High
     text: High
   impute:
-  - condition: information_types_level == "High" or pii_impact_level == "High" or phi_impact_level == "High"
+  - condition: information_types_level == "High" or pii_impact_level == "High" or
+      phi_impact_level == "High"
     value: High
-  - condition: information_types_level == "Moderate" or pii_impact_level == "Moderate" or phi_impact_level == "Moderate"
+  - condition: information_types_level == "Moderate" or pii_impact_level == "Moderate"
+      or phi_impact_level == "Moderate"
     value: Moderate
   - condition: 'True'
     value: Low
