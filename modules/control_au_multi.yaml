@@ -67,7 +67,7 @@ questions:
   - id: who_responsible_for_dmz
     title: Who Is Responsible for the DMZ?
     type: module
-    module-id: /point_of_contact
+    module-id: /system/point_of_contact
     prompt: |
       A secure system is protected by a properly configured firewall.
 

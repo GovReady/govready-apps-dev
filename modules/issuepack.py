@@ -13,7 +13,7 @@ def match_jira_url(url):
     # { "baseurl": "http://....atlassian.net", "key": "myproject" }
     return m.groupdict()
 
-def create_issue_pack(question, answers, project_name, project_url, **kwargs):
+def create_issue_pack_func(module, question, answers, project_name, project_url, **kwargs):
     for field in ('jira_username', 'jira_password', 'jira_project_key', 'jira_project_base_uri'):
         if answers[field] is None:
             raise ValueError("One of the preceding questions was skipped or your Jira password needs to be re-entered.")
@@ -46,18 +46,13 @@ def create_issue_pack(question, answers, project_name, project_url, **kwargs):
         return current_data
 
     # Open the IssuePack YAML files and concatenate into a single YAML file.
-    issuepack_yaml_files = ('au_low_impact_pri1.yaml', 'ac_low_impact_pri1.yaml')
     issuepack = {
         "milestone": "Milestone", # not used
-        "issues": [],
+        "issues": module["issuepack_issues"],
     }
-    import os.path, rtyaml
-    for fn in issuepack_yaml_files:
-        with open(os.path.join(os.path.dirname(__file__), 'private-assets', fn)) as f:
-            issuepack['issues'].extend(rtyaml.load(f)['issues'])
 
     # Do string substitution on the issue text fields.
-    for story in issuepack.get('issues', []):
+    for story in issuepack["issues"]:
         for field in ('title', 'body'):
             story[field] = story.get(field, "")\
                 .replace("{{project_name}}", project_name)\
@@ -72,7 +67,7 @@ def create_issue_pack(question, answers, project_name, project_url, **kwargs):
 
     # Create a new IssuePack by executing an external command, which
     # runs as the same Unix user as the Django process.
-    import json
+    import json, rtyaml
     try:
         # TODO: Replace this. Using a subprocess is easy to get wrong
         # and then we have new vulnerabilities.
