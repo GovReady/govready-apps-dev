@@ -3,6 +3,13 @@ title: Develop System Security Plan (SSP) for FISMA
 type: project
 version: 1
 
+catalog:
+    description:
+      short: |
+        Need an ATO (Authority to Operate)? No sweat! We'll help your team describe, secure, and assess your system.
+      long: |
+        Long description here.
+
 snippet:
   format: html
   template: ""
