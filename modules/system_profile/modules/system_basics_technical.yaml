@@ -79,7 +79,6 @@ output:
       {% else %}
         {{project.system_basics.official_system_name}} is a general service hosted in the {{application_where_hosted}}.
       {% endif %}
-
       The primary operating system is {{operating_system_flavor}}.
 
       The layers of the Information System represented in this SSP are indicated in following Service Provider Architecture Layers table.
@@ -90,12 +89,12 @@ output:
       </thead>
       <tbody>
         {% if project.system_basics.what_kind_of_system == 'application' %}
-          <tr> <td>[ ]</td><td>Software as a Service (SaaS)</td><td>Major Application</td> </tr>
+          <tr> <td>[X]</td><td>Software as a Service (SaaS)</td><td>Major Application</td> </tr>
           <!-- tr> <td>[ ]</td><td>Platform as a Service (SaaS)</td><td>Major Application</td> </tr -->
         {% elif project.system_basics.what_kind_of_system == 'service' %}
-          <tr> <td>[ ]</td><td>Infrastructure as a Service (SaaS)</td><td>General Support System</td> </tr>
+          <tr> <td>[X]</td><td>Infrastructure as a Service (SaaS)</td><td>General Support System</td> </tr>
         {% else %}
-          <tr> <td>[ ]</td><td>Other</td><td>Explain</td> </tr>
+          <tr> <td>[X]</td><td>Other</td><td>Explain</td> </tr>
         {% endif %}
       </tbody>
       </table>
