@@ -71,7 +71,11 @@ questions:
   - id: system_name_done
     title: System name complete
     prompt: |
-      Thanks! We've now document the system name.
+      Thanks! We've now documented the system name.
+
+      Official name: <b>{{official_system_name}}</b>
+      Nickname: <b>{{system_abbreviation}}</b>
+      {{organization}} id: <b>{{central_registry_system_id}}</b>
 
       Now let's document the type of system.
     type: interstitial
