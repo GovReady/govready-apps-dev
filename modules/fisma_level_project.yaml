@@ -6,9 +6,7 @@ version: 1
 catalog:
     description:
       short: |
-        Your system's FISMA level is determined by the impact of a loss of confidentiality,
-        integrity, and availability of your system on your organization's mission and on
-        potential harm to others.
+        Determine system's FISMA security categorization level (e.g., Low, Medium, High)
       long: |
         FISMA starts here.
         
