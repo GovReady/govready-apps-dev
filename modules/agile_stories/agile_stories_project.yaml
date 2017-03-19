@@ -3,6 +3,13 @@ title: "Agile Security Stories"
 type: project
 version: 1
 
+catalog:
+    description:
+      short: |
+        Bake security in with security-related user stories for your agile backlog
+      long: |
+        Long description here.
+
 snippet:
   format: html
   template: ""
