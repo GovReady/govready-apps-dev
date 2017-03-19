@@ -47,12 +47,12 @@ export_button_label: Export User Stories
 
 questions:
 
-  - id: issuepack
-    title: Add security stories to your issue tracker
-    type: module-set
-    module-id: issuepack
-    tab: Agile Security Stories
-    group: Security User Stories
+- id: issuepack
+  title: Add security stories to your issue tracker
+  type: module-set
+  module-id: issuepack
+  tab: Agile Security Stories
+  group: Security User Stories
 
 output:
 
