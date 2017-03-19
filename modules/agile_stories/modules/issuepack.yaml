@@ -79,10 +79,6 @@ introduction:
 
     {{organization}} has prepared a set of security-related user stories for {{project}}'s product feature backlog.
 
-    {% if match_jira_url(project.system_basics.issue_tracker) %}
-    We already know your Jinja project is at {{match_jira_url(project.system_basics.issue_tracker).baseurl}}.
-    {% endif %}
-
     Complete the following steps to automatically add these user stories to Jira.
 
 external-functions:
@@ -96,10 +92,6 @@ questions:
     type: url
     placeholder: https://myco.atlassian.net
     help: "Example: https://myco.atlassian.net"
-    impute:
-      - condition: match_jira_url(project.system_basics.issue_tracker) is not none
-        value: match_jira_url(project.system_basics.issue_tracker).baseurl
-        value-mode: expression
 
   - id: jira_project_key
     title: Jira Project Key
