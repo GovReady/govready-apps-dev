@@ -16,7 +16,7 @@ questions:
   - id: application_where_hosted
     title: Where is application hosted?
     prompt: |
-      Is the **{{system_name_and_details.official_system_name}}** system hosted in the cloud or in an on-premises data center at {{organization}}?
+      Is the **{{project.system_name_and_details.official_system_name}}** system hosted in the cloud or in an on-premises data center at {{organization}}?
     type: choice
     choices:
       - key: cloud
@@ -27,9 +27,9 @@ questions:
   - id: cloud_provider
     title: What cloud provider?
     prompt: |
-      You said the **{{system_name_and_details.official_system_name}}** system is hosted in the cloud.
+      You said the **{{project.system_name_and_details.official_system_name}}** system is hosted in the cloud.
 
-      Which cloud service provider will host **{{system_name_and_details.official_system_name}}**?
+      Which cloud service provider will host **{{project.system_name_and_details.official_system_name}}**?
     type: choice
     choices:
       - key: AWS
