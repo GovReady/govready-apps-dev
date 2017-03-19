@@ -60,14 +60,42 @@ questions:
         text: Other flavor of operating system
 
 output:
-  - title: SSP Control Template
+  - title: Your Answers
     format: markdown
     template: |
-      ## Template
-      
-      application_where_hosted: {{application_where_hosted}}
+      Congratulations! You've created a basic system technical profile!
 
-      cloud provider: cloud_provider
+      We've added this information to yo started drafting your System Security Plan.
 
-      operating_system_flavor: {{operating_system_flavor}}
+      Click "System Security Plan Preview" to see how this profile will look in an SSP.
 
+  - title: System Security Plan Preview
+    format: markdown
+    template: |
+      # 8 Information System Type
+
+      {% if project.system_basics.what_kind_of_system == 'application' %}
+        {{project.system_basics.official_system_name}} is an application hosted in the {{application_where_hosted}} at {{cloud_provider}}.
+      {% else %}
+        {{project.system_basics.official_system_name}} is a general service hosted in the {{application_where_hosted}}.
+      {% endif %}
+
+      The primary operating system is {{operating_system_flavor}}.
+
+      The layers of the Information System represented in this SSP are indicated in following Service Provider Architecture Layers table.
+
+      <table class="table" style="width:800px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
+      <thead>
+        <th colspan="3">Service Provider Architecture Layers</th>
+      </thead>
+      <tbody>
+        {% if project.system_basics.what_kind_of_system == 'application' %}
+          <tr> <td>[ ]</td><td>Software as a Service (SaaS)</td><td>Major Application</td> </tr>
+          <!-- tr> <td>[ ]</td><td>Platform as a Service (SaaS)</td><td>Major Application</td> </tr -->
+        {% elif project.system_basics.what_kind_of_system == 'service' %}
+          <tr> <td>[ ]</td><td>Infrastructure as a Service (SaaS)</td><td>General Support System</td> </tr>
+        {% else %}
+          <tr> <td>[ ]</td><td>Other</td><td>Explain</td> </tr>
+        {% endif %}
+      </tbody>
+      </table>
