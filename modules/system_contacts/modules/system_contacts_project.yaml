@@ -1,0 +1,73 @@
+id: system_contacts_project
+title: System Points of Contact
+type: project
+version: 1
+
+snippet:
+  format: html
+  template: ""
+
+
+catalog:
+    description:
+      short: |
+        List System's Points of Contact
+      long: |
+        Long description here.
+
+interstitial:
+  format: markdown
+  template: |
+    ## System's Points of Contact
+
+    Create a comprehensive list of contacts for your system
+
+    - Who does what for your system
+    - How to reach them
+
+    Are you ready?
+
+introduction:
+  format: markdown
+  template: |
+    Add a new Point of Contact for your system.
+
+invitation_to_task_interstitial:
+  format: markdown
+  template: |
+    ## Thanks for accepting {{invitation.from_user}}'s invitation
+
+    You've been asked to help with {{task.title}} for {{project}}.
+
+    We'll tell {{invitation.from_user}} you're getting started.
+
+export_button_label: Export System Description and Control Information
+
+questions:
+
+- id: poc_person
+  title: Add a person as Point of Contact
+  type: module-set
+  module-id: poc_person
+  tab: Points of Contact
+  group: Contacts
+
+- id: poc_org
+  title: Add an organization as Point of Contact
+  type: module-set
+  module-id: poc_org
+  tab: Points of Contact
+  group: Contacts
+
+
+output:
+  - tab: Points of Contact
+    format: markdown
+    template: |
+      <div style="text-align:center;">
+
+      ## Create a Point of Contact
+
+      ![](icon_system_capital.png)
+
+      </div>
