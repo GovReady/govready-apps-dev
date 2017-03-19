@@ -6,7 +6,7 @@ version: 1
 catalog:
     description:
       short: |
-        Determine system's FISMA security categorization level (e.g., Low, Medium, High)
+        Determine system's FISMA security categorization level (Low, Medium, High)
       long: |
         FISMA starts here.
         
