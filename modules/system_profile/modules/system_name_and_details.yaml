@@ -181,7 +181,7 @@ output:
       </thead>
       <tbody>
         <tr>
-          <td>central_registry_system_id</td>
+          <td>{{central_registry_system_id}}</td>
           <td>
 
       {{official_system_name}}
