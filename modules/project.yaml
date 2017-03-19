@@ -1,12 +1,12 @@
 id: project
-title: Develop System Security Plan (SSP) for FISMA
+title: FISMA System Security Plan (SSP)
 type: project
 version: 1
 
 catalog:
     description:
       short: |
-        Need an ATO (Authority to Operate)? No sweat! We'll help your team describe, secure, and assess your system.
+        Prepare a System Security Plan for by the NIST Risk Management Framework
       long: |
         Long description here.
 
