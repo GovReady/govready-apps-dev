@@ -7,7 +7,7 @@ introduction:
 
     An official name makes your system easier to track in documents and databases.
 
-    Let's document the names of the <b>{{project}}</b> for your System Security Plan and some basic system information.
+    Let's document the names of your system and some basic system information.
 
 questions:
   - id: system_name_is_project
@@ -15,15 +15,15 @@ questions:
     prompt: |
       An System Security Plan requires an official information system name.
 
-      Is "<b>{{project}}</b>" the preferred, official name of your system?
+      You named this assessment "<b>{{project}}</b>."
+
+      Is "<b>{{project}}</b>" also the official name of your system?
     type: yesno
 
   - id: official_system_name
     title: Official system name
     prompt: |
-      You've indicated <b>{{project}}</b> is not the prefferred official name of the system.
-
-      What is the preferred official name of <b>{{project}}</b>?
+      What is the preferred official name of your system?
     type: text
     impute:
     - condition: system_name_is_project == 'yes'
@@ -33,19 +33,40 @@ questions:
   - id: system_abbreviation_exists
     title: System abbreviation exists
     prompt: |
-      It's common for organizations to use a nickname or acronym to refer to an information system.
+      Organizations often use a nickname or acronym to refer to an information system.
 
-      Does <b>{{project}}</b> have a nickname or acronym?
+      Does <b>{{official_system_name}}</b> have a nickname or acronym?
     type: yesno
 
   - id: system_abbreviation
     title: System abbreviation
     prompt: |
-      What is the preferred nickname or acronym for <b>{{project}}</b>?
+      What is the preferred nickname or acronym for <b>{{official_system_name}}</b>?
     type: text
     impute:
     - condition: system_abbreviation_exists == 'no'
       value: n/a
+
+  - id: central_registry_exists
+    title: Does organization use a central registry?
+    prompt: |
+      Some organizations have a central registry which provides IT systems with unique identifiers.
+
+      Does <b>{{organization}}</b> use a central registry to give IT systems unique IDs?
+    type: yesno
+    help: If you do not know the answer, you can skip and answer this later
+
+  - id: central_registry_system_id
+    title: System ID from central registry
+    prompt: |
+      You've stated <b>{{organization}}</b> has a central registry for IT systems.
+
+      What is unique ID for your IT system <b>{{official_system_name}}</b>?
+    type: text
+    impute:
+    - condition: central_registry_exists == 'no'
+      value: n/a
+
 
   - id: system_name_done
     title: System name complete
@@ -150,13 +171,13 @@ output:
 
       <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
       <thead>
-        <th>DITPR ID</th>
+        <th>System ID</th>
         <th>Information System</th>
         <th>Nickname/Abbreviation</th>
       </thead>
       <tbody>
         <tr>
-          <td></td>
+          <td>central_registry_system_id</td>
           <td>
 
       {{official_system_name}}
