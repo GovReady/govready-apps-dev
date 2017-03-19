@@ -7,7 +7,7 @@ introduction:
 
     A System Security Plan will include a description of your system.
 
-    Let's prepare three descriptions for **{{project}}**:
+    Let's prepare three descriptions for **{{project.system_basics.official_system_name}}**:
     * one line description
     * value and purpose overview
     * technical summary
@@ -19,7 +19,7 @@ questions:
   - id: one_line_description
     title: One line description
     prompt: |
-      OK, what's the one line description for <b>{{project}}</b>?
+      OK, what's the one line description for <b>{{project.system_basics.official_system_name}}</b>?
     type: text
     reference_text: |
       ## Example one line descriptions
@@ -32,7 +32,7 @@ questions:
 
   - id: value_overview
     title: Value overview
-    prompt: Next, write an overview of **{{project}}**'s value or purpose. Think of this like an elevator pitch.
+    prompt: Next, write an overview of **{{project.system_basics.official_system_name}}**'s value or purpose. Think of this like an elevator pitch.
     type: longtext
     reference_text: |
 
@@ -45,7 +45,7 @@ questions:
   - id: value_overview_review
     title: Value overview review
     prompt: |
-      Great! Let's review the description of **{{project}}** so far...
+      Great! Let's review the description of **{{project.system_basics.official_system_name}}** so far...
 
 
       <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
@@ -88,7 +88,7 @@ questions:
 
   - id: technical_description
     title: Technical description
-    prompt: Finally, let's capture a technical description of **{{project}}**. Describe <b>{{project}}</b> from a technical perspective.
+    prompt: Finally, let's capture a technical description of **{{project.system_basics.official_system_name}}**. Describe <b>{{project.system_basics.official_system_name}}</b> from a technical perspective.
     type: longtext
     reference_text: |
       ## Example technical descriptions
