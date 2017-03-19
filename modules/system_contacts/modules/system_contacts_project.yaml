@@ -11,7 +11,7 @@ snippet:
 catalog:
     description:
       short: |
-        List System's Points of Contact
+        Maintain a list of the various Points of Contact for your system
       long: |
         Long description here.
 
