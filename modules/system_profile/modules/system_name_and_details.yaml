@@ -1,0 +1,174 @@
+id: system_name_and_details
+title: System Name and Details
+introduction:
+  format: markdown
+  template: |
+    ## System Name and Type
+
+    An official name makes your system easier to track in documents and databases.
+
+    Let's document the names of the <b>{{project}}</b> for your System Security Plan and some basic system information.
+
+questions:
+  - id: system_name_is_project
+    title: Use name as official name
+    prompt: |
+      An System Security Plan requires an official information system name.
+
+      Is "<b>{{project}}</b>" the preferred, official name of your system?
+    type: yesno
+
+  - id: official_system_name
+    title: Official system name
+    prompt: |
+      You've indicated <b>{{project}}</b> is not the prefferred official name of the system.
+
+      What is the preferred official name of <b>{{project}}</b>?
+    type: text
+    impute:
+    - condition: system_name_is_project == 'yes'
+      value: project
+      value-mode: expression
+
+  - id: system_abbreviation_exists
+    title: System abbreviation exists
+    prompt: |
+      It's common for organizations to use a nickname or acronym to refer to an information system.
+
+      Does <b>{{project}}</b> have a nickname or acronym?
+    type: yesno
+
+  - id: system_abbreviation
+    title: System abbreviation
+    prompt: |
+      What is the preferred nickname or acronym for <b>{{project}}</b>?
+    type: text
+    impute:
+    - condition: system_abbreviation_exists == 'no'
+      value: n/a
+
+  - id: system_name_done
+    title: System name complete
+    prompt: |
+      Thanks! We've now document the system name.
+
+      Now let's document the type of system.
+    type: interstitial
+
+  - id: what_kind_of_system
+    title: System type
+    prompt: What kind of information technology system is this?
+    type: choice
+    choices:
+    - key: application
+      text: Application
+      help: Any type of end-user facing software application including websites
+    - key: service
+      text: General Service
+      help: Any type network or infrastructure component (e.g., storage system)
+
+  - id: what_kind_of_application
+    title: Application type
+    prompt: What kind of application is it?
+    type: choice
+    choices:
+    - key: desktop
+      text: Desktop Software
+    - key: mobile
+      text: Mobile Application
+    - key: web
+      text: Web Site
+    - key: server
+      text: Server Software
+    impute:
+    - condition: what_kind_of_system != 'application'
+      value: ~
+
+  - id: desktop_operating_system
+    title: Desktop Applicaton Operating System
+    prompt: Which operating systems will the desktop application run on?
+    type: multiple-choice
+    choices:
+    - key: mswindows
+      text: Microsoft Windows
+      help: Includes Microsoft Surface
+    - key: macosx
+      text: Apple macOS (Macintosh OS X)
+    - key: linux
+      text: Unix/Linux
+    impute:
+    - condition: what_kind_of_application != 'desktop'
+      value: ~
+
+  - id: mobile_operating_system
+    title: Mobile Applicaton Operating System
+    prompt: Which operating systems will the mobile application run on?
+    type: multiple-choice
+    choices:
+    - key: ios
+      text: iOS
+      help: iPhone, iPad
+    - key: android
+      text: Android
+      help: Android-based phones and pads
+    - key: windows-mobile
+      text: Windows mobile
+      help: Windows based mobile devices other than Surface
+    - key: other
+      text: Other
+    impute:
+    - condition: what_kind_of_application != 'mobile'
+      value: ~
+
+  - id: launch_date
+    title: Launch date
+    prompt: |
+      When do you expect to launch **{{official_system_name}}** to users?
+
+      (If already launched, enter date system went live.)
+    type: date
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Congratulations! You've created a basic system profile!
+
+      We've already started drafting your System Security Plan.
+
+      Click "System Security Plan Preview" to see the first section.
+
+  - title: System Security Plan Preview
+    format: markdown
+    template: |
+      # 1 Information System Name/Title
+
+      This System Security Plan provides an overview of the security requirements for the {{official_system_name}} system and describes the controls in place or planned for implementation to provide a level of security appropriate for the information to be transmitted, processed or stored by the system. Information security is an asset vital to our critical infrastructure and its effective performance and protection is a key component of our national security program. Proper management of information technology systems is essential to ensure the confidentiality, integrity and availability of the data transmitted, processed or stored by the information system.
+
+      The security safeguards implemented for {{official_system_name}} meet the policy and control requirements set forth in this System Security Plan (SSP). All systems are subject to monitoring consistent with applicable laws, regulations, agency policies, procedures and practices.
+
+
+      <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
+      <thead>
+        <th>DITPR ID</th>
+        <th>Information System</th>
+        <th>Nickname/Abbreviation</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td>
+
+      {{official_system_name}}
+
+      </td>
+      <td>
+
+      {{system_abbreviation}}
+
+      </td>
+        </tr>
+        </tbody>
+      </table>
+
+
