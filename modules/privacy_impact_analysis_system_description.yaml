@@ -211,6 +211,13 @@ questions:
   - condition: "'ssn' not in types_of_pii"
     value: ~
 
+- id: minimization_interstitial
+  title: Questions about Minimization
+  type: interstitial
+  prompt: |
+    The next few questions will be about minimization. Auditors will want to know that you have
+    thought about how to only collect the information you need.
+
 - id: minimization_method
   title: How is the PII limited only to the most critical data elements?
   prompt: How is the collection of Personally Identifiable Information (PII) limited only to
@@ -218,11 +225,15 @@ questions:
     where is it documented, authorized and approved for this system to collect the various forms
     of PII?
   type: longtext
+  ask-first:
+    - minimization_interstitial
 
 - id: minimization_initial_evaluation
   title: Was there an initial evaluation of the PII to ensure only the most critical data elements were collected?
   prompt: Was there an initial evaluation of the Personally Identifiable Information (PII) to ensure only the most critical data elements were collected for use within the system?
   type: yesno
+  ask-first:
+    - minimization_interstitial
 
 - id: voluntary
   title: Is the submission of PII by individuals voluntary or mandatory?
