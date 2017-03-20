@@ -45,6 +45,13 @@ introduction:
 
 questions:
 
+- id: system_name_and_details
+  title: System Name, Technical Overview, and Status
+  type: module
+  module-id: system_name_and_details
+  tab: Questions
+  group: Questions
+
 - id: system_description
   title: Describe The System
   type: module
