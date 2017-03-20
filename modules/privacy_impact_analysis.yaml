@@ -1,0 +1,64 @@
+id: privacy_impact_analysis
+title: Privacy Impact Analysis
+type: project
+version: 1
+
+catalog:
+    description:
+      short: |
+        Select privacy controls based on the Personally Identifiable Information (PII) in
+        the system.
+      long: |
+        The second step in the process of getting an ATO is to select the privacy controls
+        based on the Personally Identifiable Information (PII) in the system.
+
+interstitial:
+  format: markdown
+  template: |
+    ## Privacy Impact Analysis
+
+    In today’s digital world, effective privacy for individuals depends on the safeguards
+    employed within the information systems that are processing, storing, and transmitting
+    Personally Identifiable Information (PII) and the environments in which those systems
+    operate. Organizations cannot have effective privacy without a basic foundation of
+    information security. 
+
+    We'll walk you through a Privacy Impact Analysis (PIA). When you are finished with the
+    PIA, you will have a shopping list of documents that you need to file away and a set
+    of security controls that your system must implement.
+
+    Are you ready?
+
+invitation_to_task_interstitial:
+  format: markdown
+  template: |
+    ## Thanks for accepting {{invitation.from_user}}'s invitation
+
+    You've been asked to help with {{task.title}} for {{project}}.
+
+    We'll tell {{invitation.from_user}} you're getting started.
+
+introduction:
+  format: markdown
+  template: |
+    This project will guide you through a Privacy Impact Analysis (PIA) in order to get the {{project}} its Authority to Operate.
+
+questions:
+
+- id: system_description
+  title: Describe The System
+  type: module
+  module-id: privacy_impact_analysis_system_description
+  tab: Questions
+  group: Questions
+
+
+output:
+  - tab: Questions
+    format: markdown
+    template: |
+      <div style="text-align:center;">
+
+      ![](icon_system_capital.png)
+
+      </div>
