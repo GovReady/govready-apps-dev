@@ -1,5 +1,5 @@
 id: system_contacts_project
-title: System Points of Contact
+title: Points of Contact Directory
 type: project
 version: 1
 
@@ -11,14 +11,21 @@ snippet:
 catalog:
     description:
       short: |
-        Maintain a list of the various Points of Contact for your system
+        Maintain a Directory of the various Points of Contact
       long: |
-        Long description here.
+        ## Point of Contact Directory
+
+        **By GovReady**
+
+        This tool will help you generate and maintain a directory of various Points of Contacts.
+
+        This demo version just captures the name of a Point of Contact, but the questions
+        can be customized with each install.
 
 interstitial:
   format: markdown
   template: |
-    ## System's Points of Contact
+    ## Points of Contact Directory
 
     Create a comprehensive list of contacts for your system
 
