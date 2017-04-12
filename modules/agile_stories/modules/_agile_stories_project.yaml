@@ -1,0 +1,189 @@
+id: _agile_stories_project
+title: "Agile Security Stories"
+org: small web team
+tech: website
+role: scrum master, ciso, project manager, web master, manager
+type: project
+access: public
+source_url: https://github.com/GovReady/govready-q-basic-assessments
+version: 0.4
+status: Beta
+provider: GovReady PBC
+provider_url: http://www.govready.com
+control_index:
+  - standard: NIST RMF
+    controls: 
+      - id: AT-3
+      - id: AT-4
+
+catalog:
+    description:
+      short: |
+        Bake security in with security-related user stories for your agile backlog
+
+    long: |
+      # Automatically add batch of security stories to Jira or GitHub project issues
+
+      Tired of developers doing securiy just before deployment?
+
+      Wouldn't it be great to start every project with user stories addressing key security controls?
+
+      Agile Security Stories adds a collection of security and compliance related user stories to your Jira or GitHub issues repository. With a few clicks you can almost two dozen stories to you issues to make sure you bake-in security from the start.
+
+      ## Status
+
+      Beta (version 0.4)
+
+      ## Who Should Use:
+      - SCRUM masters and Project managers to pre-configure agile back-log of new projects with security stories
+      - ISSO, Deputy-CISO to make sure all project bake security in at the start
+
+      ## How This Aids Compliance
+
+      This version of Agile Security Stories contains almost two dozen user stories related Low Impact FISMA sysyems. Each story is tagged with related NIST SP 800-53 control identifier:
+
+      ## What We Do:
+      - Ask you to specify target issue repository
+      - Temporarily store an ecrypted version of your Jira password to access Jira's API
+      - Batch add user stories to your Jira
+
+      ## What You Do:
+      - Have a Jira project already set up
+      - Specify target issue repository
+      - Assign issues to milestones, sprints, and team members
+
+      ## Support
+      This task collection is maintained by GovReady PBC.
+
+      Invite support@govready.com to any conversation for support. Charges may apply.
+      Alternatively, invite support@govready.com to a [Task.kiwi](https://task.kiwi).
+
+snippet:
+  format: html
+  template: ""
+
+interstitial:
+  format: markdown
+  template: |
+    ## Agile Security Stories for Jira
+
+    Want to bake security into your system?
+
+    Add security-related user stories to your agile backlog
+
+    - A collection of stories Low Impact systems
+    - Explanations of how implement each story
+    - Description of acceptance criteria
+
+    Are you ready?
+
+introduction:
+  format: markdown
+  template: |
+    <link rel="stylesheet" href="{{static_asset_path_for('comicframes.css')}}">
+    <script src="{{static_asset_path_for('comicframes.js')}}"></script>
+    <style>
+    .comic-strip-frame {
+        /* the height must be tweaked to hold the content at any
+           viewport width */
+        height: 12em;
+        background-image: url('{{static_asset_path_for('comicframes-1.jpg')}}');
+        background-size: 300%;
+    }
+    .comic-strip-frame.frame-0 { background-position: -200% 33%; }
+    .comic-strip-frame.frame-1 { background-position: -100% 0; }
+    .comic-strip-frame.frame-2 { background-position: 0 10%; }
+    </style>
+
+    <div class="comic-strip-frames">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="comic-strip-frame frame-0">
+                    <div class="comic-strip-frame-closed">
+                        <div class="comic-strip-frame-content big">
+                            Let&rsquo;s treat security as another customer.
+                        </div>
+                    </div>
+                    <div class="comic-strip-frame-open">
+                        <div class="comic-strip-frame-content">
+                            <p>Your security team will love you and you&rsquo;ll save time
+                            if every code sprint makes your system stronger.</p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="comic-strip-frame frame-1">
+                    <div class="comic-strip-frame-closed">
+                        <div class="comic-strip-frame-content">
+                            <p>&ldquo;As the CISO, I want to retain log files long enough to investigate security incidents that happened months ago.&rdquo;</p>
+                        </div>
+                    </div>
+                    <div class="comic-strip-frame-open">
+                        <div class="comic-strip-frame-content">
+                            <p class="frame-caption">User Story Format</p>
+                            <p>As a <i>TYPE OF USER</i>, I want <i>SOME GOAL</i> so that <i>SOME REASON</i>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="comic-strip-frame frame-2">
+                    <div class="comic-strip-frame-closed">
+                        <div class="comic-strip-frame-content">
+                            <p>1. Enter Jira account</p>
+                            <p>2. Hit submit...</p>
+                            <p>3. Security stories added to {{project}}</p>
+                        </div>
+                    </div>
+                    <div class="comic-strip-frame-open">
+                        <div class="comic-strip-frame-content">
+                            <p class="frame-caption">How It Works</p>
+                            <p>GovReady has a library of security-related user stories.
+                            We use Jira&rsquo;s API to add the stories to your project.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 2em">&nbsp;</div>
+invitation_to_task_interstitial:
+  format: markdown
+  template: |
+    ## Thanks for accepting {{invitation.from_user}}'s invitation
+
+    You've been asked to help with {{task.title}} for {{project}}.
+
+    We'll tell {{invitation.from_user}} you're getting started.
+
+export_button_label: Export User Stories
+
+questions:
+
+- id: issuepack
+  title: Add security stories to your issue tracker
+  type: module-set
+  module-id: issuepack
+  tab: Agile Security Stories
+  group: Security User Stories
+
+output:
+
+  - tab: Agile Security Stories
+    format: html
+    template: |
+      <div style="text-align:center;">
+
+      <h3>Add security stories to your backlog</h3>
+
+      <img src="{{static_asset_path_for('code-sprint.png')}}" />
+
+      <h4> Make your system more secure with every sprint</h4>
+
+      </div>
+
