@@ -1,5 +1,5 @@
 id: _agile_stories_project
-title: "Agile Security Stories"
+title: "Agile Security Stories 2"
 org: small web team
 tech: website
 role: scrum master, ciso, project manager, web master, manager
@@ -19,7 +19,7 @@ control_index:
 catalog:
     description:
       short: |
-        Bake security in with security-related user stories for your agile backlog
+        Bake security in with security-related user stories (v0.4)
 
     long: |
       # Automatically add batch of security stories to Jira or GitHub project issues
