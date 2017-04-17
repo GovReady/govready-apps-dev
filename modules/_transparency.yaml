@@ -1,0 +1,127 @@
+id: _transparency
+title: Privacy Policy for Web Site
+org: small web team
+tech: website
+role: project manager, web master, manager
+author: GovReady PBC
+type: project
+access: public
+source_url: https://github.com/GovReady/govready-q-tr-small-web
+version: 0.1
+status: Beta
+provider: GovReady PBC
+provider_url: http://www.govready.com
+control_index:
+  - standard: NIST RMF
+    controls:
+      - id: TR-1
+      - id: TR-2
+      - id: TR-3
+
+catalog:
+  description:
+    short: |
+      Create and publish Privacy Policy for web site transparency for a small web team
+
+    long: |
+      # Ideal for a Small Web Team
+
+      This app helps a small web team create and maintain Privacy Policy.
+
+      We'll help you develop, maintain and dissiminate a Privacy Policy for your web site.
+
+      ## Who Should Use:
+      
+      - Managers of small web sites
+      - Small businesses that need to develop a Privacy Policy for their web site
+
+      ## How This Aids Compliance
+
+      Completion of these tasks addresses the following controls in FISMA NIST SP 800-53 Revision 4:
+
+      - TR-1 - Privacy Notice
+      - TR-3 - Dissemination Of Privacy Program Information
+
+      ## What App Does:
+
+      - Provides a policy generator to create policy
+      - Tracks periodic reviews of privacy policy
+      - Tracks publication of Privacy Policy on web site
+
+      ## What You Do:
+
+      - Use the policy generator to draft and maintain your privacy policy
+      - Publish your policy and procedure in your organization's policy repository
+      - Periodically review and update your privacy policy
+      - Publish your privacy policy on your web site
+      - Add code to web site to have users agree to privacy policy, if necessary
+
+      ## Support
+      This task collection is maintained by GovReady PBC.
+
+      Invite support@govready.com to any conversation for support. Charges may apply.
+      Alternatively, invite support@govready.com to a [Task.kiwi](https://task.kiwi).
+
+interstitial:
+  format: markdown
+  template: |
+    ## transparency
+
+    This task collection helps a small web team create and maintain a privacy policy.
+
+    Are you ready?
+
+introduction:
+  format: markdown
+  template: |
+    This task collection helps a small web team create and maintain a privacy policy.
+
+invitation_to_task_interstitial:
+  format: markdown
+  template: |
+    ## Thanks for accepting {{invitation.from_user}}'s invitation
+
+    You've been asked to help with {{task.title}} for {{project}}.
+
+    We'll tell {{invitation.from_user}} you're getting started.
+
+questions:
+  - id: generate_policy_tr
+    title: Generate privacy policy
+    type: module
+    module-id: generate_policy_tr
+    tab: Privacy Policy
+    group: Policy
+
+  - id: maintain_policy_tr
+    title: Periodically review and update transparency policy
+    type: module-set
+    module-id: maintain_policy_tr
+    tab: Privacy Policy
+    group: Maintenance
+
+  - id: accept_policy_tr
+    title: Ask users to agree to privacy policy
+    type: module
+    module-id: accept_policy_by_users_tr
+    tab: Privacy Policy
+    group: Acceptance
+
+output:
+  - tab: transparency Policy
+    format: markdown
+    template: |
+      
+      ## transparency Policy
+
+      ![](icon_system_capital.png)
+
+  - tab: transparency
+    format: markdown
+    template: |
+      
+      ## transparency
+
+      ![](icon_system_capital.png)
+
+

@@ -1,0 +1,14 @@
+id: generate_policy_tr
+title: Generate privacy policy
+introduction:
+  format: markdown
+  template: Generate privacy policy
+questions:
+- id: q1
+  prompt: PROMPT
+  title: TITLE
+  type: text
+output:
+- format: markdown
+  template: Generate privacy policy
+  title: Generate privacy policy

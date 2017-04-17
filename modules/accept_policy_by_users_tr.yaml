@@ -1,0 +1,14 @@
+id: accept_policy_by_users_tr
+title: Ask users to agree to privacy policy
+introduction:
+  format: markdown
+  template: Ask users to agree to privacy policy
+questions:
+- id: q1
+  prompt: PROMPT
+  title: TITLE
+  type: text
+output:
+- format: markdown
+  template: Ask users to agree to privacy policy
+  title: Ask users to agree to privacy policy
