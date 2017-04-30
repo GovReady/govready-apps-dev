@@ -1,14 +1,19 @@
-id: control_au_multi
-title: Audit and Log Module
+id: control_au_1
+title: au-1 Audit and Accountability Policy and Procedures
 introduction:
   format: html
   template: |
-    <p>In this section, we'll guide you through setting up your auditing and logs
+    <p>In this section, we'll guide you through setting up secure communications for your web application 
     in accorance with official {{organization}} policies and procedures.</p>
 
-    <p>Completing this section will document the auditing you have in place for {{project}}</p>
+    <p>Completing this section will document the controls you have in place to prevent network-based attacks.</p>
 
-    <a href="#">FCC System and Communications Audit and Accountability Policy and Procedures</a>
+    <p>Watch the video below for a short overview.</p>
+
+    <iframe src="https://player.vimeo.com/video/180259912" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+    <h3>References</h3>
+    <a href="#">FCC System and Communications Protection Policy</a>
 
 questions:
   - id: using_enterprise_dmz
@@ -67,7 +72,7 @@ questions:
   - id: who_responsible_for_dmz
     title: Who Is Responsible for the DMZ?
     type: module
-    module-id: /system/point_of_contact
+    module-id: point_of_contact
     prompt: |
       A secure system is protected by a properly configured firewall.
 

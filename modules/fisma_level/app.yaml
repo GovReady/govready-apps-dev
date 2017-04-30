@@ -1,9 +1,14 @@
-id: fisma_level_project
+id: app
 title: System FISMA Level
 type: project
 version: 1
 
 catalog:
+    vendor: GovReady PBC
+    vendor_url: http://www.govready.com
+    status: Operational
+    version: 0.51a
+    source_url: https://github.com/GovReady/some-repo-here
     description:
       short: |
         Determine system's FISMA security categorization level (Low, Medium, High)
@@ -15,6 +20,13 @@ catalog:
         potential harm to others.
 
         We'll help you figure out your system's FISMA level.
+    recommended_for:
+      - key_short: Org
+        value: Medium
+      - key_short: Tech
+        value: Drupal
+      - key_short: Role
+        value: Dev
 
 snippet:
   format: html
