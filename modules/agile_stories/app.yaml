@@ -1,15 +1,6 @@
-id: _agile_stories_project
+id: app
 title: "Agile Security Stories"
-org: small web team
-tech: website
-role: scrum master, ciso, project manager, web master, manager
 type: project
-access: public
-source_url: https://github.com/GovReady/govready-q-basic-assessments
-version: 0.4
-status: Beta
-provider: GovReady PBC
-provider_url: http://www.govready.com
 control_index:
   - standard: NIST RMF
     controls: 
@@ -17,6 +8,14 @@ control_index:
       - id: AT-4
 
 catalog:
+    org: small web team
+    tech: website
+    role: scrum master, ciso, project manager, web master, manager
+    source_url: https://github.com/GovReady/govready-q-basic-assessments
+    version: 0.4
+    status: Beta
+    vendor: GovReady PBC
+    vendor_url: http://www.govready.com
     description:
       short: |
         Bake security in with security-related user stories (v0.4)
