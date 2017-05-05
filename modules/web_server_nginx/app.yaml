@@ -1,0 +1,42 @@
+id: app
+title: Nginx Web Server
+type: project
+version: 1
+protocol: web_server
+icon: app.png
+
+catalog:
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/some-repo-here
+  description:
+    short: |
+      Configure an Nginx web server so you can get an Interim Authority to Operate.
+    long: |
+      This app will help you configure and operate an Nginx web server so you can get an Interim Authority to Operate.
+  recommended_for:
+    - key_short: Org
+      value: Large
+    - key_short: Tech
+      value: Sophisticated
+    - key_short: Role
+      value: PM
+
+questions:
+  - id: system_details
+    title: System Details
+    type: module
+    module-id: system_details
+
+output:
+- id: ssp_template
+  format: markdown
+  template: |
+    {% if not system_details.hostname %}
+      The system will use an Nginx web server.
+    {% else %}
+      The system has an Nginx web server at {{system_details.hostname}}.
+    {% endif %}
+  

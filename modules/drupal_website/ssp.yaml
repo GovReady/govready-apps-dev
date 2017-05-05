@@ -15,7 +15,7 @@ output:
 - format: markdown
   title: System Security Plan
   template: |
-    <style type = "text/css" scoped>
+    <style type="text/css" scoped>
         # h2 { border-bottom:1px solid #888; }
         h3 { border-bottom:0.5px solid #aaa; } 
         h4 { font-weight:bold; font-size:0.9em; }
