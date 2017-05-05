@@ -1,0 +1,37 @@
+id: app
+title: Drupal Website
+type: project
+version: 1
+icon: app.png
+
+catalog:
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/some-repo-here
+  description:
+    short: |
+      Operate a Drupal website so you can get an Interim Authority to Operate.
+    long: |
+      This app will help you operate a Drupal website so you can get an Interim Authority to Operate.
+  recommended_for:
+    - key_short: Org
+      value: Large
+    - key_short: Tech
+      value: Sophisticated
+    - key_short: Role
+      value: PM
+
+questions:
+  - id: web_server
+    title: Web Server
+    type: module
+    protocol: web_server
+
+  - id: ssp
+    title: View SSP
+    type: module
+    module-id: ssp
+    icon: checkmark.png
+    

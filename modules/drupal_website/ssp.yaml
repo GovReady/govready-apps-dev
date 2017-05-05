@@ -1,0 +1,32 @@
+id: ssp
+title: System Security Plan Preview
+version: 1
+
+questions:
+- id: dummy
+  title: dummy
+  prompt: dummy
+  type: raw
+  impute:
+    - condition: "true"
+      value: ~
+
+output:
+- format: markdown
+  title: System Security Plan
+  template: |
+    <style type = "text/css" scoped>
+        # h2 { border-bottom:1px solid #888; }
+        h3 { border-bottom:0.5px solid #aaa; } 
+        h4 { font-weight:bold; font-size:0.9em; }
+        blockquote { color: #666; font-size:0.8em;}
+        .notice {color: red; font-size:3.0em; text-align:center; transform: scaleY(.85); font-weight: bold;}
+    </style>
+
+    <h2>Web Server</h2>
+
+    {% if not project.web_server %}
+      There will be a web server.
+    {% else %}
+      {{project.web_server.output_documents.ssp_template|safe}}
+    {% endif %}
