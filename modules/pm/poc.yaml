@@ -54,7 +54,6 @@ questions:
 output:
   - title: Document
     format: markdown
-    id: ssp_template
     template: |
       # {{project}} Point of Contact
 

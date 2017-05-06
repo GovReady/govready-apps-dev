@@ -1,5 +1,5 @@
 id: app
-title: ISSM
+title: AO
 type: project
 version: 1
 protocol: fed_poc
@@ -13,11 +13,11 @@ catalog:
   source_url: https://github.com/GovReady/govready-q-drupal-fed-people
   description:
     short: |
-      Information System Security Manager
+      Authorizing Official
     long: |
-      # Information System Security Manager
+      # Authorizing Official
 
-      This module provides point of contact information for the Information System Security Manager (ISSM) supporting a Drupal website for a US Federal government agency.
+      This module provides point of contact information for the Authorizing Official (AO) supporting a Drupal website for a US Federal government agency.
 
       ## Who Should Use:
 
@@ -27,11 +27,11 @@ catalog:
 
       Completion of these tasks addresses the following controls in FISMA NIST SP 800-53:
 
-      - ??? (role ISSM)
+      - ??? (role AO)
 
       ## What App Does:
 
-      - Gathers point of contact information for an ISSM
+      - Gathers point of contact information for an AO
 
       ## What You Do:
 
@@ -53,7 +53,7 @@ catalog:
 
 questions:
   - id: poc
-    title: ISSM
+    title: AO
     module-id: poc
     type: module
 
