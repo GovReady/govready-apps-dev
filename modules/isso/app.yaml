@@ -3,7 +3,7 @@ title: ISSO
 type: project
 version: 1
 protocol: fed_poc_isso
-icon: poc_isso.png
+icon: app.png
 
 catalog:
   vendor: GovReady
