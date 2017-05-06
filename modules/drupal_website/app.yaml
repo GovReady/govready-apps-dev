@@ -9,7 +9,7 @@ catalog:
   vendor_url: http://www.govready.com
   status: Operational
   version: 0.95
-  source_url: https://github.com/GovReady/some-repo-here
+  source_url: https://github.com/GovReady/govready-q-ssp-module/tree/master/modules/drupal_website
   description:
     short: |
       Operate a Drupal website so you can get an Interim Authority to Operate.
