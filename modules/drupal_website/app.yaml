@@ -29,6 +29,11 @@ questions:
     type: module
     protocol: web_server
 
+  - id: fed_poc
+    title: ISSO (PoC)
+    type: module
+    protocol: fed_poc
+
   - id: ssp
     title: View SSP
     type: module
