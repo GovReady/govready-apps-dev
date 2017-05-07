@@ -1,0 +1,4178 @@
+id: app
+title: Cloud.gov (OpenControl)
+type: project
+protocol: opencontrol
+opencontrol_fetch_date: '2017-05-07T19:10:12.338770+00:00'
+catalog:
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/some-repo-here
+  description:
+    short: |
+      Host on Cloud.gov using OpenControl.
+    long: |
+      This app will help you configure and operate your systems on Cloud.gov, using Cloud.gov's OpenControl data.
+  recommended_for:
+  - key_short: Org
+    value: Large
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
+questions: []
+output:
+- id: ssp_template_mp_2
+  format: markdown
+  template: >
+    ## Media Protection Policy for 18F
+
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical
+    media devices used and Cloud.Gov information system components are virtualized.
+    All network hardware and server components are the responsibility of the underlying
+    Infrastructure as a service provider.
+- id: ssp_template_ia_4__4
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    18F manages individual identifiers that uniquely identify individuals as employees, contractors, or foreign nationals.
+- id: ssp_template_sa_11__8
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    cloud.gov requires the developer of the information system, system component, or information system service to employ dynamic code analysis tools to identify common flaws and document the results of the analysis.
+- id: ssp_template_ma_5__1
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    ### Part a
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part b
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_ac_2__12
+  format: markdown
+  template: |
+    ## ELKStack
+
+    ### Part a
+
+    Information system account activities are monitored via ELK
+
+    ### Part b
+
+    ELK reports atypical usage of information system accounts to designated Infrastructure and cloud.gov operators teams.
+    ## Cloud Checkr
+
+    ### Part a
+
+    18F has implemented Cloud Checkr as a way to monitor information system accounts. CloudCheckr monitors the 18F AWS infrastructure and alerts the DevOps and SecOps when certain conditions are met. The CloudTrail Built-In Alerts allows 18F to monitor for a recommended predefined set of CloudTrail events.
+    These events include:
+    * Any security-related event
+    * CloudTrail disabled
+    * Credentials report generated
+    * EBS snapshot deleted
+    * EC2 instance terminated
+    * Failed login to AWS Management Console
+    * IAM access key created
+    * IAM access key deleted
+    * IAM password policy changed
+    * IAM policy assigned
+    * IAM policy modified
+    * Resource-based policy modified
+    * Role Assumed
+    * Root account access key created
+    * Root account used
+    * Security group assigned
+    * Security group modified
+    * Successful login to AWS Management Console
+    * Unauthorized access attempt
+
+    ### Part b
+
+    Cloud Checkr reports atypical usage of information system accounts to designated 18F SecOps and Devops teams. Monitoring and intrusion information contained within Cloud Checkr and Cloudtrail logs are  sent to 18F security personnel. The  logs are protected from unauthorized access by limiting access to authorized privileged users only.
+- id: ssp_template_cp_2
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    ### Part a
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the cloud.gov information system. 18F is currently in the process of
+    completing and finalizing the contingency plan for cloud.gov.
+
+    ### Part b
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the cloud.gov information system. 18F is currently in the process of
+    completing and finalizing the contingency plan for cloud.gov.
+
+    ### Part c
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the cloud.gov information system. 18F is currently in the process of
+    completing and finalizing the contingency plan for cloud.gov.
+
+    ### Part d
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the cloud.gov information system. 18F is currently in the process of
+    completing and finalizing the contingency plan for cloud.gov.
+
+    ### Part e
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the cloud.gov information system. 18F is currently in the process of
+    completing and finalizing the contingency plan for cloud.gov.
+
+    ### Part f
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the cloud.gov information system. 18F is currently in the process of
+    completing and finalizing the contingency plan for cloud.gov.
+
+    ### Part g
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the cloud.gov information system. 18F is currently in the process of
+    completing and finalizing the contingency plan for cloud.gov.
+- id: ssp_template_at_4
+  format: markdown
+  template: |
+    ## Security Awareness Training Policy for 18F
+
+    Completed the development of the Awareness training policy specifically
+    for 18F program. ISSO support is looking into possible solutions for specific
+    security awareness training for 18F staff. currently reviewing the SEI training
+    programs for Secure DevOps and Online line Learning management system.
+- id: ssp_template_ia_8__2
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov does not accept third-party credentials.
+- id: ssp_template_ma_1
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    ### Part a
+
+    Agency System Maintenance Policy Implementation
+
+    System Maintenance Policy is included in CIO P 2100.1 - GSA IT Security Policy, Chapter 4. Policy on Operational Controls.
+    It states, "The availability and usability of GSA equipment and software must be maintained and safeguarded to enable agency
+    objectives to be accomplished."
+
+    GSA OCISO ISP also defined agency-wide system maintenance procedures in IT Security Procedural Guide:
+    Maintenance (CIO-IT Security-10-50)
+
+    18F follows the GSA System Maintenance policy for its information systems hosted within GSA facilities. The Cloud.Gov information
+    system is hosted with the AWS GovCloud and will be in purview of the hosting site’s Maintenance policy and procedures
+
+    ### Part b
+
+    The GSA Office of the CISO is responsible for reviewing and updating the above documents annually, and notifying System Program
+    Managers and Information System Security Officers and Managers (ISSO/Ms).
+- id: ssp_template_si_12
+  format: markdown
+  template: >
+    ## System and Information Integrity Policy for 18F
+
+
+    cloud.gov handles and retains information within cloud.gov system and information
+    output from the system in accordance with applicable federal laws, Executive Orders,
+    directives, policies, regulations, standards, and operational requirements.
+- id: ssp_template_ac_4__21
+  format: markdown
+  template: |
+    ## Application Security Groups
+    ## DEA
+    ## Amazon Virtual Private Cloud
+    ## Warden
+- id: ssp_template_ia_2__5
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - Local access is treated the same as remote access. See IA-2 (1).
+    ## User Account and Authentication (UAA) Server
+
+    This controls is not applicable. here are are no group accounts within the Cloud.Gov platform.
+- id: ssp_template_ac_17__2
+  format: markdown
+  template: >
+    ## JumpBox
+
+
+    18F DevOps teams remotely access the cloud.gov jumpbox using SSH version 2. There
+    are no other remote connections to the platform. Client end users login to the
+    their Org environment through the CF-Deck within the cloud.gov portal. The cloud.gov
+    Portal uses TLS v1.2 connections and AES 128 bit encryption for all access.
+- id: ssp_template_sa_9__2
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    GSA requires that any external service receives an Authority to Operate which includes identification of all functions, protocols, etc.
+- id: ssp_template_sa_4__8
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    clould.gov developed a continous monitoring plan and requires all system components to adhere to it.
+- id: ssp_template_cp_7__3
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Inherited:
+    18F and the Cloud.Gov information system will leverage AWS Availability Zones and Regions to include priority of
+    service provisions identical to the others.
+- id: ssp_template_ps_4
+  format: markdown
+  template: >
+    ## Personnel Security Policy for 18F
+
+
+    ### Part a
+
+
+    Disabling, termination and conducting of exit interviews are initiated and facilitated
+    by the supervisor/CO/COR of an individual.  Retrieval of all information system-related
+    property which includes HDPS-12 cards, authentication tokens (USB for privileged
+    access), laptops, etc. is a common control provided by IO.  More information can
+    be found in the GSA IT Security Procedural Guide 03-23, Termination and Transfer
+
+    cloud.gov disables access to accounts within the same day of termination.
+
+
+    ### Part b
+
+
+    cloud.gov revokes all access associated to the individual the same day of termination.
+
+
+    ### Part c
+
+
+    Disabling, termination and conducting of exit interviews are initiated and facilitated
+    by the supervisor/CO/COR of an individual.  Retrieval of all information system-related
+    property which includes HDPS-12 cards, authentication tokens (USB for privileged
+    access), laptops, etc. is a common control provided by IO.  More information can
+    be found in the GSA IT Security Procedural Guide 03-23, Termination and Transfer
+
+
+    ### Part d
+
+
+    Disabling, termination and conducting of exit interviews are initiated and facilitated
+    by the supervisor/CO/COR of an individual.  Retrieval of all information system-related
+    property which includes HDPS-12 cards, authentication tokens (USB for privileged
+    access), laptops, etc. is a common control provided by IO.  More information can
+    be found in the GSA IT Security Procedural Guide 03-23, Termination and Transfer
+
+
+    ### Part e
+
+
+    Disabling, termination and conducting of exit interviews are initiated and facilitated
+    by the supervisor/CO/COR of an individual.  Retrieval of all information system-related
+    property which includes HDPS-12 cards, authentication tokens (USB for privileged
+    access), laptops, etc. is a common control provided by IO.  More information can
+    be found in the GSA IT Security Procedural Guide 03-23, Termination and Transfer
+
+
+    ### Part f
+
+
+    Disabling, termination and conducting of exit interviews are initiated and facilitated
+    by the supervisor/CO/COR of an individual.  Retrieval of all information system-related
+    property which includes HDPS-12 cards, authentication tokens (USB for privileged
+    access), laptops, etc. is a common control provided by IO.  More information can
+    be found in the GSA IT Security Procedural Guide 03-23, Termination and Transfer
+- id: ssp_template_ac_2__1
+  format: markdown
+  template: |
+    ## Identity and Access Management
+    ## User Account and Authentication (UAA) Server
+
+    UAA CLI is a semi-automated command line based account management system that enables operators to create, modify and deleted user accounts and roles within the platform. https://docs.cloudfoundry.org/adminguide/uaa-user-management.html
+- id: ssp_template_sc_7
+  format: markdown
+  template: |
+    ## Application Security Groups
+    ## DEA
+    ## System and Communications Protection Policy for cloud.gov
+
+    ### Part a
+
+    18F monitors and controls communications at the external boundary of the system and at key internal boundaries within the system.
+
+    ### Part b
+
+    18F implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by using a well-formed Virtual Private Cloud. VPC is a virtual network dedicated to your AWS account which is logically isolated from other virtual networks in the AWS cloud.
+    cloud.gov VPC has selected its IP address range, created subnets, and configured route tables, network gateways, and security settings logically separated from any other internal organization networks.
+
+    ### Part c
+
+    18F staff connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with organizational security architecture.
+    ## Amazon Virtual Private Cloud
+    ## EC2
+- id: ssp_template_ac_6__1
+  format: markdown
+  template: |
+    ## Identity and Access Management
+- id: ssp_template_ac_11
+  format: markdown
+  template: |
+    ## User Account and Authentication (UAA) Server
+
+    A session limit of 15 minutes is implemented on inactive accounts within the Cloud.gov platform. All sessions are terminated after this period, but sesssion are not locked.
+- id: ssp_template_sa_5
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    ### Part a
+
+    The cloud.gov team maintains documentation for cloud.gov in the GitHub repositories for the components of the system and at https://docs.cloud.gov.
+    The "Contributing" section describes secure deployment and operation of cloud.gov.
+    All known vulnerabilities are patched and documented in the GitHub repositories.
+
+    ### Part b
+
+    Best practices for secure usage of cloud.gov are available and continuously updated at https://docs.cloud.gov.
+
+    ### Part c
+
+    Anyone can file a report of incomplete or unavailable documentation using GitHub issues attached to https://github.com/18F/cg-docs or to the repositories that store various cloud.gov components.
+    The cloud.gov team responds to those issues and the creates documentation required.
+
+    ### Part d
+
+    Because cloud.gov documentation does not contain sensitive information, documentation is publicly accessible in GitHub and at https://docs.cloud.gov.
+    Changes to that documentation can only be accepted by authorized individuals on the cloud.gov team through GitHub team membership.
+
+    ### Part e
+
+    The cloud.gov team maintains documentation for cloud.gov in the GitHub repositories for the components of the system and at https://docs.cloud.gov.
+    The team directs new members to this documentation, and expects team members to be aware of its contents.
+- id: ssp_template_pe_11
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_ia_2
+  format: markdown
+  template: >
+    ## Identity and Access Management
+
+    ## Identification and Authentication Policy for 18F
+
+
+    The cloud.gov platform delegates authentication to either the GSA enterprise system
+    or GitHub for any administrator access.
+
+    ## User Account and Authentication (UAA) Server
+
+
+    The UAA is the identity management service for Cloud Foundry. Its primary role
+    is as an OAuth2 provider, issuing tokens for client applications to use when they
+    act on behalf of Cloud Foundry users. In collaboration with the login server,
+    it authenticates users with their Cloud Foundry credentials, and act as a Single
+    Sign-On (SSO) service using those credentials (or others). It has endpoints for
+    managing user accounts and for registering OAuth2 clients, as well as various
+    other management functions.
+
+    All users have individually unique identifiers to access and authenticates  to
+    the environment. Shared or group authenticators are not utilized, with the exception
+    of a root administrative account. There are only two authorized users from the
+    DevOps team who has access to the root administrative account.
+- id: ssp_template_si_1
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    18F Policy
+- id: ssp_template_cp_9__3
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    cloud.gov utilizes Amazon Web Services  as the redundant storage, Processing and back up sites for all 18F systems
+    including its platform as a service Cloud. Amazon Web Services (AWS) handles durability, availability and monitoring
+    of some regional and global services (e.g. IAM, Cloud Front, Cloud Search, Dynamo DB, Amazon S3, and Route 53).
+- id: ssp_template_ac_2__5
+  format: markdown
+  template: |
+    ## Identity and Access Management
+    ## User Account and Authentication (UAA) Server
+
+    Account log out is set to 15 minutes of inactivity.
+- id: ssp_template_ac_2__2
+  format: markdown
+  template: |
+    ## Identity and Access Management
+    ## User Account and Authentication (UAA) Server
+
+    Not Applicable. UAA does not contain any guest/anonymous, group, or temporary user accounts. Administrators only creates individual user accounts and grants role based access to users within UAA. There are no guest/anonymous, group, or temporary user accounts.
+- id: ssp_template_ac_2__4
+  format: markdown
+  template: >
+    ## ELKStack
+
+
+    cloud.gov provides an audit trail through the bosh tasks command which shows all
+    actions that an operator has taken with the platform. It also records an audit
+    trail of all relevant API invocations of an app. The CLI command cf events returns
+    this information.
+
+
+    ELK ( Logstash, Elasticsearch, Kibana) a front end component for loggregator is
+    used to automatically audit all actions within the cloud.gov platform. By binding
+    an instance of the service to, cloud.gov applications logs will be drained to
+    a Logstash syslog receiver and stored in Elasticsearch to perform real-time data
+    analytics with Kibana as the interface for search and visualization.
+
+    ## Cloud Checkr
+
+
+    #TODO
+
+    18F has implemented CloudWatch for its system account monitoring. It monitors
+    resources in near real-time, including EC2 instances, EBS volumes, Elastic Load
+    Balancers, and RDS DB instances. Metrics such as CPU utilization, latency, and
+    request counts are provided automatically for these AWS resources. It allows 18F
+    to supply logs or custom application and system metrics, such as memory usage,
+    transaction volumes, or error rates.
+
+
+    CloudTrail captures all IAM API calls from  command-line tools, the AWS SDK, and
+    the AWS Management Console. Monitoring data is retained for two weeks, even if
+    AWS resources have been terminated. This enables 18F to quickly look back at the
+    metrics preceding an event of interest.
+
+
+    Metrics are accessed in either the EC2 tab or the CloudWatch tab of the AWS Management
+    Console. SecOps personnel monitors the use of all infrastructure accounts through
+    Cloud Checkr
+
+    ## User Account and Authentication (UAA) Server
+
+
+    All account activity is logged using the UAA system which can be reviewed for
+    auditing purposes.
+- id: ssp_template_sc_12__2
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov controls and distributes symmetric cryptographic keys using [NIST FIPS-compliant] key management technology and processes.
+- id: ssp_template_au_5
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    In progress
+- id: ssp_template_ma_3__2
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_pe_10
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    ### Part a
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part b
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part c
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_cp_4
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    ### Part c
+
+    Planned Implementation:
+
+    After exercises are completed, the disaster recovery team reviews the exercise results and initiate corrective actions
+    if necessary. If a disaster recovery test finding leads to a change to Cloud.Gov’s IT infrastructure, 18F will require
+    the change to be documented, tested and approved by going through 18F’s change control process.
+- id: ssp_template_ac_17__4
+  format: markdown
+  template: >
+    ## JumpBox
+
+
+    18F authorizes the execution of privileged commands and access to security-relevant
+    information via remote access only for monitoring, managing, and troubleshooting 
+    the 18F virtual infrastructure and cloud.gov platform. This authorization is only
+    given to specific members of the DevOps and SecOps teams. All other members are
+    excluded from this type of access.
+
+
+    Since the cloud.gov platform resides within the 18F virtual infrastructure, 18F
+    DevOps must use the SSH remote access method to troubleshoot issues and update
+    services that are only resolved by logging into the cloud.gov jumpboxes. The jumpbox
+    itself a virtual machine deployed within the cloud.gov virtual private cloud.
+    It is the only access point for designated DevOps members to run privileged commands
+    that affect the entire platform. No other privileged remote access is available
+    to the information system.
+
+    ## Amazon Virtual Private Cloud
+- id: ssp_template_ps_6
+  format: markdown
+  template: |
+    ## Personnel Security Policy for 18F
+
+    ### Part a
+
+    cloud.gov develops and documents access agreements for all users accessing the system.
+
+    ### Part b
+
+    cloud.gov reviews and updates the agreements at least once a year.
+
+    ### Part c
+
+    cloud.gov requires all users being granted access to accept the agreement every time they enter the system.
+- id: ssp_template_ps_3__3
+  format: markdown
+  template: |
+    ## Personnel Security Policy for 18F
+
+    ### Part a
+
+    Personnel Screening is a Common Control provided by the Office of Personnel Management (OPM) and Department of Homeland Security (DHS).  Screening (and re-screening) of individuals are provided by OPM and DHS (and their agents) prior to authorizing access to the GSA information systems.
+
+    ### Part b
+
+    Personnel Screening is a Common Control provided by the Office of Personnel Management (OPM) and Department of Homeland Security (DHS).  Screening (and re-screening) of individuals are provided by OPM and DHS (and their agents) prior to authorizing access to the GSA information systems.
+- id: ssp_template_sc_8
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov provides integrity and confidentiality protection over data in transit by applying HTTPS to all public interfaces connecting to the service. See how HTTPS (TLS) https://tools.ietf.org/html/rfc5246 for details.
+- id: ssp_template_sc_23
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov protects the authenticity of sessions by exclusively using HTTPS.
+- id: ssp_template_ca_2__1
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    18F has engaged an accredited 3PAO to conduct the independent assessment of security controls for the cloud.gov information system.
+- id: ssp_template_ia_5__3
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_cp_10__2
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    This control is not applicable to the cloud.gov information system. cloud.gov is not transaction based.
+- id: ssp_template_ia_5__6
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_ia_5__4
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_sa_9__1
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    ### Part a
+
+    GSA complies with federal regulations requiring agencies to evaluate risk prior to acquiring any tool or service.
+
+    ### Part b
+
+    The GSA Office of the CIO approves any information security services. The FedRAMP JAB will take over that responsibility once cloud.gov receives its approval.
+- id: ssp_template_si_7__1
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov performs an integrity check using Tripwire at startup and every hour.
+- id: ssp_template_ca_6
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    ### Part a
+
+    18F has assigned an Authorizing Official (AO) for the cloud.gov information system. The designated AO is listed in Section 4 of the system security plan.
+
+    ### Part b
+
+    The Authorizing Official responsibilities include ensuring the cloud.gov information system is assessed and authorized before going to an operational state. Authorization descisions are based on the contenct of them.
+
+    ### Part c
+
+    18F updates the security authorzation of cloud.gov on an annual basis or when there are significant changes within the information system. Significant changes include,
+- id: ssp_template_si_8
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    ### Part a
+
+    This control is not applicable since clould.gov does not accept or process any messages for other information systems or external sources. Therefore spam protection is not necessary.
+
+    ### Part b
+
+    This control is not applicable since clould.gov does not accept or process any messages for other information systems or external sources. Therefore spam protection is not necessary.
+- id: ssp_template_ir_3__2
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    cloud.gov will coordinate with 18F Infrastructure and GSA IT to conduct these exercises in the most effective manner.
+- id: ssp_template_mp_5
+  format: markdown
+  template: |
+    ## Media Protection Policy for 18F
+
+    ### Part a
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical media devices used and Cloud.Gov information system components are virtualized. All network hardware and server components are the responsibility of the underlying Infrastructure as a service provider.
+
+    ### Part b
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical media devices used and Cloud.Gov information system components are virtualized. All network hardware and server components are the responsibility of the underlying Infrastructure as a service provider.
+
+    ### Part c
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical media devices used and Cloud.Gov information system components are virtualized. All network hardware and server components are the responsibility of the underlying Infrastructure as a service provider.
+
+    ### Part d
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical media devices used and Cloud.Gov information system components are virtualized. All network hardware and server components are the responsibility of the underlying Infrastructure as a service provider.
+- id: ssp_template_cp_9__1
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Planned Implementation:
+    18F will test backup tests backup information at least annually to verify media reliability and information integrity
+- id: ssp_template_ma_2
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    ### Part a
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part b
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part c
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part d
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part e
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part f
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_pe_6__1
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_au_6__1
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    Audit Monitoring, Analysis and Reporting
+
+    * 18F establishes processes for regularly reviewing audit log information, and
+    reporting security issues if discovered. Reviews will occur at a minimum of
+    weekly. These processes should be integrated with processes for incident
+    response, in order to ensure standardization and cross-functional collaboration
+    * 18F employs automated mechanisms to integrate audit monitoring, analysis and
+    reporting into an overall process for investigation and response to suspicious
+    activities.
+    * 18F employs automated mechanisms to immediately alert security personnel of
+    inappropriate or unusual activities that have security implications.
+- id: ssp_template_sa_8
+  format: markdown
+  template: >
+    ## System and Services Acquisition Policy for 18F
+
+
+    cloud.gov uses the Cloud Foundry secure deployment best practices, which include
+    the following:
+      - Configure UAA clients and users using a standard BOSH manifest for Cloud Foundry
+    Development.
+      - cloud.gov develops and maintains documentation on the baseline configuration
+    of the information system that include network topology, system architecture,
+    application, web, and server components along with software standards.
+      - Cloud Foundry protects the information system from security threats by minimizing
+    network surface area, applying security controls, isolating applications and data
+    in containers, and encrypting connections.
+      - It also implements role-based access controls, applying and enforcing permissions
+    to isolate user to their space.  Baseline configurations settings are reviewed
+    on a continual basis to to comply with federal mandates and compliance standards.
+      - cloud.gov documents changes to the baseline configuration in GitHub for review.
+    Part of this process includes a thorough security analysis of the proposed change
+    prior to the configuration change being implemented on the operational system.
+      - cloud.gov deploys with every application a standard set of tools for security
+    and monitoring of each application to identify security issues.
+    For more details please refer to 18F Configuration Management Policy and security
+    controls CM-2, CM-3, and CM-6.
+- id: ssp_template_ac_2__7
+  format: markdown
+  template: |
+    ## ELKStack
+
+    ### Part b
+
+    18F monitors all privileged access API calls through the Cloud Foundry command line interface and BOSH command line interface within cloud.gov. These API calls are monitored through ELK.
+    ## Cloud Checkr
+
+    ### Part b
+
+    18F monitors all privileged role assignments to the VPS through the IAM console, CloudTrail audit logs and Cloud Watch alerts. 18F uses Cloud Checkr to provide centralized monitoring and alerting within its VPC.
+    ## User Account and Authentication (UAA) Server
+
+    ### Part b
+
+    UAA centralizes all role assignment and all user management activity is logged and monitored.
+- id: ssp_template_cm_2__2
+  format: markdown
+  template: >
+    ## Configuration Management Policy for 18F
+
+
+    Configuration management at the AWS level is managed through CloudFormation automation
+    templates, AWS Config and
+
+    VisualOps. 18F maintains baseline configurations for VPC, EBS, EC2 instances and
+    AMIs. AWS Cloud Formation templates
+
+    help maintains a strict configuration management scheme of the cloud.gov. Because
+    these templates are text files, 18F
+
+    can simply track differences in these templates to track changes to its infrastructure.
+
+
+    For cloud.gov, an operator initiates a new deployment using the BOSH CLI, the
+    BOSH Director receives a version of the
+
+    deployment manifest and creates a new deployment using this manifest. Automated
+    Configuration of cloud.gov platform
+
+    components is handled by the Concourse.ci, a continuous integration and deployment
+    tool which utilizes the cloud.gov
+
+    customized Ubuntu stemcells and deployment manifest yaml files for its baseline
+    configurations.
+- id: ssp_template_ps_7
+  format: markdown
+  template: |
+    ## Personnel Security Policy for 18F
+
+    ### Part a
+
+    GSA establishes personnel security requirements for third-party providers.
+
+    ### Part b
+
+    GSA requires third-party providers to comply with GSA policies, undergo background checks and attend security trainings.
+
+    ### Part c
+
+    GSA documents the security requirements as part of the procurement process with third parties.
+
+    ### Part d
+
+    GSA requires that all third-parties notify the Contracting Officers of any activity on the third-party's personnel within a day.
+
+    ### Part e
+
+    GSA monitors compliance from providers at least monthly.
+- id: ssp_template_ia_2__11
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to multiple separate single sign on (SSO) systems which implement multifactor in multiple ways.
+    ## User Account and Authentication (UAA) Server
+
+    Cloud.Gov does not have MFA capabilities implemented. Cloud.Gov currently utilizes username and password for identification and authentication of non-privileged accounts.
+- id: ssp_template_sa_11__1
+  format: markdown
+  template: |
+    ## BOSH
+    ## Cloud Controller
+    ## System and Services Acquisition Policy for 18F
+
+    The Cloud Foundry community uses Code Climate on platform components such as BOSH and Cloud Controller. The results of the scans are publicly available and can be run by 18F at any time.
+- id: ssp_template_ca_2
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    ### Part a
+
+    The 18F Program develops a security assessment plan that describes the scope of the assessment including:
+
+    * Security controls and control enhancements under assessment
+    * Assessment procedures to be used to determine security control effectiveness
+    * Assessment environment, assessment team, and assessment roles and responsibilities
+
+    cloud.gov is designed for compliance with the Federal Risk and Authroization Management Plan and has adopted the FedRAMP Assessment and Authorization program as the basis for its Security and Priavacy compliance activities. cloud.gov engages a FedRAMP Accredited Third Pary Assessment Organzation (3PAO) to develop a compliant security assessment plan.
+
+    ### Part b
+
+    cloud.gov has engaged the 3PAO to assess the security controls in the information system at least annually to determine the extent to which the controls are implemented correctly, operation as intended, and producing the desired outcome with respoect to meeting the security requirements for the system.
+
+    ### Part c
+
+    cloud.gov has engaged the 3PAO to produce a security assessment report that documents the issues, test activities, findings, and recommendations from the assessment.
+
+    ### Part d
+
+    18F will deliver all documents used in or created during the assessment to generate a complete FedRAMP Authorization package. The package is transmitted to the FedRAMP Program Management Office (PMO) for submission to the FedRAMP JAB
+- id: ssp_template_mp_3
+  format: markdown
+  template: >
+    ## Media Protection Policy for 18F
+
+
+    ### Part a
+
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical
+    media devices used and Cloud.Gov information system components are virtualized.
+    Cloud.Gov data does not contain PII or information from the customer.  All network
+    hardware and server components are the responsibility of the underlying Infrastructure
+    as a service provider.
+
+
+    ### Part b
+
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical
+    media devices used and Cloud.Gov information system components are virtualized.
+    Cloud.Gov data does not contain PII or information from the customer.  All network
+    hardware and server components are the responsibility of the underlying Infrastructure
+    as a service provider.
+- id: ssp_template_ir_5
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    The cloud.gov team tracks all incidents, not just security incidents, using the cloud.gov postmortem wiki: https://github.com/18F/cg-postmortems/wiki. The team also reports security incidents to GSA IT, which also tracks them.
+- id: ssp_template_sa_11
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    ### Part a
+
+    The security assessment plan is created by the FedRAMP Accredited Third Pary Assessment Organzation (3PAO). It will It will be used for annual assessments conducted by the 3PAO for continuous monitoring of cloud.gov.
+
+    ### Part b
+
+    cloud.gov performs unit and integration testing on the sytem on each deployment.
+
+    ### Part c
+
+    Testing is done automatically and tracked using tools like Nessus, OWASP and Concourse.
+
+    ### Part d
+
+    The process of remediation is by implementing changes to the configuration on configuration management, redeploying and testing.
+
+    ### Part e
+
+    Flaws are identified by automated tools and false positives are marked as such.
+- id: ssp_template_ca_8
+  format: markdown
+  template: >
+    ## Security Assessment and Authorization Policy for 18F
+
+
+    External Penetration testing
+
+
+    External penetration testing activities are conducted by GSA OCISO on an annual
+    basis. These activites are designed to perform the necessary vulnerability analysis
+    against cloud.gov based on all necessary security requirements. The GSA OCISO
+    follows the GSA CIO IT Security Procedural Guide, CIO-IT Security-11-51, Conducting
+    Penetration Test Exercises when performing these tests.
+
+
+    18F must request permission from AWS using the AWS Vulnerability / Penetration
+    Testing Request Form to conduct penetration test activities against its own Virtual
+    Private Cloud infrastructure and follow the AWS Acceptable Use Policy.
+
+    Amazon requires customers to obtain authorization for penetration testing (or
+    vulnerability assessments) both from or to their AWS resources.
+
+
+    AWS Acceptable Use Policy, http://aws.amazon.com/aup/
+
+    AWS Penetration testing,  http://aws.amazon.com/security/penetration-testing/
+
+
+    GSA ISE performs penetration testing services for the GSA information systems
+    hosted on the cloud.gov platform. It is also bound by the AWS penetration testing
+    policy and procedures when conducting its penetration tests.
+
+
+    Internal Penetration testing
+
+
+    For internal penetration testing inside 18F's Virtual Private Cloud, 18F team
+    members will conduct whitebox/greybox testing of the 18F environment using approved
+    assessment tools.
+
+
+    For compliance with NIST Publication 800-53 CA-8, Parameter 1 Penetration Testing
+    of all 18F Infrastructure and Application Components will occur annually. Parameter
+    2 Penetration Testing of Publicly Accessible Infrastructure will be performed
+    on the direction of the 18F .
+- id: ssp_template_au_2__3
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    The Devops and SecOps teams review all events that can be audited on a real time
+    basis using its event and monitoring solution for cloud.gov and through captured
+    user and event API calls within its virtual infrastructure.
+- id: ssp_template_ia_8__1
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    PIV verification is subject to the delegated enterprise SSO system.
+- id: ssp_template_cp_1
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    ### Part a
+
+    Agency Contingency planning policy
+
+    Contingency Planning policies and procedures is a common control provided by GSA Information Security Policy
+    and Compliance Division (ISP) of the OCISO. Contingency Planning Policy is included in CIO P 2100.1 - GSA IT
+    Security Policy, Chapter 4. Policy on Operational Controls.  It states, "Contingency planning focuses on the
+    recovery and restoration of an IT system following a disruption. The contingency plan supports the agency Continuity of
+    Operations Plan (COOP) required by HSPD-20, “National Continuity Policy,” ensuring that Primary Mission-Essential
+    Functions continue to be performed during a wide range of emergencies. Contingency and continuity of support plans
+    must be developed and tested annually for all IT systems in accordance with OMB Circular No. A-130, NIST SP 800-34,
+    “Contingency Planning Guide for Information Technology Systems"
+
+    GSA OCISO ISP also defined agency-wide contingency planning procedures in IT Security Procedural Guide: Contingency
+    Planning (CIO-IT Security-06-29)
+
+    System Specific Expectation for Vendor/Contractor Operated System Systems:
+
+    The 18F Program Office develops, documents, and disseminates to all 18F staff
+    The 18F configuration management policy which addresses purpose, scope, roles, responsibilities, management commitment,
+    coordination among organizational entities, and compliance and procedures to facilitate the implementation of the
+    Contingency Planning policy and associated controls. The 18F Contingency Planning policy is listed within its private
+    GitHub repository https://github.com/18F/compliance-docs/blob/master/CP-Policy.md that is accessible to all 18F staff.
+
+    ### Part b
+
+    Agecy CP Policy
+
+    The GSA Office of the CISO is responsible for reviewing and updating the above documents annually, and notifying System
+    Program Managers and Information System Security Officers and Managers (ISSO/Ms).
+
+    The 18F Program Office will review and update the current 18F Contingency Planning policy at least every 3 years and
+    any documented configuration procedures at least annually.
+- id: ssp_template_ma_6
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_sa_9__5
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    cloud.gov restricts the location of all user data to AWS GovCloud and related services.
+- id: ssp_template_at_1
+  format: markdown
+  template: |
+    ## Security Awareness Training Policy for 18F
+
+    ### Part a
+
+    The 18F Program Office develops, documents, and disseminates to all 18F staff
+    The 18F Security Awareness policy which addresses purpose, scope, roles,
+    responsibilities, management commitment, coordination among organizational
+    entities, and compliance and procedures to facilitate the implementation of the
+    security awareness access and training policy and associated security awareness
+    controls. The 18F accecss control policy is listed within its private Github
+    repository that is accessible to all 18F staff.
+
+    ### Part b
+
+    The 18F Program Office will review and update the current 18F Security Awareness
+    and training control policy at least every 3 years and any documented access
+    procedures at least annually.
+- id: ssp_template_ca_3__5
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    This control is not applicable to the cloud.gov information system. cloud.gov currently does not have any connections to other external information systems.
+- id: ssp_template_sc_13
+  format: markdown
+  template: |
+    ## SecureProxy
+
+    cloud.gov forces https using SecureProxy:
+
+    Applications running on Cloud Foundry receive requests through the URLs configured
+    for the application. HTTP requests arrive on ports 80 and 443. Additionally, Cloud
+    Foundry requires a channel for TCP/WebSocket traffic. The default cf-release manifest
+    assigns port 4443 for TCP/WebSocket communications.
+
+    All traffic from the public internet to the Cloud Controller and UAA happens over
+    HTTPS. Inside the boundary of the system, components communicate over publish-subscribe
+    (pub-sub) message bus, NATs on port 4222.
+
+    To combat spoofing Cloud Foundry network traffic rules help prevent the attack
+    from accessing application containers. Cloud Foundry uses application isolation,
+    operating system restrictions, and encrypted connections to further mitigate risk.
+
+    Application developers push their code using the Cloud Foundry API. Cloud Foundry
+    secures each call to the CF API using the UAA and SSL
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov inherits the control from the GovCloud package for the ELB SSL termination. See https://d0.awsstatic.com/whitepapers/compliance/AWS_Risk_and_Compliance_Whitepaper.pdf for further details.
+    ## User Account and Authentication (UAA) Server
+
+    As for stored data the following cryptographic mechanisms are used to prevent unauthorized disclosure and modification of stored data.
+    Operators configure encryption of the identity store in the UAA. When users register an account with the Cloud Foundry platform, the UAA acts as the user store and stores user passwords in the UAA database using bcrypt, a blowfish encryption algorithm, which enables Cloud Foundry to store a secure hash of user passwords.
+    The Cloud Controller stores the configuration for an application in an encrypted database table. This configuration data includes user-specified environment variables and service credentials for any services bound to the app.
+- id: ssp_template_sc_21
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    It is a customer's responsibility to manage DNS according to FedRAMP standards.
+- id: ssp_template_sc_7__7
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    VPNs and split tunneling are not an applicable use when accessing this system. 18F adminitrative staff gain access to this system through AWS multi-factor authentication to perform administrative functions and duties.
+- id: ssp_template_ia_8
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    Every user has an individual account and their source is tracked to the main authentication system.
+- id: ssp_template_sc_15
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    ### Part a
+
+    cloud.gov doesn't allow remote activation of collaborative computing devices, thus not applicable.
+
+    ### Part b
+
+    Explicit indication of use to users physically present at the devices is not applicable to cloud.gov.
+- id: ssp_template_cp_2__1
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the Cloud.Gov information system. 18F is currently in the process of completing and finalizing the contingency plan for Cloud.Gov.
+- id: ssp_template_ca_3
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    The cloud.gov informaton system does not have any connections to other external information systems or interconnection security agreements (ISA) with other external agencies at this time.
+- id: ssp_template_si_4__14
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    This control is not applicable. cloud.gov does not contain any wireless system.
+- id: ssp_template_cp_7__2
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    18F and the cloud.gov information system will leverage AWS Availability zones and Regions. AWS console and remote
+    API calls can be made from other networks across the public Internet, provided the appropriate credentials are
+    supplied.
+- id: ssp_template_ia_5__7
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_ir_7__2
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    ### Part a
+
+    18F has direct channels to any external provider of infrastructure and works with them to ensure good cooperation and general application of best practices according to each environment.
+
+    ### Part b
+
+    When working with external providers during an incident response, all parties have to be identified and cleared before access is granted to any system.
+- id: ssp_template_ps_1
+  format: markdown
+  template: >
+    ## Personnel Security Policy for 18F
+
+
+    ### Part a
+
+
+    Agency Personnel Security Policy and Procedures
+
+
+    Personnel Security Policy is included in CIO P 2100.1 - GSA IT Security Policy,
+    Chapter 4. Policy on Operational Controls.  It states, "Developing, implementing,
+    and overseeing personnel security controls for access to personally identifiable
+    information."
+
+
+    18F Program Office Personnel Security Policy
+
+
+    The 18F Program Office develops, documents, and disseminates to all 18F staff,
+    the 18F Personnel Security Planning which addresses purpose, scope, roles, responsibilities,
+    management commitment, coordination among organizational entities, and compliance
+    and procedures to facilitate the implementation of the personnel security if information
+    systems and associated planning controls. The 18F Audit and Accountability policy
+    is listed within 18F’s GitHub repository https://github.com/18F/compliance-docs/blob/master/PS-Policy.md
+    that is accessible to all 18F staff.
+
+
+    ### Part b
+
+
+    The GSA Office of the CISO is responsible for reviewing and updating the above
+    documents annually, and notifying System Program Managers and Information System
+    Security Officers and Managers (ISSO/Ms).
+
+    The 18F Program Office will review and update the current 18F Personnel Security
+    Policy at least every 3 years and any documented procedures at least annually.
+- id: ssp_template_sa_9__4
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    GSA requires that any external service receives an Authority to Operate which includes alignment of organizational interests.
+- id: ssp_template_pe_2
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    ### Part a
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part b
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part c
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part d
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_si_4__16
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    18F correlates information from Grafana employed throughout cloud.gov.
+- id: ssp_template_au_7__1
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    In Progress
+- id: ssp_template_ma_3
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_sc_7__5
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov's managed interfaces at the AWS security control group definitions deny network traffic by default and allow network communications traffic by exception.
+- id: ssp_template_ac_2__9
+  format: markdown
+  template: |
+    ## User Account and Authentication (UAA) Server
+
+    NA - This control is not applicable. Group accounts are not allowed  within the 18F VPC and the Cloud.Gov platform
+    ## Cloud Controller
+- id: ssp_template_sc_12__3
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov doesn't produce, control, or distribute asymmetric cryptographic keys.
+- id: ssp_template_ca_9
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    In progress
+- id: ssp_template_sa_4__1
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    GSA OCISO ISP also defined agency-wide system and services acquisition procedures in IT Security Procedural Guide: Security Language for IT Acquisition Efforts (CIO-IT Security-09-48)
+- id: ssp_template_cp_7
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    ### Part a
+
+    The cloud.gov information system will be leveraging the established alternate processing sites within the AWS IaaS
+    including necessary agreements to permit the transfer and resumption of cloud.gov operations for essential
+    missions/business functions when the primary processing capabilities are unavailable.
+
+    ### Part b
+
+    The cloud.gov information system is leveraging the AWS infrastructure as a service to implement the use of multiple AWS
+    Availability Zones within one AWS region which are dynamically in place and available to support resumption of operations.
+
+    ### Part c
+
+    The use of multiple AWS availability zones employed by the AWS infrastructure as a service provides identical security
+    safeguards equivalent to that of the primary site.
+- id: ssp_template_ir_7
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    18F provides assistance with security response resources to teams requiring incident response support.
+- id: ssp_template_ac_12
+  format: markdown
+  template: |
+    ## User Account and Authentication (UAA) Server
+
+    A session limit of 15 minutes is implemented on inactive accounts within the Cloud.gov platform.
+- id: ssp_template_cp_3
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Planned Implementation:
+
+    18F will provide contingency training to information system users consistent with assigned roles and responsibilities:
+    within 10 days of assuming a contingency role or responsibility, when required by information system changes and will
+    provide contingency training on an annual basis thereafter.
+- id: ssp_template_au_9
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    Audit logs are stored and protected in specified S3 buckets and elasticsearch
+    clusters for cloud.gov. Access to logs are limited to designated 18F DevOps and
+    Security staff and logs cannot be modified without proper authorization to the
+    platform. Client agencies are restricted to access and view only their specified
+    audit logs pertaining to the corresponding Org and space accounts.
+- id: ssp_template_ir_9__3
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    Because of the cloud.gov architecture, information spillage is not possible without being in a situation of a security breach. cloud.gov team members are instructed to follow the Incident Response Guide in this case.
+- id: ssp_template_sc_28
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov protects the confidentiality and integrity of all information by using at-rest encryption.
+- id: ssp_template_ia_2__8
+  format: markdown
+  template: |
+    ## JumpBox
+
+    Access keys and user accounts can be revoked using IAM. Sessions terminate after 10 minutes.
+    ## Identification and Authentication Policy for 18F
+
+    cloud.gov implements UAA which has session tokens and CSRF prevention that prevents replay attacks.
+    ## User Account and Authentication (UAA) Server
+
+    Cloud.gov a limit of 5 consecutive invalid logon attempts by a user during a 15 minute period
+    Automatically; locks the account/node for 20 minutes when the maximum number of unsuccessful attempts is exceeded
+    Account log out is set to 15 minutes of inactivity.
+- id: ssp_template_ma_3__3
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    ### Part a
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part b
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part c
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part d
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_pe_3
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    ### Part a
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part b
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part c
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part d
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part e
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part f
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part g
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_si_3
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    ### Part a
+
+    cloud.gov employs ClamAV at information system entry and exit points to detect and eradicate malicious code
+
+    ### Part b
+
+    18F updates ClamAV whenever new releases are available in accordance with organizational configuration management policy and procedures
+
+    ### Part c
+
+    18F configures ClamAV in cloud.gov to provide the following :
+
+      1. Real-time scans of cloud.gov applied on either a daily or weekly schedule for file reads and writes
+
+      2. Upon malicious code detection ClamAV identifies the virus in the file and quarantines it.  Once the virus is quarantined, ClamAV sends a notification to cloud.gov operators through Riemann
+
+    ### Part d
+
+    cloud.gov addresses the receipt of false positives during malicious code detection and eradication and the resulting potential impact on the availability of the information system.
+- id: ssp_template_ac_2__10
+  format: markdown
+  template: |
+    ## User Account and Authentication (UAA) Server
+
+    This control is not applicable. Group accounts are not allowed  within the 18F VPC and the Cloud.Gov PaaS
+- id: ssp_template_sa_10__1
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    Deployment artifacts are stored and distributed by BOSH along with SHA-1 hashes to allow verification of file integrity.
+- id: ssp_template_si_8__2
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    This control is not applicable since clould.gov does not accept or process any messages for other information systems or external sources. Therefore spam protection is not necessary.
+- id: ssp_template_sa_1
+  format: markdown
+  template: >
+    ## System and Services Acquisition Policy for 18F
+
+
+    ### Part a
+
+
+    Agency System Maintenance Policy Implementation
+
+
+    System Maintenance Policy is included in CIO P 2100.1 - GSA IT Security Policy,
+    Chapter 4. Policy on Operational Controls. It states, "The availability and usability
+    of GSA equipment and software must be maintained and safeguarded to enable agency
+    objectives to be accomplished."
+
+
+    GSA OCISO ISP also defined agency-wide system maintenance procedures in IT Security
+    Procedural Guide: Maintenance (CIO-IT Security-10-50).
+
+
+    18F follows the GSA System Maintenance policy for its information systems hosted
+    within GSA facilities. The cloud.gov information system is hosted with the AWS
+    GovCloud and will be in purview of the hosting site’s Maintenance policy and procedures.
+
+
+    ### Part b
+
+
+    The GSA Office of the CISO is responsible for reviewing and updating the above
+    documents annually, and notifying System Program Managers and Information System
+    Security Officers and Managers (ISSO/Ms). The GSA OCISO has determined SA-1 to
+    be an Enterprise-Wide Common Control and is provided by the OCISO ISP. For specific
+    details, please refer to the GSA IT FY-15 Information Security Program Plan Version
+    1.0.
+- id: ssp_template_ac_2
+  format: markdown
+  template: |
+    ## Identity and Access Management
+    ## ELKStack
+
+    ### Part g
+
+    The UAA API interface is used to monitor privileged/non privileged user accounts within the cloud.gov It lists Cloud Foundry instance users. By default it returns information about each user account including GUID, name, permission groups, activity status, and metadata.
+
+    18F uses the ELK stack to provide a visual way to monitor all user and system accounts within cloud.gov by interfacing with cloud.gov API calls to its internal system components (i.e. Loggregator, Cloud Controller, DEA, Warden, Metrics Collector)
+    ## Cloud Checkr
+
+    ### Part j
+
+    User accounts will be monitored monthly and accounts will be disabled after 90 days of inactivity; this will be a manual review process every 30 days. 18F is in the process of automating this account management process through the use of implementing AWS OSQuery to trigger alerts when user accounts are inactive of a 90-day period.
+    ## User Account and Authentication (UAA) Server
+
+    ### Part j
+
+    User accounts will be monitored monthly and accounts will be disabled after 90 days of inactivity; this will be a manual review process every 30 days, but the disablement will be automatic. A manual review of all user accounts will be conducted on an annual basis
+
+    ### Part k
+
+    Cloud Foundry utilizes role based access controls (RBAC) for group membership within the platform and does not issue shared/group account credentials.
+    ## Cloud Controller
+- id: ssp_template_cm_3
+  format: markdown
+  template: |
+    ## Cloud Formation
+    ## Cloud Checkr
+
+    ### Part c
+
+    For changes related to the virtual infrastructure, 18F uses VisualOps and Cloud Checkr for real-time configuration changes which are documented, approved and tracked within GitHub. All Cloud Foundry configuration changes are documented, approved and tracked within 18F's GitHub site.
+    ## Configuration Management Policy for 18F
+
+    ### Part a
+
+    All Configuration Change control:
+    18F provisions its infrastructure with AWS CloudFormation, the AWS CloudFormation
+    template describes exactly what resources are provisioned and their settings.
+    Because these templates are text files, 18F can simply track differences in
+    these templates to track changes to its infrastructure, similar to the way
+    developers control revisions to source code.
+
+    18F uses version control systems with its cloud formation templates to know
+    exactly what changes were made, who made them, and when. If at any point 18F
+    needs to reverse changes to infrastructure, you can use a previous version of
+    a template.
+
+    18F uses GitHub for additional tracking and documenting of authorized changes
+    within the infrastructure and applications including Cloud Foundry platform as
+    a service. Within GitHub, a diff function is used to compare and contrast any
+    changes made to configurations of Cloud Foundry.
+
+    ### Part b
+
+    18F reviews proposed configuration-controlled changes to all of its information
+    systems and infrastructure and approves or disapproves such changes with explicit
+    consideration for security impact analysis within the Virtual Private Cloud
+    environment. All reviews and approvals are conducted within 18Fs GitHub ticketing
+    and tracking system.
+
+    ### Part c
+
+    18F uses the following methods to document configuration change decisions
+    associated with its information systems.  For changes related to the its
+    virtual infrastructure, 18F uses VisualOps and Cloud Checkr for real-time
+    configuration changes which are documented, approved and tracked within GitHub.
+    All Cloud Foundry configuration changes are documented, approved and tracked
+    within 18F's GitHub site.  All configuration changes related to applications
+    and websites hosted within the 18F AWS and Cloud Foundry environment are
+    requested by the systems owner and approved by cloud.gov operators within the 18F GitHub
+    tracking systems.
+
+    ### Part d
+
+    When configuration changes have been approved through 18F's GitHub
+    ticketing and tracking system, the cloud.gov operators team implements approved configuration-controlled
+    changes to the information system and then provides a status of the changes
+    completed and closes out the ticket.
+
+    ### Part e
+
+    Records of configuration-controlled
+    changes are retained for at least 1 year in accordance with the 18F Configuration
+    Management policy and utilizing the 18F GitHub site and S3 to store all changes
+    requested, approved, disapproved, implemented and pending.
+
+    ### Part f
+
+    Audits for the virtual infrastructure and Cloud Foundry platform as a
+    service and applications are conducted by cloud.gov operators, ISSOs and Cloud Foundry
+    project manager of all configuration-controlled changes to the information
+    system.  These audits take place no less than once a month and are documented
+    in the GitHub ticketing and tracking system, per the 18F Configuration
+    management policy Section 3 which states
+
+    18F will conduct a monthly audit of information system which identifies and
+    eliminates unnecessary functions, ports, protocols, and/or services.
+
+    ### Part g
+
+    18F coordinates
+    and provides oversight for configuration change control activities through its
+    GitHub tracking and ticketing systems and Slack communications channel which
+    is integrated with GitHub that convenes whenever there are significant and pending
+    changes to the 18F security, cloud infrastructure and applications.
+- id: ssp_template_sc_8__1
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov implements cryptographic mechanisms to prevent unauthorized disclosure of information and detect changes to  information during transmission only as shown in SC-8.
+    See FedRAMP AWS CSP SSP for further details.
+- id: ssp_template_cp_4__1
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Planned Implementation:
+
+    18F will coordinate  testing of contingency plans and related plans is coordinated with individuals that have incident
+    response capabilities, as the group of personnel tasked with contingency plan testing is also involved with incident response
+    and other related plans.
+- id: ssp_template_ac_6__9
+  format: markdown
+  template: |
+    ## ELKStack
+
+    The ELK (elasticsearch, Logstash, Kibana) is used to collect, manage and display all auditing of privileged functions within the cloud.gov platform.
+    ## Cloud Checkr
+
+    All privileged user account activity and API calls to cloud.gov are
+    audited by CloudTrail and monitored by CloudWatch. CloudTrail provides a log of
+    all requests for AWS resources within the 18F AWS account. For each event recorded,
+    18F can see what service was accessed, what action was performed, any parameters
+    for the action, and who made the request. Cloudtrail also shows whether it was
+    as the AWS root account user or an IAM user, or whether it was with temporary
+    security credentials for a role or federated user.
+- id: ssp_template_si_4__4
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov monitors inbound and outbound communications traffic [FedRAMP Assignment: continually] for unusual or unauthorized activities or conditions.
+- id: ssp_template_ia_2__1
+  format: markdown
+  template: |
+    ## Multi-Factor Authentication
+    ## JumpBox
+
+    cloud.gov currently does not have MFA capabilities implemented for users; however, any administrative actions taken on the platform requires authentication via encrypted ssh keys which are limited to specific users on the jumpbox.
+    ## Identification and Authentication Policy for 18F
+
+    Multifactor authentication is enforced both in the GSA enterprise login system and GitHub.
+    ## User Account and Authentication (UAA) Server
+
+    Cloud.Gov does not have MFA capabilities implemented. Cloud.Gov currently utilizes username and password for identification and authentication of non-privileged accounts.
+- id: ssp_template_ir_6
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    ### Part a
+
+    GSA and 18F require the cloud.gov team to report all suspected security incidents to 18F Infrastructure and GSA IT within the hour of being detected.
+
+    ### Part b
+
+    The cloud.gov team reports all security activity to 18F Infrastructure and GSA IT according to FedRAMP Incident Communications Procedure.
+- id: ssp_template_pl_1
+  format: markdown
+  template: |
+    ## Security Planning Policy for 18F
+
+    ### Part a
+
+    Agency Security Policy and Procedures
+
+    Security Planning Policy is included in CIO P 2100.1 - GSA IT Security Policy, Chapter 3. Policy on Management
+    Controls.  It states, "All information systems must be covered by a security plan in accordance with the current
+    version of NIST SP 800-18 Revision 1 “Guide for Developing Security Plans for Information Technology Systems."
+
+    GSA OCISO ISP also defined agency-wide security assessment and authorization procedures in IT Security Procedural
+    Guide: Managing Enterprise Risk, Security Assessment and Authorization, Planning and Risk Assessment (CIO-IT
+    Security-06-30)
+
+    18F Program Policy
+
+    The 18F Program Office develops, documents, and disseminates to all 18F staff,
+    The 18F  Security Planning Policy which  addresses purpose, scope, roles, responsibilities, management
+    commitment, coordination among organizational entities, and compliance and procedures to facilitate the
+    implementation of the security planning if information systems and associated planning controls. The 18F Audit
+    and Accountability policy is listed within 18F’s private GitHub repository https://github.com/18F/compliance-docs/blob/master/PL-Policy.md
+    that is accessible to all 18F staff.
+
+    ### Part b
+
+    The GSA Office of the CISO is responsible for reviewing and updating the above documents annually, and notifying
+    System Program Managers and Information System Security Officers and Managers (ISSO/Ms).
+
+    The 18F Program Office will review and update the current 18F Security Planning Policy at least every 3 years and
+    any documented procedures at least annually.
+- id: ssp_template_pe_1
+  format: markdown
+  template: "## Physical and Environmental Protection Policy for 18F\n\n### Part a\n\nAgency
+    Physical and Environmental Policy\nPhysical and Environmental Policy is included
+    in CIO P 2100.1 - GSA IT Security Policy, Chapter 4. Policy on Operational Controls.
+    \ \nIt states, \"Physical and environmental security controls must be commensurate
+    with the level of risk and must be sufficient to safeguard IT resources against
+    possible loss, theft, destruction, accidental damage, hazardous conditions, fire,
+    malicious actions, and natural disasters.\"\nGSA OCISO ISP also defined agency-wide
+    access control procedures in IT Security Procedural Guide: Access Control (CIO-IT
+    Security-01-07)\nAll physical and Environmental Security Controls for the Cloud.Gov
+    information system are managed and inherited by the AWS Infrastructure as a Service
+    layer.\n\n### Part b\n\nAll physical and Environmental Security Controls for the
+    Cloud.Gov information system are managed and inherited by the AWS Infrastructure
+    as a Service layer.\n"
+- id: ssp_template_mp_7__1
+  format: markdown
+  template: >
+    ## Media Protection Policy for 18F
+
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical
+    media devices used and Cloud.Gov information system components are virtualized.
+    All network hardware and server components are the responsibility of the underlying
+    Infrastructure as a service provider
+- id: ssp_template_sc_7__12
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    ### Part b
+
+
+    Host-based boundary protection for application services hosted on cloud.gov are
+    provided by CF components.
+
+
+    Cloud Foundry Application Security Groups (ASGs) control the traffic flowing out
+    of applications. Each CF application uses a dedicated Linux container, and each
+    container includes a dedicated virtual network interface. Application security
+    groups are a collection of ‘allow’ rules that can be made with global or application
+    specific assignments enabling access to be set on individual application requirements.
+    These requirements are added through whitelisting, and whitelisting is layered
+    on top of a series of container-centric lock-downs, allowing limited access to
+    other applications and services.
+- id: ssp_template_sc_17
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov obtains public key certificates from COMODO, an approved service provider.
+- id: ssp_template_cp_8
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Inherited:
+    To permit the resumption of information system operations for essential missions and business functions without
+    impact to consumers/customers, 18F has provisioned and leveraged redundant, always-on, internet connections through
+    the AWS Infrastructure as a service. 18F has accepted the AWS service agreement to provide always-on internet
+    connections which assure continuous service.
+- id: ssp_template_si_4
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    ### Part a
+
+    cloud.gov operators monitor the cloud.gov information
+    system to detect potential attacks and intrusions from internal and external
+    sources in accordance with the 18F System Information and Integrity Policy section
+    3 - Information System monitoring, the FedRAMP Incident communication procedures,
+    and GSA CIO-IT Security-08-39 section "System Monitoring / Audit Record
+    Review" for GSA specific information systems.
+
+    ### Part b
+
+    18F identifies un-authorized access to the cloud.gov information system using automated monitoring
+    tools within its virtual private cloud for monitoring, log management and
+    event analysis. 18F monitors for attacks and indicators of potential attacks,
+    unauthorized local, network, and remote connections.
+
+    ### Part c
+
+    The infrastructure
+    that hosts cloud.gov provides monitoring and intrusion detcetion of unusual activity
+    at the physical and network layers. 18F is responsible for monitoring everything
+    related to its virtual infrastructure and has deployed monitoring and intrusion
+    detection tools within its virtual private cloud to log and detect malicious
+    activities to its information systems including cloud.gov.
+
+    ### Part d
+
+    18F ensures intrusion and monitoring tools are protected from unauthorized access
+    by only granting access to certain members from the cloud.gov operators.
+    All monitoring and intrusion information data is protected by limiting accounts
+    to authorized privileged users only and is maintained in secured repositories
+    for review by those members.
+
+    ### Part e
+
+    Information system monitoring will
+    be heightened based on advisories from Pivotal, US-CERT Advisories, commercial
+    security communities, and other sources.
+
+    ### Part f
+
+    Information system monitoring will be conducted in accordance and compliance
+    with 18F security policies and all applicable laws, Executive Orders, directives,
+    and regulations.
+
+    ### Part g
+
+    18F provides monitoring of all information system components. In the event
+    of an event or incident, information will be provided as it is available.  Scheduled
+    reports will be provided for events such as after-hours administrative logins,
+    users being added to privileged groups, persistent malware detections, etc.,
+    to designated members of the cloud.gov operators as needed.
+- id: ssp_template_sa_9
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    ### Part a
+
+    As a government system, cloud.gov requires that all external services comply with all applicable federal software requirements.
+    The infrastructure utilized by cloud.gov is AWS GovCloud, which is FedRAMP certified.
+
+    ### Part b
+
+    GSA procurement practices defines all monitoring requirements for external information systems.
+
+    ### Part c
+
+    cloud.gov employs continuous monitoring for both internal and external information systems.
+- id: ssp_template_au_2
+  format: markdown
+  template: |
+    ## Loggregator
+    ## ELKStack
+
+    ### Part a
+
+    cloud.gov provides an audit trail through the bosh tasks command. This command shows all actions that an operator has taken with the platform. Additionally, operators can redirect Cloud Foundry component logs to a Logstash syslog server using the `syslog_daemon_config` property in the `metron_agent` job of cf-release.
+
+    For end users, cloud.gov records an audit trail of all relevant API invocations of and app. The CLI command cf events returns this information.
+    ## Audit and Accountability Policy for 18F
+
+    ### Part b
+
+    Audit logs will be made available to organizations for mutual support in
+    response to security breaches, system and user access, incident reporting and
+    continuous monitoring. 18F will generate and distribute audit reports, provide
+    customized dashboard access for audited events, and send audit log data to SIEM
+    and log analysis systems from its audit logging and metrics tools for the
+    cloud.gov platform and virtual infrastructure as needed.
+
+    ### Part c
+
+    18F retains audit logs according to NARA retention standards to provide support
+    for after-the-fact investigations of security incidents and to meet regulatory
+    and organizational information retention requirements. The log management
+    framework will provide the capability to retain logs for 90 days online and
+    one-year offline, with sufficient capacity as to mitigate the risk of exceeding
+    storage space.
+
+    Specific Policies, Procedures, Points of Contact, and Guidance will be established
+    between 18F and other agencies to support after-the-fact investigations, by the
+    18F Project Lead.
+    ## Cloud Checkr
+
+    ### Part d
+
+    18F has implemented Cloudtrail and Cloudwatch for its account and system  monitoring. It provides visibility into user activity by recording API calls made on an AWS account. CloudTrail captures and records important information about each API call for the list of auditable events:
+    * User - the IAM user name of the person who was interacting with your AWS account.
+    * IP Address - the IP Address where the interactions originated from.
+    * Event Name - the type of interaction that occurred.
+    * Service - the AWS Service that was interacted with.
+    * Time - the date and time that the event occurred.
+    * Region - the AWS Region(s) where the interactions occurred.
+    * Resource ID - the resource ID from the event.
+- id: ssp_template_ia_5__11
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_ac_7
+  format: markdown
+  template: "## User Account and Authentication (UAA) Server\n\n#### a  \nCloud.gov
+    displays banner on the cloud.gov login page\n  \n#### b  \nThe banner displays
+    on the login page until the user is logged in\n  \n#### c  \nThe banner displays
+    all requirements\n"
+- id: ssp_template_pe_12
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_au_11
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    In Progress
+- id: ssp_template_ia_2__12
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to multiple separate single sign on (SSO) system which implement multifactor that may or may not include PIV cards.
+    ## User Account and Authentication (UAA) Server
+
+    PIV card access is Not applicable for the Cloud Foundry PaaS
+- id: ssp_template_si_3__1
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    18F centrally manages malicious code protection mechanisms.
+- id: ssp_template_cm_8
+  format: markdown
+  template: |
+    ## Configuration Management Policy for 18F
+
+    18F posts its current inventory of information systems on its dashboard
+    located at  https://18f.gsa.gov/dashboard/. Several sources are used to capture
+    complete inventories of the virtual infrastructure and its information systems
+    while providing the level of granularity deemed necessary for tracking and reporting.
+    The AWS Management Console, VisualOps, Cloud Checkr, Github, and Nexpose are used
+    to provide additional enumeration capabilities.
+
+    Cloud Checkr is currently deployed to facilitate asset management, along with
+    other operations activities, on a real-time ongoing basis. Components deployed
+    in the virtual infrastructure are accurately inventoried and can be filtered to
+    a specific informaton system groups as well as a group of web services or  those
+    components that are related to a spcecific informaton system.
+
+    The VisualOps Cloud management tool is used to provide a visual, real-time and
+    automated representation of the virtual infrastructure and applications within
+    the 18F environment. It also provides a global view of the 18F AWS account where
+    all regions and services can be seen in one place.
+
+    The 18F GitHub repository also is used to show a current lists of components
+    that make up the cloud.gov inventory. It is located at https://docs.cloud.gov/ops/repos/
+
+    Nexpose maintains an inventory of all assets scanned within the 18F virtual Private
+    Cloud. This includes all information system within the VPCs and components within
+    the cloud.gov platform as a service.
+
+    Bosh continuously maintains inventory of all instances and configuration
+
+    cloud.gov operators review and update the information system component inventory
+    on a monthly basis and updates the inventory of information system whenever installations,
+    removals, and other changes are made. 18F will verify that all components within
+    the authorized boundary of the information system are either inventoried as part
+    of the system or recognized by another system as a component within that systems
+    inventory.
+- id: ssp_template_ma_4
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    ### Part a
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part b
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part c
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part d
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part e
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_pe_8
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    ### Part a
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part b
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_pe_14
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    ### Part a
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part b
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_cp_6__3
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    18F will identify it’s on premise locations from which there could be an accessibility issue, and devise contingency
+    operations for accessing its AWS resources from other locations.  18F will implement any failover to cloud.gov implementations
+    it has deployed in alternate AWS regions for public-facing systems, using services such as Amazon Route 53 DNS.
+
+    All Availability zones and Regions are accessible via the same means: AWS console and remote API calls can be made from
+    other networks across the public Internet, provided the appropriate credentials are supplied.
+- id: ssp_template_sa_4__9
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    18F utilizes an agile development process which means that changes are made early and often. Functions, ports and protocols are part of this process.
+    cloud.gov enables developers to be flexible on what functions are used but customers can only open one port per application.
+- id: ssp_template_ca_7__1
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    18F will engage an accredited 3PAO to conduct the independent assessment of security controls for the cloud.gov information system on a yearly basis.
+- id: ssp_template_ac_5
+  format: markdown
+  template: |
+    ## Identity and Access Management
+    ## Cloud Controller
+- id: ssp_template_pe_13
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_au_8
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    In Progress
+- id: ssp_template_pe_15
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_si_16
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov system implements ClamAV and Tripwire to protect its memory from unauthorized code execution.
+- id: ssp_template_sc_22
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    It is a customer's responsibility to manage DNS according to FedRAMP standards.
+- id: ssp_template_ca_3__3
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    This control is not applicable to the cloud.gov information system and essentially would be inherited from the cloud infrastructure as a service level. cloud.gov does not connect to any other external information systems.
+- id: ssp_template_ir_1
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    ### Part a
+
+    cloud.gov developed an Incident Response Guide documenting the procedures required by the 18F and GSA Incident Response Policy.
+    The guide is disseminated to the whole cloud.gov team to ensure everyone is aware of its existence and contents.
+    The incident response guide is publicly available at https://docs.cloud.gov/ops/security-ir/ and it is continually updated based on changes to the team and the platform.
+
+    ### Part b
+
+    18F reviews and iterates on the Incident Response Guide at least every three years. cloud.gov reviews and iterates on the Incident Response Guide at least annually.
+- id: ssp_template_sc_7__13
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    ### Part b
+
+    18F practices defense in depth in layers. Sensistive security tools are logically isolated by well defined VPC boundries between internal system boundaries.  Additionally third-party approved tools are used which are accessed via authenticated API keys over encrypted connections such as HTTPS.
+- id: ssp_template_ca_5
+  format: markdown
+  template: >
+    ## Security Assessment and Authorization Policy for 18F
+
+
+    ### Part a
+
+
+    18F has developed a plan of action and milestones (POA&M) for the information
+    system which documents the remediation actions to correct weaknesses found or
+    deficiencies noted during the assessment of the security controls and to reduce
+    or eliminate known vulnerabilities.
+
+
+    The majority of vulnerabilities are found during continuous monitoring activities
+    including monthly vulnerability scanning, updates to cloud.gov systems components,
+    static code analysis on applications and infrastucture and system monitoring tools.
+    The 18F ISSOs are tasked with developing plans of actions and milestones for valid
+    findings and vulnerabilities. The devops administrators are tasked to mitigate
+    high findings within 30 days, moderate findings within 60 days and low findings
+    within 120 days.
+
+
+    ### Part b
+
+
+    The 18F ISSOs updates the cloud.gov plan of action and milestones at least monthly
+    based on the findings from security controls assessments, security impacy analysis,
+    and continuous monitoring activites.
+- id: ssp_template_pe_5
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_ac_10
+  format: markdown
+  template: |
+    ## User Account and Authentication (UAA) Server
+
+    Cloud.gov does not support capability to limit active sessions and as a cloud-based system it was not designed to limit the number of active sessions.
+- id: ssp_template_ca_2__2
+  format: markdown
+  template: >
+    ## Security Assessment and Authorization Policy for 18F
+
+
+    18F will enegage the 3PAO to conduct annual vulnerability assessments and penetration
+    testing or when there are significant changes to its information systems to meet
+    the FedRAMP continuous monitoring program objectives. All assessment activities
+    will be planned, approved and announced before testing takes place.
+
+    ## Security Assessment and Authorization Policy for 18F
+
+
+    cloud.gov implements continuous monitoring and vulnerability scanning that is
+    conducted at least weekly. Manual penetration testing and red teaming is scheduled
+    to happen in a yearly basis but it is an in-progress process.
+- id: ssp_template_sc_7__8
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    cloud.gov doesn't require authenticated proxy servers at managed interfaces. 18F
+    administrative staff gain access to this system through the AWS IAM multi-factor
+    authentication process to perform adminitrative functions and duties at the IaaS
+    layer to administer any managed interfaces.
+- id: ssp_template_sc_18
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    ### Part a
+
+    This is not an applicable control for cloud.gov. It doesn't depend on any mobile code such as Flash, Java, ActiveX, etc.
+
+    ### Part b
+
+    This is not an applicable control for cloud.gov. It doesn't depend on any mobile code such as Flash, Java, ActiveX, etc.
+
+    ### Part c
+
+    This is not an applicable control for cloud.gov. It doesn't depend on any mobile code such as Flash, Java, ActiveX, etc.
+- id: ssp_template_si_7
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    18F employs Tripwire to detect unauthorized changes to cloud.gov applications.
+- id: ssp_template_ac_17__3
+  format: markdown
+  template: |
+    ## JumpBox
+
+    cloud.gov remote access connections are managed through jumpbox Virtual machines within the cloud.gov VPC. The remote connections are SSH sessions using the BOSH CLI API. There are no other remote connections to the platform as stated in AC-17(2)
+- id: ssp_template_au_9__2
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    In Progress
+- id: ssp_template_ir_9__4
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    All cloud.gov team members have been cleared according to at least tier 1 non-sensitive federal security or an equivalent for contractors.
+- id: ssp_template_cp_6
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    ### Part a
+
+    cloud.gov will leverage the AWS IaaS for its Alternate storage site capabilities. This implementation employs the use of
+    multiple Availability Zones within one AWS Region, which constitute a built-in alternate storage site capability for data
+    stored in Amazon S3 and Amazon RDS databases.  S3 uses multiple availability zones by default, and RDS databases deployed
+    by this package are replicated across multiple availability zones.
+
+    ### Part b
+
+    Through leveraging the AWS infrastructure as a service 18F ensures that the alternate storage site provides information
+    security safeguards equivalent to that of the primary site for Cloud.Gov.  The multiple AWS availability zones employed
+    by Amazon S3 storage and Amazon RDS replication provide identical security safeguards.
+- id: ssp_template_ir_8
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    ### Part a
+
+    The cloud.gov team has developed both an Incident Response Guide and checklist to implement incident response capabilities.
+    Given the small size of the cloud.gov team, the structure of the incident response process is clear and concise; it assigns the first responder to the event the role of Incident Commander.
+    The Incident Response Guide provides clear guidance on what steps to take on each situation and how reporting should be handled.
+    The Incident Response Guide empowers the Incident Commander to leverage as many resources from GSA and 18F as needed during the response process.
+    The Incident Response Guide is continually reviewed and updated by the cloud.gov team and approved annually by the Authorizing Official.
+
+    ### Part b
+
+    The Incident Response Guide is distributed to the whole of the cloud.gov team.
+
+    ### Part c
+
+    The Incident Response Guide is continually reviewed and updated by the cloud.gov team.
+
+    ### Part d
+
+    The Incident Response Guide is continually reviewed and updated by the cloud.gov team in response to system and organizational updates.
+
+    ### Part e
+
+    The cloud.gov team distributes changes to the Incident Response Guide to the whole cloud.gov team.
+
+    ### Part f
+
+    The Incident Response Guide is stored in GitHub as a public open source file. The branch from which the document is generated is a protected branch forbidding the unauthorized deletion of revision history. Moreover, the cloud.gov team has both configured the repository and provided team policies to ensure strict controls on who has authority to approve changes to this guide.
+- id: ssp_template_ac_17__1
+  format: markdown
+  template: >
+    ## ELKStack
+
+
+    The Cloud Controller authenticates every request with the Service Broker API using
+    HTTP or HTTPS. The cloud.gov operators only uses the BOSH Command Line Interface
+    (CLI) to log into the cloud.gov jumpbox using SSH as a remote connection. These
+    remote connections are monitored by the cloud.gov Cloud Controller which send
+    this data to the ELK logging and monitoring visualization tool stack.
+
+    ## Cloud Checkr
+
+
+    Cloud Checkr provides a unified view of all infrastructure monitoring which captures
+    all remote activities within 18F virtual infrastructure. The log files are organized
+    by AWS Account ID, region, service name, date, and time. CloudTrail can be configured
+    to aggregate log files from multiple regions into a single Amazon S3 bucket. From
+    there, 18F Devops and SecOps teams view the logs files within Cloud Checkr to
+    perform security analysis and detect user behavior patterns.
+- id: ssp_template_au_9__4
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    In Progress
+- id: ssp_template_ir_6__1
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    cloud.gov uses automated tools to capture logs and audit trails that allow the communication of security incidents easy and effective.
+- id: ssp_template_cm_6
+  format: markdown
+  template: |
+    ## Configuration Management Policy for 18F
+
+    ### Part a
+
+    18F uses established and documents configuration settings
+    for its information technology products employed within the Cloud Foundry platform
+    that reflect the most restrictive mode consistent with operational requirements.
+    18F follows industry best practices and guidance provided in NIST Special Publication
+    800-70, Security Configuration Checklist Program for IT Products
+
+    Infrastructure documented configuration settings:
+    cloud.gov operators maintain the
+    baseline configuration for VPC, EBS and AMIs.  Best practices, FISMA compliant
+    AMIs, and hardened cloud formation templates are utilized as there are no benchmarks
+    available. 18F uses the following approved FISMA ready baselines located at
+    https://github.com/fisma-ready
+
+    Cloud Foundry documented configuration settings:
+    18F follows Cloud Foundry best practices for configuring and implementing the
+    platform as a service. Configuration settings are documented within the deployment
+    manifest on the GitHub and Cloud Foundry websites. The following are approved
+    baseline configuration settings related to the Cloud Foundry platform as a service.
+    All documented configuration settings  related to Cloud Foundry are located
+    at https://docs.18f.gov/ops/repos/.
+
+    ### Part b
+
+    18F Implements the configuration
+    settings based on its documented process and practices. cloud.gov operators implement the
+    configuration benchmarks identified in Part a, maintains the baseline configuration
+    for all cloud infrastructure and Cloud Foundry components and is responsible
+    for ensuring all systems are configured in accordance with applicable hardening
+    guides.
+
+    ### Part c
+
+    cloud.gov operators document any exceptions to established baseline
+    configurations for all of 18F's virtual infrastructure and information systems.
+    18F maintains exception documents which detail specific items from the established
+    configuration settings which cannot be applied to instances due to operational
+    requirements.
+
+    ### Part d
+
+    18F Monitors and controls changes to the configuration
+    settings in accordance with its documented configuration management policy and
+    procedures.
+
+    All Configuration Change Control:
+    cloud.gov operators and 18F system owners maintain the baseline configurations within
+    18F Virtual Private Cloud. Configuration will be reviewed in real-time using
+    automated methods and at least quarterly to ensure no unauthorized changes
+    were made to the baseline configuration.
+
+    Internal vulnerability scans are performed at least on a quarterly basis in the
+    event that no enhancements or upgrades are performed.
+- id: ssp_template_ir_9
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    ### Part a
+
+    As a cloud service provider, cloud.gov does not deal with sensitive information directly but allows users to manage their information on the system.
+    cloud.gov treats all information uploaded by users with the same level of moderate sensitivity once it is in a cloud.gov service.
+
+    ### Part b
+
+    Because of the cloud.gov architecture, information spillage is not possible without being in a situation of a security breach. Any information spillage will be alerted according to the Incident Response Guide.
+
+    ### Part c
+
+    cloud.gov uses a service-oriented architecture as well as offering isolated services for users to store data.
+
+    ### Part d
+
+    Because of the cloud.gov architecture, information spillage is not possible without being in a situation of a security breach. cloud.gov team members are instructed to follow the Incident Response Guide in this case.
+
+    ### Part e
+
+    Because of the cloud.gov architecture, information spillage is not possible without being in a situation of a security breach. cloud.gov team members are instructed to follow the Incident Response Guide in this case.
+
+    ### Part f
+
+    Because of the cloud.gov architecture, information spillage is not possible without being in a situation of a security breach. cloud.gov team members are instructed to follow the Incident Response Guide in this case.
+- id: ssp_template_ac_6__10
+  format: markdown
+  template: |
+    ## Cloud Controller
+- id: ssp_template_ac_17__9
+  format: markdown
+  template: |
+    ## JumpBox
+
+    Access keys and user accounts can be revoked using IAM. Sessions terminate after 10 minutes.
+- id: ssp_template_au_8__1
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    In Progress
+- id: ssp_template_at_2
+  format: markdown
+  template: |
+    ## Security Awareness Training Policy for 18F
+
+    The 18F Program office reviews AT-2
+- id: ssp_template_ac_6__5
+  format: markdown
+  template: |
+    ## Identity and Access Management
+- id: ssp_template_cm_1
+  format: markdown
+  template: |
+    ## Configuration Management Policy for 18F
+
+    ### Part a
+
+    Agency Configuration Management Policy
+
+    The GSA CM policy is defined in the GSA IT Security Policy (CIO P 2100.1), which addresses purpose, scope, roles,
+    responsibilities, and compliance for CM activities.
+
+    The GSA Office of the CISO is responsible for publishing the above documents to System Program Managers and Information
+    System Security Officers and Managers (ISSO/Ms) on a centralized, agency-accessible website.
+
+    CM procedures are documented in the GSA IT Security Procedural Guide: Managing Enterprise Risks (CIO IT Security-06-30).
+
+    The 18F Program Office develops, documents, and disseminates to all 18F staff
+
+    The 18F configuration management policy which addresses purpose, scope, roles, responsibilities, management commitment,
+    coordination among organizational entities, and compliance and procedures to facilitate the implementation of the
+    configuration management policy and associated configuration controls. The 18F security assessment and authorization
+    policy is listed within its private GitHub repository https://github.com/18F/compliance-docs/blob/master/CM-Policy.md
+    that is accessible to all 18F staff.
+
+    ### Part b
+
+    The GSA Office of the CISO is responsible for reviewing and updating the above documents annually, and notifying
+    System Program Managers and Information System Security Officers and Managers (ISSO/Ms).
+
+    The 18F Program Office will review and update the current 18F configuration management policy at least every 3 years
+    and any documented configuration procedures at least annually.
+- id: ssp_template_sa_11__2
+  format: markdown
+  template: >
+    ## System and Services Acquisition Policy for 18F
+
+
+    cloud.gov requires the developer of the information system, system component,
+    or information system service to perform threat and vulnerability analyses and
+    subsequent testing/evaluation of the as-built system, component, or service.
+- id: ssp_template_mp_7
+  format: markdown
+  template: >
+    ## Media Protection Policy for 18F
+
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical
+    media devices used and Cloud.Gov information system components are virtualized.
+    All network hardware and server components are the responsibility of the underlying
+    Infrastructure as a service provider.
+- id: ssp_template_cp_10
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Planned Implementation:
+    18F will provide for the recovery and reconstitution of the information system to a known state after a disruption,
+    compromise, or failure.
+- id: ssp_template_ir_4
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    ### Part a
+
+    cloud.gov implements automated processes to detect and analyze malicious activity within the platform.
+    If these processes detect malicious activity, they automatically report the activity to the cloud.gov operations team, which is able to use automated tools to eradicate the threat and recover to a known state.
+    cloud.gov uses a service-oriented architecture that allows natural containment and separation.
+
+    ### Part b
+
+    The cloud.gov team works as a whole on both contingency planning and incident handling. From operations to communication, everyone is involved.
+
+    ### Part c
+
+    After the conclusion of each event response, the cloud.gov team schedules a retrospective and captures the output of the session in a document available at https://github.com/18F/cg-postmortems/wiki.
+
+    ### Part FedRAMP req
+
+    All cloud.gov team members have been cleared according to at least tier 1 non-sensitive federal security or an equivalent for contractors.
+- id: ssp_template_pe_14__2
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_at_2__2
+  format: markdown
+  template: |
+    ## Security Awareness Training Policy for 18F
+
+    The 18F Program office reviews AT-2
+- id: ssp_template_sa_4__2
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    GSA OCISO ISP also defined agency-wide system and services acquisition procedures in IT Security Procedural Guide: Security Language for IT Acquisition Efforts (CIO-IT Security-09-48)
+- id: ssp_template_si_10
+  format: markdown
+  template: |
+    ## BOSH
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov system monitors the integrity of system inputs using Tripwire.
+    ## User Account and Authentication (UAA) Server
+
+    The UAA uses an api with set endpoint and parameters. Users depending on thier authorized access can only make request to specific endpoint that activate specific functions that take a limited and defined set of parameters.
+    ## Cloud Controller
+- id: ssp_template_cp_2__3
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the Cloud.Gov information system. 18F is currently in the process of completing and finalizing the contingency plan for Cloud.Gov.
+- id: ssp_template_ia_1
+  format: markdown
+  template: >
+    ## Identification and Authentication Policy for 18F
+
+
+    ### Part a
+
+
+    The 18F Program Office develops, documents, and disseminates to all 18F staff
+    the 18F Identification and Authentication Policy which addresses purpose, scope,
+    roles, responsibilities, management commitment, coordination among organizational
+    entities, compliance, and procedures to facilitate the implementation of the identification
+    and authentication policy and associated identification controls. The 18F Identification
+    and Authentication Policy is listed within 18F's private GitHub repository and
+    the docs.cloud.gov site that is accessible to all 18F staff.
+
+
+    ### Part b
+
+
+    The 18F Program Office will review and update the current 18F Identification and
+    Authentication Policy at least every three years and any documented identification
+    and authentication procedures at least annually.
+- id: ssp_template_ia_5__2
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_ia_2__2
+  format: markdown
+  template: |
+    ## Multi-Factor Authentication
+    ## Identification and Authentication Policy for 18F
+
+    Non-privileged accounts can be delegated to enterprise user systems that have multifactor authentication.
+- id: ssp_template_si_7__7
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    18F incorporates the detection of unauthorized access to the cloud.gov infrastructure, leveraged services, and other components used to deliver cloud.gov products and services as documented in
+    organizational incident response capability.
+- id: ssp_template_pe_6
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    ### Part a
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part b
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part c
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_sc_2
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    ### Part b
+
+
+    18F implements subnetworks for publicly accessible system components that are
+    logically separated from internal organizational networks. System management functionality
+    to cloud.gov infrastructure is hosted on AWS FedRAMP Certificated Cloud Service
+    Provider (CSP) and is accessible only to 18F Administrative teams through AWS
+    IAM specified roles. This is a Service Provider and Customer Responsibility.
+- id: ssp_template_sc_1
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    ### Part a
+
+
+    System and Communications Protection Policy is included in CIO P 2100.1 - GSA
+    IT Security Policy, Chapter 5. Policy on Technical Controls.  It states, "All
+    network devices that are either owned, managed, maintain a connection to a GSA
+    facility, and/or handle GSA data shall be strategically positioned behind a GSA
+    firewall to provide analysis/correlation, management structure, and minimize threats
+    presented by external attacks.
+
+
+    The 18F program includes a library of security policies that address federal and
+    non-federal requirements. These policies guide and govern the actions of 18F employees
+    and contractors in conducting any United States business.
+
+
+    The 18F security assessment, communications, and authorization policy is listed
+    within its GitHub repository that is accessible to all 18F staff.
+
+
+    18F helps develop, document, and disseminate policy information to 18F staff members.
+
+
+    This 18F policy contains a protection policy that addresses purpose, scope, roles,
+    responsibilities, management commitment, coordination among organizational entities,
+    and compliance.
+
+
+    18F's "Before You Ship" guide facilitates the implementation of the system and
+    communications protection policy and associated system and communications protection
+    controls.
+
+
+    See https://github.com/18F/before-you-ship/ for more information.
+
+
+    ### Part b
+
+
+    Reviews and updates the current System and Communications Protection Policy every
+    three years.
+
+
+    The 18F program includes a library of security policies that address federal and
+    non-federal requirements. These policies guide and govern the actions of 18F employees
+    and contractors in conducting any United States business.
+
+
+    The 18F security assessment, communications, and authorization policy is listed
+    within its GitHub repository that is accessible to all 18F staff.
+- id: ssp_template_si_11
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    ### Part a
+
+    cloud.gov generates errors through Riemann which then sends an alert to Pager Duty for action.
+
+    ### Part b
+
+    Reveals error messages only to cloud.gov operators.
+- id: ssp_template_ac_6
+  format: markdown
+  template: |
+    ## Identity and Access Management
+    ## Cloud Controller
+- id: ssp_template_ca_2__3
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    18F will accept the results of the cloud.gov assessment performed by the designated 3PAO and reviewed by the FedRAMP PMO office when the assessment meets the condtions for a Provisional ATO.
+    ## Security Assessment and Authorization Policy for 18F
+
+    18F will accept the assesment conducted by the 3PAO according to the FedRAMP P-ATO requirements in the Secure Repository.
+- id: ssp_template_au_7
+  format: markdown
+  template: |
+    ## Loggregator
+    ## Audit and Accountability Policy for 18F
+
+    The ELK Stack logging and monitoring system provides additional audit
+    reduction and report generation capabilities for 18F DevOps and end users of the
+    cloud.gov platform. With the elasticsearch capability 18F DevOps and SecOps teams
+    can structure and customize audit logs queries to specific app instances, API
+    calls, system metrics, user access, system components, network traffic flow and
+    other functions. Kibana is used to generate customized dashboards and Logstash
+    to generate reports for analysis and review.
+- id: ssp_template_pe_13__3
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_ps_8
+  format: markdown
+  template: |
+    ## Personnel Security Policy for 18F
+
+    ### Part a
+
+    GSA employs a formal sanctions process for personnel failing to comply with established information security policies and procedures
+
+    ### Part b
+
+    18F notifies 18F Security Office (SSO) within the amount of time that it takes to verify that a security breach as occurred when a formal employee sanctions process is initiated, identifying the individual sanctioned and the reason for the sanction.
+- id: ssp_template_ca_7
+  format: markdown
+  template: |
+    ## Security Assessment and Authorization Policy for 18F
+
+    ### Part a
+
+    The organization-defined metrics are collected by a combination of AWS CloudWatch (in real time, CPU Utilization, Disk IO, Network In/Out), application logging policy (see AU-2) and a vulnerability scanner.
+
+    ### Part b
+
+    AWS CloudWatch Metrics (CPU Utilization, Disk IO, Network In/Out) are collected in real time. Other metrics are collected in frequencies ranging between 5 minutes and 1 hour. Host vulnerability scans are run daily.
+
+    ### Part c
+
+    Compliance with security controls that can be tested from the operating system level (eg. presence of configuration settings, etc) are monitored and automatically corrected as part of configuration management. Non-automated security processes are handled by the cloud.gov operations team.
+
+    ### Part d
+
+    See CA-7(c)
+
+    ### Part e
+
+    See CA-7(c)
+
+    ### Part f
+
+    Response actions will use the mitigation strategy defined in RA-5(d).
+
+    ### Part g
+
+    Reporting of the security status of the system will be provided by the cloud.gov team according to the Federal and FedRAMP requirements on a monthly basis.
+- id: ssp_template_ma_5
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    ### Part a
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part b
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+
+    ### Part c
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_si_4__2
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    18F uses BOSH to configure and deploy Riemann to support near real-time analysis of events.
+- id: ssp_template_si_2__3
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    ### Part a
+
+    cloud.gov operators measure the time between flaw identification
+    and flaw remediation
+
+    ### Part b
+
+    cloud.gov operators teams establish an incident response plan for taking corrective actions. The cloud.gov incident response plan is documented at https://docs.cloud.gov/ops/security-ir/
+- id: ssp_template_ac_17
+  format: markdown
+  template: >
+    ## JumpBox
+
+
+    cloud.gov remote access is not available outside of the 18F environment. 18F DevOps
+    personnel are the only group who connects to information system remotely using
+    SSH (22) through the jump box (bastion Host) to execute BOSH CLI commands. The
+    JumpBox is a virtual machine (VM) that acts as a single access point for the BOSH
+    Director and deployed VMs. For resilience there are at least 2 jump boxes. Allowing
+    access through jump boxes and disabling direct access to the other VMs is a common
+    security measure 18F incorporates.
+
+
+    The jumbox only serves as a means to execute BOSH CLI commands for the platform.
+    It cannot access any applications or websites hosted on top of the platform.
+
+
+    JumpBoxes are logged in in the same way an EC2 instances is logged into. The system
+    has both a firewall and user ssh key logins.
+
+
+    The 18F Access Control Policy Section 3 - Remote Access states:
+
+
+    * 18F shall define, document and enforce requirements, usage restrictions and
+    implementation guidance for each allowed remote access method.
+
+    * Remote and Virtual Private Network (VPN) access shall require multi-factor authentication.
+
+    * Access shall be authorized before a connection may be established.
+
+    * 18F shall monitor for unauthorized remote access and shall take appropriate
+    action if unauthorized access is discovered.
+
+    * Remote access shall employ cryptography to protect session confidentiality and
+    integrity.
+
+    * Remote access shall be routed through a limited number of managed access control
+    points.
+
+    * Privileged commands and access to security-relevant information via remote access
+    shall only be permitted as described in the System Security Plan (SSP).
+- id: ssp_template_si_3__7
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov implements nonsignature-based malicious code detection mechanisms.
+- id: ssp_template_au_6
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    ### Part a
+
+    AWS Auditable Events:
+    DevOps and SecOps teams will conduct weekly manual and automated continuous
+    audits of authorized accounts and configurations. These audits will include
+    but are not limited to:
+
+    Administrative Accounts
+
+    * Virtual Private Cloud (VPC)
+    * Elastic Compute Cloud (EC2)
+    * Simple Storage Service (S3)
+    * Identity and Access Management (IAM)
+    * Elastic Block Store (EBS)
+
+    Cloud Foundry Auditable Events:
+    By default, Loggregator streams logs to a terminal. 18F will drain logs to
+    a third-party log management service such as ELK and AWS CloudTrail Cloud
+    Foundry logs are captured in multiple tables and log files. These will be
+    reviewed weekly and if discovery of anomalous audit log content which appears
+    to indicate a breach are handled according to the GSA Security Incident
+    Handling Guide: CIO IT Security 01-02 Revision 7 (August 18, 2009) requirements.
+
+    ### Part b
+
+    When a credible source to the GSA Agency provides information that causes
+    reason to enhance audit activities, develop and implement an enhanced auditing
+    use-case that will adequately enhance auditing practices in a fashion necessary
+    per the identified threat and following the Incident Reporting Procedures in
+    GSA IT Security Procedural Guide 01-02 (04/07/2015), Incident Response. The GSA
+    Agency may also, through analysis pertaining to the GSA Agency environment
+    provide additional audit measures that will require an increase in review,
+    analysis, and reporting for a necessary.
+
+    Upon implementation, 18F will monitor information security news and alerts for
+    indications of a need to heighten information system security monitoring.
+- id: ssp_template_sc_39
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov maintains a separate execution domain for each executing process by running within its own self-contained environment, a Warden/Garden container that isolates processes, memory, and the file system.
+- id: ssp_template_pe_17
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    ### Part a
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part b
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+
+    ### Part c
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_sc_19
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    ### Part a
+
+    This is not an applicable control for cloud.gov. It doesn't depend on any VoIP technologies.
+
+    ### Part b
+
+    This is not an applicable control for cloud.gov. It doesn't depend on any VoIP technologies.
+- id: ssp_template_mp_6
+  format: markdown
+  template: |
+    ## Media Protection Policy for 18F
+
+    ### Part a
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical media devices used and Cloud.Gov information system components are virtualized. All network hardware and server components are the responsibility of the underlying Infrastructure as a service provider.
+
+    ### Part b
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical media devices used and Cloud.Gov information system components are virtualized. All network hardware and server components are the responsibility of the underlying Infrastructure as a service provider.
+- id: ssp_template_ia_3
+  format: markdown
+  template: |
+    ## Multi-Factor Authentication
+    ## Identification and Authentication Policy for 18F
+
+    cloud.gov monitors and tracks all network connections using AWS VPC flow logs, router access logs, and application access logs. cloud.gov assigns each connection a unique identifier and tracks it across queries.
+    ## User Account and Authentication (UAA) Server
+
+    Not Applicable to Cloud Foundry
+- id: ssp_template_pl_8
+  format: markdown
+  template: >
+    ## Security Planning Policy for 18F
+
+
+    ### Part a
+
+
+    18F has developed the system security plan (SSP) for Cloud Foundry PaaS containing
+    the information security architecture for the information system that:
+        - Describes the overall philosophy, requirements, and approach to be taken
+    with regard to protecting the confidentiality, integrity, and availability of
+    organizational information
+        - Describes how the information security architecture is integrated into and
+    supports the enterprise architecture
+        - Describes any information security assumptions about, and dependencies on,
+    external services
+
+    ### Part b
+
+
+    18F Reviews and updates the information security architecture within the System
+    Security plans and the 18F GitHub repository on an annual basis or when a significant
+    change takes place to reflect updates in the enterprise architecture.
+
+
+    Due to the dynamic and elastic nature of cloud computing, 18F monitors real-time
+    updates of its information security architecture using its infrastructure management
+    and visual security consoles.
+
+
+    ### Part c
+
+
+    18F ensures that planned information security architecture changes are reflected
+    in the security plan and organizational procurements/acquisitions.
+
+    18F follows the risk management framework (RMF) which includes conducting annual
+    risk assessments for its information systems and infrastructure. Any changes are
+    then updated in systems security plans, plan of actions and milestones POA&Ms,
+    security assessment reports (SAR)
+- id: ssp_template_cm_2__3
+  format: markdown
+  template: |
+    ## Configuration Management Policy for 18F
+
+    If there is any manual change on any part of the infrastructure Bosh and Terraform will correct the settings and
+    revert back to the known state.
+- id: ssp_template_si_4__1
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov operators use BOSH to configure and deploy Tripwire.
+- id: ssp_template_cp_7__1
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    18F and the cloud.gov information system leverages the replication of EC2 and RDS instances across Availability Zones
+    in conjunction with Elastic Load Balancing constitutes a built-in multi-processing site capability to automatically
+    mitigate typical network, power, and hardware outages. To address 18F and FedRAMP requirements related to major
+    regional disasters, AWS supports the ability to place processing systems in multiple geographic regions.
+- id: ssp_template_ac_14
+  format: markdown
+  template: "## Identity and Access Management\n## User Account and Authentication
+    (UAA) Server\n\n#### a  \nThere are no permitted actions without identification
+    and authentication to Cloud.Gov. The Cloud Controller rejects any broker registration
+    that does not contain a username and password. The Cloud Controller authenticates
+    every request with the Service Broker API using HTTP or HTTPS, depending on which
+    protocol you specify during broker registration.\n  \n#### b  \nIt is not possible
+    for members of the 18F Devops and SecOps teams to aceess the 18F virtual private
+    cloud infrastructure without muitifactor authetication and identification. All
+    clinet users of Cloud.gov must login using authenticated credentials in order
+    to acess the system as stated in Part A above.\n## Cloud Controller\n"
+- id: ssp_template_ac_11__1
+  format: markdown
+  template: |
+    ## User Account and Authentication (UAA) Server
+
+    The Cloud.gov login page hides user passwords using asterisks, the Cloud Foundry along with the bosh cli also obfuscate user passwords.
+- id: ssp_template_sc_7__4
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    ### Part a
+
+    Implements a managed interface for each external telecommunication service.
+
+    ### Part b
+
+    18F establishes a traffic flow policy for each managed interface as AWS VPC security groups.
+
+    ### Part c
+
+    18F protects the confidentiality and integrity of the information being transmitted across each interface by using TLS for HTTP based connection.
+
+    ### Part d
+
+    18F documents each exception to the traffic flow policy with a supporting mission/business need and duration of that need.
+
+    ### Part e
+
+    18F reviews exceptions to the traffic flow policy at least annually and removes exceptions that are no longer supported by an explicit mission/business need.
+- id: ssp_template_au_4
+  format: markdown
+  template: |
+    ## S3
+    ## Audit and Accountability Policy for 18F
+
+    cloud.gov audit logs are stored within the elasticsearch component of
+    the ELK stack which is clusterd for redundancy and failover functions. This solutions
+    provide the capability to extend the audit storage capacity without the likelihood
+    of the capacity being exceeded. 18F plans to incorporate the use of the S3 cloud
+    service for greater storage capacity if needed.
+- id: ssp_template_cm_2__1
+  format: markdown
+  template: |
+    ## Configuration Management Policy for 18F
+
+    ### Part a
+
+    The 18F PMO must review baseline configuration changes at a minimum on an annual basis and on an as needed basis as
+    a result of any significant change that impacts risk to the system, security audits or industry guidance.
+
+    ### Part b
+
+    The 18F PMO reviews and updates the baseline configuration of the information system when required by the FedRAMP JAB
+    board. Significant change may result from, but are not limited to, multiple required changes occurring simultaneously,
+    changes that impact/modify security settings, and/or major component additions and/or upgrades. Such changes will go
+    through the 18F CM Process, presented to the FedRAMP assigned ISSO and if applicable, be submitted to the JAB for
+    review, vetting acceptability and to ensure ongoing acceptance of security control implementation(s).
+
+    ### Part c
+
+    18F reviews all baseline configurations when there is a significant change to the cloud.gov system architecture or
+    when its components undergo installation or upgrades.
+- id: ssp_template_sc_12
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    Authorized federal staff rotate, encrypt, and backup keys monthly. Privileged
+    users access the keys only with two-factor authentication and a decryption passphrase.
+    In the rare case that both the keys and the decryption passphrase for the backup
+    are lost or compromised, new keys can be rotated in by authorized staff, while
+    maintaining availability of information.
+- id: ssp_template_si_4__23
+  format: markdown
+  template: "## System and Information Integrity Policy for 18F\n\n### Part a\n\n18F
+    implements Riemann for host based monitoring and alerting. Riemann is utilized
+    on cloud.gov to collect events from all the servers and applications.  \nRiemann
+    sends an alert to cloud.gov operators if a system metric exceeds a defined threshold.\n"
+- id: ssp_template_ac_3
+  format: markdown
+  template: |
+    ## Application Security Groups
+    ## Identity and Access Management
+    ## User Account and Authentication (UAA) Server
+
+    18F follows best practices by implementing the majority of the following:
+      - Use RBAC model to restrict users’ access to only what is necessary to complete their tasks.
+      - Use a strong passphrase for both Cloud.gov user account and SSH keys.
+      - Configure UAA clients and users using a BOSH manifest. Limit and manage these clients and users as you would any other kind of privileged account.
+- id: ssp_template_sc_20
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    ### Part a
+
+
+    cloud.gov inherits from AWS CSP Route 53 the ability to use DNS with HTTP Strict
+    Transport Security (HSTS) to achieve data origin authentication and integrity
+    verification artifacts, along with the authoritative name resolution data the
+    system returns in response to external name/address resolution queries.
+
+
+    ### Part b
+
+
+    By allowing endpoints to use Public Key Infrastructure (PKI) certificates containing
+    unique domain identifiers that map with top-level registered domain, cloud.gov
+    provides the means to indicate the security status of child zones and (if the
+    child supports secure resolution services) to enable verification of a chain of
+    trust among parent and child domains, when operating as part of a distributed,
+    hierarchical namespace.
+- id: ssp_template_ca_8__1
+  format: markdown
+  template: >
+    ## Security Assessment and Authorization Policy for 18F
+
+
+    GSA ISE will perform Penetration testing of the all 18F systems that are in the
+    purview of GSA. All other penetration testing for the cloud.gov platform will
+    be conducted by an Independent Third party assessor (3PAO) as requested.
+- id: ssp_template_mp_5__4
+  format: markdown
+  template: >
+    ## Media Protection Policy for 18F
+
+
+    This control is not applicable to the Cloud.Gov Platform. There are no physical
+    media devices used and Cloud.Gov information system components are virtualized.
+    All network hardware and server components are the responsibility of the underlying
+    Infrastructure as a service provider.
+- id: ssp_template_au_6__3
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    Audit Monitoring, Analysis and Reporting
+     * 18F establishes processes for regularly reviewing audit log information, and
+     reporting security issues if discovered. Reviews will occur at a minimum of
+     weekly. These processes should be integrated with processes for incident response,
+     in order to ensure standardization and cross-functional collaboration
+     * 18F employs automated mechanisms to integrate audit monitoring, analysis and
+     reporting into an overall process for investigation and response to suspicious
+     activities.
+     * 18F employs automated mechanisms to immediately alert security personnel of
+     inappropriate or unusual activities that have security implications.
+- id: ssp_template_ca_1
+  format: markdown
+  template: >
+    ## Security Assessment and Authorization Policy for 18F
+
+
+    ### Part a
+
+
+    The 18F Program Office develops, documents, and disseminates to all 18F staff.
+    The 18F Security Assessnet and authorization policy which addresses purpose, scope,
+    roles, responsibilities, management commitment, coordination among organizational
+    entities, and compliance and procedures to facilitate the implementation of the
+    security assessment and authroization policy and associated security assessnet
+    controls. The 18F security assessnet and authorization policy is listed within
+    its private Github repository that is accessible to all 18F staff.
+
+
+    ### Part b
+
+
+    The 18F Program Office will review and update the current 18F Security Assessment
+    policy at least every 3 years and any documented assessment procedures at least
+    annually.
+- id: ssp_template_sc_6
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov protects the availability of resources by allocating
+    volatile and non-volatile storage, bandwidth, and availability by using automated
+    AWS features such as Elastic Load Balancing and Auto Scaling technology at the
+    infrastructure layer and Cloud Foundry's application lifecycle manager components,
+    Cloud Controller and Droplet Execution Agent (DEA), at the application layers.
+
+    18F safeguards are in place if resources are reaching their limits with multiple sets of
+    resource monitoring tools:  Cloud Foundry's built-in health monitoring system, New Relic,
+    CloudWatch, and ELK, which combined provide real-time alerts and visibility into critical
+    systems and applications.
+- id: ssp_template_ir_2
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    ### Part a
+
+    cloud.gov will make incident response training available to the whole cloud.gov team and will require that at least all operators take it.
+
+    ### Part b
+
+    If the cloud.gov system changes in a radical way, the cloud.gov team will adapt the incident response training to meet the needs of the new system. cloud.gov operators will be required to take the training again.
+
+    ### Part c
+
+    cloud.gov requires all operators to take the incident response training at least once a year.
+- id: ssp_template_pe_9
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_si_4__5
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov alerts the cloud.gov operators when
+    the following indications of compromise or potential compromise occur:
+    malicious code, file integrity, and network traffic.
+- id: ssp_template_si_6
+  format: markdown
+  template: "## System and Information Integrity Policy for 18F\n\n### Part a\n\ncloud.gov
+    verifies the correct operation of services that detect malicious code, viruses,
+    file integrity, network traffic, and security compliance of the OS using a contious
+    integration tool called concourse.  \nconcourse is a contious integration tool
+    that auotmates the build of security services in cloud.gov.\n\n### Part b\n\nPerforms
+    this verification on daily basis using concourse pipelines\n\n### Part c\n\nconcourse
+    notifies cloud.gov operators of failed security verification tests\n\n### Part
+    d\n\nIn the event the a service does not operate correctly, monit will attempt
+    to restart the service upon failure.  If the system is unresponsive then Bosh
+    will restart the server in order to correct the operation of the service.\n"
+- id: ssp_template_cp_2__8
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the Cloud.Gov information system. 18F is currently in the process of completing and finalizing the contingency plan for Cloud.Gov.
+- id: ssp_template_ia_5__1
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_sa_22__1
+  format: markdown
+  template: >
+    ## System and Services Acquisition Policy for 18F
+
+
+    18F will replace information system components when support for the components
+    is no longer available from the developer, vendor, or manufacturer; and will provide
+    justification and documented approval for the continued use of unsupported system
+    components required to satisfy mission/business needs.
+
+
+    Cloud Foundry Platform as a Service system replacement:
+
+
+    A system and software inventory is run nightly, and the DevOps team reviews the
+    inventory weekly to ensure that all software inventoried is accurate and currently
+    supported. This process includes:
+
+
+    * Verify that the software license support expiration date is not within six months.
+    18F uses the open source version of Cloud Foundry which uses the open source Apache
+    2.0 license.
+
+    * Ensure that the software version is still supported.
+
+    * Refer to the vendor's support website to verify that support does not have an
+    \u201CEnd of Life\u201D date of less than six months.
+
+
+    Since 18F is using the open source version of Cloud Foundry, an additional task
+    will be issued to upgrade the Cloud Foundry suite to the latest versions. DevOps
+    will review the GitHub cloudfoundry/cf-release repository for implementation of
+    the updated version.
+- id: ssp_template_ps_5
+  format: markdown
+  template: |
+    ## Personnel Security Policy for 18F
+
+    ### Part a
+
+    Review of ongoing operational need for current logical and physical access by individuals are initiated and facilitated by supervisor/CO/COR.  Retrieval of all information system-related property which includes HDPS-12 cards, authentication tokens (USB for privileged access), laptops, etc. is a common control provided by IO.
+    cloud.gov revokes privileged access if an individual is reassigned or transferred outside of the team.
+
+    ### Part b
+
+    cloud.gov initiates the revoking process within the same day of an individual being transferred outside of the team.
+
+    ### Part c
+
+    cloud.gov modifies permissions granted to individuals to correspond any changes in the individual requirements.
+
+    ### Part d
+
+    18F notifies cloud.gov operators within 5 days of a formal transfer action.
+- id: ssp_template_au_1
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    ### Part a
+
+    The 18F Program Office develops, documents, and disseminates to all 18F staff,
+    The 18F Audit and Accountability Policy which  addresses purpose, scope, roles,
+    responsibilities, management commitment, coordination among organizational entities,
+    compliance and procedures to facilitate the implementation of the audit and
+    accountability policy and associated audit controls. The 18F Audit and Accountability
+    policy is listed within 18F's private Github repository and the docs.cloud.gov site
+    that is accessible to all 18F staff.
+
+    ### Part b
+
+    The 18F Program Office will review and update the current 18F Audit control policy
+    at least every 3 years and any documented audit procedures at least annually.
+- id: ssp_template_ps_3
+  format: markdown
+  template: |
+    ## Personnel Security Policy for 18F
+
+    ### Part a
+
+    Personnel Screening is a Common Control provided by the Office of Personnel Management (OPM) and Department of Homeland Security (DHS).  Screening (and re-screening) of individuals are provided by OPM and DHS (and their agents) prior to authorizing access to the GSA information systems.
+
+    ### Part b
+
+    Personnel Screening is a Common Control provided by the Office of Personnel Management (OPM) and Department of Homeland Security (DHS).  Screening (and re-screening) of individuals are provided by OPM and DHS (and their agents) prior to authorizing access to the GSA information systems.
+
+    ### Part c
+
+    Personnel Screening is a Common Control provided by the Office of Personnel Management (OPM) and Department of Homeland Security (DHS).  Screening (and re-screening) of individuals are provided by OPM and DHS (and their agents) prior to authorizing access to the GSA information systems.
+- id: ssp_template_sc_7__3
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    18F limits the number of external network connections to the information system
+    through the use of AWS network security groups which restrict types of network
+    connections. AWS API authenticated service keys and managed SSH keys restrict
+    PU access to the systems.
+
+
+    cloud.gov Cloud Foundry components run on AWS AMI that exist within AWS VPCs.
+    In this configuration, the only access points visible on a public network are
+    load balancers that map to one or more Cloud Foundry routers.
+- id: ssp_template_sa_2
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    ### Part a
+
+    The cloud.gov team does two-week sprints. Before each sprint, we look at open tasks and prioritize, including security needs. The team also hires for security expertise specifically.
+
+    ### Part b
+
+    Determines, documents, and allocates the resources required to protect the information system or information system service as part of its capital planning and investment control process
+
+    ### Part c
+
+    Establishes a discrete line item for information security in organizational programming and budgeting documentation.
+- id: ssp_template_pe_4
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_ia_4
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    The 18F Identification and Authentication Policy section 3 Identifier Management states:
+    Identifier Management:
+    18F manages information system identifiers for users and devices by:
+    * Receiving authorization from a designated organizational official to assign a user or device identifier.
+    * Selecting an identifier that uniquely identifies an individual or device.
+    * Assigning the user identifier to the intended party or the device identifier to the intended device.
+    * Preventing reuse of user or device identifiers for one (1).
+    * Disabling the user identifier after ninety (90) days of inactivity for general user accounts and thirty (30) days for administrator level accounts.
+- id: ssp_template_si_8__1
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    This control is not applicable since clould.gov does not accept or process any messages for other information systems or external sources. Therefore spam protection is not necessary.
+- id: ssp_template_pe_16
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_pe_13__2
+  format: markdown
+  template: |
+    ## Physical and Environmental Protection Policy for 18F
+
+    All physical and Environmental Security Controls for the Cloud.Gov information system are managed and inherited by the AWS Infrastructure as a Service layer.
+- id: ssp_template_au_3
+  format: markdown
+  template: >
+    ## ELKStack
+
+
+    The cloud.gov platform as a service generates audit logs from its Loggregator
+    component and is passed through the ELK stack to produce audit records which contain
+    sufficient information to establish at a minimum: what type of event occurred,
+    when (date and time the event occurrence) the source of the event the outcome
+    (success or failure) of the event the identity of any user/subject associated
+    with the event
+
+    ## Cloud Checkr
+
+
+    CloudTrail Log File Name Format CloudTrail uses the following file name format
+    for the log file objects it uploads to your S3 bucket: AccountID_CloudTrail_RegionName_YYYYMMDDTHHmmZ_UniqueString.FileNameFormat
+    YYYY, MM, DD, HH, and mm are the digits of the year, month, day, hour, and minute
+    (respectively) when the log file was delivered. Hours are in 24-hour format. The
+    Z indicates that the time is in UTC.
+
+    ## Cloud Controller
+- id: ssp_template_mp_6__2
+  format: markdown
+  template: >
+    ## Media Protection Policy for 18F
+
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical
+    media devices used and Cloud.Gov information system components are virtualized.
+    All network hardware and server components are the responsibility of the underlying
+    Infrastructure as a service provider.
+- id: ssp_template_cm_2__7
+  format: markdown
+  template: |
+    ## Configuration Management Policy for 18F
+
+    ### Part a
+
+    This control is Not Applicable (NA) for the cloud.gov information system. Per Federal policy 18F employees are not
+    allowed to take equipment outside of the United States without explicit permission.
+
+    ### Part b
+
+    This control is Not Applicable (NA) for the cloud.gov information system. Per Federal policy 18F employees are not
+    allowed to take equipment outside of the United States without explicit permission.
+- id: ssp_template_sa_4
+  format: markdown
+  template: >
+    ## System and Services Acquisition Policy for 18F
+
+
+    ### Part a
+
+
+    System and Services Acquisition Policy is included in CIO P 2100.1 - GSA IT Security
+    Policy, Chapter 5. Policy on Technical Controls.  It states, "GSA system program
+    managers and contracting officers shall ensure that the appropriate security requirements
+    of this order are included in task orders and contracts for all IT systems designed,
+    developed, implemented, and operated by a contractor on behalf of the government,
+    including systems operating in a Cloud Computing environment including but not
+    limited to Software as a Service (SaaS)."
+
+
+    GSA OCISO ISP also defined agency-wide system and services acquisition procedures
+    in IT Security Procedural Guide: Security Language for IT Acquisition Efforts
+    (CIO-IT Security-09-48)
+
+
+    ### Part b
+
+
+    System and Services Acquisition Policy is included in CIO P 2100.1 - GSA IT Security
+    Policy, Chapter 5. Policy on Technical Controls.  It states, "GSA system program
+    managers and contracting officers shall ensure that the appropriate security requirements
+    of this order are included in task orders and contracts for all IT systems designed,
+    developed, implemented, and operated by a contractor on behalf of the government,
+    including systems operating in a Cloud Computing environment including but not
+    limited to Software as a Service (SaaS)."
+
+
+    GSA OCISO ISP also defined agency-wide system and services acquisition procedures
+    in IT Security Procedural Guide: Security Language for IT Acquisition Efforts
+    (CIO-IT Security-09-48)
+
+
+    ### Part c
+
+
+    System and Services Acquisition Policy is included in CIO P 2100.1 - GSA IT Security
+    Policy, Chapter 5. Policy on Technical Controls.  It states, "GSA system program
+    managers and contracting officers shall ensure that the appropriate security requirements
+    of this order are included in task orders and contracts for all IT systems designed,
+    developed, implemented, and operated by a contractor on behalf of the government,
+    including systems operating in a Cloud Computing environment including but not
+    limited to Software as a Service (SaaS)."
+
+
+    GSA OCISO ISP also defined agency-wide system and services acquisition procedures
+    in IT Security Procedural Guide: Security Language for IT Acquisition Efforts
+    (CIO-IT Security-09-48)
+
+
+    ### Part d
+
+
+    System and Services Acquisition Policy is included in CIO P 2100.1 - GSA IT Security
+    Policy, Chapter 5. Policy on Technical Controls.  It states, "GSA system program
+    managers and contracting officers shall ensure that the appropriate security requirements
+    of this order are included in task orders and contracts for all IT systems designed,
+    developed, implemented, and operated by a contractor on behalf of the government,
+    including systems operating in a Cloud Computing environment including but not
+    limited to Software as a Service (SaaS)."
+
+
+    GSA OCISO ISP also defined agency-wide system and services acquisition procedures
+    in IT Security Procedural Guide: Security Language for IT Acquisition Efforts
+    (CIO-IT Security-09-48)
+
+
+    ### Part e
+
+
+    System and Services Acquisition Policy is included in CIO P 2100.1 - GSA IT Security
+    Policy, Chapter 5. Policy on Technical Controls.  It states, "GSA system program
+    managers and contracting officers shall ensure that the appropriate security requirements
+    of this order are included in task orders and contracts for all IT systems designed,
+    developed, implemented, and operated by a contractor on behalf of the government,
+    including systems operating in a Cloud Computing environment including but not
+    limited to Software as a Service (SaaS)."
+
+
+    GSA OCISO ISP also defined agency-wide system and services acquisition procedures
+    in IT Security Procedural Guide: Security Language for IT Acquisition Efforts
+    (CIO-IT Security-09-48)
+
+
+    ### Part f
+
+
+    System and Services Acquisition Policy is included in CIO P 2100.1 - GSA IT Security
+    Policy, Chapter 5. Policy on Technical Controls.  It states, "GSA system program
+    managers and contracting officers shall ensure that the appropriate security requirements
+    of this order are included in task orders and contracts for all IT systems designed,
+    developed, implemented, and operated by a contractor on behalf of the government,
+    including systems operating in a Cloud Computing environment including but not
+    limited to Software as a Service (SaaS)."
+
+
+    GSA OCISO ISP also defined agency-wide system and services acquisition procedures
+    in IT Security Procedural Guide: Security Language for IT Acquisition Efforts
+    (CIO-IT Security-09-48)
+
+
+    ### Part g
+
+
+    System and Services Acquisition Policy is included in CIO P 2100.1 - GSA IT Security
+    Policy, Chapter 5. Policy on Technical Controls.  It states, "GSA system program
+    managers and contracting officers shall ensure that the appropriate security requirements
+    of this order are included in task orders and contracts for all IT systems designed,
+    developed, implemented, and operated by a contractor on behalf of the government,
+    including systems operating in a Cloud Computing environment including but not
+    limited to Software as a Service (SaaS)."
+
+
+    GSA OCISO ISP also defined agency-wide system and services acquisition procedures
+    in IT Security Procedural Guide: Security Language for IT Acquisition Efforts
+    (CIO-IT Security-09-48)
+- id: ssp_template_si_3__2
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov automatically updates ClamAV
+- id: ssp_template_ir_3
+  format: markdown
+  template: >
+    ## Incident Response for cloud.gov
+
+
+    cloud.gov will create test plans and exercises in accordance to NIST 800-61 (http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf),
+    and it will present these to the cloud.gov Authorizing Official for their approval.
+
+    cloud.gov will test its incident response capabilities and related exercises annually.
+- id: ssp_template_ps_2
+  format: markdown
+  template: |
+    ## Personnel Security Policy for 18F
+
+    ### Part a
+
+    Position Risk Designation is a Common Control provided by OCHCO Personnel Security Officer. The OHRM is responsible for developing and implementing position categorization (including third-party controls), access agreements, and personnel screening, termination, and transfers.
+
+    ### Part b
+
+    Position Risk Designation is a Common Control provided by OCHCO Personnel Security Officer. The OHRM is responsible for developing and implementing position categorization (including third-party controls), access agreements, and personnel screening, termination, and transfers.
+
+    ### Part c
+
+    Position Risk Designation is a Common Control provided by OCHCO Personnel Security Officer. The OHRM is responsible for developing and implementing position categorization (including third-party controls), access agreements, and personnel screening, termination, and transfers.
+- id: ssp_template_sa_3
+  format: markdown
+  template: >
+    ## System and Services Acquisition Policy for 18F
+
+
+    ### Part a
+
+
+    18F practices the Scrumban process when developing new features or fixing existing
+    issues, including security fixes and enhancements for cloud.gov.  Each feature
+    or issue is assigned to a card in the system, where it goes through a process
+    of being identified, prioritized, explored, delivered, and finally demonstrated.
+    Each card is reviewed by the team as a whole throughout its lifecycle to identify
+    any security risks or concerns, which are recorded on the card as "acceptance
+    criteria" that must be addressed before development is complete.
+
+
+    Once development is complete, a team member submits the code to our version control
+    system as a "pull request", where at least one other team member further reviews
+    it before merging it into the code base.  The team then deploys new features into
+    our staging area where they undergo further security review and stakeholder acceptance
+    testing, as well as automated acceptance tests.
+
+
+    ### Part b
+
+
+    The cloud.gov operations team is broken into several sub-teams with different
+    areas of responsibility and expertise.   Security is a foremost concern for members
+    of all teams.  The cloud.gov operations team is primarily focused on implementing
+    security policies at the platform level.
+
+
+    ### Part c
+
+
+    Each member of the cloud.gov operations team has the necessary security background
+    to properly handle sensitive data, such as security keys and certificates, and
+    to evaluate the security implications associated with configuration changes. The
+    cloud.gov operations team controls access to cloud.gov and its components through
+    the access control tools appropriate for its components, including AWS security
+    groups, Cloud Foundry roles, and GitHub team membership.
+
+
+    ### Part d
+
+
+    The cloud.gov operations team continually monitors the configurations of the various
+    components of cloud.gov to ensure they meet the requirements for protecting sensitive
+    data.
+- id: ssp_template_cp_6__1
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    cloud.gov leverages the use of the AWS IaaS. The replication of S3 and RDS databases across Availability Zones within
+    one AWS Region constitutes a built-in multi-storage site capability to automatically mitigate typical network, power,
+    and hardware outages. Optional configuration of storage replication across multiple geographic AWS Regions address
+    organizational requirements related to major regional disasters.
+- id: ssp_template_sa_4__10
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    cloud.gov delegates identity verification to customer's single sign on services.
+- id: ssp_template_ir_9__2
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    Because of the cloud.gov architecture, information spillage is not possible without being in a situation of a security breach. cloud.gov team members are instructed to follow the Incident Response Guide in this case.
+- id: ssp_template_sc_7__18
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    ### Part b
+
+    18F doesn't operate any control interfaces outside of what's provided by AWS CSP. In the event of an operational failure of a boundary protection device, AWS CSP teams should respond to this event and notify the 18F DevOps team.
+- id: ssp_template_ir_7__1
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    18F uses internal documentation and Slack to best communicate and automate incident response.
+- id: ssp_template_si_5
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    ### Part a
+
+    18F receives information system security alerts, advisories, and directives from US-CERT on an ongoing basis;
+
+    ### Part b
+
+    18F generates internal security alerts, advisories, and directives as deemed necessary;
+
+    ### Part c
+
+    18F disseminates security alerts, advisories, and directives to: [Selection
+    (one or more): [Assignment: organization-defined personnel or roles];
+    [Assignment: organization-defined elements within the organization];
+    [Assignment: organization-defined external organizations]]; and
+
+    ### Part d
+
+    18F implements security directives in accordance with established time
+    frames, or notifies the issuing organization of the degree of noncompliance.
+- id: ssp_template_mp_4
+  format: markdown
+  template: |
+    ## Media Protection Policy for 18F
+
+    ### Part a
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical media devices used and Cloud.Gov information system components are virtualized. All network hardware and server components are the responsibility of the underlying Infrastructure as a service provider.
+
+    ### Part b
+
+    This control is not Applicable to the Cloud.Gov Platform. There are no physical media devices used and Cloud.Gov information system components are virtualized. All network hardware and server components are the responsibility of the underlying Infrastructure as a service provider.
+- id: ssp_template_cp_9
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    ### Part a
+
+    Planned Implementation:
+    18F will update the draft contingency plan for Cloud.Gov.
+
+    ### Part b
+
+    Planned Implementation:
+    18F will update the draft contingency plan for Cloud.Gov.
+
+    ### Part c
+
+    Planned Implementation:
+    18F will update the draft contingency plan for Cloud.Gov.
+
+    ### Part d
+
+    Planned Implementation:
+    18F will update the draft contingency plan for Cloud.Gov.
+- id: ssp_template_ma_4__2
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_sc_5
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    Refer to the 18F policy statement for the types of denial of service (DoS) to
+    protect our systems against. Policy https://github.com/18f/compliance-docs/blob/master/SC-Policy.md
+
+
+    cloud.gov limits the effects of Volume Based and Protocol DoS type attacks by
+    utilizing the following groups of technical measures:
+
+
+    18F administrative staff maintains hardened Amazon Managed Images (AMI) and Cloud
+    Foundry custom buildpacks with the latest patches and updates.
+
+
+    Buildpacks provide framework and runtime support for applications that are deployed
+    on cloud.gov.  The AMI and custom buildpacks are maintained and secured within
+    18F's software repository, GitHub.
+
+
+    cloud.gov also uses AWS's IaaS services with well-formed Virtual Private Cloud
+    (VPC) firewall rules to reduce the attack surface, while service resiliency is
+    maintained by utilizing AWS Availability Zones, Elastic Load Balancing, and Auto
+    Scaling services.
+
+
+    Cloud Foundry's security components limit the effects of an attack at the Application
+    Layer. It limits DoS attacks on this layer through resource starvation and reduction
+    of the attack surface even further with well-formed application security groups
+    which control the traffic flowing from hosted applications.
+
+
+    These tools combined with SOC staffing are responsible for maintaining system
+    security.
+- id: ssp_template_au_3__1
+  format: markdown
+  template: |
+    ## Loggregator
+    ## Audit and Accountability Policy for 18F
+
+    The Cloud.Gov information system generates audit records containing the following additional information:
+    session, connection, transaction, or activity duration; for client-server transactions, the number of bytes received
+    and bytes sent; additional informational messages to diagnose or identify the event; characteristics that describe or
+    identify the object or resource being acted upon.
+
+    Cloudtrail can generate a subset of audit records containing additional information within the AWS infrastructure.
+
+    EC2:
+    - Security Groups, Security Group Rules, Key Pairs, AMIs, Spot Instances, Reserved Instance, Instances, Volumes,
+    Snapshots, Placement Groups, Elastic Load Balancers (including attaching or detaching instances to them),
+    Network Interfaces, Elastic IPs
+    IAM:
+      - Account Aliases, Account Summaries, Access Keys, MFA Devices, Policies, Password Policies, Groups, Users
+    S3:
+      - Bucket Logging, Logging Target Bucket, Bucket Logging Prefix, Bucket Website Enabled, Bucket Website Index Document,
+      Bucket Website Error Document, Bucket Notifications Enabled, Public Buckets, Bucket Notifications, Bucket Lifecycle Rules,
+      Bucket Permissions
+
+    Cloud.Gov can generate additional audit information such as
+    - remote_addr, remote_user, request_status, bytes_sent, http_referer, http_user_agent, gzip_ratio
+- id: ssp_template_at_3
+  format: markdown
+  template: |
+    ## Security Awareness Training Policy for 18F
+
+    The 18F Program office reviews AT-2
+- id: ssp_template_sc_10
+  format: markdown
+  template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov's RAS access terminates immediately at the end of the session.
+- id: ssp_template_ia_8__3
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov does not accept third-party credentials.
+- id: ssp_template_cp_2__2
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    Planned Implementation:
+
+    18F has developed a draft Contingency plan for the Cloud.Gov information system. 18F is currently in the process of completing and finalizing the contingency plan for Cloud.Gov.
+- id: ssp_template_si_2
+  format: markdown
+  template: |
+    ## CI cloud.gov Concourse Pipeline
+
+    ### Part b
+
+    Tests software and firmware updates related to flaw remediation for effectiveness and potential side effects before installation.
+
+    ### Part c
+
+    Installs security-relevant software and firmware updates within 30 days release of updates of the release of the updates.
+
+    ### Part d
+
+    18F incorporates flaw remediation into the its configuration management process. New versions of cloud.gov can easily recreated and deployed in the event of any system flaws.
+    ## System and Information Integrity Policy for 18F
+
+    ### Part a
+
+    18F identifies all system flaws related to cloud.gov, reports system flaws to information system owners, Authorizing officials, cloud.gov operators, and corrects information system flaws that affect cloud.gov.
+
+    ### Part b
+
+    18F tests software updates against a staging environment for any updates, including those related to flaw remediation, for effectiveness and potential side effects before deploying the updates to production environment.
+    Cloud Foundry manages software vulnerability using releases and BOSH stemcells.
+    New Cloud Foundry releases are created with updates to address code issues, while new
+    stemcells are created with patches for the latest security fixes to address
+    any underlying operating system issues. New Cloud Foundry releases are located
+    at https://github.com/cloudfoundry/cf-release.
+
+    ### Part c
+
+    Installs security-relevant software and firmware updates within [FedRAMP Assignment: Within 30 days of release of updates] of the release of the updates
+
+    ### Part d
+
+    18F incorporates flaw remediation into the organizational configuration management process.
+
+    18F implements the release of Cloud Foundry and (or the software
+    developer/vendor in the case of software developed and maintained by a
+    vendor/contractor) promptly installs newly released security relevant
+    patches and tests patches, for effectiveness and potential
+    side effects on information systems before installation.
+- id: ssp_template_ac_2__3
+  format: markdown
+  template: |
+    ## Cloud Checkr
+
+    User accounts will be monitored monthly and accounts will be disabled
+    after 90 days of inactivity; this will be a manual review process every 30 days.
+    18F generates a credential report that lists all IAM users and the status of their
+    credentials, including passwords, access keys, and MFA devices.
+- id: ssp_template_ma_3__1
+  format: markdown
+  template: |
+    ## System Maintenance Policy for 18F
+
+    This control is inherited from the AWS GovCloud FedRAMP implementation.
+- id: ssp_template_ia_5
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_ra_5
+  format: markdown
+  template: |
+    ## Risk Assessment Policy for 18F
+
+    ### Part a
+
+    18F Conducts monthly Operating System (OS) and web application scanning; quarterly database scanning; and, OS and Web application scanning with every code release. 18F conducts internal vulnerability scanning of its VPC and private subnets within the 18F Virtual Private Cloud.
+
+    ### Part b
+
+    18F vulnerability scanning tools utilize techniques that promote interoperability such as Common Vulnerability Scoring System v2 (CVSS2), Common Platform Enumeration (CPE), and Common Vulnerability Enumeration (CVE) and OWASP TOP 10 vulnerabilities.
+
+    ### Part c
+
+    18F Analyzes vulnerability scan reports from its vulnerability scanning tools assessments at least weekly and appropriate actions taken on discovery of vulnerabilities within the 18F Cloud Infrastructure and applications and from security control assessments conducted on its information systems.
+
+    ### Part d
+
+    High-risk vulnerabilities are mitigated within thirty days (30); moderate risk vulnerabilities mitigated within ninety days (90). If the recommended steps will adversely impact functionality or performance, the ISSO/ISSM will reviews changes and mitigating controls with 18F DevOps as well as the Cloud Foundry system owners.
+
+    ### Part e
+
+    18F shares information obtained from the vulnerability scanning process and security control assessments with designated System Owners, DevOps, GSA SecOps, ISSM and the Authorizing Official (AO) to help eliminate similar vulnerabilities in other information systems (i.e., systemic weaknesses or deficiencies).
+- id: ssp_template_ir_4__1
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    cloud.gov implements automated processes such as ClamAV and Tripwire to detect anomalies. When these processes detect an anomaly, they escalate an alert using PagerDuty.
+    The incident response process is automatically tracked using Slack.
+- id: ssp_template_si_2__2
+  format: markdown
+  template: |
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov operators employ automated mechanisms daily to determine the state of information system components with regard to flaw remediation.
+- id: ssp_template_cm_2
+  format: markdown
+  template: |
+    ## Cloud Formation
+    ## BOSH
+    ## Configuration Management Policy for 18F
+
+    For AWS Baseline Configurations:
+
+    AWS Cloud Formation templates, CIS Level 1 benchmarks and any GSA/18F benchmarks such as hardening guidelines
+    and baselines are the approved baseline for all changes to the infrastructure and simplify provisioning and management
+    on AWS. They provide an automated method to assess the status of an operational infrastructure against an approved
+    baseline.
+
+    Windows and Linux instances are based on the standard AWS AMI images in accordance with GSA configuration requirements.
+
+    For cloud.gov Baseline Configurations:
+
+    cloud.gov utilizes customized Ubuntu stemcells and deployment manifest yaml files for its baseline configurations.
+    The list of the configuration settings can be found at the following site https://docs.cloud.gov/ops/repos/
+
+    A stemcell is a versioned Operating System image wrapped with IaaS specific packaging. A typical stemcell contains
+    a bare minimum OS skeleton with a few common utilities pre-installed, a BOSH Agent, and a few configuration files
+    to securely configure the OS by default. With AWS, official stemcells are published as AMIs that can be used in the
+    18F AWS account. Stemcells do not contain any specific information about any software that will be installed once
+    that stemcell becomes a specialized machine in the cluster; nor do they contain any sensitive information which
+    would make them unable to be shared with other BOSH users.  The deployment manifest is a YAML file that defines
+    the components and properties of the deployment.
+
+    Note: Additional OS/Device-specific industry standards and guidance may also be used whenever appropriate. It is
+    understood that when industry standards are adopted they may need to be adapted for the specific implementation
+    and if/where this has occurred it should be mentioned/referenced. 18F ensures that the most current, relevant
+    OS/Device-specific industry standards and guidance is maintained where appropriate to support cloud.gov configurations.
+    These best practice updates are captured during the annual review of the CM Policy which also incorporates 18 procedures.
+- id: ssp_template_sa_10
+  format: markdown
+  template: |
+    ## System and Services Acquisition Policy for 18F
+
+    ### Part a
+
+    Configuration and deployment of the cloud.gov platform is managed using the BOSH project. BOSH releases and deployment manifests are stored in GitHub; sensitive credentials are stored in Amazon S3 and are protected using both client- and server-side encryption.
+
+    ### Part b
+
+    Changes to BOSH configuration are tracked in GitHub. Documentation is stored alongside deployment manifests and updated as configuration is changed; high-level documentation is also available at https://docs.cloud.gov.
+
+    ### Part c
+
+    All proposed configuration changes are reviewed by members of the cloud.gov team. Proposed changes must pass unit, integration, and acceptance tests before being deployed.
+
+    ### Part d
+
+    Configuration changes are made through pull requests in GitHub, which need to include documentation of all of the relevant context, as specified in 18F-wide policy here: https://github.com/18F/development-guide/tree/master/git_protocol#write-a-feature
+
+    ### Part e
+
+    BOSH stemcell images and BOSH deployment artifacts are updated regularly, so that upstream security updates are applied.
+- id: ssp_template_sc_4
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    cloud.gov system architecture prevents unauthorized and unintended information
+    transfer via shared system resources. cloud.gov uses Cloud Foundry components
+    to protect users and shared resources from security threats by minimizing network
+    surface area, applying security controls, isolating customer applications and
+    data in containers, and encrypting connections.
+- id: ssp_template_mp_1
+  format: markdown
+  template: >
+    ## Media Protection Policy for 18F
+
+
+    ### Part a
+
+
+    Agency Media Protection Policy. Media Protection Policy is included in CIO P 2100.1
+    - GSA IT Security Policy, Chapter 4. Policy on Operational Controls.  It states,
+    "All GSA data from information system media, both digital and non-digital must
+    be sanitized in accordance with methods described in IT Security Procedural Guide:
+    Media Protection Guide, OCIO-IT Security-06-32, before disposal or transfer outside
+    of GSA.
+
+    GSA OCISO ISP also defined agency-wide media protection procedures in IT Security
+    Procedural Guide: Media Protection Guide (CIO-IT Security-06-32) 18F follows the
+    GSA Media Protection policy for its information systems hosted within GSA facilities.
+    The Cloud.Gov information system is hosted with the AWS GovCloud and will be in
+    purview of the hosting site’s Media Protection policy and procedures.
+
+
+    ### Part b
+
+
+    The GSA Office of the CISO is responsible for reviewing and updating the above
+    documents annually, and notifying System Program Managers and Information System
+    Security Officers and Managers (ISSO/Ms).
+
+    The GSA OCISO has determined MP-1 to be an Enterprise-Wide Common Control and
+    is provided by the OCISO ISP. For specific details, please refer to the GSA IT
+    FY-15 Information Security Program Plan Version 1.0.
+- id: ssp_template_sc_28__1
+  format: markdown
+  template: >
+    ## System and Communications Protection Policy for cloud.gov
+
+
+    cloud.gov implements cryptographic mechanisms to prevent unauthorized disclosure
+    and modification of all blobs created by BOSH and Cloud Foundry by implementing
+    at-rest encryption and by checking file signatures.
+
+    ## User Account and Authentication (UAA) Server
+
+
+    The Cloud Foundry platform as a service does NOT create, store or process any
+    personally identifiable information (PII) or sensitive information as identified
+    by parameter requirement 1.
+
+
+    Applications running on Cloud Foundry receive requests through the URLs configured
+    for the application. HTTP requests arrive on ports 80 and 443. Additionally, Cloud
+    Foundry requires a channel for TCP/WebSocket traffic. The default cf-release manifest
+    assigns port: 4443 for TCP/WebSocket communications.
+
+    All traffic from the public internet to the Cloud Controller and UAA happens over
+    HTTPS. Inside the boundary of the system, components communicate over a publish-subscribe
+    (pub-sub) port: 4222 message bus, NATs
+
+
+    For stored data identified by parameter 2, the following cryptographic mechanisms
+    are used to prevent unauthorized disclosure and modification of stored data.
+
+    Operators configure encryption of the identity store in the UAA. When users register
+    an account with the Cloud Foundry platform, the UAA, acts as the user store and
+    stores user passwords in the UAA database using bcrypt. Bcrypt is a blowfish encryption
+    algorithm, which enables cloud foundry to store a secure hash of your users' passwords.
+
+    The Cloud Controller stores the configuration for an application in an encrypted
+    database table. This configuration data includes user-specified environment variables
+    and service credentials for any services bound to the app.
+
+    Application developers push their code using the Cloud Foundry API. Cloud Foundry
+    secures each call to the CF API using the UAA and SSL
+
+    To combat spoofing Cloud Foundry network traffic rules help prevents the attack
+    from accessing application containers. Cloud Foundry uses application isolation,
+    operating system restrictions, and encrypted connections to further mitigate risk.
+- id: ssp_template_ir_9__1
+  format: markdown
+  template: |
+    ## Incident Response for cloud.gov
+
+    According to the cloud.gov Incident Response Guide, the first responder to an incident will have the responsibility to respond to the information spill.
+- id: ssp_template_ia_2__3
+  format: markdown
+  template: |
+    ## JumpBox
+
+    Any administrative actions taken on the platform requires authentication via encrypted ssh keys which are limited to specific users on the jumpbox.
+    ## Identification and Authentication Policy for 18F
+
+    NA - Only individual authentication is allowed.
+- id: ssp_template_ra_1
+  format: markdown
+  template: |
+    ## Risk Assessment Policy for 18F
+
+    18F Policy
+- id: ssp_template_au_12
+  format: markdown
+  template: |
+    ## Audit and Accountability Policy for 18F
+
+    In Progress
+- id: ssp_template_ia_7
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_ac_4
+  format: markdown
+  template: >
+    ## Application Security Groups
+
+    ## Amazon Virtual Private Cloud
+
+    ## User Account and Authentication (UAA) Server
+
+
+    The information system enforces approved authorizations for controlling the flow
+    of information within the system and between interconnected systems based on the
+    18F Access Control Policy Section 3 -  Information Flow Enforcement which states:
+      - 18F enforces approved authorizations for controlling the flow of information
+    within its information systems and between interconnected systems in accordance
+    with applicable federal laws and 18F policies and procedures.
+      - 18F shall use flow control restrictions to include: keeping export controlled
+    information from being transmitted in the clear to the Internet, blocking outside
+    traffic that claims to be from within the organization and not passing any web
+    requests to the Internet that are not from the internal web proxy.
+      - 18F shall use boundary protection devices (e.g., proxies, gateways, guards,
+    encrypted tunnels, firewalls, and routers) that employ rule sets or establish
+    configuration settings that restrict information system services, provide a packet-filtering
+    capability based on header information, or message-filtering capability based
+    on content (e.g., using key word searches or document characteristics.
+- id: ssp_template_cp_8__1
+  format: markdown
+  template: |
+    ## Contingency Planning Policy for 18F
+
+    ### Part a
+
+    18F has provisioned and leveraged redundant, primary and alternate telecommunications always-on, internet connections
+    through the AWS Infrastructure as a service. 18F has accepted the AWS service agreement to provide always-on internet
+    connections which assure continuous service.
+
+    ### Part b
+
+    18F does not require telecommunications services used for national security emergency preparedness.
+- id: ssp_template_ia_8__4
+  format: markdown
+  template: |
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.

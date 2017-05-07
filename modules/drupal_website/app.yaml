@@ -69,6 +69,11 @@ questions:
     type: module
     protocol: fed_poc
 
+  - id: infrastructure
+    title: Infrastructure
+    type: module
+    protocol: opencontrol
+
   - id: ssp
     title: View SSP
     type: module

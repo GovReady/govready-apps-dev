@@ -75,4 +75,11 @@ output:
       The web site will have a privacy policy
     {% else %}
       {{project.sm_policy_privacy.output_documents.ssp_template|safe}}
+
+    <h2>AC-2(4)</h2>
+
+    {% if not project.infrastructure %}
+      There will be infrastructure.
+    {% else %}
+      {{project.infrastructure.output_documents.ssp_template_ac_2__4|safe}}
     {% endif %}
