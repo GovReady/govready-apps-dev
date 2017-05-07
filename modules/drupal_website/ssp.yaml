@@ -30,3 +30,49 @@ output:
     {% else %}
       {{project.web_server.output_documents.ssp_template|safe}}
     {% endif %}
+
+    <h2>Points of Contact</h2>
+
+    {% if not project.fed_poc_ciso %}
+      There will be a CISO.
+    {% else %}
+      {{project.fed_poc_ciso.output_documents.ssp_template|safe}}
+    {% endif %}
+
+    {% if not project.fed_poc_isso %}
+      There will be a ISSO.
+    {% else %}
+      {{project.fed_poc_isso.output_documents.ssp_template|safe}}
+    {% endif %}
+
+    {% if not project.fed_poc_issm %}
+      There will be a ISSM.
+    {% else %}
+      {{project.fed_poc_issm.output_documents.ssp_template|safe}}
+    {% endif %}
+
+    {% if not project.fed_poc_developer %}
+      There will be a Developer.
+    {% else %}
+      {{project.fed_poc_developer.output_documents.ssp_template|safe}}
+    {% endif %}
+
+    {% if not project.fed_poc_pm %}
+      There will be a Project Manager.
+    {% else %}
+      {{project.fed_poc_pm.output_documents.ssp_template|safe}}
+    {% endif %}
+
+    {% if not project.fed_poc_ao %}
+      There will be a Authorizing Official.
+    {% else %}
+      {{project.fed_poc_ao.output_documents.ssp_template|safe}}
+    {% endif %}
+
+    <h2>Polices</h2>
+
+    {% if not project.sm_policy_privacy %}
+      The web site will have a privacy policy
+    {% else %}
+      {{project.sm_policy_privacy.output_documents.ssp_template|safe}}
+    {% endif %}

@@ -1,14 +1,14 @@
 id: app
 title: Drupal Website
 type: project
-version: 1
+version: 0.3.0
 icon: app.png
 
 catalog:
   vendor: GovReady PBC
   vendor_url: http://www.govready.com
   status: Operational
-  version: 0.95
+  version: 0.3.0
   source_url: https://github.com/GovReady/govready-q-ssp-module/tree/master/modules/drupal_website
   description:
     short: |
@@ -29,8 +29,43 @@ questions:
     type: module
     protocol: web_server
 
-  - id: fed_poc
+  - id: fed_poc_cio
+    title: CIO (PoC)
+    type: module
+    protocol: fed_poc
+
+  - id: fed_poc_isso
     title: ISSO (PoC)
+    type: module
+    protocol: fed_poc_isso
+
+  - id: fed_poc_issm
+    title: ISSM (PoC)
+    type: module
+    protocol: fed_poc
+
+  - id: fed_poc_developer
+    title: Developer (PoC)
+    type: module
+    protocol: fed_poc
+
+  - id: fed_poc_ciso
+    title: CISO (PoC)
+    type: module
+    protocol: fed_poc
+
+  - id: fed_poc_ao
+    title: AO (PoC)
+    type: module
+    protocol: fed_poc
+
+  - id: sm_policy_privacy
+    title: Privacy Policy
+    type: module
+    protocol: sm_policy_privacy
+
+  - id: fed_poc_pm
+    title: PM (PoC)
     type: module
     protocol: fed_poc
 
@@ -39,4 +74,3 @@ questions:
     type: module
     module-id: ssp
     icon: checkmark.png
-    
