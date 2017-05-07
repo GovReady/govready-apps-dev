@@ -1,24 +1,26 @@
-id: _transparency
+id: app
 title: Privacy Policy for Web Site
-org: small web team
-tech: website
-role: project manager, web master, manager
-author: GovReady PBC
 type: project
 access: public
-source_url: https://github.com/GovReady/govready-q-tr-small-web
-version: 0.2
-status: Beta
-provider: GovReady PBC
-provider_url: http://www.govready.com
+protocol: sm_policy_privacy
 control_index:
   - standard: NIST RMF
     controls:
       - id: TR-1
       - id: TR-2
       - id: TR-3
+icon: privacy_policy.png
 
 catalog:
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.3
+  source_url: https://github.com/GovReady/govready-q-tr-small-web
+  role: project manager, web master, manager
+  tech: website
+  org: small web team
+  status: Beta
   description:
     short: |
       Create and publish Privacy Policy for web site transparency for a small web team
@@ -124,4 +126,13 @@ output:
 
       ![](icon_system_capital.png)
 
-
+output:
+- id: ssp_template
+  format: markdown
+  template: |
+    % if not ???.??? %
+      The system will have a privacy policy published on the web site.
+    % else %
+      The privacy policy is published at...
+    % endif %
+  
