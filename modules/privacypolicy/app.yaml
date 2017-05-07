@@ -9,7 +9,6 @@ control_index:
       - id: TR-1
       - id: TR-2
       - id: TR-3
-icon: privacy_policy.png
 
 catalog:
   vendor: GovReady PBC
