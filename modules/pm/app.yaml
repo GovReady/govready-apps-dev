@@ -1,5 +1,5 @@
 id: app
-title: ISSO
+title: PM
 type: project
 version: 1
 protocol: fed_poc
@@ -13,11 +13,11 @@ catalog:
   source_url: https://github.com/GovReady/govready-q-drupal-fed-people
   description:
     short: |
-      Information System Security Officer
+      Project Manager
     long: |
-      # Information System Security Officer
+      # Project Manager
 
-      This module provides point of contact information for the Information System Security Officer (ISSO) supporting a Drupal website for a US Federal government agency.
+      This module provides point of contact information for the Project Manager (PM) supporting a Drupal website for a US Federal government agency.
 
       ## Who Should Use:
 
@@ -27,11 +27,11 @@ catalog:
 
       Completion of these tasks addresses the following controls in FISMA NIST SP 800-53:
 
-      - ??? (role ISSO)
+      - ??? (role PM)
 
       ## What App Does:
 
-      - Gathers point of contact information for an ISSO
+      - Gathers point of contact information for an PM
 
       ## What You Do:
 
@@ -53,7 +53,20 @@ catalog:
 
 questions:
   - id: poc
-    title: ISSO
+    title: PM
     module-id: poc
     type: module
 
+output:
+  - title: Document
+    format: markdown
+    id: ssp_template
+    template: |
+
+      {% if not poc.q1_name %}
+        The system will have a PM.
+      {% else %}
+
+        The Project Manager for the system is {{poc.q1_name}} ({{poc.q5_email}}).
+
+      {% endif %}

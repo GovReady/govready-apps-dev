@@ -57,3 +57,16 @@ questions:
     module-id: poc
     type: module
 
+output:
+  - title: Document
+    format: markdown
+    id: ssp_template
+    template: |
+
+      {% if not poc.q1_name %}
+        The system will have a CIO.
+      {% else %}
+
+         The Chief Information Officer for the system is {{poc.q1_name}} ({{poc.q5_email}}).
+
+      {% endif %}
