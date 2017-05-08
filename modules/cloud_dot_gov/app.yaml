@@ -3,13 +3,14 @@ title: Cloud.gov
 type: project
 protocol: opencontrol
 opencontrol_fetch_date: '2017-05-07T19:10:12.338770+00:00'
+version: 0.2
 icon: app.png
 
 catalog:
   vendor: GovReady
   vendor_url: http://www.govready.com
   status: Operational
-  version: 0.95
+  version: 0.2
   source_url: https://github.com/GovReady/some-repo-here
   description:
     short: |
