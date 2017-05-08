@@ -1,10 +1,12 @@
 id: app
-title: Cloud.gov (OpenControl)
+title: Cloud.gov
 type: project
 protocol: opencontrol
 opencontrol_fetch_date: '2017-05-07T19:10:12.338770+00:00'
+icon: app.png
+
 catalog:
-  vendor: GovReady PBC
+  vendor: GovReady
   vendor_url: http://www.govready.com
   status: Operational
   version: 0.95
