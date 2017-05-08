@@ -6,7 +6,7 @@ protocol: web_server
 icon: app.png
 
 catalog:
-  vendor: GovReady PBC
+  vendor: GovReady
   vendor_url: http://www.govready.com
   status: Operational
   version: 0.95
