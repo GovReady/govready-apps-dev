@@ -5,7 +5,7 @@ version: 0.3.0
 icon: app.png
 
 catalog:
-  vendor: GovReady PBC
+  vendor: GovReady
   vendor_url: http://www.govready.com
   status: Operational
   version: 0.3.0
@@ -30,34 +30,40 @@ questions:
     protocol: web_server
 
   - id: fed_poc_cio
-    title: CIO (PoC)
+    title: CIO
     type: module
     protocol: fed_poc
+    icon: person-3.png
 
   - id: fed_poc_isso
-    title: ISSO (PoC)
+    title: ISSO
     type: module
-    protocol: fed_poc_isso
+    protocol: fed_poc
+    icon: person-3.png
 
   - id: fed_poc_issm
-    title: ISSM (PoC)
+    title: ISSM
     type: module
     protocol: fed_poc
+    icon: person-3.png
 
   - id: fed_poc_developer
-    title: Developer (PoC)
+    title: Developer
     type: module
     protocol: fed_poc
+    icon: person-3.png
 
   - id: fed_poc_ciso
-    title: CISO (PoC)
+    title: CISO
     type: module
     protocol: fed_poc
+    icon: person-3.png
 
   - id: fed_poc_ao
-    title: AO (PoC)
+    title: AO
     type: module
     protocol: fed_poc
+    icon: person-3.png
 
   - id: sm_policy_privacy
     title: Privacy Policy
@@ -65,9 +71,10 @@ questions:
     protocol: sm_policy_privacy
 
   - id: fed_poc_pm
-    title: PM (PoC)
+    title: PM
     type: module
     protocol: fed_poc
+    icon: person-3.png
 
   - id: infrastructure
     title: Infrastructure
