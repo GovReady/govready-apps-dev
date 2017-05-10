@@ -3,6 +3,7 @@ title: Privacy Policy for Web Site
 type: project
 access: public
 protocol: sm_policy_privacy
+icon: app.png
 control_index:
   - standard: NIST RMF
     controls:
