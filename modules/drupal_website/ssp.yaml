@@ -23,6 +23,15 @@ output:
         .notice {color: red; font-size:3.0em; text-align:center; transform: scaleY(.85); font-weight: bold;}
     </style>
 
+    <h2>System Categorization</h2>
+
+    {% if not project.fisma_system_categorization %}
+      The system impact level has not yet been determined.
+    {% else %}
+      {{project.fisma_system_categorization.output_documents.ssp_template|safe}}
+    {% endif %}
+
+
     <h2>Web Server</h2>
 
     {% if not project.web_server %}
@@ -76,7 +85,7 @@ output:
     {% else %}
       {{project.sm_policy_privacy.output_documents.ssp_template|safe}}
     {% endif %}
-    
+
     <h2>AC-2(4)</h2>
 
     {% if not project.infrastructure %}

@@ -1,7 +1,7 @@
 id: app
 title: Drupal Website
 type: project
-version: 0.3.0
+version: 0.4.0
 icon: app.png
 
 catalog:
@@ -24,46 +24,20 @@ catalog:
       value: PM
 
 questions:
+  - id: fisma_system_categorization
+    title: System Categorization
+    type: module
+    protocol: fisma_system_categorization
+
   - id: web_server
     title: Web Server
     type: module
     protocol: web_server
 
-  - id: fed_poc_cio
-    title: CIO
+  - id: infrastructure
+    title: Infrastructure
     type: module
-    protocol: fed_poc
-    icon: person-3.png
-
-  - id: fed_poc_isso
-    title: ISSO
-    type: module
-    protocol: fed_poc
-    icon: person-3.png
-
-  - id: fed_poc_issm
-    title: ISSM
-    type: module
-    protocol: fed_poc
-    icon: person-3.png
-
-  - id: fed_poc_developer
-    title: Developer
-    type: module
-    protocol: fed_poc
-    icon: person-3.png
-
-  - id: fed_poc_ciso
-    title: CISO
-    type: module
-    protocol: fed_poc
-    icon: person-3.png
-
-  - id: fed_poc_ao
-    title: AO
-    type: module
-    protocol: fed_poc
-    icon: person-3.png
+    protocol: opencontrol
 
   - id: sm_policy_privacy
     title: Privacy Policy
@@ -73,16 +47,42 @@ questions:
   - id: fed_poc_pm
     title: PM
     type: module
-    protocol: fed_poc
+    protocol: fed_poc_pm
     icon: person-3.png
 
-  - id: infrastructure
-    title: Infrastructure
+  - id: fed_poc_developer
+    title: Developer
     type: module
-    protocol: opencontrol
+    protocol: fed_poc_developer
+    icon: person-3.png
+
+  - id: fed_poc_issm
+    title: ISSM
+    type: module
+    protocol: fed_poc_issm
+    icon: person-3.png
+
+  - id: fed_poc_isso
+    title: ISSO
+    type: module
+    protocol: fed_poc_isso
+    icon: person-3.png
+
+  - id: fed_poc_ciso
+    title: CISO
+    type: module
+    protocol: fed_poc_ciso
+    icon: person-3.png
+
+  - id: fed_poc_ao
+    title: AO
+    type: module
+    protocol: fed_poc_ao
+    icon: person-3.png
 
   - id: ssp
     title: View SSP
     type: module
     module-id: ssp
     icon: checkmark.png
+
