@@ -2,7 +2,7 @@ id: app
 title: CISO
 type: project
 version: 1
-protocol: fed_poc
+protocol: fed_poc_ciso
 icon: app.png
 
 catalog:

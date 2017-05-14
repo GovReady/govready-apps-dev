@@ -1,8 +1,8 @@
 id: app
-title: collection
+title: CIO
 type: project
 version: 1
-protocol: fed_poc
+protocol: fed_poc_cio
 icon: app.png
 
 catalog:

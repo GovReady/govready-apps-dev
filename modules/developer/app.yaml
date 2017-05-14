@@ -2,7 +2,7 @@ id: app
 title: Developer
 type: project
 version: 1
-protocol: fed_poc
+protocol: fed_poc_developer
 icon: app.png
 
 catalog:

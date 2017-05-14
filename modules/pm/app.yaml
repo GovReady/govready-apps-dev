@@ -2,7 +2,7 @@ id: app
 title: PM
 type: project
 version: 1
-protocol: fed_poc
+protocol: fed_poc_pm
 icon: app.png
 
 catalog:

@@ -2,7 +2,7 @@ id: app
 title: AO
 type: project
 version: 1
-protocol: fed_poc
+protocol: fed_poc_ao
 icon: app.png
 
 catalog:
