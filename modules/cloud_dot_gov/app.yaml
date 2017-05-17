@@ -2,10 +2,9 @@ id: app
 title: Cloud.gov
 type: project
 protocol: opencontrol
-opencontrol_fetch_date: '2017-05-07T19:10:12.338770+00:00'
+opencontrol_fetch_date: '2017-05-17T02:55:44.333719+00:00'
 version: 0.2
 icon: app.png
-
 catalog:
   vendor: GovReady
   vendor_url: http://www.govready.com
@@ -63,15 +62,6 @@ output:
 - id: ssp_template_ac_2__12
   format: markdown
   template: |
-    ## ELKStack
-
-    ### Part a
-
-    Information system account activities are monitored via ELK
-
-    ### Part b
-
-    ELK reports atypical usage of information system accounts to designated Infrastructure and cloud.gov operators teams.
     ## Cloud Checkr
 
     ### Part a
@@ -101,6 +91,15 @@ output:
     ### Part b
 
     Cloud Checkr reports atypical usage of information system accounts to designated 18F SecOps and Devops teams. Monitoring and intrusion information contained within Cloud Checkr and Cloudtrail logs are  sent to 18F security personnel. The  logs are protected from unauthorized access by limiting access to authorized privileged users only.
+    ## ELKStack
+
+    ### Part a
+
+    Information system account activities are monitored via ELK
+
+    ### Part b
+
+    ELK reports atypical usage of information system accounts to designated Infrastructure and cloud.gov operators teams.
 - id: ssp_template_cp_2
   format: markdown
   template: |
@@ -204,19 +203,19 @@ output:
 - id: ssp_template_ac_4__21
   format: markdown
   template: |
+    ## Warden
+    ## Amazon Virtual Private Cloud
     ## Application Security Groups
     ## DEA
-    ## Amazon Virtual Private Cloud
-    ## Warden
 - id: ssp_template_ia_2__5
   format: markdown
   template: |
-    ## Identification and Authentication Policy for 18F
-
-    NA - Local access is treated the same as remote access. See IA-2 (1).
     ## User Account and Authentication (UAA) Server
 
     This controls is not applicable. here are are no group accounts within the Cloud.Gov platform.
+    ## Identification and Authentication Policy for 18F
+
+    NA - Local access is treated the same as remote access. See IA-2 (1).
 - id: ssp_template_ac_17__2
   format: markdown
   template: >
@@ -312,15 +311,17 @@ output:
 - id: ssp_template_ac_2__1
   format: markdown
   template: |
-    ## Identity and Access Management
     ## User Account and Authentication (UAA) Server
 
     UAA CLI is a semi-automated command line based account management system that enables operators to create, modify and deleted user accounts and roles within the platform. https://docs.cloudfoundry.org/adminguide/uaa-user-management.html
+    ## Access Control Policies for 18F
+
+    cloud.gov integrates its user management application with enterprise single sign on systems.
+    cloud.gov automates user management by delegating user verification to a centralized system.
+    ## Identity and Access Management
 - id: ssp_template_sc_7
   format: markdown
   template: |
-    ## Application Security Groups
-    ## DEA
     ## System and Communications Protection Policy for cloud.gov
 
     ### Part a
@@ -336,10 +337,15 @@ output:
 
     18F staff connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with organizational security architecture.
     ## Amazon Virtual Private Cloud
+    ## Application Security Groups
     ## EC2
+    ## DEA
 - id: ssp_template_ac_6__1
   format: markdown
   template: |
+    ## Access Control Policies for 18F
+
+    Because cloud.gov is a PaaS all accessible functions are privileged functions. Nevertheless, 18F team members use different accounts with increasing security requirements for accessing Cloud Foundry as a user, Cloud Foundry as a administrator, and AWS as an administrator.
     ## Identity and Access Management
 - id: ssp_template_ac_11
   format: markdown
@@ -347,6 +353,15 @@ output:
     ## User Account and Authentication (UAA) Server
 
     A session limit of 15 minutes is implemented on inactive accounts within the Cloud.gov platform. All sessions are terminated after this period, but sesssion are not locked.
+    ## Access Control Policies for 18F
+
+    ### Part a
+
+    NA - User management is delegated to each organization's enterprise user management system.
+
+    ### Part b
+
+    NA - User management is delegated to each organization's enterprise user management system.
 - id: ssp_template_sa_5
   format: markdown
   template: |
@@ -385,14 +400,6 @@ output:
 - id: ssp_template_ia_2
   format: markdown
   template: >
-    ## Identity and Access Management
-
-    ## Identification and Authentication Policy for 18F
-
-
-    The cloud.gov platform delegates authentication to either the GSA enterprise system
-    or GitHub for any administrator access.
-
     ## User Account and Authentication (UAA) Server
 
 
@@ -408,6 +415,14 @@ output:
     the environment. Shared or group authenticators are not utilized, with the exception
     of a root administrative account. There are only two authorized users from the
     DevOps team who has access to the root administrative account.
+
+    ## Identity and Access Management
+
+    ## Identification and Authentication Policy for 18F
+
+
+    The cloud.gov platform delegates authentication to either the GSA enterprise system
+    or GitHub for any administrator access.
 - id: ssp_template_si_1
   format: markdown
   template: |
@@ -425,34 +440,41 @@ output:
 - id: ssp_template_ac_2__5
   format: markdown
   template: |
-    ## Identity and Access Management
     ## User Account and Authentication (UAA) Server
 
     Account log out is set to 15 minutes of inactivity.
+    ## Access Control Policies for 18F
+
+    The 18F Access Control Policy Section 3
+    Session Lock states - 18F information systems prevents further access to the system by initiating a session lock after a period of 20 minutes or less of inactivity or upon receiving a request from a user. 18F information systems retain the session lock until the user reestablishes access using established identification and authentication procedures.
+    ## Identity and Access Management
 - id: ssp_template_ac_2__2
   format: markdown
-  template: |
-    ## Identity and Access Management
+  template: >
     ## User Account and Authentication (UAA) Server
 
-    Not Applicable. UAA does not contain any guest/anonymous, group, or temporary user accounts. Administrators only creates individual user accounts and grants role based access to users within UAA. There are no guest/anonymous, group, or temporary user accounts.
+
+    Not Applicable. UAA does not contain any guest/anonymous, group, or temporary
+    user accounts. Administrators only creates individual user accounts and grants
+    role based access to users within UAA. There are no guest/anonymous, group, or
+    temporary user accounts.
+
+    ## Access Control Policies for 18F
+
+
+    This control is not applicable. cloud.gov does not contain any guest/anonymous,
+    group, or temporary user accounts. DevOps only creates individual user accounts
+    and grants role based access to users within cloud.gov.
+
+    ## Identity and Access Management
 - id: ssp_template_ac_2__4
   format: markdown
   template: >
-    ## ELKStack
+    ## User Account and Authentication (UAA) Server
 
 
-    cloud.gov provides an audit trail through the bosh tasks command which shows all
-    actions that an operator has taken with the platform. It also records an audit
-    trail of all relevant API invocations of an app. The CLI command cf events returns
-    this information.
-
-
-    ELK ( Logstash, Elasticsearch, Kibana) a front end component for loggregator is
-    used to automatically audit all actions within the cloud.gov platform. By binding
-    an instance of the service to, cloud.gov applications logs will be drained to
-    a Logstash syslog receiver and stored in Elasticsearch to perform real-time data
-    analytics with Kibana as the interface for search and visualization.
+    All account activity is logged using the UAA system which can be reviewed for
+    auditing purposes.
 
     ## Cloud Checkr
 
@@ -477,11 +499,20 @@ output:
     Console. SecOps personnel monitors the use of all infrastructure accounts through
     Cloud Checkr
 
-    ## User Account and Authentication (UAA) Server
+    ## ELKStack
 
 
-    All account activity is logged using the UAA system which can be reviewed for
-    auditing purposes.
+    cloud.gov provides an audit trail through the bosh tasks command which shows all
+    actions that an operator has taken with the platform. It also records an audit
+    trail of all relevant API invocations of an app. The CLI command cf events returns
+    this information.
+
+
+    ELK ( Logstash, Elasticsearch, Kibana) a front end component for loggregator is
+    used to automatically audit all actions within the cloud.gov platform. By binding
+    an instance of the service to, cloud.gov applications logs will be drained to
+    a Logstash syslog receiver and stored in Elasticsearch to perform real-time data
+    analytics with Kibana as the interface for search and visualization.
 - id: ssp_template_sc_12__2
   format: markdown
   template: |
@@ -531,6 +562,20 @@ output:
 - id: ssp_template_ac_17__4
   format: markdown
   template: >
+    ## Amazon Virtual Private Cloud
+
+    ## Access Control Policies for 18F
+
+
+    ### Part a
+
+
+    18F authorizes the execution of privileged commands and access to security-relevant
+    information via remote access only for monitoring, managing, and troubleshooting
+    the 18F virtual infrastructure and cloud.gov platform. This authorization is only
+    given to specific members of the DevOps and SecOps teams. All other members are
+    excluded from this type of access.
+
     ## JumpBox
 
 
@@ -548,8 +593,6 @@ output:
     It is the only access point for designated DevOps members to run privileged commands
     that affect the entire platform. No other privileged remote access is available
     to the information system.
-
-    ## Amazon Virtual Private Cloud
 - id: ssp_template_ps_6
   format: markdown
   template: |
@@ -778,21 +821,33 @@ output:
 - id: ssp_template_ac_2__7
   format: markdown
   template: |
-    ## ELKStack
-
-    ### Part b
-
-    18F monitors all privileged access API calls through the Cloud Foundry command line interface and BOSH command line interface within cloud.gov. These API calls are monitored through ELK.
-    ## Cloud Checkr
-
-    ### Part b
-
-    18F monitors all privileged role assignments to the VPS through the IAM console, CloudTrail audit logs and Cloud Watch alerts. 18F uses Cloud Checkr to provide centralized monitoring and alerting within its VPC.
     ## User Account and Authentication (UAA) Server
 
     ### Part b
 
     UAA centralizes all role assignment and all user management activity is logged and monitored.
+    ## Cloud Checkr
+
+    ### Part b
+
+    18F monitors all privileged role assignments to the VPS through the IAM console, CloudTrail audit logs and Cloud Watch alerts. 18F uses Cloud Checkr to provide centralized monitoring and alerting within its VPC.
+    ## Access Control Policies for 18F
+
+    ### Part a
+
+    cloud.gov UAA allows the creation of limited privileged accounts.
+    Roles are created by the administrators on a need by need basis.
+    Cloud Foundry roles are granularly granted depending on the requirements
+    of each organization within the platform.
+
+    ### Part c
+
+    18F removes users from privileged access rights when privileged role assignments are no longer appropriate or have been requested by the system owner and program manager. Removal of access is sent to the DevOps team through a change request within the GitHub ticketing system.
+    ## ELKStack
+
+    ### Part b
+
+    18F monitors all privileged access API calls through the Cloud Foundry command line interface and BOSH command line interface within cloud.gov. These API calls are monitored through ELK.
 - id: ssp_template_cm_2__2
   format: markdown
   template: >
@@ -849,20 +904,20 @@ output:
 - id: ssp_template_ia_2__11
   format: markdown
   template: |
-    ## Identification and Authentication Policy for 18F
-
-    NA - cloud.gov delegates authentication to multiple separate single sign on (SSO) systems which implement multifactor in multiple ways.
     ## User Account and Authentication (UAA) Server
 
     Cloud.Gov does not have MFA capabilities implemented. Cloud.Gov currently utilizes username and password for identification and authentication of non-privileged accounts.
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to multiple separate single sign on (SSO) systems which implement multifactor in multiple ways.
 - id: ssp_template_sa_11__1
   format: markdown
   template: |
-    ## BOSH
-    ## Cloud Controller
     ## System and Services Acquisition Policy for 18F
 
     The Cloud Foundry community uses Code Climate on platform components such as BOSH and Cloud Controller. The results of the scans are publicly available and can be run by 18F at any time.
+    ## BOSH
+    ## Cloud Controller
 - id: ssp_template_ca_2
   format: markdown
   template: |
@@ -1082,6 +1137,14 @@ output:
 - id: ssp_template_sc_13
   format: markdown
   template: |
+    ## System and Communications Protection Policy for cloud.gov
+
+    cloud.gov inherits the control from the GovCloud package for the ELB SSL termination. See https://d0.awsstatic.com/whitepapers/compliance/AWS_Risk_and_Compliance_Whitepaper.pdf for further details.
+    ## User Account and Authentication (UAA) Server
+
+    As for stored data the following cryptographic mechanisms are used to prevent unauthorized disclosure and modification of stored data.
+    Operators configure encryption of the identity store in the UAA. When users register an account with the Cloud Foundry platform, the UAA acts as the user store and stores user passwords in the UAA database using bcrypt, a blowfish encryption algorithm, which enables Cloud Foundry to store a secure hash of user passwords.
+    The Cloud Controller stores the configuration for an application in an encrypted database table. This configuration data includes user-specified environment variables and service credentials for any services bound to the app.
     ## SecureProxy
 
     cloud.gov forces https using SecureProxy:
@@ -1101,14 +1164,6 @@ output:
 
     Application developers push their code using the Cloud Foundry API. Cloud Foundry
     secures each call to the CF API using the UAA and SSL
-    ## System and Communications Protection Policy for cloud.gov
-
-    cloud.gov inherits the control from the GovCloud package for the ELB SSL termination. See https://d0.awsstatic.com/whitepapers/compliance/AWS_Risk_and_Compliance_Whitepaper.pdf for further details.
-    ## User Account and Authentication (UAA) Server
-
-    As for stored data the following cryptographic mechanisms are used to prevent unauthorized disclosure and modification of stored data.
-    Operators configure encryption of the identity store in the UAA. When users register an account with the Cloud Foundry platform, the UAA acts as the user store and stores user passwords in the UAA database using bcrypt, a blowfish encryption algorithm, which enables Cloud Foundry to store a secure hash of user passwords.
-    The Cloud Controller stores the configuration for an application in an encrypted database table. This configuration data includes user-specified environment variables and service credentials for any services bound to the app.
 - id: ssp_template_sc_21
   format: markdown
   template: |
@@ -1280,6 +1335,9 @@ output:
     ## User Account and Authentication (UAA) Server
 
     NA - This control is not applicable. Group accounts are not allowed  within the 18F VPC and the Cloud.Gov platform
+    ## Access Control Policies for 18F
+
+    cloud.gov does not permit shared accounts. Every user requires their own account.
     ## Cloud Controller
 - id: ssp_template_sc_12__3
   format: markdown
@@ -1331,6 +1389,9 @@ output:
     ## User Account and Authentication (UAA) Server
 
     A session limit of 15 minutes is implemented on inactive accounts within the Cloud.gov platform.
+    ## Access Control Policies for 18F
+
+    Session termination is managed by UAA and set to expire within 15 minutes.
 - id: ssp_template_cp_3
   format: markdown
   template: |
@@ -1366,17 +1427,17 @@ output:
 - id: ssp_template_ia_2__8
   format: markdown
   template: |
-    ## JumpBox
-
-    Access keys and user accounts can be revoked using IAM. Sessions terminate after 10 minutes.
-    ## Identification and Authentication Policy for 18F
-
-    cloud.gov implements UAA which has session tokens and CSRF prevention that prevents replay attacks.
     ## User Account and Authentication (UAA) Server
 
     Cloud.gov a limit of 5 consecutive invalid logon attempts by a user during a 15 minute period
     Automatically; locks the account/node for 20 minutes when the maximum number of unsuccessful attempts is exceeded
     Account log out is set to 15 minutes of inactivity.
+    ## Identification and Authentication Policy for 18F
+
+    cloud.gov implements UAA which has session tokens and CSRF prevention that prevents replay attacks.
+    ## JumpBox
+
+    Access keys and user accounts can be revoked using IAM. Sessions terminate after 10 minutes.
 - id: ssp_template_ma_3__3
   format: markdown
   template: |
@@ -1459,6 +1520,9 @@ output:
     ## User Account and Authentication (UAA) Server
 
     This control is not applicable. Group accounts are not allowed  within the 18F VPC and the Cloud.Gov PaaS
+    ## Access Control Policies for 18F
+
+    cloud.gov does not permit shared accounts. Every user requires their own account.
 - id: ssp_template_sa_10__1
   format: markdown
   template: |
@@ -1510,19 +1574,6 @@ output:
 - id: ssp_template_ac_2
   format: markdown
   template: |
-    ## Identity and Access Management
-    ## ELKStack
-
-    ### Part g
-
-    The UAA API interface is used to monitor privileged/non privileged user accounts within the cloud.gov It lists Cloud Foundry instance users. By default it returns information about each user account including GUID, name, permission groups, activity status, and metadata.
-
-    18F uses the ELK stack to provide a visual way to monitor all user and system accounts within cloud.gov by interfacing with cloud.gov API calls to its internal system components (i.e. Loggregator, Cloud Controller, DEA, Warden, Metrics Collector)
-    ## Cloud Checkr
-
-    ### Part j
-
-    User accounts will be monitored monthly and accounts will be disabled after 90 days of inactivity; this will be a manual review process every 30 days. 18F is in the process of automating this account management process through the use of implementing AWS OSQuery to trigger alerts when user accounts are inactive of a 90-day period.
     ## User Account and Authentication (UAA) Server
 
     ### Part j
@@ -1532,7 +1583,133 @@ output:
     ### Part k
 
     Cloud Foundry utilizes role based access controls (RBAC) for group membership within the platform and does not issue shared/group account credentials.
+    ## Cloud Checkr
+
+    ### Part j
+
+    User accounts will be monitored monthly and accounts will be disabled after 90 days of inactivity; this will be a manual review process every 30 days. 18F is in the process of automating this account management process through the use of implementing AWS OSQuery to trigger alerts when user accounts are inactive of a 90-day period.
+    ## Access Control Policies for 18F
+
+    ### Part a
+
+    The 18F Program identifies and selects the following types of
+    information system accounts to support organizational missions/business functions:
+
+    ### Part b
+
+    18F has established designated DevOps personnel as the assigned
+    account managers for all information system accounts relating to the infrastructure
+    and the cloud.gov platform.
+    System Owners, whose web applications and/or websites
+    reside on the cloud.gov platform, have the responsibility to assign an account
+    manager for their information systems.
+
+    ### Part c
+
+    18F establishes conditions
+    for group and role membership within the cloud.gov platform and its virtual
+    environment.
+    Conditions for groups and roles membership are based on an established
+    need to manage and access the virtual infrastructure and cloud.gov environments.
+    The user must meet the following conditions in order for the System Owner / Project
+    Manager to approve a group membership request:
+      * The user’s assigned role is required to access a particular group.
+      * The user has the requirements and understanding to assume permissions associated with the group.
+      * The user has completed the security role-based training.
+      * The user complies with any other group-specific conditions created by the system owner.
+    Once conditions have been met, the System Owner / Project Manager will request access within
+    GitHub, 18F’s tracking and ticketing system. Once approved, the 18F DevOps group
+    completes the request for group and role membership within its infrastructure
+    and cloud.gov platform.
+
+    ### Part d
+
+    The 18F Program Office specifies authorized
+    users of the information system, group and role membership, and access authorizations
+    (i.e., privileges) and other attributes (as required) for each account. System
+    Owners / Project Managers provide the details of what type of access is needed
+    for an authorized authorized user.
+    All accounts will be documented within their
+    respective information systems, detailing their group and role membership, and
+    access authorizations. This documentation will be exported by DevOps and archived
+    for up to a year from the date of account creation by the managing 18F project
+    lead and cloud.gov Technical Point of Contact (Operating Environment) in accordance
+    with best business and security practices.
+
+    ### Part e
+
+    18F requires approvals by the project lead and system owners for requests to create information system
+    accounts. All accounts will be documented within the GitHub ticketing and tracking
+    system with their respective information systems, detailing their group, role
+    membership, and access authorizations.
+
+    ### Part f
+
+    User account establishment,
+    activation, modification, disablement or removal requires approval by the managing
+    \ project lead and cloud.gov Information System Technical Point of Contact.
+    Accounts will be created, enabled, modified, disabled, and removed from AWS in accordance
+    with 18F policies, guidelines and established by the project lead and DevOps.
+
+    ### Part g
+
+    18F monitors the use of all information system accounts within
+    its environment.
+
+    ### Part h
+
+    18F notifies its DevOps account managers when accounts are no longer required, users are terminated or transferred, and when
+    individual’s information system usage or need-to-know changes within the cloud.gov
+    platform and virtual private cloud infrastructure.
+    The Project Manager or Information
+    System Owner will be notified when accounts have been terminated, disabled or
+    transferred based on the access request submitted via GitHub.  Notification
+    will be sent via email or the GitHub ticketing and tracking system when changes
+    to user and system access occur.
+
+    ### Part i
+
+    18F authorizes access to its
+    information systems based on a valid access authorization from System Owners
+    and DevOps, intended system usage within the network environment, and other
+    attributes as required by the organization or associated missions/business functions.
+    This is documented within section 3 of the 18F Access Control Policy: Access
+    Management.
+    User and system access is provided only to those with an established
+    need to access and manage the virtual private cloud and cloud.gov environments.
+    * User group membership is restricted to the least privilege necessary for the user to accomplish their assigned duties.
+    * All user accounts are issued only to those who have gained approval by 18F DevOps.
+    Once approved, the DevOps team creates the user account and adds it to the appropriate role and organization
+    within its information systems.
+    18F grants access to the information system
+    based on:
+      * A valid need-to-know/need-to-share that is determined by assigned official duties and satisfying all personnel security criteria.
+      * Intended system usage.
+    18F requires proper identification for requests to establish information
+    system accounts, and it approves all such requests based on organizational or mission/business
+    function attributes.
+
+    ### Part j
+
+    18F reviews user and system accounts for compliance with account management requirements at least on an annual basis.
+    \ Currently, system and user accounts are being monitored manually on a monthly
+    basis and programmatically on a continuous basis.
+
+    ### Part k
+
+    18F establishes a process for reissuing shared/group account credentials when individuals are
+    removed from the group. 18F uses its GitHub tracking and ticketing system
+    for requests to reissue and remove individuals from group memberships within
+    its environment.
+    ## Identity and Access Management
     ## Cloud Controller
+    ## ELKStack
+
+    ### Part g
+
+    The UAA API interface is used to monitor privileged/non privileged user accounts within the cloud.gov It lists Cloud Foundry instance users. By default it returns information about each user account including GUID, name, permission groups, activity status, and metadata.
+
+    18F uses the ELK stack to provide a visual way to monitor all user and system accounts within cloud.gov by interfacing with cloud.gov API calls to its internal system components (i.e. Loggregator, Cloud Controller, DEA, Warden, Metrics Collector)
 - id: ssp_template_cm_3
   format: markdown
   template: |
@@ -1636,9 +1813,6 @@ output:
 - id: ssp_template_ac_6__9
   format: markdown
   template: |
-    ## ELKStack
-
-    The ELK (elasticsearch, Logstash, Kibana) is used to collect, manage and display all auditing of privileged functions within the cloud.gov platform.
     ## Cloud Checkr
 
     All privileged user account activity and API calls to cloud.gov are
@@ -1648,6 +1822,17 @@ output:
     for the action, and who made the request. Cloudtrail also shows whether it was
     as the AWS root account user or an IAM user, or whether it was with temporary
     security credentials for a role or federated user.
+    ## Access Control Policies for 18F
+
+    * Privileged access to the information system is using an audit trail through
+    the BOSH tasks command. This command shows all actions that an operator has
+    taken with the platform. Additionally, all logging activity is forwarded to
+    CloudWatch Logs.
+    * ELK (Logstash, Elasticsearch, Kibana) is used to collect, manage and display
+    all user activity within the cloud.gov platform.
+    ## ELKStack
+
+    The ELK (elasticsearch, Logstash, Kibana) is used to collect, manage and display all auditing of privileged functions within the cloud.gov platform.
 - id: ssp_template_si_4__4
   format: markdown
   template: |
@@ -1658,15 +1843,15 @@ output:
   format: markdown
   template: |
     ## Multi-Factor Authentication
-    ## JumpBox
-
-    cloud.gov currently does not have MFA capabilities implemented for users; however, any administrative actions taken on the platform requires authentication via encrypted ssh keys which are limited to specific users on the jumpbox.
-    ## Identification and Authentication Policy for 18F
-
-    Multifactor authentication is enforced both in the GSA enterprise login system and GitHub.
     ## User Account and Authentication (UAA) Server
 
     Cloud.Gov does not have MFA capabilities implemented. Cloud.Gov currently utilizes username and password for identification and authentication of non-privileged accounts.
+    ## Identification and Authentication Policy for 18F
+
+    Multifactor authentication is enforced both in the GSA enterprise login system and GitHub.
+    ## JumpBox
+
+    cloud.gov currently does not have MFA capabilities implemented for users; however, any administrative actions taken on the platform requires authentication via encrypted ssh keys which are limited to specific users on the jumpbox.
 - id: ssp_template_ir_6
   format: markdown
   template: |
@@ -1851,14 +2036,6 @@ output:
 - id: ssp_template_au_2
   format: markdown
   template: |
-    ## Loggregator
-    ## ELKStack
-
-    ### Part a
-
-    cloud.gov provides an audit trail through the bosh tasks command. This command shows all actions that an operator has taken with the platform. Additionally, operators can redirect Cloud Foundry component logs to a Logstash syslog server using the `syslog_daemon_config` property in the `metron_agent` job of cf-release.
-
-    For end users, cloud.gov records an audit trail of all relevant API invocations of and app. The CLI command cf events returns this information.
     ## Audit and Accountability Policy for 18F
 
     ### Part b
@@ -1882,6 +2059,7 @@ output:
     Specific Policies, Procedures, Points of Contact, and Guidance will be established
     between 18F and other agencies to support after-the-fact investigations, by the
     18F Project Lead.
+    ## Loggregator
     ## Cloud Checkr
 
     ### Part d
@@ -1894,6 +2072,13 @@ output:
     * Time - the date and time that the event occurred.
     * Region - the AWS Region(s) where the interactions occurred.
     * Resource ID - the resource ID from the event.
+    ## ELKStack
+
+    ### Part a
+
+    cloud.gov provides an audit trail through the bosh tasks command. This command shows all actions that an operator has taken with the platform. Additionally, operators can redirect Cloud Foundry component logs to a Logstash syslog server using the `syslog_daemon_config` property in the `metron_agent` job of cf-release.
+
+    For end users, cloud.gov records an audit trail of all relevant API invocations of and app. The CLI command cf events returns this information.
 - id: ssp_template_ia_5__11
   format: markdown
   template: |
@@ -1905,7 +2090,10 @@ output:
   template: "## User Account and Authentication (UAA) Server\n\n#### a  \nCloud.gov
     displays banner on the cloud.gov login page\n  \n#### b  \nThe banner displays
     on the login page until the user is logged in\n  \n#### c  \nThe banner displays
-    all requirements\n"
+    all requirements\n## Access Control Policies for 18F\n\n### Part a\n\nNA - User
+    management is delegated to each organization's enterprise user management system.\n\n###
+    Part b\n\nNA - User management is delegated to each organization's enterprise
+    user management system.\n"
 - id: ssp_template_pe_12
   format: markdown
   template: |
@@ -1921,12 +2109,12 @@ output:
 - id: ssp_template_ia_2__12
   format: markdown
   template: |
-    ## Identification and Authentication Policy for 18F
-
-    NA - cloud.gov delegates authentication to multiple separate single sign on (SSO) system which implement multifactor that may or may not include PIV cards.
     ## User Account and Authentication (UAA) Server
 
     PIV card access is Not applicable for the Cloud Foundry PaaS
+    ## Identification and Authentication Policy for 18F
+
+    NA - cloud.gov delegates authentication to multiple separate single sign on (SSO) system which implement multifactor that may or may not include PIV cards.
 - id: ssp_template_si_3__1
   format: markdown
   template: |
@@ -2046,6 +2234,27 @@ output:
 - id: ssp_template_ac_5
   format: markdown
   template: |
+    ## Access Control Policies for 18F
+
+    ### Part a
+
+    18F implements Identity and Access Management (IAM)
+    roles and individual user accounts for separation of duties at the AWS layer.
+    For Cloud Foundry access, cloud.gov uses UAA role based access controls (RBAC) to
+    maintain separation of duties.
+
+    ### Part b
+
+    18F documents separation of duties of AWS and Cloud Foundry users.  All AWS IAM
+    users, groups and roles can be viewed within the AWS console. IAM users reports
+    are generated to show all separation of duties. Cloud Checkr also generates
+    a report of all IAM users within the 18F AWS environment.
+
+    ### Part c
+
+    cloud.gov defines roles at each layer of the system. Authorization to each
+    of those roles is defined within the documentation of the setup and maintenance
+    of the layers.
     ## Identity and Access Management
     ## Cloud Controller
 - id: ssp_template_pe_13
@@ -2148,6 +2357,9 @@ output:
     ## User Account and Authentication (UAA) Server
 
     Cloud.gov does not support capability to limit active sessions and as a cloud-based system it was not designed to limit the number of active sessions.
+    ## Access Control Policies for 18F
+
+    NA - User management is delegated to each organization's enterprise user management system.
 - id: ssp_template_ca_2__2
   format: markdown
   template: >
@@ -2267,15 +2479,6 @@ output:
 - id: ssp_template_ac_17__1
   format: markdown
   template: >
-    ## ELKStack
-
-
-    The Cloud Controller authenticates every request with the Service Broker API using
-    HTTP or HTTPS. The cloud.gov operators only uses the BOSH Command Line Interface
-    (CLI) to log into the cloud.gov jumpbox using SSH as a remote connection. These
-    remote connections are monitored by the cloud.gov Cloud Controller which send
-    this data to the ELK logging and monitoring visualization tool stack.
-
     ## Cloud Checkr
 
 
@@ -2285,6 +2488,15 @@ output:
     to aggregate log files from multiple regions into a single Amazon S3 bucket. From
     there, 18F Devops and SecOps teams view the logs files within Cloud Checkr to
     perform security analysis and detect user behavior patterns.
+
+    ## ELKStack
+
+
+    The Cloud Controller authenticates every request with the Service Broker API using
+    HTTP or HTTPS. The cloud.gov operators only uses the BOSH Command Line Interface
+    (CLI) to log into the cloud.gov jumpbox using SSH as a remote connection. These
+    remote connections are monitored by the cloud.gov Cloud Controller which send
+    this data to the ELK logging and monitoring visualization tool stack.
 - id: ssp_template_au_9__4
   format: markdown
   template: |
@@ -2388,6 +2600,18 @@ output:
 - id: ssp_template_ac_6__10
   format: markdown
   template: |
+    ## Access Control Policies for 18F
+
+    The cloud.gov platform has built-in role based access controls (RBAC). This
+    ensures that users can only view and affect the spaces for which they have been
+    granted access to. It also prevents non-privileged users from executing privileged
+    functions to include disabling, circumventing, or altering implemented security
+    safeguards/countermeasures.
+    Only designated Org Managers from the DevOps team can execute privileged functions
+    to the cloud.gov platform. All other accounts are non-privileged accounts.
+    Client agencies using cloud.gov are only permitted to change settings within their
+    associated Org account, spaces and roles. These accounts do not have access to the
+    underlying cloud.gov platform.
     ## Cloud Controller
 - id: ssp_template_ac_17__9
   format: markdown
@@ -2410,6 +2634,9 @@ output:
 - id: ssp_template_ac_6__5
   format: markdown
   template: |
+    ## Access Control Policies for 18F
+
+    18F restricts privileged accounts such as administrator and root access accounts to designated members within the 18F Devops and SecOps teams. Within the virtual infrastructure the admin account is not used for privileged access. It’s only used for billing and metrics.
     ## Identity and Access Management
 - id: ssp_template_cm_1
   format: markdown
@@ -2513,14 +2740,14 @@ output:
 - id: ssp_template_si_10
   format: markdown
   template: |
-    ## BOSH
-    ## System and Information Integrity Policy for 18F
-
-    cloud.gov system monitors the integrity of system inputs using Tripwire.
     ## User Account and Authentication (UAA) Server
 
     The UAA uses an api with set endpoint and parameters. Users depending on thier authorized access can only make request to specific endpoint that activate specific functions that take a limited and defined set of parameters.
+    ## BOSH
     ## Cloud Controller
+    ## System and Information Integrity Policy for 18F
+
+    cloud.gov system monitors the integrity of system inputs using Tripwire.
 - id: ssp_template_cp_2__3
   format: markdown
   template: |
@@ -2674,6 +2901,19 @@ output:
 - id: ssp_template_ac_6
   format: markdown
   template: |
+    ## Access Control Policies for 18F
+
+    IAM policies are attached to the users, enabling centralized control of permissions
+    for users under 18F AWS Account to access services, buckets or objects. With IAM
+    policies, 18F only grants users within its own AWS account permission to access
+    its Amazon resources.
+    18F AWS IAM policies are defined to grant only the required access for 18F staff
+    necessary to perform their functions. 18F defines least privilege access to each user,
+    group, or role.
+    Security functions within the AWS infrastructure are explicitly defined within IAM to
+    include read-only permissions for any user functions.
+    18F incorporate running the IAM Policy Simulator to test policies for least privilege access
+    for users and groups.
     ## Identity and Access Management
     ## Cloud Controller
 - id: ssp_template_ca_2__3
@@ -2688,7 +2928,6 @@ output:
 - id: ssp_template_au_7
   format: markdown
   template: |
-    ## Loggregator
     ## Audit and Accountability Policy for 18F
 
     The ELK Stack logging and monitoring system provides additional audit
@@ -2698,6 +2937,7 @@ output:
     calls, system metrics, user access, system components, network traffic flow and
     other functions. Kibana is used to generate customized dashboards and Logstash
     to generate reports for analysis and review.
+    ## Loggregator
 - id: ssp_template_pe_13__3
   format: markdown
   template: |
@@ -2785,48 +3025,35 @@ output:
     cloud.gov operators teams establish an incident response plan for taking corrective actions. The cloud.gov incident response plan is documented at https://docs.cloud.gov/ops/security-ir/
 - id: ssp_template_ac_17
   format: markdown
-  template: >
+  template: |
+    ## Access Control Policies for 18F
+
+    ### Part a
+
+    cloud.gov has a distributed administrator, operator, and management team. All remote actions are
+    allowed.
+
+    ### Part b
+
+    AWS Security Groups are implemented to ensure that only users that have been granted access can
+    perform administrative actions.
     ## JumpBox
 
+    cloud.gov remote access is not available outside of the 18F environment. 18F DevOps personnel are the only group who connects to information system remotely using SSH (22) through the jump box (bastion Host) to execute BOSH CLI commands. The JumpBox is a virtual machine (VM) that acts as a single access point for the BOSH Director and deployed VMs. For resilience there are at least 2 jump boxes. Allowing access through jump boxes and disabling direct access to the other VMs is a common security measure 18F incorporates.
 
-    cloud.gov remote access is not available outside of the 18F environment. 18F DevOps
-    personnel are the only group who connects to information system remotely using
-    SSH (22) through the jump box (bastion Host) to execute BOSH CLI commands. The
-    JumpBox is a virtual machine (VM) that acts as a single access point for the BOSH
-    Director and deployed VMs. For resilience there are at least 2 jump boxes. Allowing
-    access through jump boxes and disabling direct access to the other VMs is a common
-    security measure 18F incorporates.
+    The jumbox only serves as a means to execute BOSH CLI commands for the platform. It cannot access any applications or websites hosted on top of the platform.
 
-
-    The jumbox only serves as a means to execute BOSH CLI commands for the platform.
-    It cannot access any applications or websites hosted on top of the platform.
-
-
-    JumpBoxes are logged in in the same way an EC2 instances is logged into. The system
-    has both a firewall and user ssh key logins.
-
+    JumpBoxes are logged in in the same way an EC2 instances is logged into. The system has both a firewall and user ssh key logins.
 
     The 18F Access Control Policy Section 3 - Remote Access states:
 
-
-    * 18F shall define, document and enforce requirements, usage restrictions and
-    implementation guidance for each allowed remote access method.
-
+    * 18F shall define, document and enforce requirements, usage restrictions and implementation guidance for each allowed remote access method.
     * Remote and Virtual Private Network (VPN) access shall require multi-factor authentication.
-
     * Access shall be authorized before a connection may be established.
-
-    * 18F shall monitor for unauthorized remote access and shall take appropriate
-    action if unauthorized access is discovered.
-
-    * Remote access shall employ cryptography to protect session confidentiality and
-    integrity.
-
-    * Remote access shall be routed through a limited number of managed access control
-    points.
-
-    * Privileged commands and access to security-relevant information via remote access
-    shall only be permitted as described in the System Security Plan (SSP).
+    * 18F shall monitor for unauthorized remote access and shall take appropriate action if unauthorized access is discovered.
+    * Remote access shall employ cryptography to protect session confidentiality and integrity.
+    * Remote access shall be routed through a limited number of managed access control points.
+    * Privileged commands and access to security-relevant information via remote access shall only be permitted as described in the System Security Plan (SSP).
 - id: ssp_template_si_3__7
   format: markdown
   template: |
@@ -2924,12 +3151,12 @@ output:
   format: markdown
   template: |
     ## Multi-Factor Authentication
-    ## Identification and Authentication Policy for 18F
-
-    cloud.gov monitors and tracks all network connections using AWS VPC flow logs, router access logs, and application access logs. cloud.gov assigns each connection a unique identifier and tracks it across queries.
     ## User Account and Authentication (UAA) Server
 
     Not Applicable to Cloud Foundry
+    ## Identification and Authentication Policy for 18F
+
+    cloud.gov monitors and tracks all network connections using AWS VPC flow logs, router access logs, and application access logs. cloud.gov assigns each connection a unique identifier and tracks it across queries.
 - id: ssp_template_pl_8
   format: markdown
   template: >
@@ -2996,22 +3223,30 @@ output:
     regional disasters, AWS supports the ability to place processing systems in multiple geographic regions.
 - id: ssp_template_ac_14
   format: markdown
-  template: "## Identity and Access Management\n## User Account and Authentication
-    (UAA) Server\n\n#### a  \nThere are no permitted actions without identification
-    and authentication to Cloud.Gov. The Cloud Controller rejects any broker registration
-    that does not contain a username and password. The Cloud Controller authenticates
-    every request with the Service Broker API using HTTP or HTTPS, depending on which
-    protocol you specify during broker registration.\n  \n#### b  \nIt is not possible
-    for members of the 18F Devops and SecOps teams to aceess the 18F virtual private
-    cloud infrastructure without muitifactor authetication and identification. All
-    clinet users of Cloud.gov must login using authenticated credentials in order
-    to acess the system as stated in Part A above.\n## Cloud Controller\n"
+  template: "## User Account and Authentication (UAA) Server\n\n#### a  \nThere are
+    no permitted actions without identification and authentication to Cloud.Gov. The
+    Cloud Controller rejects any broker registration that does not contain a username
+    and password. The Cloud Controller authenticates every request with the Service
+    Broker API using HTTP or HTTPS, depending on which protocol you specify during
+    broker registration.\n  \n#### b  \nIt is not possible for members of the 18F
+    Devops and SecOps teams to aceess the 18F virtual private cloud infrastructure
+    without muitifactor authetication and identification. All clinet users of Cloud.gov
+    must login using authenticated credentials in order to acess the system as stated
+    in Part A above.\n## Access Control Policies for 18F\n\n### Part b\n\nIt is not
+    possible for members of the 18F Devops and SecOps teams to access the 18F virtual\nprivate
+    cloud infrastructure without multifactor authentication and identification. All
+    client\nusers of cloud.gov must login using authenticated credentials in order
+    to access the system.\n## Identity and Access Management\n## Cloud Controller\n"
 - id: ssp_template_ac_11__1
   format: markdown
   template: |
     ## User Account and Authentication (UAA) Server
 
     The Cloud.gov login page hides user passwords using asterisks, the Cloud Foundry along with the bosh cli also obfuscate user passwords.
+    ## Access Control Policies for 18F
+
+    Every user interaction with the cloud.gov APIs requires a valid token. If a user session is locked
+    no cloud.gov actions are allowed.
 - id: ssp_template_sc_7__4
   format: markdown
   template: |
@@ -3088,15 +3323,33 @@ output:
     sends an alert to cloud.gov operators if a system metric exceeds a defined threshold.\n"
 - id: ssp_template_ac_3
   format: markdown
-  template: |
-    ## Application Security Groups
-    ## Identity and Access Management
+  template: >
     ## User Account and Authentication (UAA) Server
 
+
     18F follows best practices by implementing the majority of the following:
-      - Use RBAC model to restrict users’ access to only what is necessary to complete their tasks.
+      - Use RBAC model to restrict users’ access to only what is necessary to complete
+    their tasks.
       - Use a strong passphrase for both Cloud.gov user account and SSH keys.
-      - Configure UAA clients and users using a BOSH manifest. Limit and manage these clients and users as you would any other kind of privileged account.
+      - Configure UAA clients and users using a BOSH manifest. Limit and manage these
+    clients and users as you would any other kind of privileged account.
+    ## Application Security Groups
+
+    ## Access Control Policies for 18F
+
+
+    18F information systems enforce approved authorizations for logical access to
+    information and system resources in accordance with the 18F Access Control Policy
+    Section 3 Access Enforcement which states:
+      * 18F must enforce approved authorizations for logical access to its information
+    systems in accordance with all applicable federal and 18F policies.
+      * 18F must provide access enforcement through the use of access control lists,
+    access control matrices, and cryptography to control access between users (or
+    processes acting on behalf of users) and objects (e.g., devices, files, records,
+    processes, programs, domains) in the information system.
+      * 18F must employ access enforcement mechanisms at the application level, when
+    necessary, to provide increased information security for the organization.
+    ## Identity and Access Management
 - id: ssp_template_sc_20
   format: markdown
   template: >
@@ -3411,16 +3664,6 @@ output:
 - id: ssp_template_au_3
   format: markdown
   template: >
-    ## ELKStack
-
-
-    The cloud.gov platform as a service generates audit logs from its Loggregator
-    component and is passed through the ELK stack to produce audit records which contain
-    sufficient information to establish at a minimum: what type of event occurred,
-    when (date and time the event occurrence) the source of the event the outcome
-    (success or failure) of the event the identity of any user/subject associated
-    with the event
-
     ## Cloud Checkr
 
 
@@ -3431,6 +3674,16 @@ output:
     Z indicates that the time is in UTC.
 
     ## Cloud Controller
+
+    ## ELKStack
+
+
+    The cloud.gov platform as a service generates audit logs from its Loggregator
+    component and is passed through the ELK stack to produce audit records which contain
+    sufficient information to establish at a minimum: what type of event occurred,
+    when (date and time the event occurrence) the source of the event the outcome
+    (success or failure) of the event the identity of any user/subject associated
+    with the event
 - id: ssp_template_mp_6__2
   format: markdown
   template: >
@@ -3802,7 +4055,6 @@ output:
 - id: ssp_template_au_3__1
   format: markdown
   template: |
-    ## Loggregator
     ## Audit and Accountability Policy for 18F
 
     The Cloud.Gov information system generates audit records containing the following additional information:
@@ -3825,6 +4077,7 @@ output:
 
     Cloud.Gov can generate additional audit information such as
     - remote_addr, remote_user, request_status, bytes_sent, http_referer, http_user_agent, gzip_ratio
+    ## Loggregator
 - id: ssp_template_at_3
   format: markdown
   template: |
@@ -3904,6 +4157,11 @@ output:
     after 90 days of inactivity; this will be a manual review process every 30 days.
     18F generates a credential report that lists all IAM users and the status of their
     credentials, including passwords, access keys, and MFA devices.
+    ## Access Control Policies for 18F
+
+    18F manages information system identifiers for users and devices by: Disabling
+    the user identifier after ninety (90) days of inactivity for general user accounts
+    and thirty (30) days for administrator level accounts.
 - id: ssp_template_ma_3__1
   format: markdown
   template: |
@@ -4110,12 +4368,12 @@ output:
 - id: ssp_template_ia_2__3
   format: markdown
   template: |
-    ## JumpBox
-
-    Any administrative actions taken on the platform requires authentication via encrypted ssh keys which are limited to specific users on the jumpbox.
     ## Identification and Authentication Policy for 18F
 
     NA - Only individual authentication is allowed.
+    ## JumpBox
+
+    Any administrative actions taken on the platform requires authentication via encrypted ssh keys which are limited to specific users on the jumpbox.
 - id: ssp_template_ra_1
   format: markdown
   template: |
@@ -4137,10 +4395,6 @@ output:
 - id: ssp_template_ac_4
   format: markdown
   template: >
-    ## Application Security Groups
-
-    ## Amazon Virtual Private Cloud
-
     ## User Account and Authentication (UAA) Server
 
 
@@ -4159,6 +4413,42 @@ output:
     configuration settings that restrict information system services, provide a packet-filtering
     capability based on header information, or message-filtering capability based
     on content (e.g., using key word searches or document characteristics.
+    ## Amazon Virtual Private Cloud
+
+    ## Application Security Groups
+
+    ## Access Control Policies for 18F
+
+
+    The information system enforces approved authorizations for controlling the flow
+
+    of information within the system and between interconnected systems based on the
+
+    18F Access Control Policy Section 3 -  Information Flow Enforcement which states:
+
+    * 18F enforces approved authorizations for controlling the flow of information
+
+    within its information systems and between interconnected systems in accordance
+
+    with applicable federal laws and 18F policies and procedures.
+
+    * 18F shall use flow control restrictions to include: keeping export controlled
+
+    information from being transmitted in the clear to the internet, blocking outside
+
+    traffic that claims to be from within the organization and not passing any web
+
+    requests to the internet that are not from the internal web proxy.
+
+    * 18F shall use boundary protection devices (e.g., proxies, gateways, guards,
+
+    encrypted tunnels, firewalls, and routers) that employ rule sets or establish
+
+    configuration settings that restrict information system services, provide a
+
+    packet-filtering capability based on header information, or message-filtering
+
+    capability based on content (e.g., using keyword searches or document characteristics.
 - id: ssp_template_cp_8__1
   format: markdown
   template: |
@@ -4179,3 +4469,97 @@ output:
     ## Identification and Authentication Policy for 18F
 
     NA - cloud.gov delegates authentication to an enterprise single sign on (SSO) system.
+- id: ssp_template_ac_20__1
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    Not Applicable for the Cloud Foundry Platform
+- id: ssp_template_ac_21
+  format: markdown
+  template: >
+    ## Access Control Policies for 18F
+
+
+    Not applicable to the the cloud.gov platform. The cloud.gov platform is for use
+    of development of and deployment of web applications. This control would be handled
+    at the application level and is the responsibility of the application system owner.
+- id: ssp_template_ac_19
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    Not Applicable for the Cloud Foundry Platform
+- id: ssp_template_ac_6__2
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    Security functions within the cloud.gov platform are limited to roles that can be taken
+    only by using BOSH, Concourse or UAA CLI. Non-security functions are performed using a
+    non-privileged Cloud Foundry account.
+- id: ssp_template_ac_22
+  format: markdown
+  template: >
+    ## Access Control Policies for 18F
+
+
+    Not applicable to the the cloud.gov platform. The cloud.gov platform is for use
+    of development of and deployment of web applications. This control would be handled
+    at the application level and is the responsibility of the application system owner.
+- id: ssp_template_ac_20__2
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    Not Applicable for the Cloud Foundry Platform
+- id: ssp_template_ac_19__5
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    Not Applicable for the Cloud Foundry Platform
+- id: ssp_template_ac_8
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    Implementation in progress
+- id: ssp_template_ac_1
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    ### Part a
+
+    The 18F Program Office develops, documents, and disseminates
+    to all 18F staff the 18F Access Control Policy which addresses purpose, scope,
+    roles, responsibilities, management commitment, coordination among organizational
+    entities, compliance, and procedures to facilitate the implementation of
+    the access control policy and associated access controls. The 18F Access Control
+    Policy is listed within 18F’s private Github repository and the docs.cloud.gov
+    site that is accessible to all 18F staff.
+
+    ### Part b
+
+    The 18F Program Office
+    will review and update the current 18F Access Control Policy at least every
+    3 years and any documented access procedures at least annually.
+- id: ssp_template_ac_18__1
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    Not Applicable for the Cloud Foundry Platform
+- id: ssp_template_ac_20
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    Not Applicable for the Cloud Foundry Platform
+- id: ssp_template_ac_18
+  format: markdown
+  template: |
+    ## Access Control Policies for 18F
+
+    Not Applicable for the Cloud Foundry Platform
