@@ -12,10 +12,12 @@ control_index:
       - id: TR-3
 
 catalog:
+  catgory: Processes
   vendor: GovReady PBC
   vendor_url: http://www.govready.com
   status: Operational
   version: 0.3
+  icon: app.png
   source_url: https://github.com/GovReady/govready-q-tr-small-web
   role: project manager, web master, manager
   tech: website
