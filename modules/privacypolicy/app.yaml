@@ -12,7 +12,7 @@ control_index:
       - id: TR-3
 
 catalog:
-  catgory: Processes
+  category: Processes
   vendor: GovReady PBC
   vendor_url: http://www.govready.com
   status: Operational
