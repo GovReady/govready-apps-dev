@@ -6,6 +6,7 @@ protocol: fisma_system_categorization
 icon: app.png
 
 catalog:
+    category: Processes
     vendor: GovReady PBC
     vendor_url: http://www.govready.com
     status: Operational

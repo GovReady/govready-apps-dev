@@ -6,6 +6,7 @@ opencontrol_fetch_date: '2017-05-17T02:55:44.333719+00:00'
 version: 0.2
 icon: app.png
 catalog:
+  category: Technology
   vendor: GovReady
   vendor_url: http://www.govready.com
   status: Operational

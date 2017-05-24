@@ -6,6 +6,7 @@ protocol: web_server
 icon: app.png
 
 catalog:
+  category: Technology
   vendor: GovReady
   vendor_url: http://www.govready.com
   status: Operational

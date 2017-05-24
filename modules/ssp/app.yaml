@@ -4,23 +4,24 @@ type: project
 version: 1
 
 catalog:
-    vendor: GovReady PBC
-    vendor_url: http://www.govready.com
-    status: Operational
-    version: 0.95
-    source_url: https://github.com/GovReady/some-repo-here
-    description:
-      short: |
-        Prepare a System Security Plan for by the NIST Risk Management Framework
-      long: |
-        Long description here.
-    recommended_for:
-      - key_short: Org
-        value: Large
-      - key_short: Tech
-        value: Sophisticated
-      - key_short: Role
-        value: PM
+  category: Processes
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/some-repo-here
+  description:
+    short: |
+      Prepare a System Security Plan for by the NIST Risk Management Framework
+    long: |
+      Long description here.
+  recommended_for:
+    - key_short: Org
+      value: Large
+    - key_short: Tech
+      value: Sophisticated
+    - key_short: Role
+      value: PM
 
 snippet:
   format: html
