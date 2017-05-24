@@ -6,6 +6,7 @@ protocol: fed_poc_ao
 icon: app.png
 
 catalog:
+  category: People and Roles
   vendor: GovReady
   vendor_url: http://www.govready.com
   status: Operational
