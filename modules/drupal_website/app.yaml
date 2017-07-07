@@ -82,8 +82,14 @@ questions:
     icon: person-3.png
 
   - id: ssp
-    title: View SSP
+    title: View Simple SSP
     type: module
     module-id: ssp
+    icon: checkmark.png
+
+  - id: ssp2
+    title: View FISMA-Style SSP
+    type: module
+    module-id: ssp2
     icon: checkmark.png
 
