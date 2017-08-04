@@ -1,0 +1,46 @@
+id: app
+title: System Name and Details
+type: project
+version: 1
+protocol: govready.com/apps/compliance/2017/system-description
+icon: app.png
+
+catalog:
+  category: People, Places, and Things
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/q-ssp-modules/modules/generic_system_name_and_details
+  description:
+    short: |
+      Enter name, description, technical overview, and status for a system.
+    long: |
+      Enter the name, a description, a technical overview, and status of a system.
+  recommended_for:
+    - key_short: Org
+      value: Large
+    - key_short: Tech
+      value: Sophisticated
+    - key_short: Role
+      value: PM
+
+snippet:
+  format: html
+  template: |
+    {{system_name_and_details}}
+
+introduction:
+  format: markdown
+  template: |
+    Welcome to the System Name and Details app. 
+
+    Use this app to enter the name and a description of a system and provide a technical overview
+    and its implementation status.
+
+questions:
+- id: system_name_and_details
+  title: Enter Information
+  type: module
+  module-id: system_name_and_details
+  icon: app.png

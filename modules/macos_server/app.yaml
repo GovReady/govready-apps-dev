@@ -1,0 +1,69 @@
+id: app
+title: macOS Server
+type: project
+version: 1
+protocol: govready.com/apps/compliance/2017/file-server
+icon: app.png
+
+catalog:
+  category: Technology
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/q-ssp-modules/modules/macos_server
+  description:
+    short: |
+      Enter information about a macOS Server.
+    long: |
+      Enter information about a macOS Server.
+  recommended_for:
+    - key_short: Org
+      value: Large
+    - key_short: Tech
+      value: Sophisticated
+    - key_short: Role
+      value: PM
+
+introduction:
+  format: markdown
+  template: |
+    Use this app to enter the name and details of a macOS File Server.
+
+questions:
+- id: file_server
+  title: Enter Information
+  type: module
+  module-id: file_server
+  icon: app.png
+
+- id: file_server_name
+  title: File Server Name
+  type: text
+  impute:
+    - value: file_server.hostname.text
+      value-mode: expression
+
+- id: file_server_type
+  title: File Server Type
+  type: text
+  impute:
+    - value: file_server.macos_version.text
+      value-mode: expression
+
+output:
+- id: ssp_nistsp800171r1_3_1_1
+  format: markdown
+  template: |
+    ### macOS File Server
+
+    MacOS X file sharing authentication is used.
+    Credentials are transmitted over SSH, CIFS, or PEM and are stored in hashed
+    form in a Unix /etc/shadow password file.
+
+    {% if file_server.using_security_groups %}
+    Users are segmented by security group. {{file_server.security_groups_description}}
+    {% endif %}
+
+    {{file_server.settings}}
+

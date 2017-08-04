@@ -1,0 +1,97 @@
+id: file_server
+title: macOS File Server Details
+questions:
+  - id: hostname
+    title: Hostname
+    type: text
+    prompt: |
+      What is the hostname of the server?
+
+      Enter the DNS name of the server.
+      (It would be the address you would enter into a web browser
+      **without** `http://` or `https://`.)
+
+  - id: macos_version
+    title: macOS Version
+    type: choice
+    prompt: What version of macOS Server are you running on {{hostname}}?
+    choices:
+      - key: macosx1000
+        text: Mac OS X Server 10.0 (Cheetah Server)
+        help: Released May 21, 2001
+      - key: macosx1001
+        text: Mac OS X Server 10.1 (Puma Server)
+        help: Released September 25, 2001
+      - key: macosx1002
+        text: Mac OS X Server 10.2 (Jaguar Server)
+        help: Released August 23, 2002
+      - key: macosx1003
+        text: Mac OS X Server 10.3 (Panther Server)
+        help: Released October 24, 2003
+      - key: macosx1004
+        text: Mac OS X Server 10.4 (Tiger Server)
+        help: Released April 29, 2005
+      - key: macosx1005
+        text: Mac OS X Server 10.5 (Leopard Server)
+        help: Released October 26, 2007
+      - key: macosx1006
+        text: Mac OS X Server 10.6 (Snow Leopard Server)
+        help: Released August 28, 2009
+      - key: macosx1007
+        text: Mac OS X 10.7 with Lion Server
+        help: Released July 20, 2011
+      - key: macosx1008
+        text: OS X 10.8 with Mountain Lion Server
+        help: Released July 25, 2012
+      - key: macosx1009
+        text: OS X 10.9 with Mavericks Server
+        help: Released October 22, 2013
+      - key: macosx1010
+        text: OS X 10.10 with Yosemite Server 4.0
+        help: Released October 16, 2014
+      - key: macosx1011_5
+        text: OS X 10.11 with Server 5.0
+        help: Released September 16, 2015
+      - key: macosx1011_51
+        text: OS X 10.11 with Server 5.1
+        help: Released March 21, 2016
+      - key: macosx1012_52
+        text: macOS 10.12 with Server 5.2
+        help: Released September 20, 2016
+      - key: macosx1012_53
+        text: macOS 10.12 with Server 5.3
+        help: Released March 17, 2017
+
+  - id: using_security_groups
+    title: Security Groups
+    type: yesno
+    prompt: Are you using macOS Server security groups on {{hostname}}?
+
+  - id: security_groups_description
+    title: Security Groups Description
+    type: longtext
+    prompt: Describe the macOS Server security groups on {{hostname}}.
+    impute:
+      - condition: using_security_groups == 'no'
+        value: ~
+
+  - id: settings
+    title: User Settings
+    type: longtext
+    prompt: |
+      Describe the macOS Server user settings used on {{hostname}} to limit access.
+
+      * Are you using automatic deactivation of accounts after a period of no logins? (What is the expiration period?)
+
+      * Are lockouts used after a certain number of failed logins? (How many failed logins triggers a lockout?)
+
+      * MacOS X file sharing does not support multi-factor authentication so accounts are required
+        to have long passwords (at least 14 characters). What is the password policy?
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Congratulations! You've created a basic profile of a file server!
+
+

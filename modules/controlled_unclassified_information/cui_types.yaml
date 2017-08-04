@@ -1,0 +1,241 @@
+id: cui_types
+title: Controlled Unclassified Information Types Present on the System
+
+introduction:
+  format: markdown
+  template: |
+    We will ask you about what categories and subcategories of Controlled Unclassified Information
+    (CUI) are present on your system, based on the [NARA CUI Registry](https://www.archives.gov/cui/registry/category-list).
+
+questions:
+- id: cui_types
+  title: CUI Catgories and Subcategories
+  type: multiple-choice
+  prompt: |
+    What categories and subcategories of Controlled Unclassified Information
+    (CUI) are present on your system?
+
+    Consult the [NARA CUI Registry](https://www.archives.gov/cui/registry/category-list) for more
+    information on these categories.
+  choices:
+  - key: AG 
+    text: Agriculture (AG)
+  - key: CTI 
+    text: Controlled Technical Information (CTI)
+  - key: CRIT 
+    text: Critical Infrastructure (CRIT)
+  - key: CRITAN 
+    text: Critical Infrastructure --- Ammonium Nitrate (CRITAN)
+  - key: CVI 
+    text: Critical Infrastructure --- Chemical-terrorism Vulnerability Information (CVI)
+  - key: CEII 
+    text: Critical Infrastructure --- Critical Energy Infrastructure Information (CEII)
+  - key: DCRIT
+    text: Critical Infrastructure --- DoD Critical Infrastructure Security Information (DCRIT)
+  - key: PHYS 
+    text: Critical Infrastructure --- Physical Security (PHYS)
+  - key: PCII 
+    text: Critical Infrastructure --- Protected Critical Infrastructure Information (PCII)
+  - key: WATER
+    text: Critical Infrastructure --- Water Assessments (WATER)
+  - key: EMGT
+    text: Emergency Management (EMGT)
+  - key: EXPT 
+    text: Export Control (EXPT)
+  - key: EXPTR 
+    text: Export Control --- Research (EXPTR)
+  - key: FNC 
+    text: Financial (FNC)
+  - key: FSEC 
+    text: Financial --- Bank Secrecy (FSEC)
+  - key: BUDG 
+    text: Financial --- Budget (BUDG)
+  - key: COMPT 
+    text: Financial --- Comptroller General (COMPT)
+  - key: XFER 
+    text: Financial --- Electronic Funds Transfer (XFER)
+  - key: FHFANPI
+    text: Financial --- Federal Housing Finance Non-Public Information (FHFANPI)
+  - key: FINT 
+    text: Financial --- International Financial Institutions (FINT)
+  - key: MERG 
+    text: Financial --- Mergers (MERG)
+  - key: NETW
+    text: Financial --- Net Worth (NETW)
+  - key: RTR 
+    text: Financial --- Retirement (RTR)
+  - key: GEO 
+    text: Geodetic Product Information (GEO)
+  - key: ASYL 
+    text: Immigration --- Asylee (ASYL)
+  - key: BATT 
+    text: Immigration --- Battered Spouse or Child (BATT)
+  - key: RESD 
+    text: Immigration --- Permanent Resident Status (RESD)
+  - key: ADJ 
+    text: Immigration --- Status Adjustment (ADJ)
+  - key: PROT 
+    text: Immigration --- Temporary Protected Status (PROT)
+  - key: IVIC 
+    text: Immigration --- Victims of Human Trafficking (IVIC)
+  - key: VISA 
+    text: Immigration --- Visas (VISA)
+  - key: ISVI 
+    text: Information Systems Vulnerability Information (ISVI)
+  - key: INTEL 
+    text: Intelligence (INTEL)
+  - key: IFNC 
+    text: Intelligence --- Financial Records (IFNC)
+  - key:  FISA 
+    text: Intelligence --- Foreign Intelligence Surveillance Act ( FISA)
+  - key: FISAB 
+    text: Intelligence --- Foreign Intelligence Surveillance Act Business Records (FISAB)
+  - key: INSL 
+    text: Intelligence --- National Security Letter (INSL)
+  - key: ISCRN 
+    text: Intelligence --- Terrorist Screening (ISCRN)
+  - key: INTL 
+    text: International Agreements (INTL)
+  - key: LEI
+    text: Law Enforcement (LEI)
+  - key: FUND 
+    text: Law Enforcement --- Campaign Funds (FUND)
+  - key: CMPRS 
+    text: Law Enforcement --- Committed Person (CMPRS)
+  - key: LCOMM 
+    text: Law Enforcement --- Communications (LCOMM)
+  - key: SUB 
+    text: Law Enforcement --- Controlled Substances (SUB)
+  - key: CHRI 
+    text: Law Enforcement --- Criminal History Records Information (CHRI)
+  - key: LDNA 
+    text: Law Enforcement --- DNA (LDNA)
+  - key: LFNC 
+    text: Law Enforcement --- Financial Records (LFNC)
+  - key: INF 
+    text: Law Enforcement --- Informant (INF)
+  - key: INV 
+    text: Law Enforcement --- Investigation (INV)
+  - key: JUV 
+    text: Law Enforcement --- Juvenile (JUV)
+  - key: LNSL 
+    text: Law Enforcement --- National Security Letter (LNSL)
+  - key: TRACE 
+    text: Law Enforcement --- Pen Register/Trap & Trace (TRACE)
+  - key: RWRD 
+    text: Law Enforcement --- Reward (RWRD)
+  - key: SCV 
+    text: Law Enforcement --- Sex Crime Victim (SCV)
+  - key: LSCRN 
+    text: Law Enforcement --- Terrorist Screening (LSCRN)
+  - key: WHSTL 
+    text: Law Enforcement --- Whistleblower Identity (WHSTL)
+  - key: ADPO 
+    text: Legal --- Administrative Proceedings (ADPO)
+  - key: CHLD 
+    text: Legal --- Child Pornography (CHLD)
+  - key: CVIC 
+    text: Legal --- Child Victim/Witness (CVIC)
+  - key: BARG 
+    text: Legal --- Collective Bargaining (BARG)
+  - key: JURY 
+    text: Legal --- Federal Grand Jury (JURY)
+  - key: PRE 
+    text: Legal --- Presentence Report (PRE)
+  - key: PRIOR
+    text: Legal --- Prior Arrest (PRIOR)
+  - key: PRIV 
+    text: Legal --- Privilege (PRIV)
+  - key: LPROT 
+    text: Legal --- Protective Order (LPROT)
+  - key: LVIC 
+    text: Legal --- Victim (LVIC)
+  - key: WIT 
+    text: Legal --- Witness Protection (WIT)
+  - key: nato_restricted
+    text: NATO --- NATO Restricted
+  - key: nato_unclassified
+    text: NATO --- NATO Unclassified
+  - key: NUC 
+    text: Nuclear (NUC)
+  - key: NNPI 
+    text: Nuclear --- Naval Nuclear Propulsion Information (NNPI)
+  - key: RECCOM
+    text: Nuclear --- Recommendation Material (RECCOM)
+  - key: SGI 
+    text: Nuclear --- Safeguards Information (SGI)
+  - key: SRI 
+    text: Nuclear --- Security-Related Information (SRI)
+  - key: DCNI 
+    text: Nuclear --- Unclassified Controlled Nuclear Information - Defense (DCNI)
+  - key: UCNI 
+    text: Nuclear --- Unclassified Controlled Nuclear Information - Energy (UCNI)
+  - key: APP 
+    text: Patent --- Application (APP)
+  - key: INVENT 
+    text: Patent --- Invention (INVENT)
+  - key: PSEC 
+    text: Patent --- Secrecy Orders (PSEC)
+  - key: PRVCY 
+    text: Privacy (PRVCY)
+  - key: CONTRACT 
+    text: Privacy --- Contract Use (CONTRACT)
+  - key: DREC 
+    text: Privacy --- Death Records (DREC)
+  - key: GENETIC 
+    text: Privacy --- Genetic Information (GENETIC)
+  - key: HLTH 
+    text: Privacy --- Health Information (HLTH)
+  - key: PRIIG 
+    text: Privacy --- Inspector General (PRIIG)
+  - key: MIL 
+    text: Privacy --- Military (MIL)
+  - key: PERS 
+    text: Privacy --- Personnel (PERS)
+  - key: STUD 
+    text: Privacy --- Student Records (STUD)
+  - key: PROCURE 
+    text: Procurement and Acquisition (PROCURE)
+  - key: SBIZ 
+    text: Procurement and Acquisition --- Small Business Research and Technology (SBIZ)
+  - key:  SSEL 
+    text: Procurement and Acquisition --- Source Selection ( SSEL)
+  - key: PROPIN 
+    text: Proprietary Business Information (PROPIN)
+  - key: MFC 
+    text: Proprietary Business Information --- Manufacturer (MFC)
+  - key: OCCMTO
+    text: Proprietary Business Information --- Ocean Common Carrier and Marine Terminal Operator Agreements (OCCMTO)
+  - key: SERV 
+    text: Proprietary Business Information --- Ocean Common Carrier Service Contracts (SERV)
+  - key: POST
+    text: Proprietary Business Information --- Postal (POST)
+  - key: CONREG
+    text: Proprietary Business Information --- System for Award Management (CONREG)
+  - key: SAFE 
+    text: SAFETY Act Information (SAFE)
+  - key: STAT 
+    text: Statistical (STAT)
+  - key: CENS 
+    text: Statistical --- Census (CENS)
+  - key: SURV 
+    text: Statistical --- Investment Survey (SURV)
+  - key: PEST 
+    text: Statistical --- Pesticide Producer Survey (PEST)
+  - key: TAX
+    text: Tax (TAX)
+  - key: CONV 
+    text: Tax --- Convention (CONV)
+  - key: RAIL 
+    text: Transportation --- Railroad Safety Analysis Records (RAIL)
+  - key: SSI 
+    text: Transportation --- Sensitive Security Information (SSI)
+
+
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Congratulations! You have determined what categories of Controlled Unclassified
+      Information are present on your system.
