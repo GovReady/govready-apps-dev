@@ -106,9 +106,24 @@ questions:
 
 
 output:
-  - title: Your Answers
-    format: markdown
-    template: |
-      Congratulations! You've created a basic profile of a data center!
+- title: Your Answers
+  format: markdown
+  template: |
+    Congratulations! You've created a basic profile of a data center!
 
+- id: ssp_nistsp800171r1_3_1_1
+  title: NIST SP 800-171r1 3.1.1
+  format: markdown
+  template: |
+    ### {{name}}
 
+    {{name_and_location}} is a data center{% if access_types|length > 0 %} with the following access controls:{% else %}.{% endif %}
+
+    {% for choice in access_types.choices_selected %}
+    * {{choice.text}}
+    
+    {% endfor %}
+    
+    {{access_description}}
+
+    {{access_poam}}

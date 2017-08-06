@@ -50,16 +50,4 @@ questions:
 output:
 - id: ssp_nistsp800171r1_3_1_1
   format: markdown
-  template: |
-    ### {{data_center.name}}
-
-    {{data_center.name_and_location}} is a data center{% if data_center.access_types|length > 0 %} with the following access controls:{% else %}.{% endif %}
-
-    {% for choice in data_center.access_types.choices_selected %}
-    * {{choice.text}}
-    
-    {% endfor %}
-    
-    {{data_center.access_description}}
-
-    {{data_center.access_poam}}
+  template: "{{data_center.output_documents.ssp_nistsp800171r1_3_1_1|safe}}"

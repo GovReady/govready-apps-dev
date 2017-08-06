@@ -94,4 +94,19 @@ output:
     template: |
       Congratulations! You've created a basic profile of a file server!
 
+  - id: ssp_nistsp800171r1_3_1_1
+    title: NIST SP 800-171r1 3.1.1
+    format: markdown
+    template: |
+      ### macOS File Server
+
+      MacOS X file sharing authentication is used.
+      Credentials are transmitted over SSH, CIFS, or PEM and are stored in hashed
+      form in a Unix /etc/shadow password file.
+
+      {% if using_security_groups %}
+      Users are segmented by security group. {{security_groups_description}}
+      {% endif %}
+
+      {{settings}}
 

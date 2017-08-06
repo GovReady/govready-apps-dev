@@ -54,16 +54,4 @@ questions:
 output:
 - id: ssp_nistsp800171r1_3_1_1
   format: markdown
-  template: |
-    ### macOS File Server
-
-    MacOS X file sharing authentication is used.
-    Credentials are transmitted over SSH, CIFS, or PEM and are stored in hashed
-    form in a Unix /etc/shadow password file.
-
-    {% if file_server.using_security_groups %}
-    Users are segmented by security group. {{file_server.security_groups_description}}
-    {% endif %}
-
-    {{file_server.settings}}
-
+  template: "{{file_server.output_documents.ssp_nistsp800171r1_3_1_1|safe}}"
