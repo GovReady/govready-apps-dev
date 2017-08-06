@@ -7,9 +7,7 @@ questions:
     prompt: |
       What is the hostname of the server?
 
-      Enter the DNS name of the server.
-      (It would be the address you would enter into a web browser
-      **without** `http://` or `https://`.)
+      Enter the name of the server as it is recognized by network services.
 
   - id: macos_version
     title: macOS Version
