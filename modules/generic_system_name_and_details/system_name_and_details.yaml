@@ -46,7 +46,7 @@ questions:
     prompt: |
       Thanks! We’ve now documented the system name.
 
-      Now let’s document the type of system.
+      Now let’s document the status of the system.
 
   - id: lifecycle_phase
     title: What enterprise performance lifecycle phase is the system in?

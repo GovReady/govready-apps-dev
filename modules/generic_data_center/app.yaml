@@ -53,7 +53,7 @@ output:
   template: |
     ### {{data_center.name}}
 
-    {{name_and_location}} is a data center{% if data_center.access_types|length > 0 %} with the following access controls:{% else %}.{% endif %}
+    {{data_center.name_and_location}} is a data center{% if data_center.access_types|length > 0 %} with the following access controls:{% else %}.{% endif %}
 
     {% for choice in data_center.access_types.choices_selected %}
     * {{choice.text}}
