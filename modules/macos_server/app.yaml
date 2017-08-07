@@ -55,3 +55,6 @@ output:
 - id: ssp_nistsp800171r1_3_1_1
   format: markdown
   template: "{{file_server.output_documents.ssp_nistsp800171r1_3_1_1|safe}}"
+- id: ssp_nistsp800171r1_3_1_2
+  format: markdown
+  template: "{{file_server.output_documents.ssp_nistsp800171r1_3_1_2|safe}}"
