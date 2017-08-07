@@ -8,6 +8,8 @@ questions:
       What is the hostname of the server?
 
       Enter the name of the server as it is recognized by network services.
+      
+      <iframe width="310" height="189" src="https://www.youtube.com/embed/hS7m_B4DRrI" frameborder="0" allowfullscreen></iframe>
 
   - id: macos_version
     title: macOS Version
