@@ -58,3 +58,6 @@ output:
 - id: ssp_nistsp800171r1_3_1_2
   format: markdown
   template: "{{file_server.output_documents.ssp_nistsp800171r1_3_1_2|safe}}"
+- id: ssp_nistsp800171r1_poams
+  format: markdown
+  template: "{{file_server.network_segmentation_poam}}"

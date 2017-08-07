@@ -51,3 +51,6 @@ output:
 - id: ssp_nistsp800171r1_3_1_1
   format: markdown
   template: "{{data_center.output_documents.ssp_nistsp800171r1_3_1_1|safe}}"
+- id: ssp_nistsp800171r1_poams
+  format: markdown
+  template: "{{data_center.access_poam}}"

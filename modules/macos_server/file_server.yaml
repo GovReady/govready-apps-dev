@@ -98,10 +98,33 @@ questions:
 
       All communication of sensitive information over less-trusted networks should be encrypted.
 
+      {% if not network_segmented %}
+      *We'll ask you about your plan of action next.*
+      {% endif %}
+
   - id: network_segmentation
     title: Network Segmentation Description
     type: longtext
     prompt: Describe the network segment that {{hostname}} is on.
+
+  - id: network_segmentation_poam
+    title: Network Segmentation POAM
+    type: longtext
+    prompt: |
+      What is your plan of acton for improving the network segmentation of {{hostname}}?
+
+      The network should be
+      
+      * segmented based on the sensitivity, label, or classification level of the information stored on the servers
+      * using separated virtual local area networks with firewall filtering
+      * and all communication of sensitive information over less-trusted networks should be encrypted.
+
+      Describe how you will achieve any pending objectives. Include milestones, expected dates of completion, and
+      who is responsible for the actions.
+    impute:
+      - condition: network_segmentation == 'yes'
+        value: ~
+   
 
 output:
   - title: Your Answers
@@ -144,4 +167,6 @@ output:
       ### macOS File Server
 
       {{network_segmentation}}
+
+      {{network_segmentation_poam}}
 
