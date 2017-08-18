@@ -75,6 +75,16 @@ questions:
       - condition: using_security_groups == 'no'
         value: ~
 
+  - id: security_groups_evidence_screenshot
+    title: Security Groups Evidence
+    type: file
+    file-type: image
+    prompt: |
+      Upload a screenshot that provides evidence for the security group settings on {{hostname}}.
+    impute:
+      - condition: using_security_groups == 'no'
+        value: ~
+
   - id: settings
     title: User Settings
     type: longtext
@@ -150,6 +160,10 @@ output:
 
       {% if using_security_groups %}
       Users are segmented by security group. {{security_groups_description}}
+
+      {% if security_groups_evidence_screenshot %}
+      {{security_groups_evidence_screenshot}}
+      {% endif %}
       {% endif %}
 
       {{settings}}
