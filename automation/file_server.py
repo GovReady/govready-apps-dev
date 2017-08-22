@@ -45,6 +45,7 @@ for filename in motd_filenames:
 users = set()
 groups = dict()
 for line in open("/etc/passwd"):
+    if line.startswith("#") or line.strip() == "": continue # skip comments, blank lines
     username, _, uid, gid, fullname, homedir, shell = line.rstrip().split(":")
     if shell in ("/bin/false", "/usr/sbin/nologin"): continue
     users.add(username)
@@ -54,6 +55,7 @@ for line in open("/etc/passwd"):
 
 # Get a list of UNIX groups and the non-system users within them.
 for line in open("/etc/group"):
+    if line.startswith("#") or line.strip() == "": continue # skip comments, blank lines
     groupname, _, gid, users = line.rstrip().split(":")
     gid = int(gid)
     for user in users.split(","):
