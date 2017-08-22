@@ -1,0 +1,77 @@
+id: app
+title: Generic File Server
+type: project
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.2
+  source_url: https://github.com/GovReady/govready-sample-apps/generic_file_server
+  description:
+    short: |
+      NIST SP 800-171 compliance for a file server.
+    long: |
+      This app will help you achieve compliance for NIST SP 800-171 for a file server.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
+introduction:
+  format: markdown
+  template: |
+    Use this app to achieve compliance for a file server.
+questions:
+  - id: system_description
+    title: System Description
+    type: module
+    protocol: govready.com/apps/compliance/2017/system-description
+    icon: system_description.png
+    group: About the System
+  - id: cui_type
+    title: About the Controlled Unclassified Information
+    type: module
+    protocol: govready.com/apps/compliance/2017/cui
+    icon: cui.png
+    group: About the System
+  - id: data_center
+    title: Data Center
+    type: module
+    protocol: govready.com/apps/compliance/2017/data-center
+    icon: data_center.png
+    group: System Components
+  - id: file_server
+    title: File Server
+    type: module
+    protocol: govready.com/apps/compliance/2017/file-server
+    icon: file_server.png
+    group: System Components
+  - id: poc_log_audits
+    title: Audit Person
+    type: module
+    protocol: govready.com/apps/compliance/2017/point-of-contact
+    icon: point_of_contact.png
+    app_overrides_name_and_icon: false
+    group: System Components
+  - id: matrix_of_controls
+    title: Control Matrix
+    type: module
+    module-id: matrix
+    icon: control_matrix.png
+    group: System Security Plan
+  - id: nist_171_ssp
+    title: NIST SP 800-171 SSP
+    type: module
+    module-id: nist_171_ssp
+    icon: ssp.png
+    group: System Security Plan
+  - id: poams
+    title: POAMs
+    type: module
+    module-id: poams
+    group: System Security Plan

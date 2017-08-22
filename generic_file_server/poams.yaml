@@ -1,0 +1,32 @@
+id: poams
+title: Plan of Action and Milestones (POAMs)
+version: 1
+
+questions:
+- id: dummy
+  title: dummy
+  prompt: dummy
+  type: raw
+  impute:
+    - condition: "true"
+      value: ~
+
+output:
+- format: markdown
+  title: Plan of Action and Milestones
+  template: |
+    # Data Center
+
+    {% if project.data_center %}
+    {{project.data_center.output_documents.ssp_nistsp800171r1_poams|safe}}
+    {% else %}
+    *Data center POAMs will appear here when a data center app is started.*
+    {% endif %}
+
+    # File Server
+
+    {% if project.file_server %}
+    {{project.file_server.output_documents.ssp_nistsp800171r1_poams|safe}}
+    {% else %}
+    *File server POAMs will appear here when a file server app is started.*
+    {% endif %}

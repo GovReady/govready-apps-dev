@@ -1,0 +1,63 @@
+id: app
+title: Unix Server
+type: project
+version: 1
+protocol: govready.com/apps/compliance/2017/file-server
+icon: app.png
+
+catalog:
+  category: Technology
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/govready-sample-apps/unix_file_server
+  description:
+    short: |
+      Enter information about a Unix Server.
+    long: |
+      Enter information about a Unix Server.
+  recommended_for:
+    - key_short: Org
+      value: Large
+    - key_short: Tech
+      value: Sophisticated
+    - key_short: Role
+      value: PM
+
+introduction:
+  format: markdown
+  template: |
+    Use this app to enter the name and details of a Unix File Server.
+
+questions:
+- id: file_server
+  title: Enter Information
+  type: module
+  module-id: file_server
+  icon: app.png
+
+- id: file_server_name
+  title: File Server Name
+  type: text
+  impute:
+    - value: file_server.hostname.text
+      value-mode: expression
+
+- id: file_server_type
+  title: File Server Type
+  type: text
+  impute:
+    - value: file_server.unix_version.text
+      value-mode: expression
+
+output:
+- id: ssp_nistsp800171r1_3_1_1
+  format: markdown
+  template: "{{file_server.output_documents.ssp_nistsp800171r1_3_1_1|safe}}"
+- id: ssp_nistsp800171r1_3_1_2
+  format: markdown
+  template: "{{file_server.output_documents.ssp_nistsp800171r1_3_1_2|safe}}"
+- id: ssp_nistsp800171r1_poams
+  format: markdown
+  template: "{{file_server.network_segmentation_poam}}"
