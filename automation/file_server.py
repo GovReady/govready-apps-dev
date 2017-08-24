@@ -32,12 +32,13 @@ hostname = socket.gethostname()
 import os.path
 login_message = ""
 for filename in motd_filenames:
-    if os.path.exists(filename):
-        login_message += \
-           filename \
-         + ":\n\n```" \
-         + open(filename).read().strip().replace("```", "` ` `") \
-         + "```\n\n"
+    if not os.path.exists(filename): continue
+    # Add "filename:" and then an indented block for the file
+    # content, so that it is a Markdown pre-formatted block.
+    login_message += filename + ":\n\n"
+    for line in open(filename):
+        login_message += "\t" + line.rstrip() + "\n"
+    login_message += "\n"
 
 # Get a list of UNIX users excluding users who cannot login
 # since they are probably system users, and primary group
