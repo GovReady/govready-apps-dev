@@ -43,16 +43,6 @@ questions:
       - condition: using_security_groups == 'no'
         value: ~
 
-  - id: security_groups_evidence_screenshot
-    title: Security Groups Evidence
-    type: file
-    file-type: image
-    prompt: |
-      Upload a screenshot that provides evidence for the security group settings on {{hostname}}.
-    impute:
-      - condition: using_security_groups == 'no'
-        value: ~
-
   - id: settings
     title: User Settings
     type: longtext
@@ -64,6 +54,12 @@ questions:
       * Are lockouts used after a certain number of failed logins? (How many failed logins triggers a lockout?)
 
       * Accounts are required to have long passwords (at least 14 characters). What is the password policy?
+
+  - id: scap_scan_report
+    title: SCAP Scan Report
+    type: file
+    prompt: |
+      Upload an HTML report of SCAP Scan Report for {{hostname}}.
 
   - id: network_segmented
     title: Is the network segmented?
