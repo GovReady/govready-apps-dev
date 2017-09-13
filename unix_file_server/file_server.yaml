@@ -120,8 +120,8 @@ output:
       {% if using_security_groups %}
       Users are segmented by security group. {{security_groups_description}}
 
-      {% if security_groups_evidence_screenshot %}
-      {{security_groups_evidence_screenshot}}
+      {% if scap_scan_report %}
+      {{scap_scan_report}}
       {% endif %}
       {% endif %}
 
