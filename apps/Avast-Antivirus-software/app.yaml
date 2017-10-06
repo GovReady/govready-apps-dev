@@ -1,0 +1,147 @@
+id: app
+title: Avast Antivirus software
+type: project
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: Beta
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/Avast-Antivirus-software
+  description:
+    short: |
+      CUI (800-171) Compliance of Avast Antivirus software
+    long: >
+      Generates the compliance documentation of Avast Antivirus software as it pertains
+      to managing the security of CUI (Controlled Unclassified Information) as per
+      NIST 800-171 controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: |
+    Avast Antivirus software provides protection against malicious code.
+
+    Many organizations use Avast Antivirus software to routinely scan workstations and servers for software viruss and malicious code.
+
+    This application will make sure you are properly using Avast Antivirus software to protect CUI.
+
+questions:
+- id: example
+  title: Example Module
+  type: module
+  module-id: example
+output:
+
+- id: ssp_nist800171r1_3_4_8
+  format: markdown
+  template: |+
+    3.4.8 Apply deny-by-exception (blacklist) policy to prevent the use of unauthorized software or denyall, permit-by-exception (whitelisting) policy to allow the execution of authorized software.
+
+    {{organization}} uses Avast Antivirus software to provide protection against malicious code, software viruses, and other threats.
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to apply deny-by-exception (blacklist) policy to prevent the use of unauthorized software or denyall, permit-by-exception (whitelisting) policy to allow the execution of authorized software.provide privacy and security notices consistent with applicable CUI rules.
+
+    {{systems_using_avast_for_blacklist_whitelist}}
+
+- id: ssp_nist800171r1_3_4_9
+  format: markdown
+  template: |+
+    3.4.9 Control and monitor user-installed software.
+
+    {{organization}} uses Avast Antivirus software to provide protection against malicious code, software viruses, and other threats.
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to control and monitor user-installed software.
+
+    {{systems_using_avast_for_control_monitor_user-installed_software}}
+
+- id: ssp_nist800171r1_3_13_1
+  format: markdown
+  template: |+
+    3.13.1 Monitor, control, and protect communications (i.e., information transmitted or received by organizational systems) at the external boundaries and key internal boundaries of organizational systems.
+
+    {{organization}} uses Avast Antivirus software to provide protection against malicious code, software viruses, and other threats.
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to monitor, control, and protect communications (i.e., information transmitted or received by organizational systems) at from organizational systems.
+
+    {{systems_using_avast_for_control_monitor_transmission}}
+
+- id: ssp_nist800171r1_3_13_12
+  format: markdown
+  template: >+
+    3.13.12 Prohibit remote activation [Footnote: Dedicated video conferencing systems,
+    which rely on one of the participants calling or connecting to the other party
+    to activate the video conference, are excluded.] of collaborative computing devices
+    and provide indication of devices in use to users present at the device.
+
+    {{organization}} uses Avast Antivirus software to provide protection against malicious code, software viruses, and other threats.
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to prohibit remote activiation of embedded cameras and microphones.
+
+    {{systems_using_avast_to_prohibit_remote_camera_audio_activation}}
+
+- id: ssp_nist800171r1_3_14_2
+  format: markdown
+  template: |+
+    3.14.2 Provide protection from malicious code at appropriate locations within organizational systems.
+
+    {{organization}} uses Avast Antivirus software to provide protection against malicious code, software viruses, and other threats.
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to provide protection from malicious code at appropriate locations within  organizational systems.
+
+    {{systems_using_avast_to_prohibit_remote_camera_audio_activation}}
+
+- id: ssp_nist800171r1_3_14_3
+  format: markdown
+  template: |+
+    3.14.3 Monitor system security alerts and advisories and take appropriate actions in response.
+
+    {{organization}} uses Avast Antivirus software to provide protection against malicious code, software viruses, and other threats.
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to monitor system security alerts and advisories and take appropriate actions in response.
+
+    {{systems_using_avast_to_prohibit_remote_camera_audio_activation}}
+
+- id: ssp_nist800171r1_3_14_4
+  format: markdown
+  template: |+
+    3.14.4 Update malicious code protection mechanisms when new releases are available.
+
+    {{organization}} uses Avast Antivirus software to provide protection against malicious code, software viruses, and other threats.
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to update malicious code protection mechanisms when new releases are available.
+
+    {{systems_using_avast_to_prohibit_remote_camera_audio_activation}}
+
+- id: ssp_nist800171r1_3_14_5
+  format: markdown
+  template: |+
+    3.14.5 Perform periodic scans of organizational systems and real-time scans of files from external sources as files are downloaded, opened, or executed.
+
+    {{organization}} uses Avast Antivirus software to provide protection against malicious code, software viruses, and other threats.
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to perform periodic scans of organizational systems.
+
+    {{systems_using_avast_to_periodic_system_scans}}
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to perform real-time scans of files from external sources as files are downloaded, opened, or executed.
+
+    {{systems_using_avast_to_realtime_file_scans}}
+
+- id: ssp_nist800171r1_3_14_6
+  format: markdown
+  template: |+
+    3.14.6 Monitor organizational systems including inbound and outbound communications traffic, to detect attacks and indicators of potential attacks.
+
+    {{organization}} uses Avast Antivirus software to provide protection against malicious code, software viruses, and other threats.
+
+    {{organization}} installs and uses Avast Antivirus software on the following types of computers and workstations to monitor organizational systems including inbound and outbound communications traffic, to detect attacks and indicators of potential attacks.
+
+    {{systems_using_avast_to_monitor_communications}}
