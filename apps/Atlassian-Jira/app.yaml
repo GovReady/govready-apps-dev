@@ -27,7 +27,7 @@ catalog:
 introduction:
   format: markdown
   template: |
-    Atlassian Jira supports a compliant software development life cycle by tracking _______.
+    Atlassian Jira supports a compliant software development life cycle by tracking issues and change requests.
 
     This application will make sure you are properly using Jira to support the protection of CUI.
 
