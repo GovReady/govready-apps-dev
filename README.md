@@ -2,9 +2,7 @@
 
 These are under development apps that have had initial modifications to represent 800-171 compliance.
 
-## App Source Configurations
-
-Example app source configurations.
+## Example App Source Configurations
 
 ### GitHub Repository App Source
 
