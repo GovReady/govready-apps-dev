@@ -2,9 +2,9 @@
 
 These are under development apps that have had initial modifications to represent 800-171 compliance.
 
-# App Source Configuration
+## App Source Configurations
 
-Navigate to your GovReady-Q Django database admin module and create an `App sources` record in your GovReady-Q database with the below information.
+Example app source configurations. Yours may differ.
 
 ### GitHub Repository App Source
 
