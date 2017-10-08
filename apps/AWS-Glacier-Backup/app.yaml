@@ -26,7 +26,7 @@ catalog:
 introduction:
   format: markdown
   template: |
-    AWS Glacier Backup provides long term, low cost, encrypted(?) storage of files.
+    AWS Glacier Backup provides long term, low cost, encrypted storage of files.
 
     Many organizations use AWS Glacier service for storing backup copy of files, some of which may contain CUI (Controled Unclassified Information).
 
