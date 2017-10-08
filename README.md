@@ -4,7 +4,7 @@ These are under development apps that have had initial modifications to represen
 
 ## App Source Configurations
 
-Example app source configurations. Yours may differ.
+Example app source configurations.
 
 ### GitHub Repository App Source
 
