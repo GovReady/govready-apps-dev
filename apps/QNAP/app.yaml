@@ -76,7 +76,7 @@ questions:
 
 output:
 - id: ssp_nist800171r1_3_1_1
-  title: NIST SP 800-171 3.1.1 Control Implementation
+  title: NIST SP 800-171 3.1.1
   format: markdown
   template: |+
     3.1.1 Limit system access to authorized users, processes acting on behalf of authorized users, or devices (including other systems).
@@ -90,7 +90,7 @@ output:
     {{types_of_files_with_cui_stored_on_qnap}}
 
 - id: ssp_nist800171r1_3_1_2
-  title: NIST SP 800-171 3.1.2 Control Implementation
+  title: NIST SP 800-171 3.1.2
   format: markdown
   template: |+
     3.1.2 Limit system access to the types of transactions and functions that authorized users are permitted to execute.
@@ -108,7 +108,7 @@ output:
     {{types_of_files_with_cui_stored_on_qnap}}
 
 - id: ssp_nist800171r1_3_1_3
-  title: NIST SP 800-171 3.1.3 Control Implementation
+  title: NIST SP 800-171 3.1.3
   format: markdown
   template: |+
     3.1.3 Control the flow of CUI in accordance with approved authorizations.
@@ -118,7 +118,7 @@ output:
     {{organization}} uses the access control features of the QNAP {{qnap_model}} to control the flow of CUI in accordance with approved authorizations.
 
 - id: ssp_nist800171r1_3_1_4
-  title: NIST SP 800-171 3.1.4 Control Implementation
+  title: NIST SP 800-171 3.1.4
   format: markdown
   template: |+
     3.1.4 Separate the duties of individuals to reduce the risk of malevolent activity without collusion.
@@ -128,7 +128,7 @@ output:
     Is there a POAM?
 
 - id: ssp_nist800171r1_3_1_7
-  title: NIST SP 800-171 3.1.7 Control Implementation
+  title: NIST SP 800-171 3.1.7
   format: markdown
   template: |+
     3.1.7 Prevent non-privileged users from executing privileged functions and audit the execution of such functions.
@@ -136,7 +136,7 @@ output:
     {{organization}} uses QNAP {{qnap_model}} for network storage to store and protect computer files containing CUI. The QNAP device is used as a file server. The QNAP administration controls prevent non-privileged users from executing privileged functions and maintains logs to audit the execution of such functions.
 
 - id: ssp_nist800171r1_3_1_11
-  title: NIST SP 800-171 3.1.11 Control Implementation
+  title: NIST SP 800-171 3.1.11
   format: markdown
   template: |+
     3.1.11 Terminate (automatically) a user session after a defined condition.
@@ -144,7 +144,7 @@ output:
     __Does QNAP {{qnap_model}} contribute to automatically terminating a user session after a defined condition?__
 
 - id: ssp_nist800171r1_3_1_12
-  title: NIST SP 800-171 3.1.12 Control Implementation
+  title: NIST SP 800-171 3.1.12
   format: markdown
   template: |+
     3.1.12 Monitor and control remote access sessions.
@@ -152,7 +152,7 @@ output:
     __Does QNAP {{qnap_model}} contribute to monitoring and controling remote access sessions.?__
 
 - id: ssp_nist800171r1_3_3_1
-  title: NIST SP 800-171 3.3.1 Control Implementation
+  title: NIST SP 800-171 3.3.1
   format: markdown
   template: |+
     3.3.1 Create, protect, and retain system audit records to the extent needed to enable the monitoring, analysis, investigation, and reporting of unlawful, unauthorized, or inappropriate system activity.
@@ -160,7 +160,7 @@ output:
     {{organization}} uses the QNAP {{qnap_model}} to create audit records of access to files containing on CUI stored on the QNAP device and to protect other organization system records stored on the QNAP device to enable the monitoring, analysis, investigation, and reporting of unlawful, unauthorized, or inappropriate system activity until the system audit records can be transfered to long term storage.
 
 - id: ssp_nist800171r1_3_3_2
-  title: NIST SP 800-171 3.3.2 Control Implementation
+  title: NIST SP 800-171 3.3.2
   format: markdown
   template: |+
     3.3.2 Ensure that the actions of individual system users can be uniquely traced to those users so they can be held accountable for their actions.
@@ -172,7 +172,7 @@ output:
     __describe file settings?__
 
 - id: ssp_nist800171r1_3_3_4
-  title: NIST SP 800-171 3.3.4 Control Implementation
+  title: NIST SP 800-171 3.3.4
   format: markdown
   template: |+
     3.3.4 Alert in the event of an audit process failure.
@@ -182,7 +182,7 @@ output:
     {{organization}} uses QNAP {{qnap_model}} notification features to alert {{qnap_audit_failure_alert_individuals}} in the event of an audit process failure.
 
 - id: ssp_nist800171r1_3_3_7
-  title: NIST SP 800-171 3.3.7 Control Implementation
+  title: NIST SP 800-171 3.3.7
   format: markdown
   template: |+
     3.3.7 Provide a system capability that compares and synchronizes internal system clocks with an authoritative source to generate time stamps for audit records.
@@ -192,7 +192,7 @@ output:
     The QNAP {{qnap_model}} provide a system capability that compares and synchronizes internal system clocks with an authoritative source to generate time stamps for audit records.
 
 - id: ssp_nist800171r1_3_3_8
-  title: NIST SP 800-171 3.3.8 Control Implementation
+  title: NIST SP 800-171 3.3.8
   format: markdown
   template: |+
     3.3.8 Protect audit information and audit tools from unauthorized access, modification, and deletion.
@@ -204,7 +204,7 @@ output:
     {{organization}} uses the various file protection features of the QNAP {{qnap_model}} to protect audit information and QNAP device audit tools from unauthorized access, modification, and deletion.
 
 - id: ssp_nist800171r1_3_3_9
-  title: NIST SP 800-171 3.3.9 Control Implementation
+  title: NIST SP 800-171 3.3.9
   format: markdown
   template: |+
     3.3.9 Limit management of audit functionality to a subset of privileged users.
@@ -214,7 +214,7 @@ output:
     {{organization}} uses the various file protection features of the QNAP {{qnap_model}} to protect audit information and QNAP device audit tools from unauthorized access, modification, and deletion.
 
 - id: ssp_nist800171r1_3_8_2
-  title: NIST SP 800-171 3.8.2 Control Implementation
+  title: NIST SP 800-171 3.8.2
   format: markdown
   template: |+
     3.8.2 Limit access to CUI on system media to authorized users.
@@ -226,7 +226,7 @@ output:
     {{organization}} uses QNAP {{qnap_model}} user authority management, Windows ACL, advanced folder permissions on the following type of files containing CUI to limit access to limit access to CUI stored on QNAP to authorized users.
 
 - id: ssp_nist800171r1_3_8_7
-  title: NIST SP 800-171 3.8.7 Control Implementation
+  title: NIST SP 800-171 3.8.7
   format: markdown
   template: |+
     3.8.7 Control the use of removable media on system components.
@@ -235,7 +235,7 @@ output:
 
 ######
 - id: ssp_nist800171r1_3_8_8
-  title: NIST SP 800-171 3.8.8 Control Implementation
+  title: NIST SP 800-171 3.8.8
   format: markdown
   template: |+
     3.8.8 Prohibit the use of portable storage devices when such devices have no identifiable owner.
@@ -246,7 +246,7 @@ output:
 
 #######
 - id: ssp_nist800171r1_3_8_9
-  title: NIST SP 800-171 3.8.9 Control Implementation
+  title: NIST SP 800-171 3.8.9
   format: markdown
   template: |+
     3.8.9 Protect the confidentiality of backup CUI at storage locations.
@@ -258,7 +258,7 @@ output:
     {{organization}} uses QNAP {{qnap_model}} to protect the confidentiality of backup CUI at {{office_location}}.
 
 - id: ssp_nist800171r1_3_13_1
-  title: NIST SP 800-171 3.13.1 Control Implementation
+  title: NIST SP 800-171 3.13.1
   format: markdown
   template: |+
     3.13.1 Monitor, control, and protect communications (i.e., information transmitted or received by organizational systems) at the external boundaries and key internal boundaries of organizational systems.
@@ -270,7 +270,7 @@ output:
     {{organization}} uses QNAP {{qnap_model}} to monitor, control and protect communications at the boundary between the QNAP device and other internal systems.
 
 - id: ssp_nist800171r1_3_13_2
-  title: NIST SP 800-171 3.13.2 Control Implementation
+  title: NIST SP 800-171 3.13.2
   format: markdown
   template: |+
     3.13.2 Employ architectural designs, software development techniques, and systems engineering principles that promote effective information security within organizational systems.
@@ -282,7 +282,7 @@ output:
     {{organization}} uses QNAP {{qnap_model}} to support an architectural design that segregates files containing CUI from other systems and creates a control point to control and monitor access to CUI.
 
 - id: ssp_nist800171r1_3_13_4
-  title: NIST SP 800-171 3.13.4 Control Implementation
+  title: NIST SP 800-171 3.13.4
   format: markdown
   template: |+
     3.13.4 Prevent unauthorized and unintended information transfer via shared system resources.
@@ -294,7 +294,7 @@ output:
     {{organization}} uses QNAP {{qnap_model}} security features to prevent unauthorized and unintended information transfer via this shared resources.
 
 - id: ssp_nist800171r1_3_13_6
-  title: NIST SP 800-171 3.13.6 Control Implementation
+  title: NIST SP 800-171 3.13.6
   format: markdown
   template: |+
     3.13.6 Deny network communications traffic by default and allow network communications traffic by exception (i.e., deny all, permit by exception).
@@ -304,7 +304,7 @@ output:
     QNAP {{qnap_model}} employs administration control features built-in SSL to implement cryptographic mechanisms to prevent unauthorized disclosure of CUI during transmission to and from the QNAP device.
 
 - id: ssp_nist800171r1_3_13_8
-  title: NIST SP 800-171 3.13.8 Control Implementation
+  title: NIST SP 800-171 3.13.8
   format: markdown
   template: |+
     3.13.8 Implement cryptographic mechanisms to prevent unauthorized disclosure of CUI during transmission unless otherwise protected by alternative physical safeguards.
@@ -314,7 +314,7 @@ output:
     QNAP {{qnap_model}} employs built-in SSL to implement cryptographic mechanisms to prevent unauthorized disclosure of CUI during transmission to and from the QNAP device.
 
 - id: ssp_nist800171r1_3_13_9
-  title: NIST SP 800-171 3.13.9 Control Implementation
+  title: NIST SP 800-171 3.13.9
   format: markdown
   template: |+
     3.13.9 Terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.
@@ -327,7 +327,7 @@ output:
 
 
 - id: ssp_nist800171r1_3_13_11
-  title: NIST SP 800-171 3.13.11 Control Implementation
+  title: NIST SP 800-171 3.13.11
   format: markdown
   template: |+
     3.13.11 Employ FIPS-validated cryptography when used to protect the confidentiality of CUI.
@@ -339,7 +339,7 @@ output:
     {{types_of_files_with_cui_stored_on_qnap}}
 
 - id: ssp_nist800171r1_3_13_16
-  title: NIST SP 800-171 3.13.16 Control Implementation
+  title: NIST SP 800-171 3.13.16
   format: markdown
   template: |+
     3.13.16 Protect the confidentiality of CUI at rest.
