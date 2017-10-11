@@ -7,7 +7,7 @@ catalog:
   category: Technology
   vendor: GovReady
   vendor_url: http://www.govready.com
-  status: Beta
+  status: Draft
   version: 0.2
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/Atlassian-Bitbucket
   description:
