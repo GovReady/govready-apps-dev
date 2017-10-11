@@ -1,6 +1,10 @@
 id: app
 title: Ubuntu 14.1.2-16 ?
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/ubuntu-server
+- govready.com/apps/compliance/2017/ubuntu-server-14
 version: 0.5
 icon: app.png
 catalog:
@@ -35,6 +39,3 @@ questions:
   type: module
   module-id: example
 output: []
-protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
-- govready.com/apps/compliance/2017/Ubuntu-14-1-2-16

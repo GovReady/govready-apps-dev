@@ -1,6 +1,9 @@
 id: app
 title: Atlassian Bitbucket
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/atlassian-bitbucket
 version: 0.5
 icon: app.png
 catalog:

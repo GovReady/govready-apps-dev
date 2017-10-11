@@ -1,6 +1,9 @@
 id: app
 title: Electronic Locks on Server Rooms
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/server-rooms-electronic-locks
 version: 0.5
 icon: app.png
 catalog:
@@ -155,7 +158,3 @@ output:
     {{organization}} uses Electronic Locks on Server Rooms to control and manage physical access devices.
 
     Electonic Locks on the server rooms provide phaysical access control.
-
-protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
-- govready.com/apps/compliance/2017/Electronic-Locks-on-Server-Rooms

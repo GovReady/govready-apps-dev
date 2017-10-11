@@ -1,6 +1,10 @@
 id: app
 title: CentOS 6.6
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/centos
+- govready.com/apps/compliance/2017/centos-6
 version: 0.5
 icon: app.png
 catalog:
@@ -36,6 +40,3 @@ questions:
   type: module
   module-id: example
 output: []
-protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
-- govready.com/apps/compliance/2017/CentOS-6-6

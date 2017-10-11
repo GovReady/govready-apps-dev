@@ -1,6 +1,9 @@
 id: app
 title: Windows Defender Antivirus software
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/windows-defender-antivirus
 version: 0.5
 icon: app.png
 catalog:
@@ -36,6 +39,3 @@ questions:
   type: module
   module-id: example
 output: []
-protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
-- govready.com/apps/compliance/2017/Windows-Defender-Antivirus-software

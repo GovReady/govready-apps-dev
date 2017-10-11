@@ -1,6 +1,9 @@
 id: app
 title: AWS CloudTrail
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/aws-cloudtrail
 version: 0.5
 icon: app.png
 catalog:
@@ -92,6 +95,3 @@ output:
 
     "AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account." (https://aws.amazon.com/cloudtrail/)
 
-protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
-- govready.com/apps/compliance/2017/AWS-CloudTrail

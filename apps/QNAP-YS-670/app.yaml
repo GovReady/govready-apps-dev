@@ -1,6 +1,9 @@
 id: app
 title: QNAP TS-670
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/qnap
 version: 0.5
 icon: app.png
 catalog:

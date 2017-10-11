@@ -1,6 +1,9 @@
 id: app
 title: Telco Room
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/telco-room
 version: 0.5
 icon: app.png
 catalog:
@@ -67,7 +70,3 @@ output:
     {{organization}} uses Telco Room to protect and monitor the physical facility and support infrastructure for organizational systems.
 
     Telco Room is an on-premises data center for segrating computer servers, network equipment and telecommunications equipment from the rest of the facility.
-
-protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
-- govready.com/apps/compliance/2017/Telco-Room

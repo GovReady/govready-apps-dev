@@ -1,6 +1,9 @@
 id: app
 title: Server Room
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/server-room
 version: 0.5
 icon: app.png
 catalog:
@@ -67,7 +70,3 @@ output:
     {{organization}} uses Server Room to protect and monitor the physical facility and support infrastructure for organizational systems.
 
     Server Room is an on-premises data center for segrating computer servers and network equipment from the rest of the facility.
-
-protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
-- govready.com/apps/compliance/2017/Server-Room
