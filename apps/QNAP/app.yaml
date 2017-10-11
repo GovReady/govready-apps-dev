@@ -1,5 +1,5 @@
 id: app
-title: QNAP
+title: QNAP TS-670
 type: project
 version: 0.5
 icon: app.png
@@ -11,12 +11,10 @@ catalog:
   version: 0.2
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/QNAP
   description:
-    short: |
-      CUI (NIST SP 800-171) Compliance of QNAP
-    long: |
-      Generates the compliance documentation of QNAP as it pertains
-      to managing the security of CUI (Controlled Unclassified Information) as per
-      NIST SP 800-171 controls.
+    short: CUI (NIST SP 800-171) Compliance of QNAP TS-670 (NAS)
+    long: Generates compliance documentation of QNAP TS-670 (NAS) as it pertains to
+      managing the security of CUI (Controlled Unclassified Information) as per NIST
+      SP 800-171 controls.
 
       This app provides the following controls: NIST SP 800-171 3.1.1, 3.1.2, 3.1.3, 3.1.4, 3.1.7, 3.1.11, 3.1.12, 3.13.1, 3.13.2, 3.13.4, 3.13.6, 3.13.8, 3.13.9, 3.13.11, 3.13.16, 3.3.1, 3.3.2, 3.3.4, 3.3.7, 3.3.8, 3.3.9, 3.8.2, 3.8.7, 3.8.8, and 3.8.9.
   recommended_for:
@@ -33,7 +31,8 @@ introduction:
 
     Many organizations use QNAP NAS devices for storing backup copy of files, some of which may contain CUI (Controled Unclassified Information).
 
-    This application will make sure you are properly using QNAP to protect CUI.
+    This application will make sure you are properly using QNAP TS-670 (NAS) to protect
+    CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
 
 questions:
 - id: example
@@ -82,11 +81,9 @@ output:
   title: NIST SP 800-171 3.1.1
   format: markdown
   template: >+
-    3.1.1 Limit system access to authorized users, processes acting on behalf of authorized
-    users, or devices (including other systems).
+     {{organization}} uses QNAP TS-670 (NAS) to limit system access to authorized users, processes acting on behalf of authorized users, or devices (including other systems).
 
-
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -95,12 +92,12 @@ output:
     maintained by the QNAP file server.
 
 
-    QNAP {qnap_model} has a variety of features to protect files including: user authority
+    QNAP TS-670 has a variety of features to protect files including: user authority
     management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
     256-bit Volume-based data encryption, built-in SSL, and antivirus.
 
 
-    {organization} uses QNAP {qnap_model} on the following type of files containing
+    {organization} uses QNAP TS-670 on the following type of files containing
     CUI to limit system access to authorized users, processes acting on behalf of
     authorized users, or devices (including other systems).
 
@@ -111,11 +108,9 @@ output:
   title: NIST SP 800-171 3.1.2
   format: markdown
   template: >+
-    3.1.2 Limit system access to the types of transactions and functions that authorized
-    users are permitted to execute.
+    {{organization}} uses QNAP TS-670 (NAS) to limit system access to the types of transactions and functions that authorized users are permitted to execute.
 
-
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -124,19 +119,19 @@ output:
     maintained by the QNAP file server.
 
 
-    QNAP {qnap_model} has a variety of features to protect files including: user authority
+    QNAP TS-670 has a variety of features to protect files including: user authority
     management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
     256-bit Volume-based data encryption, built-in SSL, and antivirus.
 
 
-    {organization} uses QNAP {qnap_model} to limit system access to the following
+    {organization} uses QNAP TS-670 to limit system access to the following
     types of transactions and functions that authorized users are permitted to execute.
 
 
     {types_of_transactions_with_cui_stored_permitted_qnap}
 
 
-    {organization} uses QNAP {qnap_model} on the following type of files containing
+    {organization} uses QNAP TS-670 on the following type of files containing
     CUI to limit system access to the types of transactions and functions that authorized
     users are permitted to execute.
 
@@ -147,10 +142,10 @@ output:
   title: NIST SP 800-171 3.1.3
   format: markdown
   template: >+
-    3.1.3 Control the flow of CUI in accordance with approved authorizations.
+    {{organization}} uses QNAP TS-670 (NAS) to control the flow of CUI in accordance with approved authorizations.
 
 
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -159,14 +154,14 @@ output:
     maintained by the QNAP file server.
 
 
-    {organization} uses the access control features of the QNAP {qnap_model} to control
+    {organization} uses the access control features of the QNAP TS-670 to control
     the flow of CUI in accordance with approved authorizations.
 
 - id: ssp_nist800171r1_3_1_4
   title: NIST SP 800-171 3.1.4
   format: markdown
   template: |+
-    3.1.4 Separate the duties of individuals to reduce the risk of malevolent activity without collusion.
+    {{organization}} uses QNAP TS-670 (NAS) to separate the duties of individuals to reduce the risk of malevolent activity without collusion.
 
     Is there something to write here regarding separation of duties with respect to maintaining the controls on the QNAP server?
 
@@ -176,11 +171,10 @@ output:
   title: NIST SP 800-171 3.1.7
   format: markdown
   template: >+
-    3.1.7 Prevent non-privileged users from executing privileged functions and audit
-    the execution of such functions.
+    {{organization}} uses QNAP TS-670 (NAS) to prevent non-privileged users from executing privileged functions and audit the execution of such functions.
 
 
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     administration controls prevent non-privileged users from executing privileged
     functions and maintains logs to audit the execution of such functions.
@@ -189,28 +183,26 @@ output:
   title: NIST SP 800-171 3.1.11
   format: markdown
   template: |+
-    3.1.11 Terminate (automatically) a user session after a defined condition.
+    {{organization}} uses QNAP TS-670 (NAS) to terminate (automatically) a user session after a defined condition.
 
-    __Does QNAP {qnap_model} contribute to automatically terminating a user session after a defined condition?__
+    __Does QNAP TS-670 contribute to automatically terminating a user session after a defined condition?__
 
 - id: ssp_nist800171r1_3_1_12
   title: NIST SP 800-171 3.1.12
   format: markdown
   template: |+
-    3.1.12 Monitor and control remote access sessions.
+    {{organization}} uses QNAP TS-670 (NAS) to monitor and control remote access sessions
 
-    __Does QNAP {qnap_model} contribute to monitoring and controling remote access sessions.?__
+    __Does QNAP TS-670 contribute to monitoring and controling remote access sessions.?__
 
 - id: ssp_nist800171r1_3_3_1
   title: NIST SP 800-171 3.3.1
   format: markdown
   template: >+
-    3.3.1 Create, protect, and retain system audit records to the extent needed to
-    enable the monitoring, analysis, investigation, and reporting of unlawful, unauthorized,
-    or inappropriate system activity.
+    {{organization}} uses QNAP TS-670 (NAS) to create, protect, and retain system audit records to the extent needed to enable the monitoring, analysis, investigation, and reporting of unlawful, unauthorized, or inappropriate system activity.
 
 
-    {organization} uses the QNAP {qnap_model} to create audit records of access to
+    {organization} uses the QNAP TS-670 to create audit records of access to
     files containing on CUI stored on the QNAP device and to protect other organization
     system records stored on the QNAP device to enable the monitoring, analysis, investigation,
     and reporting of unlawful, unauthorized, or inappropriate system activity until
@@ -220,11 +212,9 @@ output:
   title: NIST SP 800-171 3.3.2
   format: markdown
   template: >+
-    3.3.2 Ensure that the actions of individual system users can be uniquely traced
-    to those users so they can be held accountable for their actions.
+    {{organization}} uses QNAP TS-670 (NAS) to ensure that the actions of individual system users can be uniquely traced to those users so they can be held accountable for their actions.
 
-
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -233,7 +223,7 @@ output:
     maintained by the QNAP file server.
 
 
-    {organization} uses QNAP {qnap_model} audit features to ensure that the actions
+    {organization} uses QNAP TS-670 audit features to ensure that the actions
     of individual system users can be uniquely traced to those users so they can be
     held accountable for their actions.
 
@@ -244,11 +234,11 @@ output:
   title: NIST SP 800-171 3.3.4
   format: markdown
   template: |+
-    3.3.4 Alert in the event of an audit process failure.
+    {{organization}} uses QNAP TS-670 (NAS) to alert in the event of an audit process failure.
 
-    {organization} uses QNAP {qnap_model} for network storage to store and protect computer files containing CUI. The QNAP device is used as a file server. The QNAP device used as an on-premises file backup device.
+    {organization} uses QNAP TS-670 for network storage to store and protect computer files containing CUI. The QNAP device is used as a file server. The QNAP device used as an on-premises file backup device.
 
-    {organization} uses QNAP {qnap_model} notification features to alert {qnap_audit_failure_alert_individuals} in the event of an audit process failure.
+    {organization} uses QNAP TS-670 notification features to alert {qnap_audit_failure_alert_individuals} in the event of an audit process failure.
 
 - id: ssp_nist800171r1_3_3_7
   title: NIST SP 800-171 3.3.7
@@ -258,12 +248,12 @@ output:
     clocks with an authoritative source to generate time stamps for audit records.
 
 
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     device used as an on-premises file backup device.
 
 
-    The QNAP {qnap_model} provide a system capability that compares and synchronizes
+    The QNAP TS-670 provide a system capability that compares and synchronizes
     internal system clocks with an authoritative source to generate time stamps for
     audit records.
 
@@ -271,20 +261,18 @@ output:
   title: NIST SP 800-171 3.3.8
   format: markdown
   template: >+
-    3.3.8 Protect audit information and audit tools from unauthorized access, modification,
-    and deletion.
+    {{organization}} uses QNAP TS-670 (NAS) to protect audit information and audit tools from unauthorized access, modification, and deletion.
 
-
-    {organization} uses QNAP {qnap_model} as an on-premises file backup device to
+    {organization} uses QNAP TS-670 as an on-premises file backup device to
     store audit information {organization}.
 
 
-    QNAP {qnap_model} has a variety of features to protect files including: user authority
+    QNAP TS-670 has a variety of features to protect files including: user authority
     management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
     256-bit Volume-based data encryption, built-in SSL, and antivirus.
 
 
-    {organization} uses the various file protection features of the QNAP {qnap_model}
+    {organization} uses the various file protection features of the QNAP TS-670
     to protect audit information and QNAP device audit tools from unauthorized access,
     modification, and deletion.
 
@@ -292,20 +280,20 @@ output:
   title: NIST SP 800-171 3.3.9
   format: markdown
   template: |+
-    3.3.9 Limit management of audit functionality to a subset of privileged users.
+    {{organization}} uses QNAP TS-670 (NAS) to limit management of audit functionality to a subset of privileged users.
 
-    {organization} uses QNAP {qnap_model} as an on-premises file backup device to store audit information {organization}.
+    {organization} uses QNAP TS-670 as an on-premises file backup device to store audit information {organization}.
 
-    {organization} uses the various file protection features of the QNAP {qnap_model} to protect audit information and QNAP device audit tools from unauthorized access, modification, and deletion.
+    {organization} uses the various file protection features of the QNAP TS-670 to protect audit information and QNAP device audit tools from unauthorized access, modification, and deletion.
 
 - id: ssp_nist800171r1_3_8_2
   title: NIST SP 800-171 3.8.2
   format: markdown
   template: >+
-    3.8.2 Limit access to CUI on system media to authorized users.
+    {{organization}} uses QNAP TS-670 (NAS) to limit access to CUI on system media to authorized users.
 
 
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -314,12 +302,12 @@ output:
     maintained by the QNAP file server.
 
 
-    QNAP {qnap_model} has a variety of features to protect files including: user authority
+    QNAP TS-670 has a variety of features to protect files including: user authority
     management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
     256-bit Volume-based data encryption, built-in SSL, and antivirus.
 
 
-    {organization} uses QNAP {qnap_model} user authority management, Windows ACL,
+    {organization} uses QNAP TS-670 user authority management, Windows ACL,
     advanced folder permissions on the following type of files containing CUI to limit
     access to limit access to CUI stored on QNAP to authorized users.
 
@@ -327,7 +315,7 @@ output:
   title: NIST SP 800-171 3.8.7
   format: markdown
   template: |+
-    3.8.7 Control the use of removable media on system components.
+    {{organization}} uses QNAP TS-670 (NAS) to control the use of removable media on system components.
 
     __Does the QNAP have USB slots? How is use of the USB removable media controlled?__
 
@@ -345,24 +333,22 @@ output:
   title: NIST SP 800-171 3.8.9
   format: markdown
   template: |+
-    3.8.9 Protect the confidentiality of backup CUI at storage locations.
+    {{organization}} uses QNAP TS-670 (NAS) to protect the confidentiality of backup CUI at storage locations.
 
-    {organization} uses QNAP {qnap_model} on-premises file backup device. The QNAP administration controls control access to the backup files.
+    {organization} uses QNAP TS-670 on-premises file backup device. The QNAP administration controls control access to the backup files.
 
-    QNAP {qnap_model} has a variety of features to protect files including: user authority management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES 256-bit Volume-based data encryption, built-in SSL, and antivirus.
+    QNAP TS-670 has a variety of features to protect files including: user authority management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES 256-bit Volume-based data encryption, built-in SSL, and antivirus.
 
-    {organization} uses QNAP {qnap_model} to protect the confidentiality of backup CUI at {office_location}.
+    {organization} uses QNAP TS-670 to protect the confidentiality of backup CUI at {office_location}.
 
 - id: ssp_nist800171r1_3_13_1
   title: NIST SP 800-171 3.13.1
   format: markdown
   template: >+
-    3.13.1 Monitor, control, and protect communications (i.e., information transmitted
-    or received by organizational systems) at the external boundaries and key internal
-    boundaries of organizational systems.
+    {{organization}} uses QNAP TS-670 (NAS) to monitor, control, and protect communications (i.e., information transmitted or received by organizational systems) at the external boundaries and key internal boundaries of organizational systems.
 
 
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -370,25 +356,21 @@ output:
     CUI are located in shared directories on the QNAP device with access permisisons
     maintained by the QNAP file server.
 
-
-    QNAP {qnap_model} has a variety of features to protect files including: user authority
+    QNAP TS-670 has a variety of features to protect files including: user authority
     management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
     256-bit Volume-based data encryption, built-in SSL, and antivirus.
 
-
-    {organization} uses QNAP {qnap_model} to monitor, control and protect communications
+    {organization} uses QNAP TS-670 to monitor, control and protect communications
     at the boundary between the QNAP device and other internal systems.
 
 - id: ssp_nist800171r1_3_13_2
   title: NIST SP 800-171 3.13.2
   format: markdown
   template: >+
-    3.13.2 Employ architectural designs, software development techniques, and systems
-    engineering principles that promote effective information security within organizational
-    systems.
+    {{organization}} uses QNAP TS-670 (NAS) to employ architectural designs, software development techniques, and systems engineering principles that promote effective information security within organizational systems.
 
 
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -397,12 +379,12 @@ output:
     maintained by the QNAP file server.
 
 
-    QNAP {qnap_model} has a variety of features to protect files including: user authority
+    QNAP TS-670 has a variety of features to protect files including: user authority
     management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
     256-bit Volume-based data encryption, built-in SSL, and antivirus.
 
 
-    {organization} uses QNAP {qnap_model} to support an architectural design that
+    {organization} uses QNAP TS-670 to support an architectural design that
     segregates files containing CUI from other systems and creates a control point
     to control and monitor access to CUI.
 
@@ -410,11 +392,10 @@ output:
   title: NIST SP 800-171 3.13.4
   format: markdown
   template: >+
-    3.13.4 Prevent unauthorized and unintended information transfer via shared system
-    resources.
+    {{organization}} uses QNAP TS-670 (NAS) to prevent unauthorized and unintended information transfer via shared system resources.
 
 
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -422,42 +403,37 @@ output:
     CUI are located in shared directories on the QNAP device with access permisisons
     maintained by the QNAP file server.
 
-    QNAP {qnap_model} has a variety of features to protect files including: user authority management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES 256-bit Volume-based data encryption, built-in SSL, and antivirus.
+    QNAP TS-670 has a variety of features to protect files including: user authority management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES 256-bit Volume-based data encryption, built-in SSL, and antivirus.
 
 - id: ssp_nist800171r1_3_13_6
   title: NIST SP 800-171 3.13.6
   format: markdown
   template: |+
+    {{organization}} uses QNAP TS-670 (NAS) to deny network communications traffic by default and allow network communications traffic by exception (i.e., deny all, permit by exception).
 
-    {organization} uses QNAP {qnap_model} security features to prevent unauthorized
+    {organization} uses QNAP TS-670 security features to prevent unauthorized
     and unintended information transfer via this shared resources.
 
-- id: ssp_nist800171r1_3_13_6
-  format: markdown
-  template: "3.13.6 Deny network communications traffic by default and allow network
-    communications traffic by exception (i.e., deny all, permit by exception).\n\n{organization}
-    uses QNAP {qnap_model} for network storage to store and protect computer files
-    containing CUI. The QNAP device is used as a file server. \n\nQNAP {qnap_model}
-    employs administration control features built-in SSL to implement cryptographic
-    mechanisms to prevent unauthorized disclosure of CUI during transmission to and
-    from the QNAP device.\n\n"
 - id: ssp_nist800171r1_3_13_8
   title: NIST SP 800-171 3.13.8
   format: markdown
-  template: "3.13.8 Implement cryptographic mechanisms to prevent unauthorized disclosure
-    of CUI during transmission unless otherwise protected by alternative physical
-    safeguards.\n\n{organization} uses QNAP {qnap_model} for network storage to store
+  template: |+
+    {{organization}} uses QNAP TS-670 (NAS) to implement cryptographic mechanisms to prevent unauthorized disclosure of CUI during transmission unless otherwise protected by alternative physical safeguards.
+
+    {organization} uses QNAP TS-670 for network storage to store
     and protect computer files containing CUI. The QNAP device is used as a file server.
-    \n\nQNAP {qnap_model} employs built-in SSL to implement cryptographic mechanisms
+
+    QNAP TS-670 employs built-in SSL to implement cryptographic mechanisms
     to prevent unauthorized disclosure of CUI during transmission to and from the
-    QNAP device.\n\n"
+    QNAP device.
+
 - id: ssp_nist800171r1_3_13_9
   title: NIST SP 800-171 3.13.9
   format: markdown
   template: |+
-    3.13.9 Terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.
+    {{organization}} uses QNAP TS-670 (NAS) to terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.
 
-    {organization} uses QNAP {qnap_model} for network storage to store and protect computer files containing CUI. The QNAP device is used as a file server.
+    {organization} uses QNAP TS-670 for network storage to store and protect computer files containing CUI. The QNAP device is used as a file server.
 
     The QNAP administration controls use the following settings to terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.
 
@@ -468,11 +444,9 @@ output:
   title: NIST SP 800-171 3.13.11
   format: markdown
   template: >+
-    3.13.11 Employ FIPS-validated cryptography when used to protect the confidentiality
-    of CUI.
+    {{organization}} uses QNAP TS-670 (NAS) to employ FIPS-validated cryptography when used to protect the confidentiality of CUI.
 
-
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -481,7 +455,7 @@ output:
     maintained by the QNAP file server.
 
 
-    QNAP {qnap_model} employs FIPS-140-2 validated AES 256-bit Volume-based data encryption
+    QNAP TS-670 employs FIPS-140-2 validated AES 256-bit Volume-based data encryption
     to protect the confidentiality of the CUI in the following types of files stored
     on the device.
 
@@ -492,10 +466,9 @@ output:
   title: NIST SP 800-171 3.13.16
   format: markdown
   template: >
-    3.13.16 Protect the confidentiality of CUI at rest.
+    {{organization}} uses QNAP TS-670 (NAS) to protect the confidentiality of CUI at rest.
 
-
-    {organization} uses QNAP {qnap_model} for network storage to store and protect
+    {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
@@ -503,8 +476,7 @@ output:
     CUI are located in shared directories on the QNAP device with access permisisons
     maintained by the QNAP file server.
 
-
-    QNAP {qnap_model} employs FIPS-140-2 validated AES 256-bit Volume-based data encryption
+    QNAP TS-670 employs FIPS-140-2 validated AES 256-bit Volume-based data encryption
     to protect the confidentiality of the CUI at rest in the following types of files
     stored on the device.
 
