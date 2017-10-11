@@ -1,0 +1,160 @@
+id: app
+title: CISCO Router
+type: project
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of CISCO Router
+    long: Generates compliance documentation of CISCO Router as it pertains to managing
+      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
+      controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    CISCO __product_name__ is a network router for connecting networks.
+
+    This application will make sure you are properly using CISCO Router to protect
+    CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions:
+- id: example
+  title: Example Module
+  type: module
+  module-id: example
+output:
+- id: ssp_nist800171r1_3_1_1
+  title: NIST SP 800-171 3.1.1 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to limit system access to authorized users, processes acting on behalf of authorized users, or devices (including other systems).
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_1_2
+  title: NIST SP 800-171 3.1.2 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to limit system access to the types of transactions and functions that authorized users are permitted to execute.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_1_7
+  title: NIST SP 800-171 3.1.7 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to prevent non-privileged users from executing privileged functions and audit the execution of such functions.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_1_8
+  title: NIST SP 800-171 3.1.8 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to limit unsuccessful logon attempts.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_1_11
+  title: NIST SP 800-171 3.1.11 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to terminate (automatically) a user session after a defined condition.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_1_12
+  title: NIST SP 800-171 3.1.12 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to monitor and control remote access sessions.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_1_13
+  title: NIST SP 800-171 3.1.13 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to employ cryptographic mechanisms to protect the confidentiality of remote access sessions.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_1_18
+  title: NIST SP 800-171 3.1.18 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to control connection of mobile devices.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_1_20
+  title: NIST SP 800-171 3.1.20 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to verify and control/limit connections to and use of external systems.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_3_1
+  title: NIST SP 800-171 3.3.1 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to create, protect, and retain system audit records to the extent needed to enable the monitoring, analysis, investigation, and reporting of unlawful, unauthorized, or inappropriate system activity.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_3_4
+  title: NIST SP 800-171 3.3.4 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to alert in the event of an audit process failure.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_3_6
+  title: NIST SP 800-171 3.3.6 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to provide audit reduction and report generation to support on-demand analysis and reporting.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_3_7
+  title: NIST SP 800-171 3.3.7 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to provide a system capability that compares and synchronizes internal system clocks with an authoritative source to generate time stamps for audit records.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_3_8
+  title: NIST SP 800-171 3.3.8 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to protect audit information and audit tools from unauthorized access, modification, and deletion.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_3_9
+  title: NIST SP 800-171 3.3.9 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to limit management of audit functionality to a subset of privileged users.
+
+    CISCO __product_name__ is a network router for connecting networks.
+
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/CISCO-Router

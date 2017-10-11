@@ -1,0 +1,40 @@
+id: app
+title: macOS 10.11.6
+type: project
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of macOS 10.11.6
+    long: Generates compliance documentation of macOS 10.11.6 as it pertains to managing
+      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
+      controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    macOS 10.11.6 is an Unix-based operation system.
+
+    This application will make sure you are properly using macOS 10.11.6 to protect
+    CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions:
+- id: example
+  title: Example Module
+  type: module
+  module-id: example
+output: []
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/macOS-10-11-6

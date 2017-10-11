@@ -1,0 +1,97 @@
+id: app
+title: AWS CloudTrail
+type: project
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of AWS CloudTrail
+    long: Generates compliance documentation of AWS CloudTrail as it pertains to managing
+      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
+      controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    "AWS CloudTrail is a service that enables governance, compliance, operational
+    auditing, and risk auditing of your AWS account." (https://aws.amazon.com/cloudtrail/)
+
+    This application will make sure you are properly using AWS CloudTrail to protect
+    CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions:
+- id: example
+  title: Example Module
+  type: module
+  module-id: example
+output:
+- id: ssp_nist800171r1_3_3_1
+  title: NIST SP 800-171 3.3.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses AWS CloudTrail to create, protect, and retain system audit
+    records to the extent needed to enable the monitoring, analysis, investigation,
+    and reporting of unlawful, unauthorized, or inappropriate system activity.
+
+
+    "AWS CloudTrail is a service that enables governance, compliance, operational
+    auditing, and risk auditing of your AWS account." (https://aws.amazon.com/cloudtrail/)
+
+- id: ssp_nist800171r1_3_3_2
+  title: NIST SP 800-171 3.3.2 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses AWS CloudTrail to ensure that the actions of individual system users can be uniquely traced to those users so they can be held accountable for their actions.
+
+    "AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account." (https://aws.amazon.com/cloudtrail/)
+
+- id: ssp_nist800171r1_3_3_4
+  title: NIST SP 800-171 3.3.4 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses AWS CloudTrail to alert in the event of an audit process failure.
+
+    "AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account." (https://aws.amazon.com/cloudtrail/)
+
+- id: ssp_nist800171r1_3_3_7
+  title: NIST SP 800-171 3.3.7 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses AWS CloudTrail to provide a system capability that compares
+    and synchronizes internal system clocks with an authoritative source to generate
+    time stamps for audit records.
+
+
+    "AWS CloudTrail is a service that enables governance, compliance, operational
+    auditing, and risk auditing of your AWS account." (https://aws.amazon.com/cloudtrail/)
+
+- id: ssp_nist800171r1_3_3_8
+  title: NIST SP 800-171 3.3.8 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses AWS CloudTrail to protect audit information and audit tools from unauthorized access, modification, and deletion.
+
+    "AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account." (https://aws.amazon.com/cloudtrail/)
+
+- id: ssp_nist800171r1_3_3_9
+  title: NIST SP 800-171 3.3.9 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses AWS CloudTrail to limit management of audit functionality to a subset of privileged users.
+
+    "AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account." (https://aws.amazon.com/cloudtrail/)
+
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/AWS-CloudTrail
