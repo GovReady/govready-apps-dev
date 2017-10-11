@@ -1,20 +1,23 @@
 id: app
 title: AWS Glacier Backup
 type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/long-term-file-storage
 version: 0.5
 icon: app.png
 catalog:
   category: Technology
   vendor: GovReady
   vendor_url: http://www.govready.com
-  status: Draft
+  status: draft
   version: 0.2
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
   description:
     short: |
-      CUI (800-171) Compliance of AWS Glacier Backup
+      CUI (NIST SP 800-171) Compliance of AWS Glacier Backup
     long: |
-      Generates the compliance documentation of AWS Glacier Backup as it pertains to managing the security of CUI (Controlled Unclassified Information) as per NIST 800-171 controls.
+      Generates the compliance documentation of AWS Glacier Backup as it pertains to managing the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
 
   recommended_for:
   - key_short: Org

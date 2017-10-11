@@ -12,7 +12,8 @@ catalog:
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/QNAP
   description:
     short: CUI (NIST SP 800-171) Compliance of QNAP TS-670 (NAS)
-    long: Generates compliance documentation of QNAP TS-670 (NAS) as it pertains to
+    long: |
+      Generates compliance documentation of QNAP TS-670 (NAS) as it pertains to
       managing the security of CUI (Controlled Unclassified Information) as per NIST
       SP 800-171 controls.
 
@@ -81,7 +82,7 @@ output:
   title: NIST SP 800-171 3.1.1
   format: markdown
   template: >+
-     {{organization}} uses QNAP TS-670 (NAS) to limit system access to authorized users, processes acting on behalf of authorized users, or devices (including other systems).
+    {{organization}} uses QNAP TS-670 (NAS) to limit system access to authorized users, processes acting on behalf of authorized users, or devices (including other systems).
 
     {organization} uses QNAP TS-670 for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
