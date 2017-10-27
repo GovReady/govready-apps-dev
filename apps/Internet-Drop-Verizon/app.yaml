@@ -1,5 +1,5 @@
 id: app
-title: Internet Drop
+title: Internet Drop (Verizon)
 type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
@@ -37,4 +37,13 @@ questions:
   title: Example Module
   type: module
   module-id: example
-output: []
+output:
+- id: ssp_nist800171r1_3_13_6
+  title: NIST SP 800-171 3.13.6 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Internet Drop (Verizon) to deny network communications traffic
+    by default and allow network communications traffic by exception (i.e., deny all,
+    permit by exception). Verizon Internet Drop provides a broadband connection to
+    the public internet.
+

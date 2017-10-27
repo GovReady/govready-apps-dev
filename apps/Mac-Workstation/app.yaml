@@ -1,5 +1,5 @@
 id: app
-title: macOS Workstation
+title: Mac Workstation
 type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
@@ -37,4 +37,109 @@ questions:
   title: Example Module
   type: module
   module-id: example
-output: []
+output:
+- id: ssp_nist800171r1_3_1_1
+  title: NIST SP 800-171 3.1.1 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to limit system access to authorized users, processes acting on behalf of authorized users, or devices (including other systems). Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_1_2
+  title: NIST SP 800-171 3.1.2 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to limit system access to the types of transactions and functions that authorized users are permitted to execute. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_1_8
+  title: NIST SP 800-171 3.1.8 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to limit unsuccessful logon attempts. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_1_10
+  title: NIST SP 800-171 3.1.10 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to use session lock with pattern-hiding displays to prevent access and viewing of data after period of inactivity. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_1_12
+  title: NIST SP 800-171 3.1.12 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to monitor and control remote access sessions. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_1_17
+  title: NIST SP 800-171 3.1.17 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to protect wireless access using authentication and encryption. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_3_1
+  title: NIST SP 800-171 3.3.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Mac Workstation to create, protect, and retain system audit
+    records to the extent needed to enable the monitoring, analysis, investigation,
+    and reporting of unlawful, unauthorized, or inappropriate system activity. Mac
+    Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_3_2
+  title: NIST SP 800-171 3.3.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Mac Workstation to ensure that the actions of individual
+    system users can be uniquely traced to those users so they can be held accountable
+    for their actions. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_3_7
+  title: NIST SP 800-171 3.3.7 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Mac Workstation to provide a system capability that compares
+    and synchronizes internal system clocks with an authoritative source to generate
+    time stamps for audit records. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_3_8
+  title: NIST SP 800-171 3.3.8 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to protect audit information and audit tools from unauthorized access, modification, and deletion. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_4_2
+  title: NIST SP 800-171 3.4.2 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to establish and enforce security configuration settings for information technology products employed in organizational systems. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_5_1
+  title: NIST SP 800-171 3.5.1 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to identify system users, processes acting on behalf of users, or devices. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_5_2
+  title: NIST SP 800-171 3.5.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Mac Workstation to authenticate (or verify) the identities
+    of those users, processes, or devices, as a prerequisite to allowing access to
+    organizational systems. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_5_7
+  title: NIST SP 800-171 3.5.7 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to enforce a minimum password complexity and change of characters when new passwords are created. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_5_11
+  title: NIST SP 800-171 3.5.11 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to obscure feedback of authentication information. Mac Workstation is a personal computer.
+
+- id: ssp_nist800171r1_3_13_16
+  title: NIST SP 800-171 3.13.16 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Mac Workstation to protect the confidentiality of CUI at rest. Mac Workstation is a personal computer.
+

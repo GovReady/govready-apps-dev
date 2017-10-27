@@ -41,120 +41,186 @@ output:
 - id: ssp_nist800171r1_3_1_1
   title: NIST SP 800-171 3.1.1 Control Implementation
   format: markdown
-  template: |+
-    {{organization}} uses CISCO Router to limit system access to authorized users, processes acting on behalf of authorized users, or devices (including other systems).
-
+  template: >+
+    {{organization}} uses CISCO Router to limit system access to authorized users,
+    processes acting on behalf of authorized users, or devices (including other systems).
     CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_1_2
   title: NIST SP 800-171 3.1.2 Control Implementation
   format: markdown
-  template: |+
-    {{organization}} uses CISCO Router to limit system access to the types of transactions and functions that authorized users are permitted to execute.
-
-    CISCO __product_name__ is a network router for connecting networks.
+  template: >+
+    {{organization}} uses CISCO Router to limit system access to the types of transactions
+    and functions that authorized users are permitted to execute. CISCO __product_name__
+    is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_1_7
   title: NIST SP 800-171 3.1.7 Control Implementation
   format: markdown
-  template: |+
-    {{organization}} uses CISCO Router to prevent non-privileged users from executing privileged functions and audit the execution of such functions.
-
-    CISCO __product_name__ is a network router for connecting networks.
+  template: >+
+    {{organization}} uses CISCO Router to prevent non-privileged users from executing
+    privileged functions and audit the execution of such functions. CISCO __product_name__
+    is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_1_8
   title: NIST SP 800-171 3.1.8 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to limit unsuccessful logon attempts.
-
-    CISCO __product_name__ is a network router for connecting networks.
+    {{organization}} uses CISCO Router to limit unsuccessful logon attempts. CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_1_11
   title: NIST SP 800-171 3.1.11 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to terminate (automatically) a user session after a defined condition.
-
-    CISCO __product_name__ is a network router for connecting networks.
+    {{organization}} uses CISCO Router to terminate (automatically) a user session after a defined condition. CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_1_12
   title: NIST SP 800-171 3.1.12 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to monitor and control remote access sessions.
-
-    CISCO __product_name__ is a network router for connecting networks.
+    {{organization}} uses CISCO Router to monitor and control remote access sessions. CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_1_13
   title: NIST SP 800-171 3.1.13 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to employ cryptographic mechanisms to protect the confidentiality of remote access sessions.
-
-    CISCO __product_name__ is a network router for connecting networks.
+    {{organization}} uses CISCO Router to employ cryptographic mechanisms to protect the confidentiality of remote access sessions. CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_1_18
   title: NIST SP 800-171 3.1.18 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to control connection of mobile devices.
-
-    CISCO __product_name__ is a network router for connecting networks.
+    {{organization}} uses CISCO Router to control connection of mobile devices. CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_1_20
   title: NIST SP 800-171 3.1.20 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to verify and control/limit connections to and use of external systems.
-
-    CISCO __product_name__ is a network router for connecting networks.
+    {{organization}} uses CISCO Router to verify and control/limit connections to and use of external systems. CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_3_1
   title: NIST SP 800-171 3.3.1 Control Implementation
   format: markdown
-  template: |+
-    {{organization}} uses CISCO Router to create, protect, and retain system audit records to the extent needed to enable the monitoring, analysis, investigation, and reporting of unlawful, unauthorized, or inappropriate system activity.
-
-    CISCO __product_name__ is a network router for connecting networks.
+  template: >+
+    {{organization}} uses CISCO Router to create, protect, and retain system audit
+    records to the extent needed to enable the monitoring, analysis, investigation,
+    and reporting of unlawful, unauthorized, or inappropriate system activity. CISCO
+    __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_3_4
   title: NIST SP 800-171 3.3.4 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to alert in the event of an audit process failure.
-
-    CISCO __product_name__ is a network router for connecting networks.
+    {{organization}} uses CISCO Router to alert in the event of an audit process failure. CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_3_6
   title: NIST SP 800-171 3.3.6 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to provide audit reduction and report generation to support on-demand analysis and reporting.
-
-    CISCO __product_name__ is a network router for connecting networks.
+    {{organization}} uses CISCO Router to provide audit reduction and report generation to support on-demand analysis and reporting. CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_3_7
   title: NIST SP 800-171 3.3.7 Control Implementation
   format: markdown
-  template: |+
-    {{organization}} uses CISCO Router to provide a system capability that compares and synchronizes internal system clocks with an authoritative source to generate time stamps for audit records.
-
-    CISCO __product_name__ is a network router for connecting networks.
+  template: >+
+    {{organization}} uses CISCO Router to provide a system capability that compares
+    and synchronizes internal system clocks with an authoritative source to generate
+    time stamps for audit records. CISCO __product_name__ is a network router for
+    connecting networks.
 
 - id: ssp_nist800171r1_3_3_8
   title: NIST SP 800-171 3.3.8 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to protect audit information and audit tools from unauthorized access, modification, and deletion.
-
-    CISCO __product_name__ is a network router for connecting networks.
+    {{organization}} uses CISCO Router to protect audit information and audit tools from unauthorized access, modification, and deletion. CISCO __product_name__ is a network router for connecting networks.
 
 - id: ssp_nist800171r1_3_3_9
   title: NIST SP 800-171 3.3.9 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses CISCO Router to limit management of audit functionality to a subset of privileged users.
+    {{organization}} uses CISCO Router to limit management of audit functionality to a subset of privileged users. CISCO __product_name__ is a network router for connecting networks.
 
+- id: ssp_nist800171r1_3_13_1
+  title: NIST SP 800-171 3.13.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CISCO Router to monitor, control, and protect communications
+    (i.e., information transmitted or received by organizational systems) at the external
+    boundaries and key internal boundaries of organizational systems. CISCO __product_name__
+    is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_13_2
+  title: NIST SP 800-171 3.13.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CISCO Router to employ architectural designs, software development
+    techniques, and systems engineering principles that promote effective information
+    security within organizational systems. CISCO __product_name__ is a network router
+    for connecting networks.
+
+- id: ssp_nist800171r1_3_13_3
+  title: NIST SP 800-171 3.13.3 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to separate user functionality from system management functionality. CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_13_5
+  title: NIST SP 800-171 3.13.5 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CISCO Router to implement subnetworks for publicly accessible
+    system components that are physically or logically separated from internal networks.
     CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_13_6
+  title: NIST SP 800-171 3.13.6 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CISCO Router to deny network communications traffic by default
+    and allow network communications traffic by exception (i.e., deny all, permit
+    by exception). CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_13_8
+  title: NIST SP 800-171 3.13.8 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CISCO Router to implement cryptographic mechanisms to prevent
+    unauthorized disclosure of CUI during transmission unless otherwise protected
+    by alternative physical safeguards. CISCO __product_name__ is a network router
+    for connecting networks.
+
+- id: ssp_nist800171r1_3_13_9
+  title: NIST SP 800-171 3.13.9 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CISCO Router to terminate network connections associated
+    with communications sessions at the end of the sessions or after a defined period
+    of inactivity. CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_13_11
+  title: NIST SP 800-171 3.13.11 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to employ FIPS-validated cryptography when used to protect the confidentiality of CUI. CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_13_14
+  title: NIST SP 800-171 3.13.14 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to control and monitor the use of Voice over Internet Protocol (VoIP) technologies. CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_13_15
+  title: NIST SP 800-171 3.13.15 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CISCO Router to protect the authenticity of communications sessions. CISCO __product_name__ is a network router for connecting networks.
+
+- id: ssp_nist800171r1_3_14_6
+  title: NIST SP 800-171 3.14.6 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CISCO Router to monitor organizational systems including
+    inbound and outbound communications traffic, to detect attacks and indicators
+    of potential attacks. CISCO __product_name__ is a network router for connecting
+    networks.
 

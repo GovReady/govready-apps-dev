@@ -39,4 +39,13 @@ questions:
   title: Example Module
   type: module
   module-id: example
-output: []
+output:
+- id: ssp_nist800171r1_3_1_1
+  title: NIST SP 800-171 3.1.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Secondary Internet Drop (Cox for Wifi network) to limit
+    system access to authorized users, processes acting on behalf of authorized users,
+    or devices (including other systems). Cox Internet Drop provides a broadband connection
+    to the public internet.
+

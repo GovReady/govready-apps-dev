@@ -1,5 +1,5 @@
 id: app
-title: MFA Devices
+title: MFA Devices (which ones)
 type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp

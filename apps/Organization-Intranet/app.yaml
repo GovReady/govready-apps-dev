@@ -37,4 +37,21 @@ questions:
   title: Example Module
   type: module
   module-id: example
-output: []
+output:
+- id: ssp_nist800171r1_3_2_3
+  title: NIST SP 800-171 3.2.3 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Organization Intranet to provide security awareness training
+    on recognizing and reporting potential indicators of insider threat. Organization
+    Intranet are web pages available internally to the organization.
+
+- id: ssp_nist800171r1_3_9_2
+  title: NIST SP 800-171 3.9.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Organization Intranet to ensure that CUI and organizational
+    systems containing CUI are protected during and after personnel actions such as
+    terminations and transfers. Organization Intranet are web pages available internally
+    to the organization.
+

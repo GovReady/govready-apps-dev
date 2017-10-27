@@ -38,4 +38,60 @@ questions:
   title: Example Module
   type: module
   module-id: example
-output: []
+output:
+- id: ssp_nist800171r1_3_3_1
+  title: NIST SP 800-171 3.3.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Nagios to create, protect, and retain system audit records
+    to the extent needed to enable the monitoring, analysis, investigation, and reporting
+    of unlawful, unauthorized, or inappropriate system activity. Nagios is a free
+    and open source computer-software application that monitors systems, networks
+    and infrastructure.
+
+- id: ssp_nist800171r1_3_3_2
+  title: NIST SP 800-171 3.3.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Nagios to ensure that the actions of individual system users
+    can be uniquely traced to those users so they can be held accountable for their
+    actions. Nagios is a free and open source computer-software application that monitors
+    systems, networks and infrastructure.
+
+- id: ssp_nist800171r1_3_3_4
+  title: NIST SP 800-171 3.3.4 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Nagios to alert in the event of an audit process failure. Nagios is a free and open source computer-software application that monitors systems, networks and infrastructure.
+
+- id: ssp_nist800171r1_3_3_7
+  title: NIST SP 800-171 3.3.7 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Nagios to provide a system capability that compares and
+    synchronizes internal system clocks with an authoritative source to generate time
+    stamps for audit records. Nagios is a free and open source computer-software application
+    that monitors systems, networks and infrastructure.
+
+- id: ssp_nist800171r1_3_3_8
+  title: NIST SP 800-171 3.3.8 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Nagios to protect audit information and audit tools from
+    unauthorized access, modification, and deletion. Nagios is a free and open source
+    computer-software application that monitors systems, networks and infrastructure.
+
+- id: ssp_nist800171r1_3_3_9
+  title: NIST SP 800-171 3.3.9 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Nagios to limit management of audit functionality to a subset
+    of privileged users. Nagios is a free and open source computer-software application
+    that monitors systems, networks and infrastructure.
+
+- id: ssp_nist800171r1_3_4_9
+  title: NIST SP 800-171 3.4.9 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Nagios to control and monitor user-installed software. Nagios is a free and open source computer-software application that monitors systems, networks and infrastructure.
+

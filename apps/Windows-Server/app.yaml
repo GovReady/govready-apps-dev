@@ -3,6 +3,7 @@ title: Windows Server
 type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/windows-machine
 - govready.com/apps/compliance/2017/windows-server
 version: 0.5
 icon: app.png
