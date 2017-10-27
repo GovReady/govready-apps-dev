@@ -10,7 +10,7 @@ catalog:
   category: Technology
   vendor: GovReady
   vendor_url: http://www.govready.com
-  status: Draft
+  status: draft
   version: 0.2
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/Atlassian-Jira
   description:
@@ -45,21 +45,15 @@ output:
 - id: ssp_nist800171r1_3_4_3
   format: markdown
   template: |+
-    3.4.3 Track, review, approve/disapprove, and audit changes to organizational systems.
-
-    __Organization__ uses Atlassian Jira issue tracker as part of its change management process to track, review, approve/disapprove all requested changes to organizational systems.
+    {{organization}} uses Atlassian Jira issue tracker as part of its change management process to track, review, approve/disapprove all requested changes to organizational systems.
 
 - id: ssp_nist800171r1_3_6_2
   format: markdown
   template: |+
-    3.6.2 Track, document, and report incidents to appropriate officials and/or authorities both internal and external to the organization.
-
-    __Organization__ uses Atlassian Jira issue tracker as part of its incident management process to track and document incidents and the underlying issues associated with the incidents. This documentation is then used as part of internal and external reporting.
+    {{organization}} uses Atlassian Jira issue tracker as part of its incident management process to track and document incidents and the underlying issues associated with the incidents. This documentation is then used as part of internal and external reporting.
 
 - id: ssp_nist800171r1_3_14_1
   format: markdown
   template: |+
-    3.14.1 Identify, report, and correct information and system flaws in a timely manner.
-
-    __Organization__ uses Atlassian Jira issue tracker to identify, report, and correct information and system flaws in a timely manner by creating Jira tickets for all reported issues. All reported issues are then tracked and prioritized in Jira to be corrected in a timely manner by appropriate individuals. This tracking in Jira helps maintain system and information integrity.
+    {{organization}} uses Atlassian Jira issue tracker to identify, report, and correct information and system flaws in a timely manner by creating Jira tickets for all reported issues. All reported issues are then tracked and prioritized in Jira to be corrected in a timely manner by appropriate individuals. This tracking in Jira helps maintain system and information integrity.
 
