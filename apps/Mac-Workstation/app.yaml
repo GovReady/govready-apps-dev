@@ -42,7 +42,8 @@ output:
   title: NIST SP 800-171 3.1.1 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses Mac Workstation to limit system access to authorized users, processes acting on behalf of authorized users, or devices (including other systems). Mac Workstation is a personal computer.
+    Mac workstations (macOS personal computers) are used by {{organization}} staff. The workstations
+    limit access to authorized users by connecting to FreeIPA.
 
 - id: ssp_nist800171r1_3_1_2
   title: NIST SP 800-171 3.1.2 Control Implementation

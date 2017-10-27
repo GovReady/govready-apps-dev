@@ -1,0 +1,51 @@
+id: app
+title: Secondary Internet Drop
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/secondary-internet-drop
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of Secondary Internet Drop.
+    long: Generates compliance documentation of Secondary Internet Drop 
+      as it pertains to managing the security of CUI (Controlled Unclassified
+      Information) as per NIST SP 800-171 controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    The Secondary Internet Drop provides a broadband connection to the public Internet
+    for authorized users and devices that are not connected to systems that store
+    Controlled Unclassified Information.
+
+    This application will make sure you are properly using Secondary Internet Drop
+    to protect CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions:
+- id: questions
+  title: Questions about the Secondary Internet Drop
+  type: module
+  module-id: questions
+output:
+- id: ssp_nist800171r1_3_1_1
+  title: NIST SP 800-171 3.1.1 Control Implementation
+  format: markdown
+  template: >+
+    A Secondary Internet Drop from {{questions.provider}} is used to limit access to authorized users, processes acting
+    on behalf of authorized users, or devices (including other systems). The drop is used for {{questions.usage}}.
+    {% if questions.cui_stored == "no" %}No systems that store Controlled Unclassified Information connect to the
+    Internet through the Secondary Internet Drop.{% endif %}
+

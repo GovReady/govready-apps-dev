@@ -28,7 +28,7 @@ catalog:
 introduction:
   format: markdown
   template: >-
-    FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
     This application will make sure you are properly using FreeIPA to protect CUI
     (Controlled Unclassified Information) as per NIST SP 800-171 controls.
@@ -42,21 +42,23 @@ output:
   title: NIST SP 800-171 3.1.1 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses FreeIPA to limit system access to authorized users, processes
-    acting on behalf of authorized users, or devices (including other systems). FreeIPA
-    is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA, an Identity and Authentication solution for Linux/UNIX networked environments,
+    to limit system access to authorized users, processes acting on behalf of authorized users, and devices
+    (including other systems).
 
 - id: ssp_nist800171r1_3_1_8
   title: NIST SP 800-171 3.1.8 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses FreeIPA to limit unsuccessful logon attempts. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA to limit unsuccessful logon attempts. FreeIPA is an Identity
+    and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_1_9
   title: NIST SP 800-171 3.1.9 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses FreeIPA to provide privacy and security notices consistent with applicable CUI rules. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA to provide privacy and security notices consistent with
+    applicable CUI rules. FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_3_1
   title: NIST SP 800-171 3.3.1 Control Implementation
@@ -64,7 +66,7 @@ output:
   template: >+
     {{organization}} uses FreeIPA to create, protect, and retain system audit records
     to the extent needed to enable the monitoring, analysis, investigation, and reporting
-    of unlawful, unauthorized, or inappropriate system activity. FreeIPA is a  Identity
+    of unlawful, unauthorized, or inappropriate system activity. FreeIPA is an Identity
     and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_3_2
@@ -73,14 +75,14 @@ output:
   template: >+
     {{organization}} uses FreeIPA to ensure that the actions of individual system
     users can be uniquely traced to those users so they can be held accountable for
-    their actions. FreeIPA is a  Identity and Authentication solution for Linux/UNIX
+    their actions. FreeIPA is an Identity and Authentication solution for Linux/UNIX
     networked environments.
 
 - id: ssp_nist800171r1_3_3_9
   title: NIST SP 800-171 3.3.9 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses FreeIPA to limit management of audit functionality to a subset of privileged users. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA to limit management of audit functionality to a subset of privileged users. FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_4_2
   title: NIST SP 800-171 3.4.2 Control Implementation
@@ -88,7 +90,7 @@ output:
   template: >+
     {{organization}} uses FreeIPA to establish and enforce security configuration
     settings for information technology products employed in organizational systems.
-    FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_4_5
   title: NIST SP 800-171 3.4.5 Control Implementation
@@ -96,14 +98,14 @@ output:
   template: >+
     {{organization}} uses FreeIPA to define, document, approve, and enforce physical
     and logical access restrictions associated with changes to organizational systems.
-    FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_4_7
   title: NIST SP 800-171 3.4.7 Control Implementation
   format: markdown
   template: >+
     {{organization}} uses FreeIPA to restrict, disable, and prevent the use of nonessential
-    programs, functions, ports, protocols, and services. FreeIPA is a  Identity and
+    programs, functions, ports, protocols, and services. FreeIPA is an Identity and
     Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_4_8
@@ -112,14 +114,14 @@ output:
   template: >+
     {{organization}} uses FreeIPA to apply deny-by-exception (blacklist) policy to
     prevent the use of unauthorized software or denyall, permit-by-exception (whitelisting)
-    policy to allow the execution of authorized software. FreeIPA is a  Identity and
+    policy to allow the execution of authorized software. FreeIPA is an Identity and
     Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_1
   title: NIST SP 800-171 3.5.1 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses FreeIPA to identify system users, processes acting on behalf of users, or devices. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA to identify system users, processes acting on behalf of users, or devices. FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_2
   title: NIST SP 800-171 3.5.2 Control Implementation
@@ -127,7 +129,7 @@ output:
   template: >+
     {{organization}} uses FreeIPA to authenticate (or verify) the identities of those
     users, processes, or devices, as a prerequisite to allowing access to organizational
-    systems. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked
+    systems. FreeIPA is an Identity and Authentication solution for Linux/UNIX networked
     environments.
 
 - id: ssp_nist800171r1_3_5_3
@@ -149,7 +151,7 @@ output:
     of a network. Network access is any access to a system by a user (or a process
     acting on behalf of a user) communicating through a network (e.g., local area
     network, wide area network, Internet).] to privileged accounts and for network
-    access to non-privileged accounts. FreeIPA is a  Identity and Authentication solution
+    access to non-privileged accounts. FreeIPA is an Identity and Authentication solution
     for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_4
@@ -157,52 +159,52 @@ output:
   format: markdown
   template: >+
     {{organization}} uses FreeIPA to employ replay-resistant authentication mechanisms
-    for network access to privileged and nonprivileged accounts. FreeIPA is a  Identity
+    for network access to privileged and nonprivileged accounts. FreeIPA is an Identity
     and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_5
   title: NIST SP 800-171 3.5.5 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses FreeIPA to prevent reuse of identifiers for a defined period. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA to prevent reuse of identifiers for a defined period. FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_6
   title: NIST SP 800-171 3.5.6 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses FreeIPA to disable identifiers after a defined period of inactivity. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA to disable identifiers after a defined period of inactivity. FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_7
   title: NIST SP 800-171 3.5.7 Control Implementation
   format: markdown
   template: >+
     {{organization}} uses FreeIPA to enforce a minimum password complexity and change
-    of characters when new passwords are created. FreeIPA is a  Identity and Authentication
+    of characters when new passwords are created. FreeIPA is an Identity and Authentication
     solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_8
   title: NIST SP 800-171 3.5.8 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses FreeIPA to prohibit password reuse for a specified number of generations. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA to prohibit password reuse for a specified number of generations. FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_9
   title: NIST SP 800-171 3.5.9 Control Implementation
   format: markdown
   template: >+
     {{organization}} uses FreeIPA to allow temporary password use for system logons
-    with an immediate change to a permanent password. FreeIPA is a  Identity and Authentication
+    with an immediate change to a permanent password. FreeIPA is an Identity and Authentication
     solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_10
   title: NIST SP 800-171 3.5.10 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses FreeIPA to store and transmit only cryptographically-protected passwords. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA to store and transmit only cryptographically-protected passwords. FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 
 - id: ssp_nist800171r1_3_5_11
   title: NIST SP 800-171 3.5.11 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses FreeIPA to obscure feedback of authentication information. FreeIPA is a  Identity and Authentication solution for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA to obscure feedback of authentication information. FreeIPA is an Identity and Authentication solution for Linux/UNIX networked environments.
 

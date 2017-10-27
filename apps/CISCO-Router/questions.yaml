@@ -1,0 +1,9 @@
+id: questions
+title: Questions
+questions:
+- id: product_name
+  title: Which CISCO router are you using?
+  prompt: Which CISCO router are you using?
+  type: text
+  help: Enter a product name.
+

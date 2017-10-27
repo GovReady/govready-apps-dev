@@ -1,5 +1,5 @@
 id: app
-title: Internet Drop (Verizon)
+title: Internet Drop
 type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
@@ -14,8 +14,8 @@ catalog:
   version: 0.2
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
   description:
-    short: CUI (NIST SP 800-171) Compliance of Internet Drop (Verizon)
-    long: Generates compliance documentation of Internet Drop (Verizon) as it pertains
+    short: CUI (NIST SP 800-171) Compliance of Internet Drop
+    long: Generates compliance documentation of Internet Drop as it pertains
       to managing the security of CUI (Controlled Unclassified Information) as per
       NIST SP 800-171 controls.
   recommended_for:
@@ -28,22 +28,20 @@ catalog:
 introduction:
   format: markdown
   template: >-
-    Verizon Internet Drop provides a broadband connection to the public internet.
+    Internet Drop provides a broadband connection to the public internet.
 
-    This application will make sure you are properly using Internet Drop (Verizon)
+    This application will make sure you are properly using Internet Drop
     to protect CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
 questions:
-- id: example
-  title: Example Module
+- id: questions
+  title: Questions
   type: module
-  module-id: example
+  module-id: questions
 output:
 - id: ssp_nist800171r1_3_13_6
   title: NIST SP 800-171 3.13.6 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses Internet Drop (Verizon) to deny network communications traffic
-    by default and allow network communications traffic by exception (i.e., deny all,
-    permit by exception). Verizon Internet Drop provides a broadband connection to
-    the public internet.
+    {{questions.provider}} provides the primary Internet drop for {{organization}}, providing
+    a broadband connection to the public internet.
 

@@ -1,0 +1,19 @@
+id: questions
+title: Questions about Atlassian Bitbucket
+
+questions:
+- id: what_is_stored
+  title: What do you store in Atlassian Bitbucket?
+  prompt: What do you store in Atlassian Bitbucket?
+  type: text
+  help: e.g. software source code, data files
+
+- id: cui_stored
+  title: Is any CUI stored in Atlassian Bitbucket?
+  prompt: Is any Controlled Unclassified Information stored in Atlassian Bitbucket?
+  type: yesno
+
+- id: cui_system_configuration_stored
+  title: Are any configurations for systems that store CUI located in Atlassian Bitbucket?
+  prompt: Is Atlassian Bitbucket used to store configurations for systems that store CUI?
+  type: yesno

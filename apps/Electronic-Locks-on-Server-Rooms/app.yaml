@@ -28,7 +28,7 @@ catalog:
 introduction:
   format: markdown
   template: >-
-    Electonic Locks on the server rooms provide phaysical access control.
+    Electonic Locks on the server rooms provide physical access control.
 
     This application will make sure you are properly using Electronic Locks on Server
     Rooms to protect CUI (Controlled Unclassified Information) as per NIST SP 800-171
@@ -43,10 +43,8 @@ output:
   title: NIST SP 800-171 3.1.1 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses Electronic Locks on Server Rooms to limit system access
-    to authorized users, processes acting on behalf of authorized users, or devices
-    (including other systems). Electonic Locks on the server rooms provide phaysical
-    access control.
+    Electronic locks are present on all entrances to server rooms to limit system access
+    to authorized users. Electonic locks provide physical access control.
 
 - id: ssp_nist800171r1_3_3_1
   title: NIST SP 800-171 3.3.1 Control Implementation

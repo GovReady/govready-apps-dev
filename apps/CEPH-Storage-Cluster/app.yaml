@@ -42,15 +42,16 @@ output:
   title: NIST SP 800-171 3.1.1 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses CEPH Storage Cluster to limit system access to authorized
-    users, processes acting on behalf of authorized users, or devices (including other
-    systems). CEPH Storage Cluster is a scalable, programmable storage platform.
+    {{organization}}'s CEPH Storage Clusters limit access to stored Controlled
+    Unclassified Information to authorized users, processes acting on behalf of authorized users,
+    and devices (including other systems). The CEPH Storage Cluster is a scalable, programmable
+    storage platform.
 
 - id: ssp_nist800171r1_3_1_2
   title: NIST SP 800-171 3.1.2 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses CEPH Storage Cluster to limit system access to the types
+    {{organization}} uses a CEPH Storage Cluster to limit access to stored files to the types
     of transactions and functions that authorized users are permitted to execute.
     CEPH Storage Cluster is a scalable, programmable storage platform.
 
