@@ -55,20 +55,20 @@ output:
 - id: ssp_nist800171r1_3_1_9
   format: markdown
   template: |+
-    {% if questions.cui_stored == "yes" or questions.cui_system_configuration_stored == "yes" %}
+    {% if questions.cui_stored == "yes" or questions.describe_baseline_configurations %}
     Privacy and security notices consistent with applicable CUI rules are used in conjunction with
     Atlassian Bitbucket. {{organization}} uses Atlassian Bitbucket to store {{questions.what_is_stored}}{% if questions.cui_stored == "yes" %},
     including Controlled Unclassified Information{% endif %}.
-    {% if questions.cui_system_configuration_stored == "yes" %}{{organization}} uses Atlassian Bitbucket to
+    {% if questions.describe_baseline_configurations %}{{organization}} uses Atlassian Bitbucket to
     manage changes to configuration files for systems containing CUI.{% endif %}
     {% endif %}
 
 - id: ssp_nist800171r1_3_3_1
   format: markdown
   template: >+
-    {% if questions.cui_stored == "yes" or questions.cui_system_configuration_stored == "yes" %}
+    {% if questions.cui_stored == "yes" or questions.describe_baseline_configurations %}
     {{organization}} uses Atlassian Bitbucket to store {{questions.what_is_stored}}{% if questions.cui_stored == "yes" %},
-    including Controlled Unclassified Information, {% endif %}{% if questions.cui_system_configuration_stored == "yes" %}
+    including Controlled Unclassified Information, {% endif %}{% if questions.describe_baseline_configurations %}
     and to manage changes to configuration files for systems containing CUI.{% endif %}
     Atlassian Bitbucket provides a complete audit
     trail of all changes made to system source code files stored in its repositories.
@@ -81,14 +81,10 @@ output:
 - id: ssp_nist800171r1_3_3_2
   format: markdown
   template: >+
-    3.3.2 Ensure that the actions of individual system users can be uniquely traced
-    to those users so they can be held accountable for their actions.
-
-
-    {organization} uses Atlassian Bitbucket to manage changes to source code and configuration
+    {{organization}} uses Atlassian Bitbucket to manage changes to source code and configuration
     files for systems containing CUI. Atlassian Bitbucket provides a complete audit
     trail of all changes made to system source code files stored in its repositories
-    including which users made changes. {organization} uses Atlassian Bitbucket Git
+    including which users made changes. {{organization}} uses Atlassian Bitbucket Git
     commit histories to ensure that the actions of individual system users modifying
     source code files can be uniquely traced to those users so they can be held accountable
     for their actions.
@@ -96,69 +92,40 @@ output:
 - id: ssp_nist800171r1_3_3_8
   format: markdown
   template: >+
-    3.3.8 Protect audit information and audit tools from unauthorized access, modification,
-    and deletion.
-
-
-    {organization} uses Atlassian Bitbucket to manage changes to source code and configuration
+    {{organization}} uses Atlassian Bitbucket to manage changes to source code and configuration
     files for systems containing CUI. Atlassian Bitbucket provides a complete audit
     trail of all changes made to system source code files stored in its repositories.
-    {organization} uses Atlassian Bitbucket administration permissions to protect
+    {{organization}} uses Atlassian Bitbucket administration permissions to protect
     audit information and audit tools from unauthorized access, modification, and
     deletion.
 
 - id: ssp_nist800171r1_3_3_9
   format: markdown
   template: >+
-    3.3.9 Limit management of audit functionality to a subset of privileged users.
-
-
-    {organization} uses Atlassian Bitbucket to manage changes to source code and configuration
+    {{organization}} uses Atlassian Bitbucket to manage changes to source code and configuration
     files for systems containing CUI. Atlassian Bitbucket provides a complete audit
     trail of all changes made to system source code files stored in its repositories.
-    {organization} uses Atlassian Bitbucket administration permissions to limit management
+    {{organization}} uses Atlassian Bitbucket administration permissions to limit management
     of Bitbucket's audit functionality to a subset of privileged users.
 
 - id: ssp_nist800171r1_3_4_1
   format: markdown
   template: |+
-    3.4.1 Establish and maintain baseline configurations and inventories of organizational systems (including hardware, software, firmware, and documentation) throughout the respective system development life cycles.
-
-    {organization} uses Atlassian Bitbucket to manage changes to source code and configuration files for systems containing CUI.
-
-    {organization} stores the following types of files in Atlassian Bitbucket to establish and maintain baseline configurations throughout the respective system development life cycles.
-
-    {files_stored_in_bitbucker_for_baseline_configuations}
-
-- id: ssp_nist800171r1_3_4_2
-  format: markdown
-  template: |+
-    3.4.2 Establish and enforce security configuration settings for information technology products employed in organizational systems.
-
-    {organization} uses Atlassian Bitbucket to manage changes to source code and configuration files for systems containing CUI.
-
-    {organization} stores the following types of files in Atlassian Bitbucket to establish and enforce security configuration settings for information technology products employed in organizational systems.
-
-    {files_stored_in_bitbucker_for_system_changes}
+    {{organization}} uses Atlassian Bitbucket to manage changes to source code and configuration
+    files for systems containing CUI. {{questions.describe_baseline_configurations}}
 
 - id: ssp_nist800171r1_3_4_3
   format: markdown
   template: |+
-    3.4.3 Track, review, approve/disapprove, and audit changes to organizational systems.
-
-    {organization} uses Atlassian Bitbucket to manage changes to source code and configuration files for systems containing CUI.
-
-    {organization} stores the following types of files in Atlassian Bitbucket to track, review, approve/disapprove, and audit changes to organizational systems.
-
-    {files_stored_in_bitbucker_for_system_changes}
+    {% if questions.describe_baseline_configurations %}
+    {{organization}} uses Atlassian Bitbucket to manage changes to configuration files for
+    organization systems. Atlassian Bitbucket is used to track, review, approve/disapprove,
+    and audit changes.
+    {% endif %}
 
 - id: ssp_nist800171r1_3_4_5
   format: markdown
   template: |
-    3.4.5 Define, document, approve, and enforce physical and logical access restrictions associated with changes to organizational systems.
-
-    {organization} uses Atlassian Bitbucket to manage changes to source code and configuration files for systems containing CUI.
-
-    {organization} stores the following types of files in Atlassian Bitbucket to define, document, approve, and enforce physical and logical access restrictions associated with changes to organizational systems.
-
-    {files_stored_in_bitbucker_for_access_restrictions}
+    {{organization}} uses Atlassian Bitbucket to manage changes to source code and
+    configuration files for systems containing CUI. Changes to physical and logical access
+    restrictions are documented and approved using Atlassian Bitbucket.

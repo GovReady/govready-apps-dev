@@ -13,7 +13,7 @@ questions:
   prompt: Is any Controlled Unclassified Information stored in Atlassian Bitbucket?
   type: yesno
 
-- id: cui_system_configuration_stored
-  title: Are any configurations for systems that store CUI located in Atlassian Bitbucket?
-  prompt: Is Atlassian Bitbucket used to store configurations for systems that store CUI?
-  type: yesno
+- id: describe_baseline_configurations
+  title: Describe how Atlassian Bitbucket is used to store baseline configurations and inventories of organizational systems.
+  prompt: Describe how Atlassian Bitbucket is used to store baseline configurations and inventories of organizational systems.
+  type: text
