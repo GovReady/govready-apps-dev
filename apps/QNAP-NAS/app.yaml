@@ -56,34 +56,24 @@ questions:
   impute:
     - value: "[qnap audit failure alert individuals"
 
-- id: qnap_session_termination_settings_description
-  title: qnap_session_termination_settings_description
-  type: text
-  impute:
-    - value: "[qnap session termination settings description]"
-
 output:
 - id: ssp_nist800171r1_3_1_1
   title: NIST SP 800-171 3.1.1
   format: markdown
   template: >+
-    {{organization}} uses QNAP {{questions.product_name}}, a file server, for network storage to store
-    and protect computer files{% if questions.cui_stored %} containing CUI{% endif %}, primarily as a backup device for other systems
-    ({{questions.what_is_stored}}).
-    The QNAP file server manages file permissions to control access to files to designated
-    roles and individuals. The QNAP device used as an on-premises file backup device.
-    The QNAP administration controls control access to the backup files. Files containing
-    CUI are located in shared directories on the QNAP device with access permisisons
-    maintained by the QNAP file server. 
-    QNAP {{questions.product_name}} has a variety of features to protect files including: user authority
-    management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
-    256-bit Volume-based data encryption, built-in SSL, and antivirus.
+    {{organization}} uses QNAP {{questions.product_name}}, an on-premises file server, for network storage to store
+    and protect computer files{% if questions.cui_stored %} containing CUI{% endif %}, primarily as a
+    backup device for other systems (storing {{questions.what_is_stored}}).
+    The QNAP file server manages file permissions to limit access to files to designated
+    roles and individuals. Files containing CUI are located in shared directories on the
+    QNAP device with access permisisons maintained by the QNAP file server. 
+    The QNAP administration controls additionally control access to the backup files. 
 
 - id: ssp_nist800171r1_3_1_2
   title: NIST SP 800-171 3.1.2
   format: markdown
   template: >+
-    {{organization}} uses QNAP {{questions.product_name}}, a file server, for network storage to store
+    {{organization}} uses QNAP {{questions.product_name}}, a file and backup server, for network storage to store
     and protect computer files{% if questions.cui_stored %} containing CUI{% endif %}, primarily as a backup device for other systems
     ({{questions.what_is_stored}}).
     The QNAP {{questions.product_name}} limits access to the types of transactions and functions that
@@ -92,17 +82,13 @@ output:
     The QNAP administration controls control access to the backup files. Files containing
     CUI are located in shared directories on the QNAP device with access permisisons
     maintained by the QNAP file server.
-    QNAP {{questions.product_name}} has a variety of features to protect files including: user authority
-    management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
-    256-bit Volume-based data encryption, built-in SSL, and antivirus. 
     {{types_of_transactions_with_cui_stored_permitted_qnap}}
-    
 
 - id: ssp_nist800171r1_3_1_3
   title: NIST SP 800-171 3.1.3
   format: markdown
   template: >+
-    {{organization}} uses QNAP {{questions.product_name}}, a file server, for network storage to store
+    {{organization}} uses QNAP {{questions.product_name}}, a file and backup server, for network storage to store
     and protect computer files{% if questions.cui_stored %} containing CUI{% endif %}, primarily as a backup device for other systems
     ({{questions.what_is_stored}}).
     The QNAP device controls the flow of CUI in accordance with approved authorizations.
@@ -117,28 +103,17 @@ output:
   template: |+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to separate the duties of individuals to reduce the risk of malevolent activity without collusion.
 
-    Is there something to write here regarding separation of duties with respect to maintaining the controls on the QNAP server?
-
-    Is there a POAM?
-
 - id: ssp_nist800171r1_3_1_7
   title: NIST SP 800-171 3.1.7
   format: markdown
   template: >+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to prevent non-privileged users from executing privileged functions and audit the execution of such functions.
 
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect
-    computer files containing CUI. The QNAP device is used as a file server. The QNAP
-    administration controls prevent non-privileged users from executing privileged
-    functions and maintains logs to audit the execution of such functions.
-
 - id: ssp_nist800171r1_3_1_11
   title: NIST SP 800-171 3.1.11
   format: markdown
   template: |+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to terminate (automatically) a user session after a defined condition.
-
     __Does QNAP {{questions.product_name}} contribute to automatically terminating a user session after a defined condition?__
 
 - id: ssp_nist800171r1_3_1_12
@@ -146,7 +121,6 @@ output:
   format: markdown
   template: |+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to monitor and control remote access sessions
-
     __Does QNAP {{questions.product_name}} contribute to monitoring and controling remote access sessions.?__
 
 - id: ssp_nist800171r1_3_3_1
@@ -155,58 +129,22 @@ output:
   template: >+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to create, protect, and retain system audit records to the extent needed to enable the monitoring, analysis, investigation, and reporting of unlawful, unauthorized, or inappropriate system activity.
 
-
-    {organization} uses the QNAP {{questions.product_name}} to create audit records of access to
-    files containing on CUI stored on the QNAP device and to protect other organization
-    system records stored on the QNAP device to enable the monitoring, analysis, investigation,
-    and reporting of unlawful, unauthorized, or inappropriate system activity until
-    the system audit records can be transfered to long term storage.
-
 - id: ssp_nist800171r1_3_3_2
   title: NIST SP 800-171 3.3.2
   format: markdown
   template: >+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to ensure that the actions of individual system users can be uniquely traced to those users so they can be held accountable for their actions.
 
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect
-    computer files containing CUI. The QNAP device is used as a file server. The QNAP
-    file server manages file permissions to control access to files to designated
-    roles and individuals. The QNAP device used as an on-premises file backup device.
-    The QNAP administration controls control access to the backup files. Files containing
-    CUI are located in shared directories on the QNAP device with access permisisons
-    maintained by the QNAP file server.
-
-
-    {organization} uses QNAP {{questions.product_name}} audit features to ensure that the actions
-    of individual system users can be uniquely traced to those users so they can be
-    held accountable for their actions.
-
-
-    __describe file settings?__
-
 - id: ssp_nist800171r1_3_3_4
   title: NIST SP 800-171 3.3.4
   format: markdown
   template: |+
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to alert in the event of an audit process failure.
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect computer files containing CUI. The QNAP device is used as a file server. The QNAP device used as an on-premises file backup device.
-
-    {organization} uses QNAP {{questions.product_name}} notification features to alert {qnap_audit_failure_alert_individuals} in the event of an audit process failure.
+    {{organization}} uses QNAP {{questions.product_name}} (NAS)'s notification feature to alert {qnap_audit_failure_alert_individuals} in the event of an audit process failure.
 
 - id: ssp_nist800171r1_3_3_7
   title: NIST SP 800-171 3.3.7
   format: markdown
   template: >+
-    3.3.7 Provide a system capability that compares and synchronizes internal system
-    clocks with an authoritative source to generate time stamps for audit records.
-
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect
-    computer files containing CUI. The QNAP device is used as a file server. The QNAP
-    device used as an on-premises file backup device.
-
-
     The QNAP {{questions.product_name}} provide a system capability that compares and synchronizes
     internal system clocks with an authoritative source to generate time stamps for
     audit records.
@@ -216,129 +154,68 @@ output:
   format: markdown
   template: >+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to protect audit information and audit tools from unauthorized access, modification, and deletion.
-
-    {organization} uses QNAP {{questions.product_name}} as an on-premises file backup device to
-    store audit information {organization}.
-
-
     QNAP {{questions.product_name}} has a variety of features to protect files including: user authority
     management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
     256-bit Volume-based data encryption, built-in SSL, and antivirus.
-
-
-    {organization} uses the various file protection features of the QNAP {{questions.product_name}}
-    to protect audit information and QNAP device audit tools from unauthorized access,
-    modification, and deletion.
 
 - id: ssp_nist800171r1_3_3_9
   title: NIST SP 800-171 3.3.9
   format: markdown
   template: |+
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to limit management of audit functionality to a subset of privileged users.
-
-    {organization} uses QNAP {{questions.product_name}} as an on-premises file backup device to store audit information {organization}.
-
-    {organization} uses the various file protection features of the QNAP {{questions.product_name}} to protect audit information and QNAP device audit tools from unauthorized access, modification, and deletion.
+    {{organization}} uses QNAP {{questions.product_name}} (NAS) to limit management of audit functionality to a subset of privileged users
+    using the various file protection features of the QNAP {{questions.product_name}}.
 
 - id: ssp_nist800171r1_3_8_2
   title: NIST SP 800-171 3.8.2
   format: markdown
   template: >+
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to limit access to CUI on system media to authorized users.
-
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect
-    computer files containing CUI. The QNAP device is used as a file server. The QNAP
-    file server manages file permissions to control access to files to designated
-    roles and individuals. The QNAP device used as an on-premises file backup device.
-    The QNAP administration controls control access to the backup files. Files containing
-    CUI are located in shared directories on the QNAP device with access permisisons
-    maintained by the QNAP file server.
-
-
-    QNAP {{questions.product_name}} has a variety of features to protect files including: user authority
-    management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
-    256-bit Volume-based data encryption, built-in SSL, and antivirus.
-
-
-    {organization} uses QNAP {{questions.product_name}} user authority management, Windows ACL,
-    advanced folder permissions on the following type of files containing CUI to limit
-    access to limit access to CUI stored on QNAP to authorized users.
+    {{organization}} uses QNAP {{questions.product_name}} for network storage to store and protect
+    computer files containing CUI. The QNAP file server is located in a secured room
+    that limits access to its media.
 
 - id: ssp_nist800171r1_3_8_7
   title: NIST SP 800-171 3.8.7
   format: markdown
   template: |+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to control the use of removable media on system components.
-
     __Does the QNAP have USB slots? How is use of the USB removable media controlled?__
 
 - id: ssp_nist800171r1_3_8_8
   title: NIST SP 800-171 3.8.8
   format: markdown
   template: |+
-    3.8.8 Prohibit the use of portable storage devices when such devices have no identifiable owner.
-
       __Does the QNAP have USB slots? How is use of the USB removable media controlled?__
-
       __What does this mean?__
 
 - id: ssp_nist800171r1_3_8_9
   title: NIST SP 800-171 3.8.9
   format: markdown
   template: |+
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to protect the confidentiality of backup CUI at storage locations.
-
-    {organization} uses QNAP {{questions.product_name}} on-premises file backup device. The QNAP administration controls control access to the backup files.
-
+    {{organization}} uses QNAP {{questions.product_name}} as an on-premises file backup device
+    to store CUI. The QNAP administration controls control access to the backup files
+    to protect the confidentiality of backup CUI at storage locations.
     QNAP {{questions.product_name}} has a variety of features to protect files including: user authority management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES 256-bit Volume-based data encryption, built-in SSL, and antivirus.
-
-    {organization} uses QNAP {{questions.product_name}} to protect the confidentiality of backup CUI at {{questions.physical_location}}.
 
 - id: ssp_nist800171r1_3_13_1
   title: NIST SP 800-171 3.13.1
   format: markdown
   template: >+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to monitor, control, and protect communications (i.e., information transmitted or received by organizational systems) at the external boundaries and key internal boundaries of organizational systems.
-
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect
+    {{organization}} uses QNAP {{questions.product_name}} for network storage to store and protect
     computer files containing CUI. The QNAP device is used as a file server. The QNAP
     file server manages file permissions to control access to files to designated
     roles and individuals. The QNAP device used as an on-premises file backup device.
     The QNAP administration controls control access to the backup files. Files containing
     CUI are located in shared directories on the QNAP device with access permisisons
     maintained by the QNAP file server.
-
-    QNAP {{questions.product_name}} has a variety of features to protect files including: user authority
-    management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
-    256-bit Volume-based data encryption, built-in SSL, and antivirus.
-
-    {organization} uses QNAP {{questions.product_name}} to monitor, control and protect communications
-    at the boundary between the QNAP device and other internal systems.
 
 - id: ssp_nist800171r1_3_13_2
   title: NIST SP 800-171 3.13.2
   format: markdown
   template: >+
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to employ architectural designs, software development techniques, and systems engineering principles that promote effective information security within organizational systems.
-
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect
-    computer files containing CUI. The QNAP device is used as a file server. The QNAP
-    file server manages file permissions to control access to files to designated
-    roles and individuals. The QNAP device used as an on-premises file backup device.
-    The QNAP administration controls control access to the backup files. Files containing
-    CUI are located in shared directories on the QNAP device with access permisisons
-    maintained by the QNAP file server.
-
-
-    QNAP {{questions.product_name}} has a variety of features to protect files including: user authority
-    management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES
-    256-bit Volume-based data encryption, built-in SSL, and antivirus.
-
-
-    {organization} uses QNAP {{questions.product_name}} to support an architectural design that
+    {{organization}} uses QNAP {{questions.product_name}} for network storage to store and protect
+    computer files containing CUI. The QNAP device is used as a file server and file backup device.
+    {{organization}} uses QNAP {{questions.product_name}} to support an architectural design that
     segregates files containing CUI from other systems and creates a control point
     to control and monitor access to CUI.
 
@@ -348,36 +225,17 @@ output:
   template: >+
     {{organization}} uses QNAP {{questions.product_name}} (NAS) to prevent unauthorized and unintended information transfer via shared system resources.
 
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect
-    computer files containing CUI. The QNAP device is used as a file server. The QNAP
-    file server manages file permissions to control access to files to designated
-    roles and individuals. The QNAP device used as an on-premises file backup device.
-    The QNAP administration controls control access to the backup files. Files containing
-    CUI are located in shared directories on the QNAP device with access permisisons
-    maintained by the QNAP file server.
-
-    QNAP {{questions.product_name}} has a variety of features to protect files including: user authority management, Windows ACL, advanced folder permissions, FIPS-140-2 validated AES 256-bit Volume-based data encryption, built-in SSL, and antivirus.
-
 - id: ssp_nist800171r1_3_13_6
   title: NIST SP 800-171 3.13.6
   format: markdown
   template: |+
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to deny network communications traffic by default and allow network communications traffic by exception (i.e., deny all, permit by exception).
-
-    {organization} uses QNAP {{questions.product_name}} security features to prevent unauthorized
-    and unintended information transfer via this shared resources.
+    {{organization}}'s QNAP {{questions.product_name}} (NAS) denies network communications traffic by default and allow network communications traffic by exception (i.e., deny all, permit by exception).
 
 - id: ssp_nist800171r1_3_13_8
   title: NIST SP 800-171 3.13.8
   format: markdown
   template: |+
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to implement cryptographic mechanisms to prevent unauthorized disclosure of CUI during transmission unless otherwise protected by alternative physical safeguards.
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store
-    and protect computer files containing CUI. The QNAP device is used as a file server.
-
-    QNAP {{questions.product_name}} employs built-in SSL to implement cryptographic mechanisms
+    QNAP {{questions.product_name}}, a file server, employs built-in SSL to implement cryptographic mechanisms
     to prevent unauthorized disclosure of CUI during transmission to and from the
     QNAP device.
 
@@ -385,54 +243,24 @@ output:
   title: NIST SP 800-171 3.13.9
   format: markdown
   template: |+
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect computer files containing CUI. The QNAP device is used as a file server.
-
-    The QNAP administration controls use the following settings to terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.
-
-    {qnap_session_termination_settings_description}
-
+    {{organization}}'s QNAP {{questions.product_name}} (NAS) terminates network connections
+    associated with communications sessions at the end of the sessions or after a period of
+    inactivity as follows: {{questions.session_termination_settings_description}}.
 
 - id: ssp_nist800171r1_3_13_11
   title: NIST SP 800-171 3.13.11
   format: markdown
   template: >+
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to employ FIPS-validated cryptography when used to protect the confidentiality of CUI.
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect
-    computer files containing CUI. The QNAP device is used as a file server. The QNAP
-    file server manages file permissions to control access to files to designated
-    roles and individuals. The QNAP device used as an on-premises file backup device.
-    The QNAP administration controls control access to the backup files. Files containing
-    CUI are located in shared directories on the QNAP device with access permisisons
-    maintained by the QNAP file server.
-
-
     QNAP {{questions.product_name}} employs FIPS-140-2 validated AES 256-bit Volume-based data encryption
-    to protect the confidentiality of the CUI in the following types of files stored
-    on the device.
-
-
-    {{questions.what_is_stored}}
+    to protect the confidentiality of the CUI stored on the device.
 
 - id: ssp_nist800171r1_3_13_16
   title: NIST SP 800-171 3.13.16
   format: markdown
   template: >
-    {{organization}} uses QNAP {{questions.product_name}} (NAS) to protect the confidentiality of CUI at rest.
-
-    {organization} uses QNAP {{questions.product_name}} for network storage to store and protect
-    computer files containing CUI. The QNAP device is used as a file server. The QNAP
-    file server manages file permissions to control access to files to designated
-    roles and individuals. The QNAP device used as an on-premises file backup device.
+    {{organization}} uses QNAP {{questions.product_name}} for network storage to store and protect
+    computer files containing CUI at rest. The QNAP device is used as a file server
+    and backup server.
     The QNAP administration controls control access to the backup files. Files containing
     CUI are located in shared directories on the QNAP device with access permisisons
     maintained by the QNAP file server.
-
-    QNAP {{questions.product_name}} employs FIPS-140-2 validated AES 256-bit Volume-based data encryption
-    to protect the confidentiality of the CUI at rest in the following types of files
-    stored on the device.
-
-
-    {{questions.what_is_stored}}

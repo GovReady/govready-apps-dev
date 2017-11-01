@@ -89,17 +89,6 @@ output:
     allows customers to host sensitive Controlled Unclassified Information (CUI) and
     all types of regulated workloads."
 
-- id: ssp_nist800171r1_3_3_7
-  title: NIST SP 800-171 3.3.7 Control Implementation
-  format: markdown
-  template: >+
-    {{organization}} uses AWS GovCloud to provide a system capability that compares
-    and synchronizes internal system clocks with an authoritative source to generate
-    time stamps for audit records. Amazon describes AWS GovCloud (US) as "an isolated
-    AWS region, subject to FedRAMP High and Moderate baselines, that allows customers
-    to host sensitive Controlled Unclassified Information (CUI) and all types of regulated
-    workloads."
-
 - id: ssp_nist800171r1_3_3_8
   title: NIST SP 800-171 3.3.8 Control Implementation
   format: markdown
@@ -145,25 +134,9 @@ output:
   title: NIST SP 800-171 3.5.3 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses AWS GovCloud to use multifactor authentication [Footnote:
-    Multifactor authentication requires two or more different factors to achieve authentication.
-    The factors include: something you know (e.g., password/PIN); something you have
-    (e.g., cryptographic identification device, token); or something you are (e.g.,
-    biometric). The requirement for multifactor authentication should not be interpreted
-    as requiring federal Personal Identity Verification (PIV) card or Department of
-    Defense Common Access Card (CAC)like solutions. A variety of multifactor solutions
-    (including those with replay resistance) using tokens and biometrics are commercially
-    available. Such solutions may employ hard tokens (e.g., smartcards, key fobs,
-    or dongles) or soft tokens to store user credentials.] for local and network access
-    [Footnote: Local access is any access to a system by a user (or process acting
-    on behalf of a user) communicating through a direct connection without the use
-    of a network. Network access is any access to a system by a user (or a process
-    acting on behalf of a user) communicating through a network (e.g., local area
-    network, wide area network, Internet).] to privileged accounts and for network
-    access to non-privileged accounts. Amazon describes AWS GovCloud (US) as "an isolated
-    AWS region, subject to FedRAMP High and Moderate baselines, that allows customers
-    to host sensitive Controlled Unclassified Information (CUI) and all types of regulated
-    workloads."
+    {{organization}} uses AWS GovCloud, an infrastructure-as-a-service provider.
+    AWS GovCloud has been configured to require multifactor authentication for
+    logins to its management console.
 
 - id: ssp_nist800171r1_3_5_4
   title: NIST SP 800-171 3.5.4 Control Implementation

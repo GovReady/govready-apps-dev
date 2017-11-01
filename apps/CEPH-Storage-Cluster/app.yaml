@@ -108,10 +108,9 @@ output:
   title: NIST SP 800-171 3.3.7 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses CEPH Storage Cluster to provide a system capability that
+    The CEPH Storage Cluster has a system capability that
     compares and synchronizes internal system clocks with an authoritative source
-    to generate time stamps for audit records. CEPH Storage Cluster is a scalable,
-    programmable storage platform.
+    to generate time stamps for audit records.
 
 - id: ssp_nist800171r1_3_3_8
   title: NIST SP 800-171 3.3.8 Control Implementation

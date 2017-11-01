@@ -29,3 +29,10 @@ questions:
   title: Are any configurations for systems that store CUI located in the QNAP NAS?
   prompt: Is the {{product_name}} used to store configurations for systems that store CUI?
   type: yesno
+
+- id: session_termination_settings_description
+  title: Session termination
+  prompt: Describe the settings on the QNAP NAS for terminateing network connections
+    associated with communications sessions at the end of the sessions or after a period of
+    inactivity.
+  type: text

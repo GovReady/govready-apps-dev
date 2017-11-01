@@ -136,23 +136,9 @@ output:
   title: NIST SP 800-171 3.5.3 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses FreeIPA to use multifactor authentication [Footnote: Multifactor
-    authentication requires two or more different factors to achieve authentication.
-    The factors include: something you know (e.g., password/PIN); something you have
-    (e.g., cryptographic identification device, token); or something you are (e.g.,
-    biometric). The requirement for multifactor authentication should not be interpreted
-    as requiring federal Personal Identity Verification (PIV) card or Department of
-    Defense Common Access Card (CAC)like solutions. A variety of multifactor solutions
-    (including those with replay resistance) using tokens and biometrics are commercially
-    available. Such solutions may employ hard tokens (e.g., smartcards, key fobs,
-    or dongles) or soft tokens to store user credentials.] for local and network access
-    [Footnote: Local access is any access to a system by a user (or process acting
-    on behalf of a user) communicating through a direct connection without the use
-    of a network. Network access is any access to a system by a user (or a process
-    acting on behalf of a user) communicating through a network (e.g., local area
-    network, wide area network, Internet).] to privileged accounts and for network
-    access to non-privileged accounts. FreeIPA is an Identity and Authentication solution
-    for Linux/UNIX networked environments.
+    {{organization}} uses FreeIPA for authentication and authorization
+    for user logins into organization systems. FreeIPA does not support
+    multifactor authentication.
 
 - id: ssp_nist800171r1_3_5_4
   title: NIST SP 800-171 3.5.4 Control Implementation
