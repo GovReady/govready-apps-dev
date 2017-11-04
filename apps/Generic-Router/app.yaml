@@ -1,5 +1,5 @@
 id: app
-title: CISCO Router
+title: Router at External Boundary
 type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
@@ -14,8 +14,9 @@ catalog:
   version: 0.2
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
   description:
-    short: CUI (NIST SP 800-171) Compliance of CISCO Router
-    long: Generates compliance documentation of CISCO Router as it pertains to managing
+    short: CUI (NIST SP 800-171) Compliance of a Router at an External Boundary
+    long: Generates compliance documentation of a generic router at an external
+      network boundary as it pertains to managing
       the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
       controls.
   recommended_for:
@@ -28,9 +29,10 @@ catalog:
 introduction:
   format: markdown
   template: >-
-    A CISCO Router is a network router for connecting networks.
+    A router is a device for connecting networks. This compliance app is for routers
+    at an external network boundary, i.e. routers that connect IT systems to the Internet.
 
-    This application will make sure you are properly using a CISCO Router to protect
+    This application will make sure you are properly using a router to protect
     CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
 questions:
 - id: questions
@@ -42,7 +44,7 @@ output:
   title: NIST SP 800-171 3.1.1 Control Implementation
   format: markdown
   template: |
-    {{organization}} uses a CISCO router ({{questions.product_name}}) to limit access to the
+    {{organization}} uses a ({{questions.product_name}}) to limit access to the
     network and connected devices.
     {% if "allopen" not in questions.inbound_ports_open %}Inbound network communications traffic is denied by default.{% endif %}
     {% if questions.external_access_control %}{{questions.external_access_control}}{% endif %}
@@ -52,7 +54,7 @@ output:
   title: NIST SP 800-171 3.1.2 Control Implementation
   format: markdown
   template: >+
-    {{organization}}'s CISCO router ({{questions.product_name}}) filters communications
+    {{organization}}'s router ({{questions.product_name}}) filters communications
     to limit system access to the types of transactions and functions that authorized users
     are permitted to execute.
     {% if "allopen" not in questions.outbound_ports_open %}
@@ -74,7 +76,7 @@ output:
   title: NIST SP 800-171 3.1.7 Control Implementation
   format: markdown
   template: >+
-    {{organization}}'s CISCO router ({{questions.product_name}}) has been configured to prevent
+    {{organization}}'s router ({{questions.product_name}}) has been configured to prevent
     non-privileged users from executing administrative functions on the router by disabling the
     default administrative account and adding administrative accounts only for privileged users.
     The router logs administrative functions and the logs are audited periodically.
@@ -83,14 +85,14 @@ output:
   title: NIST SP 800-171 3.1.8 Control Implementation
   format: markdown
   template: |+
-    {{organization}}'s CISCO router ({{questions.product_name}}) limits unsuccessful attempts
+    {{organization}}'s router ({{questions.product_name}}) limits unsuccessful attempts
     to log in to its administrative control panel.
 
 - id: ssp_nist800171r1_3_1_11
   title: NIST SP 800-171 3.1.11 Control Implementation
   format: markdown
   template: |+
-    {{organization}}'s CISCO router ({{questions.product_name}}) terminates administrative
+    {{organization}}'s router ({{questions.product_name}}) terminates administrative
     user sessions for its administrative control panel after a period of inactivity.
 
 - id: ssp_nist800171r1_3_1_12
@@ -98,7 +100,7 @@ output:
   format: markdown
   template: |+
     Remote access sessions are established through Virtual Private Network (VPN) connections
-    managed by {{organization}}'s CISCO router ({{questions.product_name}}). The router monitors
+    managed by {{organization}}'s router ({{questions.product_name}}). The router monitors
     and controls remote access sessions.
 
 - id: ssp_nist800171r1_3_1_13
@@ -106,7 +108,7 @@ output:
   format: markdown
   template: |+
     Remote access sessions are established through Virtual Private Network (VPN) connections
-    managed by {{organization}}'s CISCO router ({{questions.product_name}}). The router enforces
+    managed by {{organization}}'s router ({{questions.product_name}}). The router enforces
     encryption on the external network for VPN connections.
 
 - id: ssp_nist800171r1_3_1_14
@@ -114,7 +116,7 @@ output:
   format: markdown
   template: |+
     Remote access sessions to systems on the internal network are established through Virtual
-    Private Network (VPN) connections managed by {{organization}}'s CISCO router
+    Private Network (VPN) connections managed by {{organization}}'s router
     ({{questions.product_name}}).
 
 - id: ssp_nist800171r1_3_1_15
@@ -122,7 +124,7 @@ output:
   format: markdown
   template: |+
     Remote access sessions to systems on the internal network are established through Virtual
-    Private Network (VPN) connections managed by {{organization}}'s CISCO router
+    Private Network (VPN) connections managed by {{organization}}'s router
     ({{questions.product_name}}). The router only allows remote access connections from
     authorized users.
 
@@ -131,7 +133,7 @@ output:
   format: markdown
   template: |+
     {% if questions.wifi_authorization %}
-    {{organization}}'s CISCO router ({{questions.product_name}}) is a wifi access point.
+    {{organization}}'s router ({{questions.product_name}}) is a wifi access point.
     {{questions.wifi_authorization}}
     {% endif %}
 
@@ -140,7 +142,7 @@ output:
   format: markdown
   template: |+
     {% if questions.wifi_authorization %}
-    {{organization}}'s CISCO router ({{questions.product_name}}) is a wifi access point.
+    {{organization}}'s router ({{questions.product_name}}) is a wifi access point.
     The router accepts only encrypted wifi connections.
     {% endif %}
 
@@ -148,13 +150,13 @@ output:
   title: NIST SP 800-171 3.1.18 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses a CISCO router ({{questions.product_name}}) to control connection of mobile devices.
+    {{organization}} uses a ({{questions.product_name}}) to control connection of mobile devices.
 
 - id: ssp_nist800171r1_3_1_20
   title: NIST SP 800-171 3.1.20 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses a CISCO router ({{questions.product_name}}) to limit access to the
+    {{organization}} uses a ({{questions.product_name}}) to limit access to the
     network and connected devices.
     {% if "allopen" not in questions.inbound_ports_open %}Inbound network communications traffic is denied by default.{% endif %}
     {% if questions.external_access_control %}{{questions.external_access_control}}{% endif %}
@@ -165,13 +167,13 @@ output:
   format: markdown
   template: >+
     {% if "allopen" not in questions.outbound_ports_open %}
-    {{organization}}'s CISCO router ({{questions.product_name}}) denies outbound communications
+    {{organization}}'s router ({{questions.product_name}}) denies outbound communications
     by default and permits outbound communications by exception (i.e., deny all, permit by
     exception). Ports {{questions.outbound_ports_open.text}} are open for outbound connections.
     {% if questions.outbound_ports_open_other %}{{questions.outbound_ports_open_other}}{% endif %}
     {% endif %}
     {% if questions.outbound_filtering %}
-    {{organization}}'s CISCO router ({{questions.product_name}} filters communications
+    {{organization}}'s router ({{questions.product_name}} filters communications
     to limit access to external systems.
     {{questions.outbound_filtering}}
     {% endif %}
@@ -180,7 +182,7 @@ output:
   title: NIST SP 800-171 3.3.1 Control Implementation
   format: markdown
   template: >+
-    {{organization}}'s CISCO router ({{questions.product_name}}) creates, protect, and retains
+    {{organization}}'s router ({{questions.product_name}}) creates, protect, and retains
     system audit records to enable the monitoring, analysis, investigation,
     and reporting of unlawful, unauthorized, or inappropriate system activity.
 
@@ -188,19 +190,19 @@ output:
   title: NIST SP 800-171 3.3.4 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses a CISCO router ({{questions.product_name}}) to alert in the event of an audit process failure.
+    {{organization}} uses a ({{questions.product_name}}) to alert in the event of an audit process failure.
 
 - id: ssp_nist800171r1_3_3_6
   title: NIST SP 800-171 3.3.6 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses a CISCO router ({{questions.product_name}}) to provide audit reduction and report generation to support on-demand analysis and reporting.
+    {{organization}} uses a ({{questions.product_name}}) to provide audit reduction and report generation to support on-demand analysis and reporting.
 
 - id: ssp_nist800171r1_3_3_7
   title: NIST SP 800-171 3.3.7 Control Implementation
   format: markdown
   template: >+
-    The CISCO router ({{questions.product_name}}) has a system capability that compares
+    The {{questions.product_name}} has a system capability that compares
     and synchronizes internal system clocks with an authoritative source to generate
     time stamps for audit records.
 
@@ -208,21 +210,21 @@ output:
   title: NIST SP 800-171 3.3.8 Control Implementation
   format: markdown
   template: |+
-    {{organization}}'s CISCO router ({{questions.product_name}}) protect audit information
+    {{organization}}'s router ({{questions.product_name}}) protect audit information
     and audit tools from unauthorized access, modification, and deletion.
 
 - id: ssp_nist800171r1_3_3_9
   title: NIST SP 800-171 3.3.9 Control Implementation
   format: markdown
   template: |+
-    {{organization}}'s CISCO router ({{questions.product_name}}) is configured to limit management
+    {{organization}}'s router ({{questions.product_name}}) is configured to limit management
     of its audit functionality to a subset of privileged users.
 
 - id: ssp_nist800171r1_3_13_1
   title: NIST SP 800-171 3.13.1 Control Implementation
   format: markdown
   template: >+
-    {{organization}}'s CISCO router ({{questions.product_name}}) is the primary external
+    {{organization}}'s router ({{questions.product_name}}) is the primary external
     boundary for the organization. The router monitors, controls, and protects communications
     across the boundary.
     {% if "allopen" not in questions.outbound_ports_open %}
@@ -245,7 +247,7 @@ output:
   format: markdown
   template: >+
     {% if questions.publicly_accessible_subnetworks %}
-    {{organization}} uses a CISCO router ({{questions.product_name}}) to implement subnetworks for publicly accessible
+    {{organization}} uses a ({{questions.product_name}}) to implement subnetworks for publicly accessible
     system components that are physically or logically separated from internal networks.
     {% endif %}
 
@@ -254,13 +256,13 @@ output:
   format: markdown
   template: >+
     {% if "allopen" not in questions.outbound_ports_open %}
-    {{organization}}'s CISCO router ({{questions.product_name}}) denies outbound connections by default
+    {{organization}}'s router ({{questions.product_name}}) denies outbound connections by default
     and authorized network communications traffic is permitted by exception (i.e., deny all, permit by
     exception). Ports {{questions.outbound_ports_open.text}} are open for outbound connections.
     {% if questions.outbound_ports_open_other %}{{questions.outbound_ports_open_other}}{% endif %}
     {% endif %}
     {% if "allopen" not in questions.inbound_ports_open %}
-    {{organization}}'s CISCO router ({{questions.product_name}}) denies inbound connections by default
+    {{organization}}'s router ({{questions.product_name}}) denies inbound connections by default
     and authorized network communications traffic is permitted by exception (i.e., deny all, permit by
     exception). Ports {{questions.outbound_ports_open.text}} are open for inbound connections.
     {% if questions.inbound_ports_open_other %}{{questions.inbound_ports_open_other}}{% endif %}
@@ -270,7 +272,7 @@ output:
   title: NIST SP 800-171 3.13.8 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses a CISCO router ({{questions.product_name}}) to implement cryptographic mechanisms to prevent
+    {{organization}} uses a ({{questions.product_name}}) to implement cryptographic mechanisms to prevent
     unauthorized disclosure of CUI during transmission unless otherwise protected
     by alternative physical safeguards.
 
@@ -279,7 +281,7 @@ output:
   format: markdown
   template: >+
     Remote access sessions to systems on the internal network are established through Virtual
-    Private Network (VPN) connections managed by {{organization}}'s CISCO router
+    Private Network (VPN) connections managed by {{organization}}'s router
     ({{questions.product_name}}). The router terminates VPN sessions after a period
     of inactivity.
 
@@ -287,21 +289,21 @@ output:
   title: NIST SP 800-171 3.13.11 Control Implementation
   format: markdown
   template: |+
-    {{organization}}'s CISCO router ({{questions.product_name}}) employ FIPS-validated
+    {{organization}}'s router ({{questions.product_name}}) employ FIPS-validated
     cryptography for external connections on Virtual Private Networks.
 
 - id: ssp_nist800171r1_3_13_14
   title: NIST SP 800-171 3.13.14 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses a CISCO router ({{questions.product_name}}) to control and monitor the use of Voice over Internet Protocol (VoIP) technologies.
+    {{organization}} uses a ({{questions.product_name}}) to control and monitor the use of Voice over Internet Protocol (VoIP) technologies.
 
 - id: ssp_nist800171r1_3_13_15
   title: NIST SP 800-171 3.13.15 Control Implementation
   format: markdown
   template: |+
     Remote access sessions to systems on the internal network are established through Virtual
-    Private Network (VPN) connections managed by {{organization}}'s CISCO router
+    Private Network (VPN) connections managed by {{organization}}'s router
     ({{questions.product_name}}). The router uses cryptographic mechanisms to protect the
     authenticity of these communications sessions.
 
@@ -309,6 +311,6 @@ output:
   title: NIST SP 800-171 3.14.6 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses a CISCO router ({{questions.product_name}}) to monitor organizational systems including
+    {{organization}} uses a ({{questions.product_name}}) to monitor organizational systems including
     inbound and outbound communications traffic, to detect attacks and indicators
     of potential attacks.

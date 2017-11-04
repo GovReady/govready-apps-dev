@@ -2,10 +2,10 @@ id: questions
 title: Questions
 questions:
 - id: product_name
-  title: Which CISCO router are you using?
-  prompt: Which CISCO router are you using?
+  title: What model router are you using?
+  prompt: What model router are you using?
   type: text
-  help: Enter a product name.
+  help: Enter a manufacturer and product name.
 - id: internal_access_control
   title: What access controls limit the devices on the internal network that can connect to the router?
   prompt: What access controls limit the devices on the internal network that can connect to the router?
@@ -17,8 +17,8 @@ questions:
   type: text
   help: e.g., WPA-PSK is used to limit access to the wifi network to users with a pre-shared password.
 - id: outbound_ports_open
-  title: What ports does the CISCO router permit in outbound connections?
-  prompt: What ports does the CISCO router permit in outbound connections?
+  title: What ports does the router permit in outbound connections?
+  prompt: What ports does the router permit in outbound connections?
   type: multiple-choice
   choices:
     - key: web
@@ -42,9 +42,9 @@ questions:
     - key: allopen
       text: All Outbound Connections Are Permitted
 - id: outbound_ports_open_other
-  title: What other ports does the CISCO router permit in outbound connections?
+  title: What other ports does the router permit in outbound connections?
   prompt: |
-    What other ports does the CISCO router permit in outbound connections?
+    What other ports does the router permit in outbound connections?
 
     List open ports besides {{outbound_ports_open.text}}.
   type: text
@@ -53,8 +53,8 @@ questions:
     - condition: "\"other\" not in outbound_ports_open"
       value: ~
 - id: outbound_filtering
-  title: What outbound connection or content filtering does your CISCO router perform?
-  prompt: Besides blocked ports, what other connection or content filtering does your CISCO {{product_name}} perform on outbound connections?
+  title: What outbound connection or content filtering does your router perform?
+  prompt: Besides blocked ports, what other connection or content filtering does your {{product_name}} perform on outbound connections?
   type: text
   help: e.g., The router performs outbound content filtering to sniff for malicious traffic.
 - id: external_access_control
@@ -66,8 +66,8 @@ questions:
   type: text
   help: e.g., Only devices with a whitelisted MAC address can connect to the internal network.
 - id: inbound_ports_open
-  title: What ports does the CISCO router permit in inbound connections?
-  prompt: What ports does the CISCO router permit in inbound connections?
+  title: What ports does the router permit in inbound connections?
+  prompt: What ports does the router permit in inbound connections?
   type: multiple-choice
   choices:
     - key: web
@@ -91,9 +91,9 @@ questions:
     - key: allopen
       text: All Outbound Connections Are Permitted
 - id: inbound_ports_open_other
-  title: What other ports does the CISCO router permit in inbound connections?
+  title: What other ports does the router permit in inbound connections?
   prompt: |
-    What other ports does the CISCO router permit in inbound connections?
+    What other ports does the router permit in inbound connections?
 
     List open ports besides {{inbound_ports_open.text}}.
   type: text
@@ -102,8 +102,8 @@ questions:
     - condition: "\"other\" not in inbound_ports_open"
       value: ~
 - id: inbound_filtering
-  title: What inbound connection or content filtering does your CISCO router perform?
-  prompt: Besides blocked ports, what other connection or content filtering does your CISCO {{product_name}} perform on inbound connections?
+  title: What inbound connection or content filtering does your router perform?
+  prompt: Besides blocked ports, what other connection or content filtering does your {{product_name}} perform on inbound connections?
   type: text
   help: e.g., The router allows inbound connections only from authorized devices using an IP address whitelist and performs inbound content filtering to sniff for malicious traffic.
 - id: publicly_accessible_subnetworks
