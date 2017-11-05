@@ -1,0 +1,46 @@
+id: app
+title: Risk Register
+type: project
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.2
+  source_url: https://github.com/GovReady/govready-sample-apps/risk_register
+  description:
+    short: |
+      A simple Risk Register
+    long: |
+      A simple Risk Register
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
+
+introduction:
+  format: markdown
+  template: |
+    A simple Risk Register
+
+questions:
+
+  - id: risk_register
+    title: Risk Register
+    type: module-set
+    module-id: risk_register
+    icon: file_server.png
+    group: System Components
+
+
+output:
+
+  - tab: Risk Register Tab
+    format: markdown
+    template: |
+      <h2>DNFSB Checklists</h2>
