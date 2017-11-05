@@ -26,22 +26,22 @@ questions:
     title: Risk Description
     type: longtext
     prompt: |
-      Describe the risk (prompt)
+      Describe the risk
 
   - id: why_considered_risk
     title: Why this is considered a risk
     type: longtext
     prompt: |
-      Why this is considered a risk (prompt)
+      Why this is considered a risk
 
   - id: risk_owner
     title: Risk Owner
-    prompt: _prompt
+    prompt: Risk Owner
     type: longtext
 
   - id: likelihood
     title: Likelihood
-    prompt: Likelihood of risk_prompt
+    prompt: Likelihood of risk
     type: multiple-choice
     choices:
       - key: unlikely
@@ -55,22 +55,22 @@ questions:
 
   - id: impact
     title: Impact
-    prompt: Impact _prompt
+    prompt: Impact
     type: text
 
   - id: rating
     title: Rating
-    prompt: Rating _prompt
+    prompt: Rating
     type: text
 
   - id: suggested_mitigations
     title: Suggested Actions/Mitigations
-    prompt: Suggested Actions/Mitigations _prompt
+    prompt: Suggested Actions/Mitigations
     type: longtext
 
   - id: implemented_mitigations
     title: Implemented Mitigations
-    prompt: Implemented Mitigations (prompt)
+    prompt: Implemented Mitigations
     type: longtext
 
 output:
