@@ -7,8 +7,8 @@ catalog:
   category: Technology
   vendor: GovReady
   vendor_url: http://www.govready.com
-  status: Operational
-  version: 0.2
+  status: draft
+  version: 0.3
   source_url: https://github.com/GovReady/govready-sample-apps/risk_register
   description:
     short: |
