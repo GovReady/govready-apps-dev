@@ -64,7 +64,7 @@ questions:
 
     We'll ask about ports and content filtering next.
   type: text
-  help: e.g., Only devices with a whitelisted MAC address can connect to the internal network.
+  help: e.g., Only external devices with a whitelisted MAC address can connect from outside to the internal network.
 - id: inbound_ports_open
   title: What ports does the router permit in inbound connections?
   prompt: What ports does the router permit in inbound connections?
