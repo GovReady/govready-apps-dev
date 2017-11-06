@@ -10,7 +10,7 @@ catalog:
   category: Technology
   vendor: GovReady
   vendor_url: http://www.govready.com
-  status: stub
+  status: draft
   version: 0.2
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
   description:
@@ -297,45 +297,22 @@ output:
   title: NIST SP 800-171 3.12.1 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses AWS GovCloud to periodically assess the security controls
-    in organizational systems to determine if the controls are effective in their
-    application. Amazon describes AWS GovCloud (US) as "an isolated AWS region, subject
-    to FedRAMP High and Moderate baselines, that allows customers to host sensitive
-    Controlled Unclassified Information (CUI) and all types of regulated workloads."
-
-- id: ssp_nist800171r1_3_12_2
-  title: NIST SP 800-171 3.12.2 Control Implementation
-  format: markdown
-  template: >+
-    {{organization}} uses AWS GovCloud to develop and implement plans of action designed
-    to correct deficiencies and reduce or eliminate vulnerabilities in organizational
-    systems. Amazon describes AWS GovCloud (US) as "an isolated AWS region, subject
-    to FedRAMP High and Moderate baselines, that allows customers to host sensitive
-    Controlled Unclassified Information (CUI) and all types of regulated workloads."
+    {{organization}} uses AWS GovCloud. AWS GovCloud periodically assesses the security controls
+    that Amazon Web Services implements and that {{organization}} inherits.
 
 - id: ssp_nist800171r1_3_12_3
   title: NIST SP 800-171 3.12.3 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses AWS GovCloud to monitor security controls on an ongoing
-    basis to ensure the continued effectiveness of the controls. Amazon describes
-    AWS GovCloud (US) as "an isolated AWS region, subject to FedRAMP High and Moderate
-    baselines, that allows customers to host sensitive Controlled Unclassified Information
-    (CUI) and all types of regulated workloads."
+    {{organization}} uses AWS GovCloud. AWS GovCloud monitors the security controls 
+    that Amazon Web Services implements and that {{organization}} inherits.
 
 - id: ssp_nist800171r1_3_12_4
   title: NIST SP 800-171 3.12.4 Control Implementation
   format: markdown
   template: >+
-    {{organization}} uses AWS GovCloud to develop, document, and periodically update
-    system security plans that describe system boundaries, system environments of
-    operation, how security requirements are implemented, and the relationships with
-    or connections to other systems. [Footnote: There is no prescribed format or specified
-    level of detail for system security plans. However, organizations must ensure
-    that the required information in 3.12.4 is appropriately conveyed in those plans.]
-    Amazon describes AWS GovCloud (US) as "an isolated AWS region, subject to FedRAMP
-    High and Moderate baselines, that allows customers to host sensitive Controlled
-    Unclassified Information (CUI) and all types of regulated workloads."
+    {{organization}} uses AWS GovCloud. AWS GovCloud has developed, documented, and
+    periodically updates its system security plan at [https://aws.amazon.com/compliance/services-in-scope/](https://aws.amazon.com/compliance/services-in-scope/).
 
 - id: ssp_nist800171r1_3_13_1
   title: NIST SP 800-171 3.13.1 Control Implementation

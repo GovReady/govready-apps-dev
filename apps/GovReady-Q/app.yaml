@@ -1,0 +1,64 @@
+id: app
+title: GovReady-Q
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/govready-q
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: draft
+  version: 0.2
+  source_url: https://github.com/GovReady/govready-apps-800-171-collection
+  description:
+    short: CUI (NIST SP 800-171) Compliance Using GovReady-Q
+    long: Generates compliance documentation for use of GovReady-Q as it pertains to managing
+      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
+      controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    This application will make sure you are properly using GovReady-Q to protect
+    CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions: []
+output:
+- id: ssp_nist800171r1_3_12_1
+  title: NIST SP 800-171 3.12.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses GovReady-Q, a governance, risk, management, and compliance
+    tool, to periodically assesses its security controls to determine if controls
+    are effective in their application.
+
+- id: ssp_nist800171r1_3_12_2
+  title: NIST SP 800-171 3.12.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses GovReady-Q, a governance, risk, management, and compliance
+    tool, to develop and implement plans of action to correct deficiencies and reduce
+    or eliminate vulnerabilities in organizational systems.
+
+- id: ssp_nist800171r1_3_12_3
+  title: NIST SP 800-171 3.12.3 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses GovReady-Q, a governance, risk, management, and compliance
+    tool, to monitor security controls on an ongoing basis to ensure the continued
+    effectiveness of the controls.
+
+- id: ssp_nist800171r1_3_12_4
+  title: NIST SP 800-171 3.12.4 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses GovReady-Q, a governance, risk, management, and compliance
+    tool, to develop, document, and periodically update system security plans.
