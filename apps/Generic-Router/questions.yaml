@@ -109,7 +109,7 @@ questions:
 - id: publicly_accessible_subnetworks
   title: Does the router implement subnetworks for publicly accessible system component?
   prompt: |
-    Does the router implement subnetworks for publicly accessible system component?
+    Does the router implement subnetworks for publicly accessible system components?
 
     The subnetworks should be physically or logically separated from internal networks.
   type: yesno
