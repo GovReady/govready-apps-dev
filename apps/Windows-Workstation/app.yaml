@@ -10,7 +10,7 @@ catalog:
   category: Technology
   vendor: GovReady
   vendor_url: http://www.govready.com
-  status: stub
+  status: draft
   version: 0.2
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
   description:
@@ -33,47 +33,48 @@ introduction:
     This application will make sure you are properly using Microsoft Windows Workstation to
     protect CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
 questions:
-- id: example
-  title: Example Module
+- id: questions
+  title: Questions about the Windows Workstations
   type: module
-  module-id: example
+  module-id: questions
 output:
 - id: ssp_nist800171r1_3_1_1
   title: NIST SP 800-171 3.1.1 Control Implementation
   format: markdown
   template: >+
-    Microsoft Windows workstations (personal computers running Microsoft Windows) are used by {{organization}} staff. The workstations
-    limit access to authorized users by connecting to FreeIPA.
+    Microsoft Windows workstations (personal computers running Microsoft Windows) are used by {{organization}} staff.
+    The workstations limit access to authorized users by {% if questions.login_method != "other" %}{{questions.login_method.text}}{% else %}{{questions.login_method_other}}{% endif %}.
 
 - id: ssp_nist800171r1_3_1_2
   title: NIST SP 800-171 3.1.2 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses Microsoft Windows Workstation to limit system access to the types of transactions and functions that authorized users are permitted to execute. Microsoft Windows Workstation is a personal computer.
+    {{organization}}'s Microsoft Windows Workstations prevent the installation of software by non-administrative users to limit use of
+    the system to the functions that authorized users are permitted to execute.
 
 - id: ssp_nist800171r1_3_1_8
   title: NIST SP 800-171 3.1.8 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses Microsoft Windows Workstation to limit unsuccessful logon attempts. Microsoft Windows Workstation is a personal computer.
+    The Microsoft Windows Workstations limit unsuccessful logon attempts.
 
 - id: ssp_nist800171r1_3_1_10
   title: NIST SP 800-171 3.1.10 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses Microsoft Windows Workstation to use session lock with pattern-hiding displays to prevent access and viewing of data after period of inactivity. Microsoft Windows Workstation is a personal computer.
-
-- id: ssp_nist800171r1_3_1_12
-  title: NIST SP 800-171 3.1.12 Control Implementation
-  format: markdown
-  template: |+
-    {{organization}} uses Microsoft Windows Workstation to monitor and control remote access sessions. Microsoft Windows Workstation is a personal computer.
+    The Microsoft Windows Workstations use session lock with pattern-hiding displays to prevent access and viewing of data after period of inactivity.
 
 - id: ssp_nist800171r1_3_1_17
   title: NIST SP 800-171 3.1.17 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses Microsoft Windows Workstation to protect wireless access using authentication and encryption. Microsoft Windows Workstation is a personal computer.
+    The Microsoft Windows Workstations connect to the organization's wifi using authentication and encryption.
+
+- id: ssp_nist800171r1_3_1_19
+  title: NIST SP 800-171 3.1.19 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}}'s mobile Microsoft Windows Workstations, i.e. laptops, use full disk encryption to protect CUI.
 
 - id: ssp_nist800171r1_3_3_1
   title: NIST SP 800-171 3.3.1 Control Implementation
@@ -144,5 +145,5 @@ output:
   title: NIST SP 800-171 3.13.16 Control Implementation
   format: markdown
   template: |+
-    {{organization}} uses Microsoft Windows Workstation to protect the confidentiality of CUI at rest. Microsoft Windows Workstation is a personal computer.
+    {{organization}}'s Microsoft Windows Workstations use full disk encryption to protect CUI at rest.
 
