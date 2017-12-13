@@ -1,5 +1,11 @@
 id: app
 title: Plan of Action and Milestones (POAM) for NIST SP 800-171
+instance-name: |
+  {% if description.identifier %}
+    {{description.identifier}}
+  {% else %}
+    New POAM
+  {% endif %}
 type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp/poam
