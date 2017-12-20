@@ -14,7 +14,7 @@ catalog:
   source_url: https://github.com/GovReady/some-repo-here
   description:
     short: |
-      Host on Cloud.gov using OpenControl.
+      Host your containers in Docker.
     long: |
       This app will help you configure and operate your systems using Docker Enterprise Edition, using Docker's official OpenControl data published at [https://github.com/docker/compliance](https://github.com/docker/compliance).
   recommended_for:
