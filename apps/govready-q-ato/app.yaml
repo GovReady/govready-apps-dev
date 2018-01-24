@@ -1,0 +1,58 @@
+id: app
+title: Dockerized GovReady-Q ATO
+type: project
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: ~
+  description:
+    short: Generate Authority to Operate artifacts for Dockerized GovReady-Q per NIST SP 800-53 Rev 5
+      controls.
+    long: Generates compliance artifacts for a Docker deployment of GovReady-Q per NIST SP 800-53 Rev 5
+      controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
+introduction:
+  format: markdown
+  template: |-
+    This app will help you generate Authority to Operate artifacts for the Dockerized deployment of
+    GovReady-Q per NIST SP 800-53 Rev 5 controls.
+questions:
+  - id: network_infrastructure
+    title: Network Infrastructure
+    type: module
+    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/network-infrastructure
+  - id: monitoring_infrastructure
+    title: Monitoring Infrastructure
+    type: module
+    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/monitoring-infrastructure
+  - id: host_system
+    title: Host System
+    type: module
+    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/unix-host-system
+  - id: host_web_server
+    title: Host Web Server
+    type: module
+    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/host-web-server
+  - id: govready_q_component
+    title: GovReady-Q
+    type: module
+    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/govready-q
+  - id: log_storage
+    title: Log Storage
+    type: module
+    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/log-storage
+  - id: database
+    title: Database
+    type: module
+    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/database
