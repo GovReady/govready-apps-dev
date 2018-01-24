@@ -75,7 +75,7 @@ questions:
     type: module
     protocol:
       - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
-      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/database
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/govready.com/govready-q-database
     group: System Configuration
   - id: ssp_preview
     title: SSP Preview
