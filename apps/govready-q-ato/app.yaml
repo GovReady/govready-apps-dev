@@ -31,28 +31,59 @@ questions:
   - id: network_infrastructure
     title: Network Infrastructure
     type: module
-    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/network-infrastructure
+    protocol:
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/network-infrastructure
+    group: System Configuration
   - id: monitoring_infrastructure
     title: Monitoring Infrastructure
     type: module
-    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/monitoring-infrastructure
+    protocol:
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/monitoring-infrastructure
+    group: System Configuration
   - id: host_system
     title: Host System
     type: module
-    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/unix-host-system
+    protocol:
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/unix-host-system
+    group: System Configuration
   - id: host_web_server
     title: Host Web Server
     type: module
-    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/host-web-server
+    protocol:
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/host-web-server
+    group: System Configuration
   - id: govready_q_component
     title: GovReady-Q
     type: module
-    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/govready-q
+    protocol:
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/govready-q
+    group: System Configuration
   - id: log_storage
     title: Log Storage
     type: module
-    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/log-storage
+    protocol:
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/log-storage
+    group: System Configuration
   - id: database
     title: Database
     type: module
-    protocol: govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/database
+    protocol:
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
+      - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/database
+    group: System Configuration
+  - id: ssp_preview
+    title: SSP Preview
+    group: System Security Plan
+    type: module
+    module-id: ssp
+  - id: control_matrix
+    title: Control Matrix
+    group: System Security Plan
+    type: module
+    module-id: matrix
