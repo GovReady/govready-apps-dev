@@ -1,0 +1,100 @@
+id: system_basics_technical
+title: "Document basic technical details"
+introduction:
+  format: markdown
+  template: |
+    ## System Technical Summary
+
+    A System Security Plan will include a summary of your system's technology
+
+    * Where the system will be hosted
+    * Type of operating system
+
+    Tip: Consider assigning this module to a more technical member of your team.
+
+questions:
+  - id: application_where_hosted
+    title: Where is application hosted?
+    prompt: |
+      Is the **{{project.system_basics.official_system_name}}** system hosted in the cloud or in an on-premises data center at {{organization}}?
+    type: choice
+    choices:
+      - key: cloud
+        text: In the cloud
+      - key: onpremesis
+        text: On premises
+    
+  - id: cloud_provider
+    title: What cloud provider?
+    prompt: |
+      You said the **{{project.system_basics.official_system_name}}** system is hosted in the cloud.
+
+      Which cloud service provider will host **{{project.system_basics.official_system_name}}**?
+    type: choice
+    choices:
+      - key: AWS
+        text: Amazon Web Services (AWS)
+      - key: PWS
+        text: Pivotal Web Services (PWS)
+      - key: Azure
+        text: Microsoft Azure
+      - key: Other
+        text: Other cloud service provider
+    impute:
+    - condition: application_where_hosted != 'cloud'
+      value: ~
+
+  - id: operating_system_flavor
+    title: Primary OS type
+    prompt: |
+      What is the primary Operating System type?
+    type: choice
+    choices:
+      - key: unix
+        text: Unix or Linix
+      - key: windows
+        text: Windows
+      - key: serverless
+        text: Serverless
+      - key: Other
+        text: Other flavor of operating system
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Congratulations! You've created a basic system technical profile!
+
+      We've added this information to yo started drafting your System Security Plan.
+
+      Click "System Security Plan Preview" to see how this profile will look in an SSP.
+
+  - title: System Security Plan Preview
+    format: markdown
+    template: |
+      # 8 Information System Type
+
+      {% if project.system_basics.what_kind_of_system == 'application' %}
+        {{project.system_basics.official_system_name}} is an application hosted in the {{application_where_hosted}} at {{cloud_provider}}.
+      {% else %}
+        {{project.system_basics.official_system_name}} is a general service hosted in the {{application_where_hosted}}.
+      {% endif %}
+      The primary operating system is {{operating_system_flavor}}.
+
+      The layers of the Information System represented in this SSP are indicated in following Service Provider Architecture Layers table.
+
+      <table class="table" style="width:800px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
+      <thead>
+        <th colspan="3">Service Provider Architecture Layers</th>
+      </thead>
+      <tbody>
+        {% if project.system_basics.what_kind_of_system == 'application' %}
+          <tr> <td>[X]</td><td>Software as a Service (SaaS)</td><td>Major Application</td> </tr>
+          <!-- tr> <td>[ ]</td><td>Platform as a Service (SaaS)</td><td>Major Application</td> </tr -->
+        {% elif project.system_basics.what_kind_of_system == 'service' %}
+          <tr> <td>[X]</td><td>Infrastructure as a Service (SaaS)</td><td>General Support System</td> </tr>
+        {% else %}
+          <tr> <td>[X]</td><td>Other</td><td>Explain</td> </tr>
+        {% endif %}
+      </tbody>
+      </table>

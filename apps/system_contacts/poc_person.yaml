@@ -1,0 +1,23 @@
+id: poc_person
+title: Person Point of Contact
+instance-name: "{{poc_name}}"
+introduction:
+  format: markdown
+  template: |
+    Welcome to the Point of Contact
+
+    Add a *Person* as a Point of Contact
+
+questions:
+  - id: poc_name
+    title: Name
+    prompt: What is the POC's full name?
+    type: text
+
+output:
+  - title: Document
+    format: markdown
+    template: |
+      # {{organization}} Point of Contact
+
+      {{poc_name}}
