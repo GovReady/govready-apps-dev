@@ -1,0 +1,39 @@
+id: app
+title: Red Hat 6.8
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/rhel
+- govready.com/apps/compliance/2017/rhel-6_8
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of Red Hat 6.8
+    long: Generates compliance documentation of Red Hat 6.8 as it pertains to managing
+      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
+      controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: "Red Hat 6.8 is a Linux operating system. \nThis application will make
+    sure you are properly using Red Hat 6.8 to protect CUI (Controlled Unclassified
+    Information) as per NIST SP 800-171 controls."
+questions:
+- id: example
+  title: Example Module
+  type: module
+  module-id: example
+output: []

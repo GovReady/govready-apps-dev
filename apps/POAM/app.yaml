@@ -1,0 +1,72 @@
+id: app
+title: Plan of Action and Milestones (POAM) for NIST SP 800-171
+instance-name: |
+  {% if description.identifier %}
+    {{description.identifier}}
+  {% else %}
+    New POAM
+  {% endif %}
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp/poam
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: draft
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: A POAM for CUI (NIST SP 800-171) Compliance
+    long: Generates a Plan of Action and Milestones (POAM) for managing
+      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
+      controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    This application will prepare a Plan of Action and Milestones (POAM) for
+    managing the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions:
+- id: description
+  title: Description of the POAM
+  type: module
+  module-id: description
+- id: progress
+  title: Report Progress
+  type: module
+  module-id: progress
+output:
+- id: complete_text
+  format: markdown
+  template: |
+    ## {{description.identifier}}
+
+    This is a {{description.poam_level.text}}, {{description.risk_level.text}} Risk POAM.
+
+    ### Description
+
+    {{description.problem_description.text}}
+
+    Controls Impacted: {{description.impacted_controls.text}}
+
+    {{description.source.text}}
+
+    ### Remediation
+
+    The estimated cost to addressing this deficiency is {{description.cost.text}} and is
+    scheduled to be addressed by {{description.scheduled_completion_date.text}}.
+
+    {{description.remediation}}
+
+    ### Milestones
+
+    {{description.milestones}}

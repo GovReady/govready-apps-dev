@@ -1,0 +1,80 @@
+id: app
+title: Telco Room
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/telco-room
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: draft
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of a Telco Room
+    long: Generates compliance documentation of a Telecommunications Room as it pertains to managing
+      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
+      controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    The Telecommunications Room is a telecommunications room for segrating computer servers, network
+    equipment and telecommunications equipment from the rest of the facility.
+
+    This application will make sure you are properly using Telco Room to protect CUI
+    (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions:
+- id: questions
+  title: Questions about the Telecommunications Room
+  type: module
+  module-id: questions
+output:
+- id: ssp_nist800171r1_3_1_1
+  title: NIST SP 800-171 3.1.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses {{questions.name_and_location}}, a telecommunications room, for segrating
+    telecommunications equipment from the rest of the facility. Physical access controls
+    at {{questions.abbreviation_or_name}} include {{questions.physical_access_controls.text}}.
+    The server room's location and physical access controls are documented further in section 3.10.1.
+
+- id: ssp_nist800171r1_3_8_1
+  title: NIST SP 800-171 3.8.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses {{questions.name_and_abbreviation}}, a telecommunications room,
+    for segrating telecommunications equipment from the rest of the facility.
+    {{organization}} uses the server room to protect (i.e., physically control and securely
+    store) system media containing CUI, both paper and digital. Physical access controls
+    at {{questions.abbreviation_or_name}} include {{questions.physical_access_controls.text}}.
+    The server room's location and physical access controls are documented further in section 3.10.1.
+
+
+- id: ssp_nist800171r1_3_10_1
+  title: NIST SP 800-171 3.10.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses {{questions.name_and_location}}, a telecommunications room
+    located at {{questions.address}}, for segrating telecommunications equipment
+    from the rest of the facility.
+    {{organization}} uses the room to limit physical access to organizational systems,
+    equipment, and the respective operating environments to authorized individuals.
+    Physical access controls at {{questions.abbreviation_or_name}} include {{questions.physical_access_controls.text}}.
+    {{questions.physical_access_controls_description}}
+
+- id: ssp_nist800171r1_3_10_2
+  title: NIST SP 800-171 3.10.2 Control Implementation
+  format: markdown
+  template: |
+    {{organization}} protects and monitors the physical facility and support infrastructure for
+    {{questions.name_and_location}}, a telecommunications room.

@@ -1,0 +1,152 @@
+id: app
+title: Electronic Locks on Server Rooms
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/server-rooms-electronic-locks
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of Electronic Locks on Server Rooms
+    long: Generates compliance documentation of Electronic Locks on Server Rooms as
+      it pertains to managing the security of CUI (Controlled Unclassified Information)
+      as per NIST SP 800-171 controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    Electonic Locks on the server rooms provide physical access control.
+
+    This application will make sure you are properly using Electronic Locks on Server
+    Rooms to protect CUI (Controlled Unclassified Information) as per NIST SP 800-171
+    controls.
+questions:
+- id: example
+  title: Example Module
+  type: module
+  module-id: example
+output:
+- id: ssp_nist800171r1_3_1_1
+  title: NIST SP 800-171 3.1.1 Control Implementation
+  format: markdown
+  template: >+
+    Electronic locks are present on all entrances to server rooms to limit system access
+    to authorized users. Electonic locks provide physical access control.
+
+- id: ssp_nist800171r1_3_3_1
+  title: NIST SP 800-171 3.3.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Electronic Locks on Server Rooms to create, protect, and
+    retain system audit records to the extent needed to enable the monitoring, analysis,
+    investigation, and reporting of unlawful, unauthorized, or inappropriate system
+    activity. Electonic Locks on the server rooms provide phaysical access control.
+
+- id: ssp_nist800171r1_3_3_2
+  title: NIST SP 800-171 3.3.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Electronic Locks on Server Rooms to ensure that the actions
+    of individual system users can be uniquely traced to those users so they can be
+    held accountable for their actions. Electonic Locks on the server rooms provide
+    phaysical access control.
+
+- id: ssp_nist800171r1_3_3_4
+  title: NIST SP 800-171 3.3.4 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Electronic Locks on Server Rooms to alert in the event of an audit process failure. Electonic Locks on the server rooms provide phaysical access control.
+
+- id: ssp_nist800171r1_3_3_7
+  title: NIST SP 800-171 3.3.7 Control Implementation
+  format: markdown
+  template: >+
+    The electronic locks on server rooms use NTP to compare and synchronize the internal system
+    clock with an authoritative source to generate time stamps for audit records.
+
+- id: ssp_nist800171r1_3_3_9
+  title: NIST SP 800-171 3.3.9 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Electronic Locks on Server Rooms to limit management of audit functionality to a subset of privileged users. Electonic Locks on the server rooms provide phaysical access control.
+
+- id: ssp_nist800171r1_3_5_1
+  title: NIST SP 800-171 3.5.1 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Electronic Locks on Server Rooms to identify system users, processes acting on behalf of users, or devices. Electonic Locks on the server rooms provide phaysical access control.
+
+- id: ssp_nist800171r1_3_5_2
+  title: NIST SP 800-171 3.5.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Electronic Locks on Server Rooms to authenticate (or verify)
+    the identities of those users, processes, or devices, as a prerequisite to allowing
+    access to organizational systems. Electonic Locks on the server rooms provide
+    phaysical access control.
+
+- id: ssp_nist800171r1_3_8_1
+  title: NIST SP 800-171 3.8.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Electronic Locks on Server Rooms to protect (i.e., physically
+    control and securely store) system media containing CUI, both paper and digital.
+    Electonic Locks on the server rooms provide phaysical access control.
+
+- id: ssp_nist800171r1_3_8_2
+  title: NIST SP 800-171 3.8.2 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Electronic Locks on Server Rooms to limit access to CUI on system media to authorized users. Electonic Locks on the server rooms provide phaysical access control.
+
+- id: ssp_nist800171r1_3_8_5
+  title: NIST SP 800-171 3.8.5 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Electronic Locks on Server Rooms to control access to media
+    containing CUI and maintain accountability for media during transport outside
+    of controlled areas. Electonic Locks on the server rooms provide phaysical access
+    control.
+
+- id: ssp_nist800171r1_3_10_1
+  title: NIST SP 800-171 3.10.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Electronic Locks on Server Rooms to limit physical access
+    to organizational systems, equipment, and the respective operating environments
+    to authorized individuals. Electonic Locks on the server rooms provide phaysical
+    access control.
+
+- id: ssp_nist800171r1_3_10_2
+  title: NIST SP 800-171 3.10.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Electronic Locks on Server Rooms to protect and monitor
+    the physical facility and support infrastructure for organizational systems. Electonic
+    Locks on the server rooms provide phaysical access control.
+
+- id: ssp_nist800171r1_3_10_4
+  title: NIST SP 800-171 3.10.4 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Electronic Locks on Server Rooms to maintain audit logs of physical access. Electonic Locks on the server rooms provide phaysical access control.
+
+- id: ssp_nist800171r1_3_10_5
+  title: NIST SP 800-171 3.10.5 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses Electronic Locks on Server Rooms to control and manage physical access devices. Electonic Locks on the server rooms provide phaysical access control.
+

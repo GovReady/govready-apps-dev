@@ -1,0 +1,219 @@
+id: app
+title: CEPH Storage Cluster
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/ceph-storage-cluster
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of CEPH Storage Cluster
+    long: Generates compliance documentation of CEPH Storage Cluster as it pertains
+      to managing the security of CUI (Controlled Unclassified Information) as per
+      NIST SP 800-171 controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    CEPH Storage Cluster is a scalable, programmable storage platform.
+
+    This application will make sure you are properly using CEPH Storage Cluster to
+    protect CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions:
+- id: example
+  title: Example Module
+  type: module
+  module-id: example
+output:
+- id: ssp_nist800171r1_3_1_1
+  title: NIST SP 800-171 3.1.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}}'s CEPH Storage Clusters limit access to stored Controlled
+    Unclassified Information to authorized users, processes acting on behalf of authorized users,
+    and devices (including other systems). The CEPH Storage Cluster is a scalable, programmable
+    storage platform.
+
+- id: ssp_nist800171r1_3_1_2
+  title: NIST SP 800-171 3.1.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses a CEPH Storage Cluster to limit access to stored files to the types
+    of transactions and functions that authorized users are permitted to execute.
+    CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_1_3
+  title: NIST SP 800-171 3.1.3 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to control the flow of CUI in accordance with approved authorizations. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_1_4
+  title: NIST SP 800-171 3.1.4 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to separate the duties of individuals to reduce the risk of malevolent activity without collusion. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_1_7
+  title: NIST SP 800-171 3.1.7 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CEPH Storage Cluster to prevent non-privileged users from
+    executing privileged functions and audit the execution of such functions. CEPH
+    Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_1_11
+  title: NIST SP 800-171 3.1.11 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to terminate (automatically) a user session after a defined condition. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_1_12
+  title: NIST SP 800-171 3.1.12 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to monitor and control remote access sessions. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_3_1
+  title: NIST SP 800-171 3.3.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CEPH Storage Cluster to create, protect, and retain system
+    audit records to the extent needed to enable the monitoring, analysis, investigation,
+    and reporting of unlawful, unauthorized, or inappropriate system activity. CEPH
+    Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_3_2
+  title: NIST SP 800-171 3.3.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CEPH Storage Cluster to ensure that the actions of individual
+    system users can be uniquely traced to those users so they can be held accountable
+    for their actions. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_3_7
+  title: NIST SP 800-171 3.3.7 Control Implementation
+  format: markdown
+  template: >+
+    The CEPH Storage Cluster has a system capability that
+    compares and synchronizes internal system clocks with an authoritative source
+    to generate time stamps for audit records.
+
+- id: ssp_nist800171r1_3_3_8
+  title: NIST SP 800-171 3.3.8 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to protect audit information and audit tools from unauthorized access, modification, and deletion. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_3_9
+  title: NIST SP 800-171 3.3.9 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to limit management of audit functionality to a subset of privileged users. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_4_1
+  title: NIST SP 800-171 3.4.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CEPH Storage Cluster to establish and maintain baseline
+    configurations and inventories of organizational systems (including hardware,
+    software, firmware, and documentation) throughout the respective system development
+    life cycles. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_4_4
+  title: NIST SP 800-171 3.4.4 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to analyze the security impact of changes prior to implementation. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_4_8
+  title: NIST SP 800-171 3.4.8 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CEPH Storage Cluster to apply deny-by-exception (blacklist)
+    policy to prevent the use of unauthorized software or denyall, permit-by-exception
+    (whitelisting) policy to allow the execution of authorized software. CEPH Storage
+    Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_8_3
+  title: NIST SP 800-171 3.8.3 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to sanitize or destroy system media containing CUI before disposal or release for reuse. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_8_9
+  title: NIST SP 800-171 3.8.9 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to protect the confidentiality of backup CUI at storage locations. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_13_1
+  title: NIST SP 800-171 3.13.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CEPH Storage Cluster to monitor, control, and protect communications
+    (i.e., information transmitted or received by organizational systems) at the external
+    boundaries and key internal boundaries of organizational systems. CEPH Storage
+    Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_13_2
+  title: NIST SP 800-171 3.13.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CEPH Storage Cluster to employ architectural designs, software
+    development techniques, and systems engineering principles that promote effective
+    information security within organizational systems. CEPH Storage Cluster is a
+    scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_13_4
+  title: NIST SP 800-171 3.13.4 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to prevent unauthorized and unintended information transfer via shared system resources. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_13_6
+  title: NIST SP 800-171 3.13.6 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses CEPH Storage Cluster to deny network communications traffic
+    by default and allow network communications traffic by exception (i.e., deny all,
+    permit by exception). CEPH Storage Cluster is a scalable, programmable storage
+    platform.
+
+- id: ssp_nist800171r1_3_13_11
+  title: NIST SP 800-171 3.13.11 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to employ FIPS-validated cryptography when used to protect the confidentiality of CUI. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_13_14
+  title: NIST SP 800-171 3.13.14 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to control and monitor the use of Voice over Internet Protocol (VoIP) technologies. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_13_15
+  title: NIST SP 800-171 3.13.15 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to protect the authenticity of communications sessions. CEPH Storage Cluster is a scalable, programmable storage platform.
+
+- id: ssp_nist800171r1_3_13_16
+  title: NIST SP 800-171 3.13.16 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses CEPH Storage Cluster to protect the confidentiality of CUI at rest. CEPH Storage Cluster is a scalable, programmable storage platform.
+

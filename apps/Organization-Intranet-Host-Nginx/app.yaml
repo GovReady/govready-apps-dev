@@ -1,0 +1,66 @@
+id: app
+title: Organization Intranet Host (Nginx)
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/organization-intranet-host
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of Organization Intranet Host (Nginx)
+    long: Generates compliance documentation of Organization Intranet Host (Nginx)
+      as it pertains to managing the security of CUI (Controlled Unclassified Information)
+      as per NIST SP 800-171 controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    Organization Intranet Host is a serves web pages.
+
+    This application will make sure you are properly using Organization Intranet Host
+    (Nginx) to protect CUI (Controlled Unclassified Information) as per NIST SP 800-171
+    controls.
+questions:
+- id: example
+  title: Example Module
+  type: module
+  module-id: example
+output:
+- id: ssp_nist800171r1_3_4_6
+  title: NIST SP 800-171 3.4.6 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Organization Intranet Host (Nginx) to employ the principle
+    of least functionality by configuring organizational systems to provide only essential
+    capabilities. Organization Intranet Host is a serves web pages.
+
+- id: ssp_nist800171r1_3_4_7
+  title: NIST SP 800-171 3.4.7 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Organization Intranet Host (Nginx) to restrict, disable,
+    and prevent the use of nonessential programs, functions, ports, protocols, and
+    services. Organization Intranet Host is a serves web pages.
+
+- id: ssp_nist800171r1_3_4_8
+  title: NIST SP 800-171 3.4.8 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses Organization Intranet Host (Nginx) to apply deny-by-exception
+    (blacklist) policy to prevent the use of unauthorized software or denyall, permit-by-exception
+    (whitelisting) policy to allow the execution of authorized software. Organization
+    Intranet Host is a serves web pages.
+

@@ -1,0 +1,67 @@
+id: app
+title: USB Policy
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/usb-policy
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of USB Policy
+    long: Generates compliance documentation of USB Policy as it pertains to managing
+      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
+      controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    USB Policy is an organizational policy on the us of USB devices.
+
+    This application will make sure you are properly using USB Policy to protect CUI
+    (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions:
+- id: example
+  title: Example Module
+  type: module
+  module-id: example
+output:
+- id: ssp_nist800171r1_3_1_21
+  title: NIST SP 800-171 3.1.21 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses USB Policy to limit use of organizational portable storage devices on external systems. USB Policy is an organizational policy on the us of USB devices.
+
+- id: ssp_nist800171r1_3_8_4
+  title: NIST SP 800-171 3.8.4 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}} uses USB Policy to mark media with necessary CUI markings and
+    distribution limitations. [Footnote: The implementation of this requirement is
+    per marking guidance in the 32 CFR, Part 2002, and the CUI Registry.] USB Policy
+    is an organizational policy on the us of USB devices.
+
+- id: ssp_nist800171r1_3_8_7
+  title: NIST SP 800-171 3.8.7 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses USB Policy to control the use of removable media on system components. USB Policy is an organizational policy on the us of USB devices.
+
+- id: ssp_nist800171r1_3_8_8
+  title: NIST SP 800-171 3.8.8 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}} uses USB Policy to prohibit the use of portable storage devices when such devices have no identifiable owner. USB Policy is an organizational policy on the us of USB devices.
+

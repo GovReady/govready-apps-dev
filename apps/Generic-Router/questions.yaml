@@ -1,0 +1,115 @@
+id: questions
+title: Questions
+questions:
+- id: product_name
+  title: What model router are you using?
+  prompt: What model router are you using?
+  type: text
+  help: Enter a manufacturer and product name.
+- id: internal_access_control
+  title: What access controls limit the devices on the internal network that can connect to the router?
+  prompt: What access controls limit the devices on the internal network that can connect to the router?
+  type: text
+  help: e.g., Only devices with a whitelisted MAC address can connect to the internal network.
+- id: wifi_authorization
+  title: If the router is a wifi access point, what controls are in place to limit access to authorized users?
+  prompt: If the router is a wifi access point, what controls are in place to limit access to authorized users?
+  type: text
+  help: e.g., WPA-PSK is used to limit access to the wifi network to users with a pre-shared password.
+- id: outbound_ports_open
+  title: What ports does the router permit in outbound connections?
+  prompt: What ports does the router permit in outbound connections?
+  type: multiple-choice
+  choices:
+    - key: web
+      text: Web (80/443)
+    - key: dns
+      text: DNS (53)
+    - key: ntp
+      text: NTP (123)
+    - key: ssh
+      text: SSH (22)
+    - key: ftps
+      text: FTP over TLS (989/990)
+    - key: smtp
+      text: SMTP (25)
+    - key: smtp_submission
+      text: SMTP Submission (465/587)
+    - key: mail
+      text: POP/IMAP/POPS/IMAPS (110/143/995/943)
+    - key: other
+      text: Other
+    - key: allopen
+      text: All Outbound Connections Are Permitted
+- id: outbound_ports_open_other
+  title: What other ports does the router permit in outbound connections?
+  prompt: |
+    What other ports does the router permit in outbound connections?
+
+    List open ports besides {{outbound_ports_open.text}}.
+  type: text
+  help: Describe the other permitted outbound connections.
+  impute:
+    - condition: "\"other\" not in outbound_ports_open"
+      value: ~
+- id: outbound_filtering
+  title: What outbound connection or content filtering does your router perform?
+  prompt: Besides blocked ports, what other connection or content filtering does your {{product_name}} perform on outbound connections?
+  type: text
+  help: e.g., The router performs outbound content filtering to sniff for malicious traffic.
+- id: external_access_control
+  title: What access controls limit who can connect to internal network systems from the external network?
+  prompt: |
+    What access controls limit who can connect to internal network systems from the external network?
+
+    We'll ask about ports and content filtering next.
+  type: text
+  help: e.g., Only external devices with a whitelisted MAC address can connect from outside to the internal network.
+- id: inbound_ports_open
+  title: What ports does the router permit in inbound connections?
+  prompt: What ports does the router permit in inbound connections?
+  type: multiple-choice
+  choices:
+    - key: web
+      text: Web (80/443)
+    - key: dns
+      text: DNS (53)
+    - key: ntp
+      text: NTP (123)
+    - key: ssh
+      text: SSH (22)
+    - key: ftps
+      text: FTP over TLS (989/990)
+    - key: smtp
+      text: SMTP (25)
+    - key: smtp_submission
+      text: SMTP Submission (465/587)
+    - key: mail
+      text: POP/IMAP/POPS/IMAPS (110/143/995/943)
+    - key: other
+      text: Other
+    - key: allopen
+      text: All Outbound Connections Are Permitted
+- id: inbound_ports_open_other
+  title: What other ports does the router permit in inbound connections?
+  prompt: |
+    What other ports does the router permit in inbound connections?
+
+    List open ports besides {{inbound_ports_open.text}}.
+  type: text
+  help: Describe the other permitted inbound connections.
+  impute:
+    - condition: "\"other\" not in inbound_ports_open"
+      value: ~
+- id: inbound_filtering
+  title: What inbound connection or content filtering does your router perform?
+  prompt: Besides blocked ports, what other connection or content filtering does your {{product_name}} perform on inbound connections?
+  type: text
+  help: e.g., The router allows inbound connections only from authorized devices using an IP address whitelist and performs inbound content filtering to sniff for malicious traffic.
+- id: publicly_accessible_subnetworks
+  title: Does the router implement subnetworks for publicly accessible system component?
+  prompt: |
+    Does the router implement subnetworks for publicly accessible system components?
+
+    The subnetworks should be physically or logically separated from internal networks.
+  type: yesno

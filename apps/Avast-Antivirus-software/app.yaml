@@ -1,0 +1,100 @@
+id: app
+title: Avast Antivirus software
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/avast-antivirus
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: draft
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/Avast-Antivirus-software
+  description:
+    short: |
+      CUI (800-171) Compliance of Avast Antivirus software
+    long: >
+      Generates the compliance documentation of Avast Antivirus software as it pertains
+      to managing the security of CUI (Controlled Unclassified Information) as per
+      NIST 800-171 controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: |
+    Avast Antivirus software provides protection against malicious code.
+
+    Many organizations use Avast Antivirus software to routinely scan workstations and servers for software viruss and malicious code.
+
+    This application will make sure you are properly using Avast Antivirus software to protect CUI.
+questions:
+- id: questions
+  title: Questions
+  type: module
+  module-id: questions
+output:
+- id: ssp_nist800171r1_3_4_8
+  format: markdown
+  template: >+
+    Avast Antivirus software has been installed on {{organization}} systems
+    ({{questions.installed_on_systems_blacklisting}}). Avast applies a deny-by-exception (blacklist)
+    policy to prevent the use of unauthorized software.
+
+- id: ssp_nist800171r1_3_4_9
+  format: markdown
+  template: |+
+    Avast Antivirus software has been installed on {{organization}}'s
+    {{questions.installed_on_systems_for_software_monitoring}} for controling and monitoring
+    user-installed software.
+
+- id: ssp_nist800171r1_3_13_1
+  format: markdown
+  template: |+
+    Avast Antivirus software has been installed on {{organization}}'s
+    {{questions.installed_on_systems_for_communications}} for monitoring, controling, and protecting communication.
+
+- id: ssp_nist800171r1_3_14_2
+  format: markdown
+  template: |+
+    Avast Antivirus software has been installed on {{organization}} systems
+    ({{questions.installed_on_systems_blacklisting}}). Avast prevents the
+    execution of malicious code.
+
+- id: ssp_nist800171r1_3_14_3
+  format: markdown
+  template: |+
+    {{organization}} monitors Avast Antivirus software security alerts and advisories
+    and takes appropriate actions in response.
+
+- id: ssp_nist800171r1_3_14_4
+  format: markdown
+  template: |+
+    Avast Antivirus software has been installed on {{organization}} systems
+    ({{questions.installed_on_systems_blacklisting}}). Avast prevents the
+    execution of malicious code. Avast's Update malicious code protection
+    mechanisms are automatically updated by Avast when new releases are available.
+
+- id: ssp_nist800171r1_3_14_5
+  format: markdown
+  template: |+
+    {{organization}} installs and uses Avast Antivirus software on 
+    {{questions.installed_on_systems_periodic_scanning}} to perform periodic scans of
+    organizational systems and on {{questions.installed_on_systems_realtime_scanning}}
+    to perform real-time scans of files from external sources as files are
+    downloaded, opened, or executed.
+
+- id: ssp_nist800171r1_3_14_6
+  format: markdown
+  template: >
+    Avast Antivirus software has been installed on {{organization}}'s
+    {{questions.installed_on_systems_for_communications}} to monitor organizational
+    systems including inbound and outbound communications traffic, to detect attacks
+    and indicators of potential attacks.

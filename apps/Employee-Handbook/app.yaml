@@ -1,0 +1,77 @@
+id: app
+title: Employee Handbook
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp
+- govready.com/apps/compliance/2017/employee-handbook
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: draft
+  version: 0.2
+  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  description:
+    short: CUI (NIST SP 800-171) Compliance of Employee Handbook
+    long: Generates compliance documentation of Employee Handbook as it pertains to
+      managing the security of CUI (Controlled Unclassified Information) as per NIST
+      SP 800-171 controls.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: SysAdmin
+introduction:
+  format: markdown
+  template: >-
+    Employee Handbook is a set of official organization policies.
+
+    This application will make sure you are properly using Employee Handbook to protect
+    CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+questions: []
+output:
+- id: ssp_nist800171r1_3_2_1
+  title: NIST SP 800-171 3.2.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}}'s Employee Handbook, a set of official organization policies,
+    ensures that managers, systems administrators, and users of organizational systems are
+    made aware of the security risks associated with their activities and of the
+    applicable policies, standards, and procedures related to the security of those systems.
+
+- id: ssp_nist800171r1_3_2_2
+  title: NIST SP 800-171 3.2.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}}'s Employee Handbook includes a training guide that {{organization}}
+    managers use to train organizational personnel to carry out their assigned information
+    security-related duties and responsibilities. Managers train all new employees and
+    perform training on existing employees periodically.
+
+- id: ssp_nist800171r1_3_2_3
+  title: NIST SP 800-171 3.2.3 Control Implementation
+  format: markdown
+  template: |+
+    {{organization}}'s Employee Handbook includes security awareness training on recognizing
+    and reporting potential indicators of insider threat.
+
+- id: ssp_nist800171r1_3_6_1
+  title: NIST SP 800-171 3.6.1 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}}'s Employee Handbook establishes an operational incident-handling
+    capability for organizational systems that includes preparation, detection,
+    analysis, containment, recovery, and user response activities.
+
+- id: ssp_nist800171r1_3_9_2
+  title: NIST SP 800-171 3.9.2 Control Implementation
+  format: markdown
+  template: >+
+    {{organization}}'s Employee Handbook has a checklist for managers to follow
+    after personnel actions such as terminations and transfers to ensure that CUI and
+    organizational systems containing CUI are protected.
+

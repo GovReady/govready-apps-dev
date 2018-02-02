@@ -1,0 +1,19 @@
+id: questions
+title: Questions
+
+questions:
+- id: provider
+  title: Internet Drop Provider
+  prompt: Who is the provider of your Secondary Internet Drop?
+  type: text
+- id: usage
+  title: Usage of Drop
+  prompt: What is the Secondary Internet Drop used for?
+  type: text
+  help: e.g., workstations, mobile device wifi, guest Internet
+- id: cui_stored
+  title: CUI?
+  prompt: Do any devices connected to the Secondary Internet Drop store Controlled Unclassified Information?
+  type: yesno
+
+output: []
