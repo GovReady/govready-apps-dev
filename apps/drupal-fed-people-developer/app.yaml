@@ -1,0 +1,73 @@
+id: app
+title: Drupal Fed Developer (Dev)
+type: project
+version: 1
+protocol: fed_poc_developer
+icon: app.png
+
+catalog:
+  category: People and Roles
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.1
+  source_url: https://github.com/GovReady/govready-q-drupal-fed-people
+  description:
+    short: |
+      Developer
+    long: |
+      # Developer
+
+      This module provides point of contact information for the Developer (Developer) supporting a Drupal website for a US Federal government agency.
+
+      ## Who Should Use:
+
+      - Managers of Drupal sites at Federal agencies
+
+      ## How This Aids Compliance
+
+      Completion of these tasks addresses the following controls in FISMA NIST SP 800-53:
+
+      - ??? (role Developer)
+
+      ## What App Does:
+
+      - Gathers point of contact information for an Developer
+
+      ## What You Do:
+
+      - Complete contact information
+
+      ## Compliance App Support
+      This task collection is maintained by GovReady PBC.
+
+      Invite support@govready.com to any conversation for support. Charges may apply.
+      Alternatively, invite support@govready.com to a [Task.kiwi](https://task.kiwi).
+
+  recommended_for:
+    - key_short: Org
+      value: federal
+    - key_short: Tech
+      value: Drupal
+    - key_short: Role
+      value: Project Manager
+
+questions:
+  - id: poc
+    title: Developer
+    module-id: poc
+    type: module
+
+output:
+  - title: Document
+    format: markdown
+    id: ssp_template
+    template: |
+
+      {% if not poc.q1_name %}
+        The system will have a Developer.
+      {% else %}
+
+        The Developer for the system is {{poc.q1_name}} ({{poc.q5_email}}).
+
+      {% endif %}
