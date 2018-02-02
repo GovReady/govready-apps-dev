@@ -1,0 +1,106 @@
+Agriculture,,AG 
+Controlled Technical Information,,CTI 
+Critical Infrastructure,,CRIT 
+Critical Infrastructure,Ammonium Nitrate,CRITAN 
+Critical Infrastructure,Chemical-terrorism Vulnerability Information,CVI 
+Critical Infrastructure,Critical Energy Infrastructure Information,CEII 
+Critical Infrastructure,DoD Critical Infrastructure Security Information,DCRIT
+Critical Infrastructure,Physical Security,PHYS 
+Critical Infrastructure,Protected Critical Infrastructure Information,PCII 
+Critical Infrastructure,Water Assessments,WATER
+Emergency Management,,EMGT
+Export Control,,EXPT 
+Export Control,Research,EXPTR 
+Financial,,FNC 
+Financial,Bank Secrecy,FSEC 
+Financial,Budget,BUDG 
+Financial,Comptroller General,COMPT 
+Financial,Electronic Funds Transfer,XFER 
+Financial,Federal Housing Finance Non-Public Information,FHFANPI
+Financial,International Financial Institutions,FINT 
+Financial,Mergers,MERG 
+Financial,Net Worth,NETW
+Financial,Retirement,RTR 
+Geodetic Product Information,,GEO 
+Immigration,Asylee,ASYL 
+Immigration,Battered Spouse or Child,BATT 
+Immigration,Permanent Resident Status,RESD 
+Immigration,Status Adjustment,ADJ 
+Immigration,Temporary Protected Status,PROT 
+Immigration,Victims of Human Trafficking,IVIC 
+Immigration,Visas,VISA 
+Information Systems Vulnerability Information,,ISVI 
+Intelligence,,INTEL 
+Intelligence,Financial Records,IFNC 
+Intelligence,Foreign Intelligence Surveillance Act, FISA 
+Intelligence,Foreign Intelligence Surveillance Act Business Records,FISAB 
+Intelligence,National Security Letter,INSL 
+Intelligence,Terrorist Screening,ISCRN 
+International Agreements,,INTL 
+Law Enforcement,,LEI
+Law Enforcement,Campaign Funds,FUND 
+Law Enforcement,Committed Person,CMPRS 
+Law Enforcement,Communications,LCOMM 
+Law Enforcement,Controlled Substances,SUB 
+Law Enforcement,Criminal History Records Information,CHRI 
+Law Enforcement,DNA,LDNA 
+Law Enforcement,Financial Records,LFNC 
+Law Enforcement,Informant,INF 
+Law Enforcement,Investigation,INV 
+Law Enforcement,Juvenile,JUV 
+Law Enforcement,National Security Letter,LNSL 
+Law Enforcement,Pen Register/Trap & Trace,TRACE 
+Law Enforcement,Reward,RWRD 
+Law Enforcement,Sex Crime Victim,SCV 
+Law Enforcement,Terrorist Screening,LSCRN 
+Law Enforcement,Whistleblower Identity,WHSTL 
+Legal,Administrative Proceedings,ADPO 
+Legal,Child Pornography,CHLD 
+Legal,Child Victim/Witness,CVIC 
+Legal,Collective Bargaining,BARG 
+Legal,Federal Grand Jury,JURY 
+Legal,Presentence Report,PRE 
+Legal,Prior Arrest,PRIOR
+Legal,Privilege,PRIV 
+Legal,Protective Order,LPROT 
+Legal,Victim,LVIC 
+Legal,Witness Protection,WIT 
+NATO,NATO Restricted,
+NATO,NATO Unclassified,
+Nuclear,,NUC 
+Nuclear,Naval Nuclear Propulsion Information,NNPI 
+Nuclear,Recommendation Material,RECCOM
+Nuclear,Safeguards Information,SGI 
+Nuclear,Security-Related Information,SRI 
+Nuclear,Unclassified Controlled Nuclear Information - Defense,DCNI 
+Nuclear,Unclassified Controlled Nuclear Information - Energy,UCNI 
+Patent,Application,APP 
+Patent,Invention,INVENT 
+Patent,Secrecy Orders,PSEC 
+Privacy,,PRVCY 
+Privacy,Contract Use,CONTRACT 
+Privacy,Death Records,DREC 
+Privacy,Genetic Information,GENETIC 
+Privacy,Health Information,HLTH 
+Privacy,Inspector General,PRIIG 
+Privacy,Military,MIL 
+Privacy,Personnel,PERS 
+Privacy,Student Records,STUD 
+Procurement and Acquisition,,PROCURE 
+Procurement and Acquisition,Small Business Research and Technology,SBIZ 
+Procurement and Acquisition,Source Selection, SSEL 
+Proprietary Business Information,,PROPIN 
+Proprietary Business Information,Manufacturer,MFC 
+Proprietary Business Information,Ocean Common Carrier and Marine Terminal Operator Agreements,OCCMTO
+Proprietary Business Information,Ocean Common Carrier Service Contracts,SERV 
+Proprietary Business Information,Postal,POST
+Proprietary Business Information,System for Award Management,CONREG
+SAFETY Act Information,,SAFE 
+Statistical,,STAT 
+Statistical,Census,CENS 
+Statistical,Investment Survey,SURV 
+Statistical,Pesticide Producer Survey,PEST 
+Tax,,TAX
+Tax,Convention,CONV 
+Transportation,Railroad Safety Analysis Records,RAIL 
+Transportation,Sensitive Security Information,SSI 

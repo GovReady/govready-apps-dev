@@ -1,0 +1,38 @@
+id: app
+title: Controlled Unclassified Information
+type: project
+version: 1
+protocol: govready.com/apps/compliance/2017/cui
+icon: app.png
+
+catalog:
+  category: People, Places, and Things
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/q-ssp-modules/modules/controlled_unclassified_information
+  description:
+    short: |
+      Determine the type of Controlled Unclassified Information present in your system.
+    long: |
+      Determine the type of Controlled Unclassified Information present in your system.
+  recommended_for:
+    - key_short: Org
+      value: Large
+    - key_short: Tech
+      value: Sophisticated
+    - key_short: Role
+      value: PM
+
+introduction:
+  format: markdown
+  template: |
+    Use this app to determine the type of Controlled Unclassified Information present in your system.
+
+questions:
+- id: cui_types
+  title: Enter Information
+  type: module
+  module-id: cui_types
+  icon: app.png

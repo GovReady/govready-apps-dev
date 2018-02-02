@@ -1,0 +1,73 @@
+id: point_of_contact
+title: Point of Contact
+instance-name: "{{name}} ({{email}})"
+questions:
+  - id: name
+    title: Name
+    prompt: What is person’s name?
+    type: text
+
+  - id: ev
+    title: Employee or External
+    prompt: Is {{name}} an employee, contractor, or vendor?
+    type: choice
+    choices:
+      - key: employee
+        text: Employee
+        help: Works at the organization
+      - key: contractor
+        text: Contractor
+        help: Employed by third party
+      - key: vendor
+        text: Vendor
+        help: Employed by an product or service provider
+
+  - id: vco
+    title: Company
+    prompt: Name of {{name}}'s employer?
+    type: text
+    impute:
+      - condition: ev == 'employee'
+        value: My company
+
+  - id: email
+    title: Email
+    prompt: What is {{name}}'s preferred email?
+    type: email-address
+
+  - id: work_phone
+    title: Work phone
+    prompt: What is {{name}}'s work phone?
+    type: text
+
+  - id: mobile_phone
+    title: Mobile phone
+    prompt: What is {{name}}'s mobile phone?
+    type: text
+
+output:
+  - title: Document
+    format: markdown
+    template: |
+      # {{project}} Point of Contact
+
+      #### Contact:
+      {{name}}
+
+      #### Type:
+      {{ev}} working for {{vco}}
+
+      #### Contact:
+      * email: {{email}}
+      * work phone: {{work_phone}}
+      * mobile: {{mobile_phone}}
+  - title: Data
+    format: yaml
+    template:
+      - type: "{{ev}}"
+        company: "{{vco}}"
+        email: "{{email}}"
+        work_phone: "{{work_phone}}"
+        mobile_phone: "{{mobile_phone}}"
+        name: "{{name}}"
+        

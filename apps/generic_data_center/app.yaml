@@ -1,0 +1,56 @@
+id: app
+title: Data Center
+type: project
+version: 1
+protocol: govready.com/apps/compliance/2017/data-center
+icon: app.png
+
+catalog:
+  category: People, Places, and Things
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/q-ssp-modules/modules/generic_data_center
+  description:
+    short: |
+      Enter information about a data center.
+    long: |
+      Enter information about a data center.
+  recommended_for:
+    - key_short: Org
+      value: Large
+    - key_short: Tech
+      value: Sophisticated
+    - key_short: Role
+      value: PM
+
+introduction:
+  format: markdown
+  template: |
+    Welcome to the System Name and Details app. 
+
+    Use this app to enter the name and a description of a system and provide a technical overview
+    and its implementation status.
+
+questions:
+- id: data_center
+  title: Enter Information
+  type: module
+  module-id: data_center
+  icon: app.png
+
+- id: name_and_location
+  title: Name and Location
+  type: text
+  impute:
+    - value: data_center.name_and_location
+      value-mode: expression
+
+output:
+- id: ssp_nistsp800171r1_3_1_1
+  format: markdown
+  template: "{{data_center.output_documents.ssp_nistsp800171r1_3_1_1|safe}}"
+- id: ssp_nistsp800171r1_poams
+  format: markdown
+  template: "{{data_center.access_poam}}"

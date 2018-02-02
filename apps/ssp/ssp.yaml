@@ -1,0 +1,206 @@
+id: ssp
+title: System Security Plan Preview
+version: 1
+questions:
+
+- id: dummy
+  title: dummy
+  prompt: dummy
+  type: raw
+  impute:
+    - condition: "true"
+      value: ~
+
+output:
+- format: markdown
+  title: System Security Plan
+  template: |
+    <style type = "text/css" scoped>
+        # h2 { border-bottom:1px solid #888; }
+        h3 { border-bottom:0.5px solid #aaa; } 
+        h4 { font-weight:bold; font-size:0.9em; }
+        blockquote { color: #666; font-size:0.8em;}
+        .notice {color: red; font-size:3.0em; text-align:center; transform: scaleY(.85); font-weight: bold;}
+    </style>
+
+    <div class="notice">PREVIEW</div>
+
+    # 1 Information System Name/Title
+
+    This System Security Plan provides an overview of the security requirements for the {{project}} system and describes the controls in place or planned for implementation to provide a level of security appropriate for the information to be transmitted, processed or stored by the system. Information security is an asset vital to our critical infrastructure and its effective performance and protection is a key component of our national security program. Proper management of information technology systems is essential to ensure the confidentiality, integrity and availability of the data transmitted, processed or stored by the information system.
+
+    The security safeguards implemented for {{project}} meet the policy and control requirements set forth in this System Security Plan (SSP). All systems are subject to monitoring consistent with applicable laws, regulations, agency policies, procedures and practices.
+
+    <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
+      <thead>
+        <th>DITPR ID</th>
+        <th>Information System</th>
+        <th>Nickname/Abbreviation</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td>
+
+    {{project.system_basics.official_system_name}}
+
+    </td>
+          <td>
+
+    {{project.system_basics.system_abbreviation}}
+
+    </td>
+        </tr>
+      </tbody>
+    </table>
+
+    # 2 Information System Categorization & Security Objective Impact Level
+
+    The Federal Information Processing Standard 199 (FIPS-199) Categorization Security Categorization report is a key document in the {{project}} security authorization package. The FIPS-199 Categorization report includes the determination of the security impact level for {{project}} System and has been staffed through {{project}} staff and approved by the Program Manager. The scope of the FIPS-199 Categorization template includes the assessment of the information type categories as defined in the NIST Special Publication 800-60 Volume 2 Revision 1 document.
+
+    The overall information system sensitivity categorization for {{project}} is {low} and is noted in the table that follows.
+
+    <table class="table" style="width:300px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
+      <tbody>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Low</th>
+          <td>&nbsp;</td>
+        </tr> 
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Moderate</th>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">High</th>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;"">
+      <thead>
+        <th>Security</th>
+        <th>Low, Moderate, or Moderate</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Confidentiality</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Integrity</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Availability</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    # 3 Information System Owner
+
+    The following individual is identified as the system owner or functional proponent/advocate for this system.
+
+
+    <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
+      <thead>
+        <th>Field</th>
+        <th>Value</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Name</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Title</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Company / Organization</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Phone Number</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: rgb(219,229,241); width:200px;">Email Address</td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    # 7 General System Description
+    This section includes a general description of the {{project}}.
+
+    ## 7.1 System Function or Purpose
+    {System description}
+
+    ## 7.2 Information System Components and Boundaries
+
+    {Accreditation Boundary description}
+
+    # 8 Control Descriptions
+
+    ## 8.1 AU - Audit and Accountability
+
+    ### 8.1.1 AU-1 Audit And Accountability Policy And Procedures
+
+    ### 8.1.2 AU-2 Audit Events 
+
+    ### 8.1.3 AU-3 Audit Content 
+
+    ### 8.1.4 AU-4 Audit Storage Capacity 
+
+    ### 8.1.5 AU-5 Response to Audit Processing Failures 
+
+    ## 8.2 CM - Configuration Management 
+
+    ### 8.2.1 CM-1 Configuration Management Policy
+    
+    ### 8.2.2 CM-2 Baseline Configuration
+    
+    ### 8.2.3 CM-3 Configuration Change Control
+
+    ## 8.3 IA - Identification and Authentication
+    
+    ### 8.3.1 IA-1 Identification And Authentication Policy And Procedures 
+    
+    ### 8.3.2 IA-2 Identification And Authentication (Organizational Users)
+    
+    ## 8.4 SC - System and Communications Protection
+
+    ### 8.4.1 SC- System And Communications Protection Policy And Procedures
+    
+    ### 8.4.2 SC-7 Boundary Protection
+    
+    {% if project.control_sc_7.is_finished() %}
+    <div>
+      {{project.control_sc_7.rendered_outputs()[1].html|safe}}
+      {{project.control_sc_7.rendered_outputs()[2].html|safe}}
+    </div>
+    {% elif project.control_sc_7 %}
+    <span style="color: red;">
+
+    *Finish the [Boundary Protection]({{project.control_sc_7.task_link}}) module to complete this section.*
+
+    </span>
+    
+    {% else %}
+    *Start the [Boundary Protection]({{project.control_sc_7.edit_link}}) module to complete this section.*
+    {% endif %}
+
+    ## 8.5 SA - System and Services Acquisition
+
+    ### 8.5.1 SA-1 System And Information Integrity Policy And Procedures
+    
+    ### 8.5.2 SA-2 Flaw Remediation
+    
+    ### 8.5.3 SA-3 Malicious Code Protection
+    
+    ### 8.5.4 SA-4 Information System Monitoring 
+

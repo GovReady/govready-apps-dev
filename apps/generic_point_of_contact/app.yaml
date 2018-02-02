@@ -1,0 +1,46 @@
+id: app
+title: Point of Contact
+type: project
+version: 1
+protocol: govready.com/apps/compliance/2017/point-of-contact
+icon: app.png
+
+catalog:
+  category: People, Places, and Things
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.95
+  source_url: https://github.com/GovReady/q-ssp-modules/modules/generic_point_of_contact
+  description:
+    short: |
+      Enter name and contact details for a point of contact.
+    long: |
+      Enter name and contact details for a point of contact.
+  recommended_for:
+    - key_short: Org
+      value: Large
+    - key_short: Tech
+      value: Sophisticated
+    - key_short: Role
+      value: PM
+
+snippet:
+  format: html
+  template: |
+    {{point_of_contact}}
+
+introduction:
+  format: markdown
+  template: |
+    Welcome to the Point of Contact app. 
+
+    Use this app to enter name and contact information for an employee, contractor, vendor,
+    authorizing official, or any other person.
+
+questions:
+- id: point_of_contact
+  title: Enter Information
+  type: module
+  module-id: point_of_contact
+  icon: app.png

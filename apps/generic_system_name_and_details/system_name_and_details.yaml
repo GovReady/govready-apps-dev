@@ -1,0 +1,132 @@
+id: system_name_and_details
+title: System Name, Description, Technical Overview, and Status
+questions:
+  - id: system_name
+    title: System name
+    type: text
+    prompt: |
+      What is the preferred official name of the system?
+
+  - id: system_abbreviation_exists
+    title: System abbreviation exists
+    type: yesno
+    prompt: |
+      Does <b>{{system_name}}</b> have a nickname or acronym?
+
+      It’s common for organizations to use a nickname or acronym to refer to an information system.
+
+  - id: system_abbreviation
+    type: text
+    title: System abbreviation
+    prompt: |
+      What is the preferred nickname or acronym for <b>{{system_name}}</b>?
+    impute:
+    - condition: system_abbreviation_exists == 'no'
+      value: n/a
+
+  - id: system_name_with_abbrev
+    type: text
+    title: System Name with Abbreviation
+    prompt: not used
+    impute:
+      - value: "{{system_name}}{% if system_abbreviation_exists %} ({{system_abbreviation}}){% endif %}"
+        value-mode: template
+
+  - id: system_abbrev_or_name
+    type: text
+    title: System Abbreviation or Name as Fallback
+    prompt: not used
+    impute:
+      - value: "{% if system_abbreviation_exists %}{{system_abbreviation}}{% else %}{{system_name}}{% endif %}"
+        value-mode: template
+
+  - id: system_name_done
+    title: System name complete
+    type: interstitial
+    prompt: |
+      Thanks! We’ve now documented the system name.
+
+      Now let’s document the status of the system.
+
+  - id: lifecycle_phase
+    title: What enterprise performance lifecycle phase is the system in?
+    type: choice
+    prompt: What enterprise performance lifecycle phase is the system in?
+    reference_text: |
+      The lifecycle phases are adapted from [United States Department of Health & Human Services Office of the Chief Information Officer
+      Office of the Assistant Secretary for Resources and Technology, Enterprise Performance Life Cycle Framework, Overview Document, July 18, 2012](https://www.hhs.gov/ocio/eplc-lifecycle-framework.pdf).
+    choices:
+      - key: initiation
+        text: Initiation
+        help: Identifying the business need, developing a rough cost
+          and preliminary schedule, and basic business and technical risks. The
+          outcome of the initiation phase is the decision to invest in a full business case
+          analysis and preliminary project management plan.
+      - key: concept
+        text: Concept
+        help: Identifying the high level business and functional requirements required to
+          develop the full business case analysis and preliminary project management plan for
+          the proposed project. The outcomes of the concept phase are approval of initial
+          project costs, schedule and performance baselines.
+      - key: planning
+        text: Planning
+        help: Completing development of a full project management plan and if
+          applicable, refinement of project cost, schedule and performance baselines.
+          Outcomes of the planning phase are a complete and adequate project planning with
+          sufficient requirements development to validate the planning and project baselines.
+      - key: requirements_analysis
+        text: Requirements Analysis
+        help: Developing detailed functional and non-functional
+          requirements, and award of contracts if needed. The outcome of the requirements analysis
+          phase is award of contracts if needed and approval of the requirements.
+      - key: design
+        text: Design
+        help: Developing the design document. The outcome of the design phase is
+          completion of the business product design and successful completion of preliminary
+          and design reviews.
+      - key: development
+        text: Development
+        help: Developing code and other deliverables required to build the business
+          product. The outcome of the development phase is completion of all coding and associated
+          documentation; user, operator and maintenance documentation, and test planning.
+      - key: test
+        text: Test
+        help: Testing and auditing of the business product’s design, coding and
+          documentation. The outcome of the test phase is completed acceptance testing and
+          readiness for training and implementation.
+      - key: implementation
+        text: Implementation
+        help: Conducting user and operator training, determining readiness to
+          implement, and executing the implementation plan, including any phased
+          implementation. The outcome of the implementation phase is successful
+          establishment of full production capability.
+      - key: operations
+        text: Operations and Maintenance
+        help: Operating and maintaining the production system and
+          conducting regular operational analyses. The outcome of the operations and
+          maintenance phase is successful operation of the asset against current cost, schedule
+          and performance benchmarks.
+      - key: disposition
+        text: Disposition
+        help: Retiring an asset when operational analysis indicates that it is no longer
+          cost-effective to operate the asset. The outcome of the disposition phase is the
+          deliberate and systematic decommissioning of the business product with
+          appropriate consideration of data archiving and security, migration of data or 
+          functionality to new assets, and incorporation of lessons learned over the project life
+          cycle.
+
+  - id: launch_date
+    title: Launch date
+    type: date
+    prompt: |
+      When was **{{system_name}}** launched, or when do you expect to launch **{{system_name}}** to users?
+
+      (If already launched, enter the date the system went live.)
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Congratulations! You've created a basic system profile for {{system_name_with_abbrev}}!
+
+

@@ -1,0 +1,88 @@
+id: about_ssp
+title: About System Security Plans
+introduction:
+  format: html
+  template: |
+    <link rel="stylesheet" href="{{static_asset_path_for('comicframes.css')}}">
+    <script src="{{static_asset_path_for('comicframes.js')}}"></script>
+    <style>
+    .comic-strip-frame {
+        /* the height must be tweaked to hold the content at any
+           viewport width */
+        height: 12em;
+        background-image: url('{{static_asset_path_for('comicframes-1.jpg')}}');
+        background-size: 400%;
+    }
+    </style>
+
+    <div class="comic-strip-frames">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="comic-strip-frame frame-0">
+                    <div class="comic-strip-frame-closed">
+                        <div class="comic-strip-frame-content big bigbig">
+                            SSP Purpose
+                        </div>
+                    </div>
+                    <div class="comic-strip-frame-open">
+                        <div class="comic-strip-frame-content">
+                          The purpose of the system security plan is to provide an overview of the
+                          security requirements of the system and describe the controls in place or
+                          planned for meeting those requirements.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="comic-strip-frame frame-1">
+                    <div class="comic-strip-frame-closed">
+                        <div class="comic-strip-frame-content big bigbig">
+                            Responsibilities and Behaviors
+                        </div>
+                    </div>
+                    <div class="comic-strip-frame-open">
+                        <div class="comic-strip-frame-content">
+                          The system security plan also delineates responsibilities and expected behavior
+                          of all individuals who access the system.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="comic-strip-frame frame-2">
+                    <div class="comic-strip-frame-closed">
+                        <div class="comic-strip-frame-content big bigbig">
+                            Process Documentation
+                        </div>
+                    </div>
+                    <div class="comic-strip-frame-open">
+                        <div class="comic-strip-frame-content">
+                          The system security plan should be viewed as documentation of the structured process
+                          of planning adequate, cost-effective security protection for a system.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="comic-strip-frame frame-3">
+                    <div class="comic-strip-frame-closed">
+                        <div class="comic-strip-frame-content big bigbig">
+                            Reflect Stakeholder Inputs
+                        </div>
+                    </div>
+                    <div class="comic-strip-frame-open">
+                        <div class="comic-strip-frame-content">
+                          It should reflect input from various stakeholders with responsibilities
+                          concerning the system, including information owners, the system owner, etc.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+questions: []

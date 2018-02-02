@@ -1,0 +1,397 @@
+id: control_sc_7
+title: SC-7 Boundary Protection
+introduction:
+  format: html
+  template: |
+    <p>Let&rsquo;s prevent network-based attacks on your system and set up secure
+    communications to your system according to official {{organization}} policies
+    and procedures.</p>
+
+    <link rel="stylesheet" href="{{static_asset_path_for('comicframes.css')}}">
+    <script src="{{static_asset_path_for('comicframes.js')}}"></script>
+    <style>
+    .comic-strip-frame {
+        /* the height must be tweaked to hold the content at any
+           viewport width */
+        height: 12em;
+        background-image: url('{{static_asset_path_for('comicframes-2.jpg')}}');
+        background-size: 200%;
+    }
+    .comic-strip-frame.frame-0 { background-position: 0 43%; }
+    .comic-strip-frame.frame-1 { background-position: -100% 0; }
+    .comic-strip-frame.frame-2 { background: #000000; }
+    </style>
+
+    <div class="comic-strip-frames">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="comic-strip-frame frame-0">
+                    <div class="comic-strip-frame-closed">
+                        <div class="comic-strip-frame-content big">
+                          Do you know the boundaries of your system?
+                        </div>
+                    </div>
+                    <div class="comic-strip-frame-open">
+                        <div class="comic-strip-frame-content">
+                          <p>Think about the points where the parts of the system you control
+                          connect with things you don&rsquo;t control.</p>
+                          <p>These are interfaces defining the boundaries of your system.</p>
+                          <p>What protection do you have in place at each boundary?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="comic-strip-frame frame-1">
+                    <div class="comic-strip-frame-closed big bigbig">
+                        <div class="comic-strip-frame-content">
+                            Managed Interfaces
+                        </div>
+                    </div>
+                    <div class="comic-strip-frame-open">
+                        <div class="comic-strip-frame-content">
+                          Managed interfaces include, for example, gateways, routers, firewalls, guards,
+                          network-based malicious code analysis and virtualization systems, or encrypted
+                          tunnels implemented within a security architecture (e.g., routers protecting
+                          firewalls or application gateways residing on protected subnetworks).
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="comic-strip-frame frame-2">
+                    <div class="comic-strip-frame-closed" style="opacity: 1; padding: 4px;">
+                      <iframe src="https://player.vimeo.com/video/182652425" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
+                        style="width: 100%; height: 100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+questions:
+  - id: has_firewall
+    title: Have a Firewall?
+    type: yesno
+    prompt: |
+      A secure system is protected by a firewall.
+
+      {% if project.system_basics_technical.cloud_provider == "AWS" %}
+      Amazon Web Services's "security groups" are firewalls that protect machine instances in EC2.
+      Besides the AWS security groups, does your system have an additional firewall?
+
+      {% elif project.system_basics_technical.application_where_hosted == "cloud" %}
+      Cloud providers, such as {{project.system_basics_technical.cloud_provider.text}}, often have firewall
+      services built-in. Besides the firewall services provided by {{project.system_basics_technical.cloud_provider.text}},
+      does your system have an additional firewall?
+
+      {% else %}
+      Does your system have a firewall?
+      {% endif %}
+
+    impute:
+      - condition: project.system_basics_technical.application_where_hosted and not(project.system_basics_technical.application_where_hosted == "cloud")
+        value: ~
+
+  # - id: who_configures_aws_security_groups
+  #   title: Who Configures The AWS Security Groups?
+  #   type: text
+  #   prompt: |
+  #     {{project.system_basics_technical.cloud_provider.text}} Security Groups must be properly configured.
+
+  #     Who in your organization is responsible for configuring {{project.system_basics_technical.cloud_provider.text}}  Security Groups?
+  #   impute:
+  #     - condition: has_firewall == 'yes'
+  #       value: ~
+
+
+  - id: using_enterprise_dmz
+    title: Using Enterprise DMZ?
+    type: yesno
+    prompt: |
+      Since your system is hosted in the {{organization}}'s internal data center, your
+      communications boundary protection is provided by the {{organization}} enterprise IT.
+
+      Do you plan for your system to use the enterprise boundary protection services
+      provided by enterprise IT?
+    impute:
+      - condition: project.system_basics_technical.application_where_hosted and not(project.system_basics_technical.application_where_hosted == "onpremesis")
+        value: ~
+
+  - id: using_enterprise_dmz_yes
+    title: Using Enterprise DMZ (Yes)
+    type: interstitial
+    prompt: |
+      The {{project}} system inherits this control from the {{organization}} enterprise IT.
+    impute:
+      - condition: not(using_enterprise_dmz == "yes")
+        value: ~
+
+  - id: using_enterprise_dmz_no
+    title: Using Enterprise DMZ (No)
+    type: interstitial
+    prompt: |
+      You know, hey, it's organization policy to have boundary protections. You said you are not using your enterprise services. Let's talk about why not.
+    impute:
+      - condition: not(using_enterprise_dmz == "no")
+        value: ~
+
+  - id: have_other_dmz
+    title: Do You Have Another DMZ?
+    type: choice
+    prompt: |
+      It's organization policy to have boundary protections, but you said you are not using your enterprise services.
+
+      Why not?
+    choices:
+      - key: ad_hoc_dmz
+        text: The system has its own DMZ.
+      - key: na
+        text: The system does not need a DMZ.
+      - key: wavier
+        text: We are requesting a waiver for this requirement.
+    ask-first:
+      - using_enterprise_dmz_no
+    impute:
+      - condition: not(using_enterprise_dmz == "no")
+        value: ~
+
+  - id: who_responsible_for_dmz
+    title: Who Is Responsible for the DMZ?
+    type: module
+    module-id: point_of_contact
+    prompt: |
+      A secure system is protected by a properly configured firewall.
+
+      Who in your organization is responsible for configuring your system's firewall?
+    impute:
+      - condition: not(have_other_dmz == 'ad_hoc_dmz')
+        value: ~
+
+  - id: evidence
+    title: Evidence
+    type: module
+    module-id: evidence
+    prompt: |
+      Provide evidence of your properly configured firewall, if possible.
+    impute:
+      - condition: not(have_other_dmz == 'ad_hoc_dmz')
+        value: ~
+
+output:
+  - title: What's Next
+    format: markdown
+    template: |
+      As a result of completing this task you now have access to some compliance outputs
+      you’ll be needing to submit. 
+
+      Click Control Text Segment to view whether enough information exists to prepare your
+      control implementation. Click Formatted Control Table to view a version that you can
+      copy/paste into your SSP.
+
+  - title: Control Text Segment
+    format: markdown
+    template: |
+
+      ## SC-7 Boundary Protection
+
+      From the NIST SP 800-53
+
+      > The information system:
+      >
+      > a. Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system;
+      >
+      > b. Implements subnetworks for publicly accessible system components that are [Selection: physically; logically] separated from internal organizational networks; and
+      >
+      > c. Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture.
+
+      <!-- Amazon stuff -->
+      {% if project.system_basics_technical.cloud_provider == "AWS" %}
+
+        The {{project}} information system:
+
+        a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with {{project.system_basics_technical.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
+
+        b.  Implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by configuring different security groups to establish logically separated subnetworks; and
+
+        c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using {{project.system_basics_technical.cloud_provider.text}} Security Groups which are required in {{project.system_basics_technical.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
+
+        {% endif %}
+
+      <!-- Amazon stuff -->
+
+
+      {% if using_enterprise_dmz == 'yes' %}
+        {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
+        {{using_enterprise_dmz_yes}}
+
+        Status: Implemented
+
+        The {{project}} inherits this control from the {{organization}} enterpize DMZ.
+
+        The {{organization}} enterpise DMZ:
+
+        a. Monitors and controls communications via the FCC proxy gateway managed by the FCC NSOC at the external boundary of the {{project}} system and at key internal boundaries within the system;
+
+        b. Implements subnetworks for publicly accessible system components that are logically separated from internal {{organization}} networks; and
+
+        c. Connects to external networks or information systems only through the managed interfaces the {{organization}} network proxy gateway in accordance with the {{organization}} security architecture.
+
+      {% else %}
+
+        The system is not using our enterprise DMZ. {{have_other_dmz.text}}
+
+        {% if have_other_dmz == 'ad_hoc_dmz' %}
+         Responsible for DMZ: {{who_responsible_for_dmz}}
+
+        {% if evidence %}
+        Evidence: {{evidence.type.text}} ({{evidence.description}})
+        {% endif %}
+        {% endif %}
+
+      {% endif %}
+
+  - title: Formatted Control Table
+    format: html
+    template: |
+      <h3>SC-7 Boundary Protection</h3>
+      <table class="table" style="margin-top: 1.5em">
+        <thead>
+          <th colspan="2">
+            <div class="row">
+              <div class="col-xs-3">
+                SC-7
+              </div>
+              <div class="col-xs-9">
+                Control Summary Information
+              </div>
+            </div>
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%">Responsible Role:</th>
+            <td>
+              {% if 0 and project.system_basics_technical.application_where_hosted == "onpremesis" and have_other_dmz == 'ad_hoc_dmz' %}
+                {{who_responsible_for_dmz}}
+              {% else %}
+              N/A
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td>Parameter:</th>
+            <td>
+              {% if 0 and project.system_basics_technical.application_where_hosted != "onpremesis" %}
+                &nbsp;
+              {% elif using_enterprise_dmz == 'yes' %}
+              Enterprise DMZ.
+              {% else %}
+              System-specific DMZ.
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Implementation Status:</div>
+              {% for key, text in [
+      ["implemented", "Implemented"],
+      ["partially_implemented", "Partially Implemented"],
+      ["planned", "Planned"],
+      ["alternative_implementation", "Alternative Implementation"],
+      ["not_applicable", "Not Applicable"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled" {% if key == "implemented" %}checked="checked"{% endif %}> {{text}} 
+                </label>
+              </div>
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div style="margin-bottom: .5em">Control Origination:</div>
+              {% for key, text in [["service_provider_corporate", "Service Provider Corporate"],
+      ["service_provider_system_specific", "Service Provider System Specific"],
+      ["service_provider_hybrid", "Service Provider Hybrid (Corporate and System Specific)"],
+      ["configured_by_customer", "Configured by Customer (Customer System Specific)"],
+      ["provided_by_customer", "Provided by Customer (Customer System Specific)"],
+      ["shared", "Shared (Service Provider and Customer Responsibility)"],
+      ["inherited", "Inherited from enterprise IT service"]] %}
+              <div class="radio">
+                <label>
+                  <input type="checkbox" disabled="disabled"
+                    {% if key == "service_provider_corporate" and using_enterprise_dmz == "no" %}checked="checked"{% endif %}
+                    {% if key == "inherited" and using_enterprise_dmz == "yes" %}checked="checked"{% endif %}
+
+                    {% if key == "shared" and project.system_basics_technical.application_where_hosted and project.system_basics_technical.application_where_hosted != "onpremesis" %}checked="checked"{% endif %}
+
+                    > {{text}}
+                </label>
+              </div>
+              {% endfor %}
+            </td>
+          </tr>
+        </body>
+      </table>
+      <table class="table">
+        <thead>
+          <th colspan="2">
+            SC-7 What is the solution and how is it implemented?
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2">
+
+              {% if project.system_basics_technical.cloud_provider == "AWS" %}
+
+              <!-- Amazon stuff -->
+
+                <p>The {{project}} information system:</p>
+
+                <p>a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with {{project.system_basics_technical.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
+                </p>
+                <p>b.  Implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by configuring different security groups to establish logically separated subnetworks; and
+                </p>
+                <p>c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using {{project.system_basics_technical.cloud_provider.text}} Security Groups which are required in {{project.system_basics_technical.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
+                </p>
+
+                {% endif %}
+
+              <!-- Amazon stuff -->
+
+
+
+              {% if using_enterprise_dmz == 'yes' %}
+
+                {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
+                {{using_enterprise_dmz_yes}}
+
+
+                <p>The {{project}} inherits this control from the {{organization}} enterpize DMZ.</p>
+
+                <p>The {{organization}} enterpise DMZ:</p>
+
+                <p>a. Monitors and controls communications via the FCC proxy gateway managed by the FCC NSOC at the external boundary of the {{project}} system and at key internal boundaries within the system;
+
+                <p>b. Implements subnetworks for publicly accessible system components that are logically separated from internal {{organization}} networks; and
+                </p>
+
+                <p>c. Connects to external networks or information systems only through the managed interfaces the {{organization}} network proxy gateway in accordance with the {{organization}} security architecture.
+                </p>
+
+              {% else %}
+                <p>The system is not using our enterprise DMZ. {{have_other_dmz.text}}</p>
+
+                {% if evidence %}
+                  <p>Evidence:</p>
+                  {{evidence.rendered_outputs()[0].html|safe}}
+                {% endif %}
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>

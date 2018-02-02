@@ -1,0 +1,10 @@
+id: system_details
+title: Nginx Web Server System Details
+version: 1
+
+questions:
+  - id: hostname
+    title: What is the hostname of the web server?
+    type: text
+    prompt: What is the hostname of the web server?
+

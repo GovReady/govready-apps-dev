@@ -1,0 +1,101 @@
+id: howto_security_stories
+title: "Adding security stories to your sprints"
+introduction:
+  format: html
+  template: |
+    The best way to secure your system is during development.
+
+    This module will guide you through adding Security-related stories to your sprints.
+
+    By adding security-reated stories to your sprints, it will be easier to prepare your System Security Plan as you develop your system.
+
+    <!--img src="/static/img/brand/add_sec_stories_gif.gif"-->
+questions:
+
+  - id: benefit
+    title: Benefit
+    type: interstitial
+    prompt: |
+
+      It's easier to secure and harden your system if you treat security as you would any other customer and gather user stories related to security needs.
+
+      Instead of rushing to bolt-on security features and make your system compliant just before launch, you'll be incorporating improved security with every sprint.
+
+      The work of security will also be distributed among your team instead of being the responsibility of a single individual.
+
+  - id: security_customer
+    title: Treating security as a customer
+    type: interstitial
+    prompt: |
+      
+      First, collect security-related user stories from your organization's security team.
+
+      Second, add one or two security-related users stories to each sprint to bake security and compliance into your system as you build.
+
+      Third, write automated tests for the security stories just like you would for any other feature. Not only will your automated test tell you when something breaks security, you'll also be putting continuous monitoring in place and make security reviews a breeze.
+
+      Next, you'll see a couple examples of security-related user stories.
+
+  - id: example_stories
+    title: Example stories
+    type: interstitial
+    prompt: |
+      Below are two example security-related user stories.
+
+      ## Example 1 - Points of Contact
+
+       As an Information Security Officer, I want to be able to know who are primary points of contact (POC) for the system. I need to know this information to be able to timely share threat assessments and other information for the secure operation of the system. For each POC, I would like to know name, title, organization, phone number(s), email address.
+
+      Common Points of Content include: Information System Owner, SSP Point of Contact, Technical Point of Contact, Hosting or Cloud Service Provicer Security Point of Contact.
+
+      ## Example 2 - Categorize information types
+      As an Information Security Officer (Authorizing Official, Assessor), I am required to have each operating information system security impact level determined in accordance with the Federal Information Processing Standard 199 (FIPS-199), Standards for Security Categorization of Federal Information and Information Systems.
+
+
+  - id: issuepacks
+    title: IssuePacks
+    type: interstitial
+    prompt: |
+      
+      ## IssuePacks automates adding stories to your issue tracker
+
+      <a href="http://issuepacks.com" target="_blank">IssuePacks.com</a> is a site GovReady created to manage prepared, re-usable collections of issue tickets that you can instantly add to your sprint backlog.
+
+      IssuePacks works with GitHub or Redmine. 
+
+  - id: module_helpful
+    title: Was module helpful
+    type: yesno
+    prompt: |
+      Did you find this module helpful?
+
+  - id: plan_to_add_stories
+    title: Plan to add stories
+    type: yesno
+    prompt: |
+      Are you planning to add security-reated stories to your sprints?
+
+  - id: did_add_stories
+    title: Did add stories
+    type: yesno
+    prompt: |
+      Did you successfully add security-reated stories to your sprints?
+    impute:
+    - condition: plan_to_add_stories == 'no'
+      value: no
+
+output:
+  - title: Adding Security Stories to Your Sprints
+    format: markdown
+    template: |
+      ## Adding Security Stories to Your Sprints
+      <!--{{benefit}} {{security_customer}} {{example_stories}} {{issuepacks}}-->
+
+      This module explained how to add security-related user stories to your sprints.
+
+      Planning on adding user stories to sprints: {{plan_to_add_stories}}
+
+      Added security-related stories to sprints: {{did_add_stories}}
+
+      Was this module helpful? {{module_helpful}}
+

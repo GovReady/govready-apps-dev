@@ -1,0 +1,116 @@
+id: app
+title: System FISMA Level
+type: project
+version: 0.6
+protocol: fisma_system_categorization
+icon: app.png
+
+catalog:
+    category: Processes
+    vendor: GovReady PBC
+    vendor_url: http://www.govready.com
+    status: Operational
+    version: 0.6
+    source_url: https://github.com/GovReady/govready-q-ssp-module
+    description:
+      short: |
+        Determine system's FISMA security categorization level (Low, Medium, High)
+      long: |
+        FISMA starts here.
+        
+        Your system's FISMA level is determined by the impact of a loss of confidentiality,
+        integrity, and availability of your system on your organization's mission and on
+        potential harm to others.
+
+        We'll help you figure out your system's FISMA level.
+    recommended_for:
+      - key_short: Org
+        value: Medium
+      - key_short: Tech
+        value: Drupal
+      - key_short: Role
+        value: Dev
+
+snippet:
+  format: html
+  template: ""
+
+interstitial:
+  format: markdown
+  template: |
+    ## System Categorization (Determine FISMA Level)
+
+    Before you embark on your ATO under FISMA, you must know if your system is
+
+    - FISMA Low
+    - FISMA Moderate
+    - FISMA High
+
+    Your system's FISMA level is determined by the impact of a loss of confidentiality,
+    integrity, and availability of your system on your organization's mission and on
+    potential harm to others.
+
+    We'll help you figure out your system's FISMA level.
+
+    Are you ready?
+
+introduction:
+  format: markdown
+  template: |
+    This project will guide you through determining your system categorization under the NIST Risk Management Framework in order to get the {{project}} its Authority to Operate.
+
+invitation_to_task_interstitial:
+  format: markdown
+  template: |
+    ## Thanks for accepting {{invitation.from_user}}'s invitation
+
+    You've been asked to help with {{task.title}} for {{project}}.
+
+    We'll tell {{invitation.from_user}} you're getting started.
+
+questions:
+
+- id: fisma_level
+  title: Determine Your FISMA Level
+  type: module
+  module-id: fisma_level
+  tab: Questions
+  group: Questions
+
+
+output:
+  - id: ssp_template
+    format: markdown
+    template: |
+      {% if not fisma_level.fisma_level.text %}
+        The team is currently working on determining the system impact level.
+
+      {% else %}
+        Your system's FISMA Level is **{{fisma_level.fisma_level.text}}**.
+
+        Information Types: {{fisma_level.information_types.text}}
+
+        Impact Level based on Information Types: {{fisma_level.information_types_level.text}}
+
+        PII Types: {{fisma_level.pii_types_collected.text}}
+
+        PII Impact Level: {{fisma_level.pii_impact_level.text}}
+
+        PHI? {{fisma_level.phi_has_any_phi.text}}
+
+      PHI Impact Level: {{fisma_level.phi_impact_level.text}}
+      {% endif %}
+
+
+  - tab: Questions
+    format: markdown
+    template: |
+      <div style="text-align:center;">
+
+      ## Need to Determine Your System Categorization (FISMA Level)?
+
+      ![](icon_system_capital.png)
+
+      ### No sweat! We'll ask you a few questions and will let you know.
+
+      </div>
