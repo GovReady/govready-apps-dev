@@ -1,0 +1,14 @@
+id: maintain_policy_tr
+title: Periodically review and update transparency policy
+introduction:
+  format: markdown
+  template: Periodically review and update transparency policy
+questions:
+- id: q1
+  prompt: PROMPT
+  title: TITLE
+  type: text
+output:
+- format: markdown
+  template: Periodically review and update transparency policy
+  title: Periodically review and update transparency policy
