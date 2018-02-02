@@ -1,0 +1,58 @@
+id: matrix
+title: Control Matrix
+version: 1
+
+questions:
+- id: dummy
+  title: dummy
+  prompt: dummy
+  type: raw
+  impute:
+    - condition: "true"
+      value: ~
+
+output:
+- format: html
+  title: Control Matrix
+  template: |
+    <div style="overflow-x: auto">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>3.1.1 [Limit system access to authorized users]</th>
+        <th>3.1.2: [Limit system access to authorized functions]</th>
+        <th>....</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if project.data_center %}
+      <tr>
+        <th scope="row">
+          {{project.data_center.name_and_location}}
+        </th>
+        <td>
+          {{project.data_center.output_documents.ssp_nistsp800171r1_3_1_1|safe}}
+        </td>
+        <td>not applicable</td>
+        <td>....</td>
+      </tr>
+      {% endif %}
+      {% if project.file_server %}
+      <tr>
+        <th scope="row">
+          {{project.file_server.file_server_type}} file server
+        </th>
+        <td>
+          {{project.file_server.output_documents.ssp_nistsp800171r1_3_1_1|safe}}
+        </td>
+        <td>
+          {{project.file_server.output_documents.ssp_nistsp800171r1_3_1_2|safe}}
+        </td>
+        <td>....</td>
+      </tr>
+      {% endif %}
+    </tbody>
+    </table>
+    </div>
+

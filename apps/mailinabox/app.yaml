@@ -1,0 +1,60 @@
+id: app
+title: Mail-in-a-Box Mail Server
+type: project
+version: 0.5
+icon: app.png
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.2
+  source_url: https://github.com/GovReady/govready-sample-apps/mailinabox
+  description:
+    short: |
+      Compliance for a Mail-in-a-Box email server.
+    long: |
+      Compliance for a Mail-in-a-Box email server.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
+introduction:
+  format: markdown
+  template: |
+    Compliance for a Mail-in-a-Box email server.
+questions:
+  - id: system_description
+    title: System Description
+    type: module
+    protocol: govready.com/apps/compliance/2017/system-description
+    icon: system_description.png
+    group: About the System
+  - id: data_center
+    title: Data Center
+    type: module
+    protocol: govready.com/apps/compliance/2017/data-center
+    icon: data_center.png
+    group: System Components
+  - id: network
+    title: Network
+    type: module
+    protocol: govready.com/apps/compliance/2017/network
+    icon: network.png
+    group: System Components
+  - id: mailinabox
+    title: Mail Server
+    type: module
+    module-id: mailinabox
+    icon: file_server.png
+    group: System Components
+  - id: system_administrator
+    title: System Administrator
+    type: module
+    protocol: govready.com/apps/compliance/2017/point-of-contact
+    icon: point_of_contact.png
+    app_overrides_name_and_icon: false
+    group: System Components

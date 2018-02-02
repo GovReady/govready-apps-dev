@@ -1,0 +1,108 @@
+id: risk_register
+title: Risk Register
+
+introduction:
+  format: markdown
+  template: |
+    This form is to be completed during the planning stages of any significant change. It is designed to assist with the identification of risks, so that informed decisions can be made during the planning process, and so that risks can be addressed early.
+
+    * Risk Description
+    * Why this is considered a risk
+    * Risk Owner
+    * Likelihood
+    * Impact
+    * Rating
+    * Suggested Actions/Mitigations
+    * Implemented Mitigations
+
+questions:
+
+  - id: date_started
+    title: date_started
+    prompt: Enter date of this review
+    type: date
+
+  - id: risk_description
+    title: Risk Description
+    type: longtext
+    prompt: |
+      Describe the risk
+
+  - id: why_considered_risk
+    title: Why this is considered a risk
+    type: longtext
+    prompt: |
+      Why this is considered a risk
+
+  - id: risk_owner
+    title: Risk Owner
+    prompt: Risk Owner
+    type: longtext
+
+  - id: likelihood
+    title: Likelihood
+    prompt: Likelihood of risk
+    type: multiple-choice
+    choices:
+      - key: unlikely
+        text: Unlikely
+      - key: possible
+        text: Possible
+      - key: likely
+        text: Likely
+      - key: very_likely
+        text: Very likely
+
+  - id: impact
+    title: Impact
+    prompt: Impact
+    type: text
+
+  - id: rating
+    title: Rating
+    prompt: Rating
+    type: text
+
+  - id: suggested_mitigations
+    title: Suggested Actions/Mitigations
+    prompt: Suggested Actions/Mitigations
+    type: longtext
+
+  - id: implemented_mitigations
+    title: Implemented Mitigations
+    prompt: Implemented Mitigations
+    type: longtext
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      This is information about the risk register
+
+      date:
+      {{date_started}}
+      
+      risk_description:
+      {{risk_description}}
+ 
+      why_considered_risk:
+      {{why_considered_risk}}
+ 
+      risk_owner:
+      {{risk_owner}}
+ 
+      likelihood:
+      {{likelihood}}
+ 
+      impact:
+      {{impact}}
+
+      rating:
+      {{rating}}
+ 
+      suggested_mitigations:
+      {{suggested_mitigations}}
+
+      implemented_mitigations:
+      {{implemented_mitigations}}
+ 

@@ -1,0 +1,415 @@
+id: nist_171_ssp
+title: NIST SP 800-171 System Security Plan
+version: 1
+
+questions:
+- id: dummy
+  title: dummy
+  prompt: dummy
+  type: raw
+  impute:
+    - condition: "true"
+      value: ~
+
+output:
+- format: markdown
+  title: System Security Plan
+  template: |
+    <style type="text/css" scoped>
+        h2 { border-bottom:1px solid #888; }
+        h3 { border-bottom:0.5px solid #aaa; } 
+        h4 { font-weight:bold; font-size:0.9em; }
+        blockquote { color: #666; font-size:0.8em;}
+        .notice {color: red; font-size:3.0em; text-align:center; transform: scaleY(.85); font-weight: bold;}
+    </style>
+
+    {% if not project.system_description %}
+    <h2>System Description</h2>
+
+    *Start the system description app to fill out this section.*
+
+    {% else %}
+    <h2>{{project.system_description.system_name_and_details.system_name_with_abbrev}}</h2>
+
+    <p>
+      {{project.system_description.system_name_and_details.system_name_with_abbrev}}
+      is a
+      {{project.file_server.file_server_type}}
+      file server
+      located in
+      {{project.data_center.name_and_location}}
+      and addressable by
+      {{project.file_server.file_server_name}}.
+    </p>
+
+    <p>The file server contains Controlled Unclassified Information in the following
+    categories/subcategories:
+      {{project.cui_type.cui_types.cui_types.text}}.
+    </p>
+    {% endif %}
+
+    <h2>3.1 Access Control</h2>
+
+    <h3>3.1.1 [Limit system access to authorized users]</h3>
+
+    <blockquote>Limit system access to authorized users, processes acting on behalf
+    of authorized users, or devices (including other systems).</blockquote>
+
+    {% if project.data_center %}
+    {{project.data_center.output_documents.ssp_nistsp800171r1_3_1_1|safe}}
+    {% else %}
+    *Data center control description will appear here when a data center app is started.*
+    {% endif %}
+
+    {% if project.file_server %}
+    {{project.file_server.output_documents.ssp_nistsp800171r1_3_1_1|safe}}
+    {% else %}
+    *File server control description will appear here when a file server app is started.*
+    {% endif %}
+
+    <h3>3.1.2: [Limit system access to authorized functions]</h3>
+    <blockquote>Limit system access to the types of transactions and functions that authorized users are permitted to execute.</blockquote>
+
+    {% if project.file_server %}
+    {{project.file_server.output_documents.ssp_nistsp800171r1_3_1_2|safe}}
+    {% else %}
+    *File server control description will appear here when a file server app is started.*
+    {% endif %}
+
+    <h3>3.1.3: [Control the flow of CUI]</h3>
+    <blockquote>Control the flow of CUI in accordance with approved authorizations.</blockquote>
+
+    <h3>3.1.4: [Separation of duties]</h3>
+    <blockquote>Separate the duties of individuals to reduce the risk of malevolent activity without collusion.</blockquote>
+
+    <h3>3.1.5: [Principle of least privilege]</h3>
+    <blockquote>Employ the principle of least privilege, including for specific security functions and privileged accounts.</blockquote>
+
+    <h3>3.1.6: [Use non-privileged accounts]</h3>
+    <blockquote>Use non-privileged accounts or roles when accessing nonsecurity functions.</blockquote>
+
+    <h3>3.1.7: [Executing privileged functions]</h3>
+    <blockquote>Prevent non-privileged users from executing privileged functions and audit the execution of such functions.</blockquote>
+
+    <h3>3.1.8: [Limit unsuccessful logon attempts]</h3>
+    <blockquote>Limit unsuccessful logon attempts.</blockquote>
+
+    <h3>3.1.9: [Privacy and security notices]</h3>
+    <blockquote>Provide privacy and security notices consistent with applicable CUI rules.</blockquote>
+
+    <h3>3.1.10: [Session lock with pattern-hiding]</h3>
+    <blockquote>Use session lock with pattern-hiding displays to prevent access and viewing of data after period of inactivity.</blockquote>
+
+    <h3>3.1.11: [Terminate sessions]</h3>
+    <blockquote>Terminate (automatically) a user session after a defined condition.</blockquote>
+
+    <h3>3.1.12: [Monitor and control remote access sessions]</h3>
+    <blockquote>Monitor and control remote access sessions.</blockquote>
+
+    <h3>3.1.13: [Cryptographic mechanisms for remote access]</h3>
+    <blockquote>Employ cryptographic mechanisms to protect the confidentiality of remote access sessions.</blockquote>
+
+    <h3>3.1.14: [Route remote access via managed access control points]</h3>
+    <blockquote>Route remote access via managed access control points.</blockquote>
+
+    <h3>3.1.15: [Authorize remote execution and access]</h3>
+    <blockquote>Authorize remote execution of privileged commands and remote access to security-relevant information.</blockquote>
+
+    <h3>3.1.16: [Authorize wireless access]</h3>
+    <blockquote>Authorize wireless access prior to allowing such connections.</blockquote>
+
+    <h3>3.1.17: [Protect wireless access]</h3>
+    <blockquote>Protect wireless access using authentication and encryption.</blockquote>
+
+    <h3>3.1.18: [Control connection of mobile devices]</h3>
+    <blockquote>Control connection of mobile devices.</blockquote>
+
+    <h3>3.1.19: [Encrypt CUI]</h3>
+    <blockquote>Encrypt CUI on mobile devices and mobile computing platforms. [Footnote: Mobile devices and mobile computing platforms include, for example, smartphones, tablets, E-readers, and notebook computers.]</blockquote>
+
+    <h3>3.1.20: [External systems]</h3>
+    <blockquote>Verify and control/limit connections to and use of external systems.</blockquote>
+
+    <h3>3.1.21: [Portable storage devices]</h3>
+    <blockquote>Limit use of organizational portable storage devices on external systems.</blockquote>
+
+    <h3>3.1.22: [Publicly accessible systems]</h3>
+    <blockquote>Control CUI posted or processed on publicly accessible systems.</blockquote>
+
+    <h2>3.2 Awareness and Training</h2>
+    <h3>3.2.1: [Awareness of the security risks]</h3>
+    <blockquote>Ensure that managers, systems administrators, and users of organizational systems are made aware of the security risks associated with their activities and of the applicable policies, standards, and procedures related to the security of those systems.</blockquote>
+
+    <h3>3.2.2: [Information security training]</h3>
+    <blockquote>Ensure that organizational personnel are adequately trained to carry out their assigned information security-related duties and responsibilities.</blockquote>
+
+    <h3>3.2.3: [Insider threat training]</h3>
+    <blockquote>Provide security awareness training on recognizing and reporting potential indicators of insider threat.</blockquote>
+
+    <h2>3.3 Audit and Accountability</h2>
+    <h3>3.3.1: [System audit records]</h3>
+    <blockquote>Create, protect, and retain system audit records to the extent needed to enable the monitoring, analysis, investigation, and reporting of unlawful, unauthorized, or inappropriate system activity.</blockquote>
+
+    <h3>3.3.2: [Actions uniquely traced to individual users]</h3>
+    <blockquote>Ensure that the actions of individual system users can be uniquely traced to those users so they can be held accountable for their actions.</blockquote>
+
+    <h3>3.3.3: [Audited events]</h3>
+    <blockquote>Review and update audited events.</blockquote>
+
+    <h3>3.3.4: [Audit process failure alerts]</h3>
+    <blockquote>Alert in the event of an audit process failure.</blockquote>
+
+    <h3>3.3.5: 3.3.5</h3>
+    <blockquote>Correlate audit review, analysis, and reporting processes for investigation and response to indications of inappropriate, suspicious, or unusual activity.</blockquote>
+
+    <h3>3.3.6: 3.3.6</h3>
+    <blockquote>Provide audit reduction and report generation to support on-demand analysis and reporting.</blockquote>
+
+    <h3>3.3.7: 3.3.7</h3>
+    <blockquote>Provide a system capability that compares and synchronizes internal system clocks with an authoritative source to generate time stamps for audit records.</blockquote>
+
+    <h3>3.3.8: 3.3.8</h3>
+    <blockquote>Protect audit information and audit tools from unauthorized access, modification, and deletion.</blockquote>
+
+    <h3>3.3.9: 3.3.9</h3>
+    <blockquote>Limit management of audit functionality to a subset of privileged users.</blockquote>
+
+    <h2>3.4 Configuration Management</h2>
+    <h3>3.4.1: 3.4.1</h3>
+    <blockquote>Establish and maintain baseline configurations and inventories of organizational systems (including hardware, software, firmware, and documentation) throughout the respective system development life cycles.</blockquote>
+
+    <h3>3.4.2: 3.4.2</h3>
+    <blockquote>Establish and enforce security configuration settings for information technology products employed in organizational systems.</blockquote>
+
+    <h3>3.4.3: 3.4.3</h3>
+    <blockquote>Track, review, approve/disapprove, and audit changes to organizational systems.</blockquote>
+
+    <h3>3.4.4: 3.4.4</h3>
+    <blockquote>Analyze the security impact of changes prior to implementation.</blockquote>
+
+    <h3>3.4.5: 3.4.5</h3>
+    <blockquote>Define, document, approve, and enforce physical and logical access restrictions associated with changes to organizational systems.</blockquote>
+
+    <h3>3.4.6: 3.4.6</h3>
+    <blockquote>Employ the principle of least functionality by configuring organizational systems to provide only essential capabilities.</blockquote>
+
+    <h3>3.4.7: 3.4.7</h3>
+    <blockquote>Restrict, disable, and prevent the use of nonessential programs, functions, ports, protocols, and services.</blockquote>
+
+    <h3>3.4.8: 3.4.8</h3>
+    <blockquote>Apply deny-by-exception (blacklist) policy to prevent the use of unauthorized software or denyall, permit-by-exception (whitelisting) policy to allow the execution of authorized software.</blockquote>
+
+    <h3>3.4.9: 3.4.9</h3>
+    <blockquote>Control and monitor user-installed software.</blockquote>
+
+    <h2>3.5 Identification and Authentication</h2>
+    <h3>3.5.1: 3.5.1</h3>
+    <blockquote>Identify system users, processes acting on behalf of users, or devices.</blockquote>
+
+    <h3>3.5.2: 3.5.2</h3>
+    <blockquote>Authenticate (or verify) the identities of those users, processes, or devices, as a prerequisite to allowing access to organizational systems.</blockquote>
+
+    <h3>3.5.3: 3.5.3</h3>
+    <blockquote>Use multifactor authentication [Footnote: Multifactor authentication requires two or more different factors to achieve authentication. The factors include: something you know (e.g., password/PIN); something you have (e.g., cryptographic identification device, token); or something you are (e.g., biometric). The requirement for multifactor authentication should not be interpreted as requiring federal Personal Identity Verification (PIV) card or Department of Defense Common Access Card (CAC)like solutions. A variety of multifactor solutions (including those with replay resistance) using tokens and biometrics are commercially available. Such solutions may employ hard tokens (e.g., smartcards, key fobs, or dongles) or soft tokens to store user credentials.] for local and network access [Footnote: Local access is any access to a system by a user (or process acting on behalf of a user) communicating through a direct connection without the use of a network. Network access is any access to a system by a user (or a process acting on behalf of a user) communicating through a network (e.g., local area network, wide area network, Internet).] to privileged accounts and for network access to non-privileged accounts.</blockquote>
+
+    <h3>3.5.4: 3.5.4</h3>
+    <blockquote>Employ replay-resistant authentication mechanisms for network access to privileged and nonprivileged accounts.</blockquote>
+
+    <h3>3.5.5: 3.5.5</h3>
+    <blockquote>Prevent reuse of identifiers for a defined period.</blockquote>
+
+    <h3>3.5.6: 3.5.6</h3>
+    <blockquote>Disable identifiers after a defined period of inactivity.</blockquote>
+
+    <h3>3.5.7: 3.5.7</h3>
+    <blockquote>Enforce a minimum password complexity and change of characters when new passwords are created.</blockquote>
+
+    <h3>3.5.8: 3.5.8</h3>
+    <blockquote>Prohibit password reuse for a specified number of generations.</blockquote>
+
+    <h3>3.5.9: 3.5.9</h3>
+    <blockquote>Allow temporary password use for system logons with an immediate change to a permanent password.</blockquote>
+
+    <h3>3.5.10: 3.5.10</h3>
+    <blockquote>Store and transmit only cryptographically-protected passwords.</blockquote>
+
+    <h3>3.5.11: 3.5.11</h3>
+    <blockquote>Obscure feedback of authentication information.</blockquote>
+
+    <h2>3.6 Incident Response</h2>
+    <h3>3.6.1: 3.6.1</h3>
+    <blockquote>Establish an operational incident-handling capability for organizational systems that includes adequate preparation, detection, analysis, containment, recovery, and user response activities.</blockquote>
+
+    <h3>3.6.2: 3.6.2</h3>
+    <blockquote>Track, document, and report incidents to appropriate officials and/or authorities both internal and external to the organization.</blockquote>
+
+    <h3>3.6.3: 3.6.3</h3>
+    <blockquote>Test the organizational incident response capability.</blockquote>
+
+    <h2>3.7 Maintenance</h2>
+    <h3>3.7.1: 3.7.1</h3>
+    <blockquote>Perform maintenance on organizational systems. [Footnote: In general, system maintenance requirements tend to support the security objective of availability. However, improper system maintenance or a failure to perform maintenance can result in the unauthorized disclosure of CUI, thus compromising confidentiality of that information.]</blockquote>
+
+    <h3>3.7.2: 3.7.2</h3>
+    <blockquote>Provide effective controls on the tools, techniques, mechanisms, and personnel used to conduct system maintenance.</blockquote>
+
+    <h3>3.7.3: 3.7.3</h3>
+    <blockquote>Ensure equipment removed for off-site maintenance is sanitized of any CUI.</blockquote>
+
+    <h3>3.7.4: 3.7.4</h3>
+    <blockquote>Check media containing diagnostic and test programs for malicious code before the media are used in organizational systems.</blockquote>
+
+    <h3>3.7.5: 3.7.5</h3>
+    <blockquote>Require multifactor authentication to establish nonlocal maintenance sessions via external network connections and terminate such connections when nonlocal maintenance is complete.</blockquote>
+
+    <h3>3.7.6: 3.7.6</h3>
+    <blockquote>Supervise the maintenance activities of maintenance personnel without required access authorization.</blockquote>
+
+    <h2>3.8 Media Protection</h2>
+    <h3>3.8.1: 3.8.1</h3>
+    <blockquote>Protect (i.e., physically control and securely store) system media containing CUI, both paper and digital.</blockquote>
+
+    <h3>3.8.2: 3.8.2</h3>
+    <blockquote>Limit access to CUI on system media to authorized users.</blockquote>
+
+    <h3>3.8.3: 3.8.3</h3>
+    <blockquote>Sanitize or destroy system media containing CUI before disposal or release for reuse.</blockquote>
+
+    <h3>3.8.4: 3.8.4</h3>
+    <blockquote>Mark media with necessary CUI markings and distribution limitations. [Footnote: The implementation of this requirement is per marking guidance in the 32 CFR, Part 2002, and the CUI Registry.]</blockquote>
+
+    <h3>3.8.5: 3.8.5</h3>
+    <blockquote>Control access to media containing CUI and maintain accountability for media during transport outside of controlled areas.</blockquote>
+
+    <h3>3.8.6: 3.8.6</h3>
+    <blockquote>Implement cryptographic mechanisms to protect the confidentiality of CUI stored on digital media during transport unless otherwise protected by alternative physical safeguards.</blockquote>
+
+    <h3>3.8.7: 3.8.7</h3>
+    <blockquote>Control the use of removable media on system components.</blockquote>
+
+    <h3>3.8.8: 3.8.8</h3>
+    <blockquote>Prohibit the use of portable storage devices when such devices have no identifiable owner.</blockquote>
+
+    <h3>3.8.9: 3.8.9</h3>
+    <blockquote>Protect the confidentiality of backup CUI at storage locations.</blockquote>
+
+    <h2>3.9 Personnel Security</h2>
+    <h3>3.9.1: 3.9.1</h3>
+    <blockquote>Screen individuals prior to authorizing access to organizational systems containing CUI.</blockquote>
+
+    <h3>3.9.2: 3.9.2</h3>
+    <blockquote>Ensure that CUI and organizational systems containing CUI are protected during and after personnel actions such as terminations and transfers.</blockquote>
+
+    <h2>3.10 Physical Protection</h2>
+    <h3>3.10.1: 3.10.1</h3>
+    <blockquote>Limit physical access to organizational systems, equipment, and the respective operating environments to authorized individuals.</blockquote>
+
+    <h3>3.10.2: 3.10.2</h3>
+    <blockquote>Protect and monitor the physical facility and support infrastructure for organizational systems.</blockquote>
+
+    <h3>3.10.3: 3.10.3</h3>
+    <blockquote>Escort visitors and monitor visitor activity.</blockquote>
+
+    <h3>3.10.4: 3.10.4</h3>
+    <blockquote>Maintain audit logs of physical access.</blockquote>
+
+    <h3>3.10.5: 3.10.5</h3>
+    <blockquote>Control and manage physical access devices.</blockquote>
+
+    <h3>3.10.6: 3.10.6</h3>
+    <blockquote>Enforce safeguarding measures for CUI at alternate work sites (e.g., telework sites).</blockquote>
+
+    <h2>3.11 Risk Assessment</h2>
+    <h3>3.11.1: 3.11.1</h3>
+    <blockquote>Periodically assess the risk to organizational operations (including mission, functions, image, or reputation), organizational assets, and individuals, resulting from the operation of organizational systems and the associated processing, storage, or transmission of CUI.</blockquote>
+
+    <h3>3.11.2: 3.11.2</h3>
+    <blockquote>Scan for vulnerabilities in organizational systems and applications periodically and when new vulnerabilities affecting those systems and applications are identified.</blockquote>
+
+    <h3>3.11.3: 3.11.3</h3>
+    <blockquote>Remediate vulnerabilities in accordance with assessments of risk.</blockquote>
+
+    <h2>3.12 Security Assessment</h2>
+    <h3>3.12.1: 3.12.1</h3>
+    <blockquote>Periodically assess the security controls in organizational systems to determine if the controls are effective in their application.</blockquote>
+
+    <h3>3.12.2: 3.12.2</h3>
+    <blockquote>Develop and implement plans of action designed to correct deficiencies and reduce or eliminate vulnerabilities in organizational systems.</blockquote>
+
+    <h3>3.12.3: 3.12.3</h3>
+    <blockquote>Monitor security controls on an ongoing basis to ensure the continued effectiveness of the controls.</blockquote>
+
+    <h3>3.12.4: 3.12.4</h3>
+    <blockquote>Develop, document, and periodically update system security plans that describe system boundaries, system environments of operation, how security requirements are implemented, and the relationships with or connections to other systems. [Footnote: There is no prescribed format or specified level of detail for system security plans. However, organizations must ensure that the required information in 3.12.4 is appropriately conveyed in those plans.]</blockquote>
+
+    <h2>3.13 System and Communications Protection</h2>
+    <h3>3.13.1: 3.13.1</h3>
+    <blockquote>Monitor, control, and protect communications (i.e., information transmitted or received by organizational systems) at the external boundaries and key internal boundaries of organizational systems.</blockquote>
+
+    <h3>3.13.2: 3.13.2</h3>
+    <blockquote>Employ architectural designs, software development techniques, and systems engineering principles that promote effective information security within organizational systems.</blockquote>
+
+    <h3>3.13.3: 3.13.3</h3>
+    <blockquote>Separate user functionality from system management functionality.</blockquote>
+
+    <h3>3.13.4: 3.13.4</h3>
+    <blockquote>Prevent unauthorized and unintended information transfer via shared system resources.</blockquote>
+
+    <h3>3.13.5: 3.13.5</h3>
+    <blockquote>Implement subnetworks for publicly accessible system components that are physically or logically separated from internal networks.</blockquote>
+
+    <h3>3.13.6: 3.13.6</h3>
+    <blockquote>Deny network communications traffic by default and allow network communications traffic by exception (i.e., deny all, permit by exception).</blockquote>
+
+    <h3>3.13.7: 3.13.7</h3>
+    <blockquote>Prevent remote devices from simultaneously establishing non-remote connections with organizational systems and communicating via some other connection to resources in external networks.</blockquote>
+
+    <h3>3.13.8: 3.13.8</h3>
+    <blockquote>Implement cryptographic mechanisms to prevent unauthorized disclosure of CUI during transmission unless otherwise protected by alternative physical safeguards.</blockquote>
+
+    <h3>3.13.9: 3.13.9</h3>
+    <blockquote>Terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.</blockquote>
+
+    <h3>3.13.10: 3.13.10</h3>
+    <blockquote>Establish and manage cryptographic keys for cryptography employed in organizational systems.</blockquote>
+
+    <h3>3.13.11: 3.13.11</h3>
+    <blockquote>Employ FIPS-validated cryptography when used to protect the confidentiality of CUI.</blockquote>
+
+    <h3>3.13.12: 3.13.12</h3>
+    <blockquote>Prohibit remote activation [Footnote: Dedicated video conferencing systems, which rely on one of the participants calling or connecting to the other party to activate the video conference, are excluded.] of collaborative computing devices and provide indication of devices in use to users present at the device.</blockquote>
+
+    <h3>3.13.13: 3.13.13</h3>
+    <blockquote>Control and monitor the use of mobile code.</blockquote>
+
+    <h3>3.13.14: 3.13.14</h3>
+    <blockquote>Control and monitor the use of Voice over Internet Protocol (VoIP) technologies.</blockquote>
+
+    <h3>3.13.15: 3.13.15</h3>
+    <blockquote>Protect the authenticity of communications sessions.</blockquote>
+
+    <h3>3.13.16: 3.13.16</h3>
+    <blockquote>Protect the confidentiality of CUI at rest.</blockquote>
+
+    <h2>3.14 System and Information Integrity</h2>
+    <h3>3.14.1: 3.14.1</h3>
+    <blockquote>Identify, report, and correct information and system flaws in a timely manner.</blockquote>
+
+    <h3>3.14.2: 3.14.2</h3>
+    <blockquote>Provide protection from malicious code at appropriate locations within organizational systems.</blockquote>
+
+    <h3>3.14.3: 3.14.3</h3>
+    <blockquote>Monitor system security alerts and advisories and take appropriate actions in response.</blockquote>
+
+    <h3>3.14.4: 3.14.4</h3>
+    <blockquote>Update malicious code protection mechanisms when new releases are available.</blockquote>
+
+    <h3>3.14.5: 3.14.5</h3>
+    <blockquote>Perform periodic scans of organizational systems and real-time scans of files from external sources as files are downloaded, opened, or executed.</blockquote>
+
+    <h3>3.14.6: 3.14.6</h3>
+    <blockquote>Monitor organizational systems including inbound and outbound communications traffic, to detect attacks and indicators of potential attacks.</blockquote>
+
+    <h3>3.14.7: 3.14.7</h3>
+    <blockquote>Identify unauthorized use of organizational systems.</blockquote>
+  

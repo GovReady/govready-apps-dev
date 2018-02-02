@@ -1,0 +1,196 @@
+id: file_server
+title: macOS File Server Details
+questions:
+  - id: hostname
+    title: Hostname
+    type: text
+    prompt: |
+      What is the hostname of the server?
+
+      Enter the name of the server as it is recognized by network services.
+      
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/hS7m_B4DRrI" frameborder="0" allowfullscreen></iframe>
+
+  - id: macos_version
+    title: macOS Version
+    type: choice
+    prompt: What version of macOS Server are you running on {{hostname}}?
+    choices:
+    - key: macosx1012_53
+      text: macOS 10.12 with Server 5.3
+      help: Released March 17, 2017
+    - key: macosx1012_52
+      text: macOS 10.12 with Server 5.2
+      help: Released September 20, 2016
+    - key: macosx1011_51
+      text: OS X 10.11 with Server 5.1
+      help: Released March 21, 2016
+    - key: macosx1011_5
+      text: OS X 10.11 with Server 5.0
+      help: Released September 16, 2015
+    - key: macosx1010
+      text: OS X 10.10 with Yosemite Server 4.0
+      help: Released October 16, 2014
+    - key: macosx1009
+      text: OS X 10.9 with Mavericks Server
+      help: Released October 22, 2013
+    - key: macosx1008
+      text: OS X 10.8 with Mountain Lion Server
+      help: Released July 25, 2012
+    - key: macosx1007
+      text: Mac OS X 10.7 with Lion Server
+      help: Released July 20, 2011
+    - key: macosx1006
+      text: Mac OS X Server 10.6 (Snow Leopard Server)
+      help: Released August 28, 2009
+    - key: macosx1005
+      text: Mac OS X Server 10.5 (Leopard Server)
+      help: Released October 26, 2007
+    - key: macosx1004
+      text: Mac OS X Server 10.4 (Tiger Server)
+      help: Released April 29, 2005
+    - key: macosx1003
+      text: Mac OS X Server 10.3 (Panther Server)
+      help: Released October 24, 2003
+    - key: macosx1002
+      text: Mac OS X Server 10.2 (Jaguar Server)
+      help: Released August 23, 2002
+    - key: macosx1001
+      text: Mac OS X Server 10.1 (Puma Server)
+      help: Released September 25, 2001
+    - key: macosx1000
+      text: Mac OS X Server 10.0 (Cheetah Server)
+      help: Released May 21, 2001
+
+  - id: using_security_groups
+    title: Security Groups
+    type: yesno
+    prompt: Are you using macOS Server security groups on {{hostname}}?
+
+  - id: security_groups_description
+    title: Security Groups Description
+    type: longtext
+    prompt: Describe the macOS Server security groups on {{hostname}}.
+    impute:
+      - condition: using_security_groups == 'no'
+        value: ~
+
+  - id: security_groups_evidence_screenshot
+    title: Security Groups Evidence
+    type: file
+    file-type: image
+    prompt: |
+      Upload a screenshot that provides evidence for the security group settings on {{hostname}}.
+    impute:
+      - condition: using_security_groups == 'no'
+        value: ~
+
+  - id: settings
+    title: User Settings
+    type: longtext
+    prompt: |
+      Describe the macOS Server user settings used on {{hostname}} to limit access.
+
+      * Are you using automatic deactivation of accounts after a period of no logins? (What is the expiration period?)
+
+      * Are lockouts used after a certain number of failed logins? (How many failed logins triggers a lockout?)
+
+      * MacOS X file sharing does not support multi-factor authentication so accounts are required
+        to have long passwords (at least 14 characters). What is the password policy?
+
+  - id: network_segmented
+    title: Is the network segmented?
+    type: yesno
+    prompt: |
+      Is the file server on a segmented network appropriate for the trust level of the information on the file server?
+
+      The network should be segmented based on the sensitivity, label, or classification level of the information stored on the servers. Separated virtual local area networks with firewall filtering should ensure that only authorized individuals are able to communicate with systems necessary to fulfill their specific responsibilities.
+
+      All communication of sensitive information over less-trusted networks should be encrypted.
+
+      {% if not network_segmented %}
+      *We'll ask you about your plan of action next.*
+      {% endif %}
+
+  - id: network_segmentation
+    title: Network Segmentation Description
+    type: longtext
+    prompt: Describe the network segment that {{hostname}} is on.
+
+  - id: network_segmentation_poam
+    title: Network Segmentation POAM
+    type: longtext
+    prompt: |
+      What is your plan of acton for improving the network segmentation of {{hostname}}?
+
+      The network should be
+      
+      * segmented based on the sensitivity, label, or classification level of the information stored on the servers
+      * using separated virtual local area networks with firewall filtering
+      * and all communication of sensitive information over less-trusted networks should be encrypted.
+
+      Describe how you will achieve any pending objectives. Include milestones, expected dates of completion, and
+      who is responsible for the actions.
+    impute:
+      - condition: network_segmentation == 'yes'
+        value: ~
+   
+  - id: login_message
+    title: Login Message
+    type: longtext
+    prompt: |
+      What warning message is shown to users during the logon process for {{hostname}} alerting them of consequences for unauthorized access?
+
+      The login message is shown during the logon process both in a terminal and as a part of a graphical desktop environment login prompt.
+
+      An appropriate warning message reinforces policy awareness during the logon process and facilitates possible legal action against attackers.
+      The message banner must be displayed immediately prior to, or as part of, login prompts.”
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Congratulations! You've created a basic profile of a file server!
+
+      ### macOS File Server
+
+      MacOS X file sharing authentication is used.
+      Credentials are transmitted over SSH, CIFS, or PEM and are stored in hashed
+      form in a Unix /etc/shadow password file.
+
+      {% if using_security_groups %}
+      Users are segmented by security group. {{security_groups_description}}
+
+      {% if security_groups_evidence_screenshot %}
+      {{security_groups_evidence_screenshot}}
+      {% endif %}
+      {% endif %}
+
+      {{settings}}
+
+  - id: ssp_nistsp800171r1_3_1_1
+    title: NIST SP 800-171r1 3.1.1
+    format: markdown
+    template: |
+      ### macOS File Server
+
+      MacOS X file sharing authentication is used.
+      Credentials are transmitted over SSH, CIFS, or PEM and are stored in hashed
+      form in a Unix /etc/shadow password file.
+
+      {% if using_security_groups %}
+      Users are segmented by security group. {{security_groups_description}}
+      {% endif %}
+
+      {{settings}}
+
+  - id: ssp_nistsp800171r1_3_1_2
+    title: NIST SP 800-171r1 3.1.2
+    format: markdown
+    template: |
+      ### macOS File Server
+
+      {{network_segmentation}}
+
+      {{network_segmentation_poam}}
+

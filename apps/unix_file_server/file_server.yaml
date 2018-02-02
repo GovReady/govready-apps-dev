@@ -1,0 +1,151 @@
+id: file_server
+title: Unix File Server Details
+questions:
+  - id: hostname
+    title: Hostname
+    type: text
+    prompt: |
+      What is the hostname of the server?
+
+      Enter the name of the server as it is recognized by network services.
+      
+
+  - id: unix_version
+    title: Unix Type
+    type: choice
+    prompt: What Unix operating system are you running on {{hostname}}?
+    choices:
+    - key: rhel_7
+      text: Red Hat Enterprise Linux 7 / CentOS 7
+      help: Released 2013-2017
+    - key: rhel_6
+      text: Red Hat Enterprise Linux 6 / CentOS 6
+      help: Released 2010-2017
+    - key: ubuntu_xenial
+      text: Ubuntu 16.04 LTS (Xenial Xerus)
+      help: Released April 2016
+    - key: ubuntu_trusty
+      text: Ubuntu 14.04 LTS (Trusty Tahr)
+      help: Released April 2014
+    - key: other
+      text: Other
+
+  - id: using_security_groups
+    title: Security Groups
+    type: yesno
+    prompt: Are you using Unix security groups on {{hostname}}?
+
+  - id: security_groups_description
+    title: Security Groups Description
+    type: longtext
+    prompt: Describe the Unix Server security groups on {{hostname}}.
+    impute:
+      - condition: using_security_groups == 'no'
+        value: ~
+
+  - id: settings
+    title: User Settings
+    type: longtext
+    prompt: |
+      Describe the Unix user settings used on {{hostname}} to limit access.
+
+      * Are you using automatic deactivation of accounts after a period of no logins? (What is the expiration period?)
+
+      * Are lockouts used after a certain number of failed logins? (How many failed logins triggers a lockout?)
+
+      * Accounts are required to have long passwords (at least 14 characters). What is the password policy?
+
+  - id: scap_scan_report
+    title: SCAP Scan Report
+    type: file
+    prompt: |
+      Upload an HTML report of SCAP Scan Report for {{hostname}}.
+
+  - id: network_segmented
+    title: Is the network segmented?
+    type: yesno
+    prompt: |
+      Is the file server on a segmented network appropriate for the trust level of the information on the file server?
+
+      The network should be segmented based on the sensitivity, label, or classification level of the information stored on the servers. Separated virtual local area networks with firewall filtering should ensure that only authorized individuals are able to communicate with systems necessary to fulfill their specific responsibilities.
+
+      All communication of sensitive information over less-trusted networks should be encrypted.
+
+      {% if not network_segmented %}
+      *We'll ask you about your plan of action next.*
+      {% endif %}
+
+  - id: network_segmentation
+    title: Network Segmentation Description
+    type: longtext
+    prompt: Describe the network segment that {{hostname}} is on.
+
+  - id: network_segmentation_poam
+    title: Network Segmentation POAM
+    type: longtext
+    prompt: |
+      What is your plan of acton for improving the network segmentation of {{hostname}}?
+
+      The network should be
+      
+      * segmented based on the sensitivity, label, or classification level of the information stored on the servers
+      * using separated virtual local area networks with firewall filtering
+      * and all communication of sensitive information over less-trusted networks should be encrypted.
+
+      Describe how you will achieve any pending objectives. Include milestones, expected dates of completion, and
+      who is responsible for the actions.
+    impute:
+      - condition: network_segmentation == 'yes'
+        value: ~
+   
+  - id: login_message
+    title: Login Message
+    type: longtext
+    prompt: |
+      What warning message is shown to users during the logon process for {{hostname}} alerting them of consequences for unauthorized access?
+
+      The login message is shown during the logon process both in a terminal and as a part of a graphical desktop environment login prompt.
+
+      An appropriate warning message reinforces policy awareness during the logon process and facilitates possible legal action against attackers.
+      The message banner must be displayed immediately prior to, or as part of, login prompts.”
+
+output:
+  - title: Your Answers
+    format: markdown
+    template: |
+      Congratulations! You've created a basic profile of a file server!
+
+      ### Unix File Server
+
+      {% if using_security_groups %}
+      Users are segmented by security group. {{security_groups_description}}
+
+      {% if scap_scan_report %}
+      {{scap_scan_report}}
+      {% endif %}
+      {% endif %}
+
+      {{settings}}
+
+  - id: ssp_nistsp800171r1_3_1_1
+    title: NIST SP 800-171r1 3.1.1
+    format: markdown
+    template: |
+      ### Unix File Server
+
+      {% if using_security_groups %}
+      Users are segmented by security group. {{security_groups_description}}
+      {% endif %}
+
+      {{settings}}
+
+  - id: ssp_nistsp800171r1_3_1_2
+    title: NIST SP 800-171r1 3.1.2
+    format: markdown
+    template: |
+      ### Unix File Server
+
+      {{network_segmentation}}
+
+      {{network_segmentation_poam}}
+
