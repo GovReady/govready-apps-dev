@@ -1,8 +1,8 @@
 id: app
-title: CISO
+title: Drupal Fed Information System Security Officer (ISSO)
 type: project
 version: 1
-protocol: fed_poc_ciso
+protocol: fed_poc_isso
 icon: app.png
 
 catalog:
@@ -14,11 +14,11 @@ catalog:
   source_url: https://github.com/GovReady/govready-q-drupal-fed-people
   description:
     short: |
-      Chief Information Security Officer
+      Information System Security Officer
     long: |
-      # Chief Information Security Officer
+      # Information System Security Officer
 
-      This module provides point of contact information for the Chief Information Security Officer (CISO) supporting a Drupal website for a US Federal government agency.
+      This module provides point of contact information for the Information System Security Officer (ISSO) supporting a Drupal website for a US Federal government agency.
 
       ## Who Should Use:
 
@@ -28,11 +28,11 @@ catalog:
 
       Completion of these tasks addresses the following controls in FISMA NIST SP 800-53:
 
-      - ??? (role CISO)
+      - ??? (role ISSO)
 
       ## What App Does:
 
-      - Gathers point of contact information for an CISO
+      - Gathers point of contact information for an ISSO
 
       ## What You Do:
 
@@ -54,7 +54,7 @@ catalog:
 
 questions:
   - id: poc
-    title: CISO
+    title: ISSO
     module-id: poc
     type: module
 
@@ -65,9 +65,10 @@ output:
     template: |
 
       {% if not poc.q1_name %}
-        The system will have a CIO.
+        The system will have a ISSO.
       {% else %}
 
-         The Chief Information Officer for the system is {{poc.q1_name}} ({{poc.q5_email}}).
+        The Information System Security Officer for the system is {{poc.q1_name}} ({{poc.q5_email}}).
 
       {% endif %}
+
