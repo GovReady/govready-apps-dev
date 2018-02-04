@@ -3,10 +3,8 @@ title: Basic System Profile
 type: project
 version: 1
 
-snippet:
-  format: html
-  template: ""
-
+protocol:
+  - govready.com/apps/compliance/2018/basic-system-description
 
 catalog:
     description:

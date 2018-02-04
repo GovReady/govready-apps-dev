@@ -3,11 +3,9 @@ title: "System Description"
 introduction:
   format: markdown
   template: |
-    ## Prepare System Descriptions
-
     A System Security Plan will include a description of your system.
 
-    Let's prepare three descriptions for **{{project.system_basics.official_system_name}}**:
+    Let's prepare three descriptions for **{{project.system_basics.system_name}}**:
     * one line description
     * value and purpose overview
     * technical summary
@@ -19,7 +17,7 @@ questions:
   - id: one_line_description
     title: One line description
     prompt: |
-      OK, what's the one line description for <b>{{project.system_basics.official_system_name}}</b>?
+      OK, what's the one line description for <b>{{project.system_basics.system_name}}</b>?
     type: text
     reference_text: |
       ## Example one line descriptions
@@ -32,7 +30,7 @@ questions:
 
   - id: value_overview
     title: Value overview
-    prompt: Next, write an overview of **{{project.system_basics.official_system_name}}**'s value or purpose. Think of this like an elevator pitch.
+    prompt: Next, write an overview of **{{project.system_basics.system_name}}**'s value or purpose. Think of this like an elevator pitch.
     type: longtext
     reference_text: |
 
@@ -45,7 +43,7 @@ questions:
   - id: value_overview_review
     title: Value overview review
     prompt: |
-      Great! Let's review the description of **{{project.system_basics.official_system_name}}** so far...
+      Great! Let's review the description of **{{project.system_basics.system_name}}** so far...
 
 
       <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
@@ -80,7 +78,7 @@ questions:
       </thead>
       <tbody>
         <tr>
-          <td><i>To be written</i></td>
+          <td><i>To be written next...</i></td>
         </tr>
         </tbody>
       </table>
@@ -88,7 +86,7 @@ questions:
 
   - id: technical_description
     title: Technical description
-    prompt: Finally, let's capture a technical description of **{{project.system_basics.official_system_name}}**. Describe <b>{{project.system_basics.official_system_name}}</b> from a technical perspective.
+    prompt: Finally, let's capture a technical description of **{{project.system_basics.system_name}}**. Describe <b>{{project.system_basics.system_name}}</b> from a technical perspective.
     type: longtext
     reference_text: |
       ## Example technical descriptions
@@ -96,57 +94,3 @@ questions:
       Django - "Django is a free and open-source web framework, written in Python, which follows the model-view-template (MVT) architectural pattern. Django's primary goal is to ease the creation of complex, database-driven websites. Django emphasizes reusability and "pluggability" of components, rapid development, and the principle of don't repeat yourself. Python is used throughout, even for settings files and data models.Django also provides an optional administrative create, read, update and delete interface that is generated dynamically through introspection and configured via admin models. Some well-known sites that use Django include the Public Broadcasting Service, Pinterest, Instagram, Mozilla, The Washington Times, Disqus, Bitbucket, and Nextdoor. - [Wikipedia](https://en.wikipedia.org/wiki/Django_(web_framework))"
 
       CitySDK - "CitySDK javascript application available as an API and SDK. To use the JavaScript SDK, you'll need to add four dependencies: JQuery, ES6 Promise Polyfill, Terraformer, Terraformer ArcGIS Parser."
-
-output:
-  - title: Your Answers
-    format: markdown
-    template: |
-      Congratulations! You've described your system!
-
-      The first section of your System Security Plan is looking better.
-
-      Click "System Security Plan Preview" to see this section.
-
-  - title: System Security Plan Preview
-    format: markdown
-    template: |
-      # 2 Information System Description
-
-      {{project.system_basics.official_system_name}} should be described documents in the following ways.
-
-      <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
-      <thead>
-        <th style="text-align:center; background-color: rgb(214,225,239);">One Line Description</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{one_line_description}}</td>
-        </tr>
-        </tbody>
-      </table>
-
-      <p>&nbsp;</p>
-
-      <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
-      <thead>
-        <th style="text-align:center; background-color: rgb(214,225,239);">Value Overview</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{value_overview}}</td>
-        </tr>
-        </tbody>
-      </table>
-
-      <p>&nbsp;</p>
-
-      <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
-      <thead>
-        <th style="text-align:center; background-color: rgb(214,225,239);">Technical Description</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{technical_description}}</td>
-        </tr>
-        </tbody>
-      </table>
