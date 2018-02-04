@@ -28,7 +28,7 @@ questions:
   - id: fisma_system_categorization
     title: System Categorization
     type: module
-    protocol: fisma_system_categorization
+    protocol: govready.com/apps/compliance/2018/fisma/system-categorization
 
   - id: web_server
     title: Web Server

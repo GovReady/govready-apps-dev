@@ -2,7 +2,7 @@ id: app
 title: System FISMA Level
 type: project
 version: 0.6
-protocol: fisma_system_categorization
+protocol: govready.com/apps/compliance/2018/fisma/system-categorization
 icon: app.png
 
 catalog:
