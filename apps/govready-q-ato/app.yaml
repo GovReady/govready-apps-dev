@@ -77,6 +77,13 @@ questions:
       - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
       - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/govready.com/govready-q-database
     group: System Configuration
+  - id: poams
+    title: POAMs
+    group: Plans of Action and Milestones
+    type: module-set
+    protocol:
+    - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp/poam
+    icon: poam.png
   - id: ssp_preview
     title: SSP Preview
     group: System Security Plan
@@ -87,3 +94,8 @@ questions:
     group: System Security Plan
     type: module
     module-id: matrix
+  - id: poam_preview
+    title: POAMs
+    group: System Security Plan
+    type: module
+    module-id: poams
