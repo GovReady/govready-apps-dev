@@ -4,7 +4,7 @@ type: project
 version: 0.5
 icon: app.png
 catalog:
-  category: Technology
+  category: Technology Components
   vendor: GovReady
   vendor_url: http://www.govready.com
   status: draft

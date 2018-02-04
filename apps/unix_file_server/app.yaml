@@ -6,7 +6,7 @@ protocol: govready.com/apps/compliance/2017/file-server
 icon: app.png
 
 catalog:
-  category: Technology
+  category: Technology Components
   vendor: GovReady PBC
   vendor_url: http://www.govready.com
   status: Operational
