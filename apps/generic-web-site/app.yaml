@@ -1,0 +1,62 @@
+id: app
+title: Generic Web Site
+type: project
+version: 0.2
+icon: app.png
+protocol:
+  - govready.com/apps/compliance/2018/information-technology-system
+instance-name: "{{system_profile.system_basics.system_name}}"
+catalog:
+  category: IT System Templates
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.2
+  source_url: https://github.com/GovReady/govready-apps-dev/generic-web-site
+  description:
+    short: |
+      Compliance under NIST RMF for a generic web site
+    long: |
+      This compliance app will help you achieve compliance for a generic web site. 
+      The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
+      and NIST SP 800-171 Rev 1.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
+introduction:
+  format: markdown
+  template: |
+      This compliance app will help you achieve compliance for a generic web site.
+      The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
+      and NIST SP 800-171 Rev 1.
+questions:
+- id: system_profile
+  title: System Profile
+  type: module
+  protocol: govready.com/apps/compliance/2018/basic-system-description
+  group: System Overview
+- id: system_categorization
+  title: System Categorization
+  type: module
+  protocol: govready.com/apps/compliance/2018/fisma/system-categorization
+  group: System Overview
+- id: control_selection
+  title: Control Selection Report
+  type: module
+  module-id: control_selection
+  group: System Overview
+output:
+  - id: govready_lifecycle_stage_code
+    format: text
+    template: |
+      {% if not system_profile.is_finished() or not system_categorization.is_finished() %}
+        us_nist_rmf_1_categorize
+      {% elif not control_selection.is_finished() %}
+        us_nist_rmf_2_select
+      {% else %}
+        us_nist_rmf_3_implement
+      {% endif %}
