@@ -1,17 +1,16 @@
 id: app
 title: Basic System Profile
 type: project
-version: 1
-
+version: 5
+icon: app.png
 protocol:
   - govready.com/apps/compliance/2018/basic-system-description
-
 catalog:
   category: Technology Components
   vendor: GovReady
   vendor_url: http://www.govready.com
   status: Operational
-  version: 0.3
+  version: 0.31
   source_url: https://github.com/GovReady/govready-apps-dev/apps/basic_system_description
   description:
     short: |
