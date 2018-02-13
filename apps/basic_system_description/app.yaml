@@ -7,18 +7,24 @@ protocol:
   - govready.com/apps/compliance/2018/basic-system-description
 
 catalog:
-    description:
-      short: |
-        Prepare a re-usable, basic profile of your system
-      long: |
-        Long description here.
+  category: Technology Components
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.3
+  source_url: https://github.com/GovReady/govready-apps-dev/apps/basic_system_description
+  description:
+    short: |
+      Prepare a re-usable, basic system descriptions
+    long: |
+      Gather system name, descriptions and other basic details of your information system.
 
 interstitial:
   format: markdown
   template: |
-    ## Prepare a System Profile
+    ## Prepare a Basic System Description
 
-    We'll help you prepare a re-usable description of your system
+    We'll help you prepare a re-usable description of your information system
 
     - Set an official system name and nickname
     - Gather basic facts about the type of system
@@ -28,7 +34,7 @@ interstitial:
 introduction:
   format: markdown
   template: |
-    This project will guide you through giving your system a unique name and preparing a basic system profile.
+    This project will guide you through giving your system a unique name and preparing basic system descriptions.
 
 invitation_to_task_interstitial:
   format: markdown
@@ -79,7 +85,7 @@ output:
 
       ## Create a profile for your system
 
-      ![](icon_system_capital.png)
+      ![](app.png)
 
       ### No sweat! We'll capture the details quickly.
 
