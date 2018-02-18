@@ -30,9 +30,7 @@ catalog:
 introduction:
   format: markdown
   template: |
-      This compliance app will help you achieve compliance for a Django application deployed
-      using Docker. The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
-      and NIST SP 800-171 Rev 1.
+      800-53 compliance for a Django web application
 questions:
 - id: system_profile
   title: System Profile
