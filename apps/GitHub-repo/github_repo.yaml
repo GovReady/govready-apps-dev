@@ -1,11 +1,11 @@
 id: github_repo
-title: System Name and Details
+title: GitHub Repository Details
 introduction:
   format: markdown
   template: |
-    An official name makes your information technology system easier to track in documents and databases.
+    It's great practice to maintain code in a source code repository.
 
-    Let's document the names of your system and some basic system information.
+    Let's document soem reference information about your primary source code repository.
 
 questions:
 
