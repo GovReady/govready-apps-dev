@@ -32,6 +32,7 @@ introduction:
   template: |
       800-53 compliance for a Django web application
 questions:
+# System Overview
 - id: system_profile
   title: System Profile
   type: module
@@ -47,6 +48,13 @@ questions:
   type: module
   module-id: control_selection
   group: System Overview
+# Technical Overview
+- id: source_code_repo
+  title: Source Code Repository
+  type: module
+  protocol: govready.com/apps/compliance/2018/source-code-repository
+  group: Technical Overview
+
 output:
   - id: govready_lifecycle_stage_code
     format: text
