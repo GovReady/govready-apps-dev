@@ -1,7 +1,7 @@
 id: app
 title: Django App Deployed with Docker
 type: project
-version: 0.5
+version: 0.6
 icon: app.png
 protocol:
   - govready.com/apps/compliance/2018/information-technology-system
