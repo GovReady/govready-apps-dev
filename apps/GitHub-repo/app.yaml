@@ -1,0 +1,104 @@
+id: app
+title: GitHub Repository
+type: project
+version: 1
+icon: app.png
+protocol:
+  - govready.com/apps/compliance/2018/source-code-repository
+  - govready.com/apps/compliance/2018/github-source-code-repository
+catalog:
+  category: Technology Components
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.1
+  source_url: https://github.com/GovReady/govready-apps-dev/apps/GitHub-repo
+  description:
+    short: |
+      Primary GitHub source code repository
+    long: |
+      Primary GitHub source code repository.
+
+interstitial:
+  format: markdown
+  template: |
+    ## Primary GitHub source code repository.
+
+    Let's capture key information about the primary GitHub source code repository of your system / project.
+
+    Are you ready?
+
+introduction:
+  format: markdown
+  template: |
+    Primary GitHub source code repository.
+
+invitation_to_task_interstitial:
+  format: markdown
+  template: |
+    ## Thanks for accepting {{invitation.from_user}}'s invitation
+
+    You've been asked to help with {{task.title}} for {{project}}.
+
+    We'll tell {{invitation.from_user}} you're getting started.
+
+export_button_label: Export System Description and Control Information
+
+questions:
+
+  - id: repo_url
+    title: Repo URL
+    prompt: |
+      What is URL of the GitHub source code repository?
+    type: url
+
+  - id: primary_poc
+    title: Primary Point of Contact
+    prompt: |
+      Who is the primary Point of Contact for administering and maintaining the repository?
+    type: text
+
+  - id: base_branch
+    title: Base branch
+    prompt: |
+      What is the default, "base" branch or your repository?
+    type: text
+    help: The branch against which pulls and commits are made automatically unless an alternate branch is specified. Typically "master".
+
+  - id: public_status
+    title: Public or private
+    prompt: |
+      Is the repository public or private?
+    type: choice
+    choices:
+    - key: public
+      text: Public
+      help: Anyone can view the souce code repository.
+    - key: service
+      text: Private
+      help: Access to the souce code repository is restricted.
+
+  - id: created_date
+    title: Created date
+    prompt: |
+      Enter the date the repository was created.
+    type: date
+
+  - id: readme_maintenance
+    title: README maintenance
+    prompt: |
+      Does the repository contain an upto date, well-maintained README file?
+    type: yesno
+    
+
+output:
+  - tab: GitHub Repo
+    format: markdown
+    template: |
+      # GitHub Repository Information
+
+      The GitHub {{public_status}} source code can be found at {{repo_url}}. The name of the default, "base" branch is <b>{{base_branch}}</b>.
+      The repository was created on {{created_date}}. The repository README file is{% if not readme_maintenance %} not{% endif %} well-maintained.
+      
+      For help with the repository, contact {{primary_poc}}.
+
