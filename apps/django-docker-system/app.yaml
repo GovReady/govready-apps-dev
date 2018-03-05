@@ -1,7 +1,7 @@
 id: app
 title: Django App Deployed with Docker
 type: project
-version: 0.6
+version: 0.7.0
 icon: app.png
 protocol:
   - govready.com/apps/compliance/2018/information-technology-system
@@ -54,6 +54,93 @@ questions:
   type: module
   protocol: govready.com/apps/compliance/2018/source-code-repository
   group: Technical Overview
+
+# Technology
+- id: web_server
+  title: Web Server
+  type: module
+  protocol: web_server
+  group: Technology
+
+- id: infrastructure
+  title: Infrastructure
+  type: module
+  protocol: opencontrol
+  group: Technology
+
+
+# Tasks
+- id: actvitity
+  title: Actvitity
+  group: Tasks
+  type: module-set
+  protocol:
+  - govready.com/apps/compliance/2018/general/activity
+- id: poams
+  title: POAMs
+  group: Tasks
+  type: module-set
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp/poam
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4/poam
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r5/poam
+  icon: app.png
+
+# People
+- id: fed_poc_pm
+  title: PM
+  type: module
+  protocol: fed_poc_pm
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_developer
+  title: Developer
+  type: module
+  protocol: fed_poc_developer
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_issm
+  title: ISSM
+  type: module
+  protocol: fed_poc_issm
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_isso
+  title: ISSO
+  type: module
+  protocol: fed_poc_isso
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_ciso
+  title: CISO
+  type: module
+  protocol: fed_poc_ciso
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_ao
+  title: AO
+  type: module
+  protocol: fed_poc_ao
+  icon: person-3.png
+  group: People
+# Policy
+- id: sm_policy_privacy
+  title: Privacy Policy
+  type: module
+  protocol: sm_policy_privacy
+  group: Policy
+# Artifacts
+- id: ssp
+  title: View SSP
+  type: module
+  module-id: ssp
+  icon: checkmark.png
+  placement: action-buttons
 
 output:
   - id: govready_lifecycle_stage_code

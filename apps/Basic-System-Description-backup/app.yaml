@@ -1,0 +1,92 @@
+id: app
+title: Basic System Profile
+type: project
+version: 1
+
+protocol:
+  - govready.com/apps/compliance/2018/basic-system-description
+
+catalog:
+  category: Technology Components
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: Operational
+  version: 0.3
+  source_url: https://github.com/GovReady/govready-apps-dev/apps/basic_system_description
+  description:
+    short: |
+      Prepare a re-usable, basic system descriptions
+    long: |
+      Gather system name, descriptions and other basic details of your information system.
+
+interstitial:
+  format: markdown
+  template: |
+    ## Prepare a Basic System Description
+
+    We'll help you prepare a re-usable description of your information system
+
+    - Set an official system name and nickname
+    - Gather basic facts about the type of system
+
+    Are you ready?
+
+introduction:
+  format: markdown
+  template: |
+    This project will guide you through giving your system a unique name and preparing basic system descriptions.
+
+invitation_to_task_interstitial:
+  format: markdown
+  template: |
+    ## Thanks for accepting {{invitation.from_user}}'s invitation
+
+    You've been asked to help with {{task.title}} for {{project}}.
+
+    We'll tell {{invitation.from_user}} you're getting started.
+
+export_button_label: Export System Description and Control Information
+
+questions:
+
+- id: system_basics
+  title: Document official system name and type
+  type: module
+  module-id: system_name_and_details
+  tab: System Profile
+  group: System Description
+
+- id: system_description
+  title: Prepare re-usable system descriptions
+  type: module
+  module-id: system_description
+  tab: System Profile
+  group: System Description
+
+- id: system_basics_technical
+  title: Document basic technical details
+  type: module
+  module-id: system_basics_technical
+  tab: System Profile
+  group: System Description
+
+- id: system_description
+  title: Prepare re-usable system descriptions
+  type: module
+  module-id: system_description
+  tab: System Profile
+  group: System Description
+
+output:
+  - tab: System Profile
+    format: markdown
+    template: |
+      <div style="text-align:center;">
+
+      ## Create a profile for your system
+
+      ![](app.png)
+
+      ### No sweat! We'll capture the details quickly.
+
+      </div>

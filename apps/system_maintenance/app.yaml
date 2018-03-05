@@ -1,50 +1,43 @@
 id: app
-title: Plan of Action and Milestones (POAM) for NIST SP 800-171
+title: System maintenance
 instance-name: |
   {% if description.identifier %}
     {{description.identifier}}
   {% else %}
-    New POAM
+    New Activity
   {% endif %}
 type: project
 protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp/poam
+- govready.com/apps/compliance/2018/general/system_maintenance
 - govready.com/apps/compliance/2018/general/activity
-version: 0.5
+version: 0.1
 icon: app.png
 catalog:
   category: Tasks
   vendor: GovReady
   vendor_url: http://www.govready.com
   status: draft
-  version: 0.2
-  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  version: 0.1
+  source_url: https://github.com/GovReady/govready-apps-dev/tree/master/out/apps/Activity
   description:
-    short: A POAM for CUI (NIST SP 800-171) Compliance
-    long: Generates a Plan of Action and Milestones (POAM) for managing
-      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
-      controls.
-  recommended_for:
-  - key_short: Org
-    value: Small
-  - key_short: Tech
-    value: Sophisticated
-  - key_short: Role
-    value: SysAdmin
+    short: System maintenance tracking
+    long: System maintenance tracking
 introduction:
   format: markdown
-  template: >-
-    This application will prepare a Plan of Action and Milestones (POAM) for
-    managing the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+  template: This application will track an adhoc activity
 questions:
 - id: description
-  title: Description of the POAM
+  title: Description of the System Maintenance
   type: module
   module-id: description
-- id: progress
-  title: Report Progress
+- id: progress_log
+  title: Progress Log
+  type: module-set
+  module-id: progress_log
+- id: completion 
+  title: Completion and Approval
   type: module
-  module-id: progress
+  module-id: completion
 output:
 - id: complete_text
   format: markdown
@@ -71,3 +64,4 @@ output:
     ### Milestones
 
     {{description.milestones}}
+
