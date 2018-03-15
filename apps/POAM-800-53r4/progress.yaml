@@ -1,0 +1,50 @@
+id: progress
+title: Report Progress
+
+questions:
+  # see http://www.dss.mil/documents/rmf/Plan_of_Action_and_Milestones_POAM_Job_Aid.pdf
+  - id: status
+    title: Status in the Corrective Process Cycle
+    type: choice
+    prompt: What is the status of this POAM in the corrective process cycle?
+    choices:
+      - key: planned
+        text: Planned
+        help: Corrective actions are planned but have not yet been taken.
+      - key: ongoing
+        text: Ongoing
+        help: Mitigation is ongoing and the scheduled completion date has not yet ocurred.
+      - key: delayed
+        text: Delayed
+        help: Mitigation is ongoing beyond the scheduled completion date.
+      - key: completed
+        text: Completed
+        help: Mitigation has been completed and verified.
+      - key: accepted
+        text: Accepted
+        help: The authorizing official (AO) has accepted the current risk.
+
+  - id: completed_milestones
+    title: Completed Milestones
+    type: longtext
+    prompt: |
+      List the milestones that have been completed.
+
+      For each completed milestones:
+
+      * Describe the completed milestones.
+      * List the name and title of an individual who verified the completion of the milestone.
+      * Include the date the milestone's completion was verified.
+    impute:
+    - condition: status == "planned"
+      value: ~
+
+  - id: actual_completion_date
+    title: Actual Completion Date
+    type: date
+    prompt: |
+      When was the plan of action completed and verified?
+    impute:
+      - condition: not (status == "completed" or status == "accepted")
+        value: ~
+

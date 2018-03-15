@@ -1,5 +1,5 @@
 id: app
-title: Plan of Action and Milestones (POAM) for NIST SP 800-171
+title: Plan of Action and Milestones (PO&AM) for NIST SP 800-53
 instance-name: |
   {% if description.identifier %}
     {{description.identifier}}
@@ -8,7 +8,7 @@ instance-name: |
   {% endif %}
 type: project
 protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp/poam
+- govready.com/apps/compliance/2017/nist-sp-800-53-r4/poam
 - govready.com/apps/compliance/2018/general/activity
 version: 0.5
 icon: app.png
@@ -18,12 +18,10 @@ catalog:
   vendor_url: http://www.govready.com
   status: draft
   version: 0.2
-  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  source_url: https://github.com/GovReady/govready-apps-dev/tree/master/out/apps/POAM-800-53r4
   description:
-    short: A POAM for CUI (NIST SP 800-171) Compliance
-    long: Generates a Plan of Action and Milestones (POAM) for managing
-      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
-      controls.
+    short: PO&AM tracking for NIST RMF (NIST SP 800-53) Compliance
+    long: PO&AM tracking for NIST RMF (NIST SP 800-53) Compliance
   recommended_for:
   - key_short: Org
     value: Small
@@ -35,7 +33,7 @@ introduction:
   format: markdown
   template: >-
     This application will prepare a Plan of Action and Milestones (POAM) for
-    managing the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+    managing the security of NIST RMF as per NIST SP 800-53r4 controls.
 questions:
 - id: description
   title: Description of the POAM
