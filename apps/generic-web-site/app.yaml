@@ -1,7 +1,7 @@
 id: app
-title: Django App Deployed with Docker
+title: Generic Web Site
 type: project
-version: 0.7.0
+version: 0.4.0
 icon: app.png
 protocol:
   - govready.com/apps/compliance/2018/information-technology-system
@@ -12,13 +12,13 @@ catalog:
   vendor_url: http://www.govready.com
   status: stub
   version: 0.2
-  source_url: https://github.com/GovReady/govready-apps-dev/django-docker-system
+  source_url: https://github.com/GovReady/govready-apps-dev/generic-web-site
   description:
     short: |
-      Compliance under NIST RMF for a Django application deployed using Docker.
+      Compliance under NIST RMF for a generic web site
     long: |
-      This compliance app will help you achieve compliance for a Django application deployed
-      using Docker. The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
+      This compliance app will help you achieve compliance for a generic web site. 
+      The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
       and NIST SP 800-171 Rev 1.
   recommended_for:
   - key_short: Org
@@ -30,7 +30,9 @@ catalog:
 introduction:
   format: markdown
   template: |
-      800-53 compliance for a Django web application
+      This compliance app will help you achieve compliance for a generic web site.
+      The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
+      and NIST SP 800-171 Rev 1.
 questions:
 # System Overview
 - id: system_profile
@@ -139,7 +141,6 @@ questions:
   module-id: ssp
   icon: checkmark.png
   placement: action-buttons
-
 output:
   - id: govready_lifecycle_stage_code
     format: text
