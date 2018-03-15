@@ -83,9 +83,7 @@ questions:
   group: Tasks
   type: module-set
   protocol:
-  - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp/poam
-  - govready.com/apps/compliance/2017/nist-sp-800-53-r4/poam
-  - govready.com/apps/compliance/2017/nist-sp-800-53-r5/poam
+  - govready.com/apps/compliance/2018/POAM
   icon: app.png
 
 # People

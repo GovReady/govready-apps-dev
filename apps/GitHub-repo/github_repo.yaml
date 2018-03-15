@@ -14,7 +14,6 @@ questions:
     prompt: |
       What is URL of the GitHub source code repository?
     type: url
-    group:
 
   - id: primary_poc
     title: Primary Point of Contact
@@ -38,7 +37,7 @@ questions:
     - key: public
       text: Public
       help: Anyone can view the souce code repository.
-    - key: service
+    - key: private
       text: Private
       help: Access to the souce code repository is restricted.
 
@@ -51,7 +50,7 @@ questions:
   - id: readme_maintenance
     title: README maintenance
     prompt: |
-      Does the repository contain an upto date, well-maintained README file?
+      Does the repository contain an up-to-date, well-maintained README file?
     type: yesno
     
 

@@ -10,6 +10,7 @@ type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-53-r4/poam
 - govready.com/apps/compliance/2018/general/activity
+- govready.com/apps/compliance/2018/POAM
 version: 0.5
 icon: app.png
 catalog:
