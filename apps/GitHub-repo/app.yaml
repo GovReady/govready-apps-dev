@@ -19,15 +19,6 @@ catalog:
     long: |
       Primary GitHub source code repository.
 
-interstitial:
-  format: markdown
-  template: |
-    ## Primary GitHub source code repository.
-
-    Let's capture key information about the primary GitHub source code repository of your system / project.
-
-    Are you ready?
-
 introduction:
   format: markdown
   template: |
