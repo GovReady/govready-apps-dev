@@ -1,0 +1,64 @@
+id: completion
+title: Completion and Review
+
+questions:
+  - id: status
+    title: Actvity complete
+    type: choice
+    prompt: Has the actvity been completed?
+    choices:
+      - key: completed
+        text: Yes
+        help: Activity was completed
+      - key: abandoned
+        text: Abandoned
+        help: Activity will not be completed
+
+  - id: actual_completion_date
+    title: Actual Completion Date
+    type: date
+    prompt: |
+      When was the plan of action completed?
+    impute:
+      - condition: not (status == "completed" or status == "abandoned")
+        value: ~
+
+  - id: approval
+    title: Approval
+    type: choice
+    prompt: How was activity reviewed?
+    choices:
+      - key: self_review
+        text: Self review
+        help: Individuals completing activity reviewed activity
+      - key: peer_review
+        text: Peer review
+        help: Peers of individuals completing activity reviewed activity
+      - key: self_review
+        text: Self review
+        help: Individuals completing activity reviewed activity
+
+  - id: actual_completion_date
+    title: Actual Completion Date
+    type: date
+    prompt: |
+      When was the plan of action completed or abandoned?
+    impute:
+      - condition: not (status == "completed" or status == "abandoned")
+        value: ~
+
+  - id: Notes
+    title: Notes
+    type: longtext
+    prompt: |
+      Add notes, observations and lessons learned.
+
+  - id: actual_completion_date
+    title: Actual Completion Date
+    type: date
+    prompt: |
+      When was the plan of action completed and verified?
+    impute:
+      - condition: not (status == "completed" or status == "accepted")
+        value: ~
+

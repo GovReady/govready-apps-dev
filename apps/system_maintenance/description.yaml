@@ -1,0 +1,71 @@
+id: description
+title: Description of the Activity
+questions:
+- id: activity_type
+  title: Activity type
+  prompt: What type of system maintenance activity are you tracking?
+  type: multiple-choice
+  choices:
+  - key: security_update
+    text: Security update
+  - key: software_package_update
+    text: Software package update
+  - key: documentation_update
+    text: Documentation update
+  - key: general_maintenance
+    text: General Maintenance
+  - key: task
+    text: Task
+  min: 0
+  max: ~
+- id: identifier
+  title: Identifier
+  type: text
+  prompt: |
+    Give this activity a short name to aid in reporting and tracking status.
+
+    Example: Weekly log check, Update README, Blameless post-mortem
+- id: activity_description
+  title: Activity description
+  type: longtext
+  prompt: |
+    Describe the activity or issue.
+- id: risk_level
+  title: Risk Level
+  type: choice
+  prompt: |
+    Rank the level of risk associated with the deficiency.
+  choices:
+  - key: low
+    text: Low
+    help: Low risk is typically associated with inconvenience but not long term harm.
+  - key: medium
+    text: Medium
+    help: Medium risk is typically associated with harm that can be corrected.
+  - key: high
+    text: High
+    help: High risk is typically associated with injury or loss of life.
+- id: cost
+  title: Estimated effort
+  type: text
+  prompt: |
+    Estimate the effort of this activity.
+- id: scheduled_completion_date
+  title: Scheduled Completion Date
+  type: date
+  prompt: |
+    When is the plan of action scheduled to be completed?
+- id: activity_log
+  title: Activity Log
+  type: text
+  prompt: |
+    Log progress and notes related to this activity.
+- id: completion_date
+  title: Completion Date
+  type: date
+  prompt: "Date completed. (Answer ONLY when you want to mark activity as done.) \n"
+- id: lessons_learned
+  title: Lessons Learned
+  type: text
+  prompt: |
+    Note any lessons learned

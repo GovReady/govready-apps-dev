@@ -1,0 +1,67 @@
+id: app
+title: System maintenance
+instance-name: |
+  {% if description.identifier %}
+    {{description.identifier}}
+  {% else %}
+    New Activity
+  {% endif %}
+type: project
+protocol:
+- govready.com/apps/compliance/2018/general/system_maintenance
+- govready.com/apps/compliance/2018/general/activity
+version: 0.1
+icon: app.png
+catalog:
+  category: Tasks
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: draft
+  version: 0.1
+  source_url: https://github.com/GovReady/govready-apps-dev/tree/master/out/apps/Activity
+  description:
+    short: System maintenance tracking
+    long: System maintenance tracking
+introduction:
+  format: markdown
+  template: This application will track an adhoc activity
+questions:
+- id: description
+  title: Description of the System Maintenance
+  type: module
+  module-id: description
+- id: progress_log
+  title: Progress Log
+  type: module-set
+  module-id: progress_log
+- id: completion 
+  title: Completion and Approval
+  type: module
+  module-id: completion
+output:
+- id: complete_text
+  format: markdown
+  template: |
+    ## {{description.identifier}}
+
+    This is a {{description.poam_level.text}}, {{description.risk_level.text}} Risk POAM.
+
+    ### Description
+
+    {{description.problem_description.text}}
+
+    Controls Impacted: {{description.impacted_controls.text}}
+
+    {{description.source.text}}
+
+    ### Remediation
+
+    The estimated cost to addressing this deficiency is {{description.cost.text}} and is
+    scheduled to be addressed by {{description.scheduled_completion_date.text}}.
+
+    {{description.remediation}}
+
+    ### Milestones
+
+    {{description.milestones}}
+

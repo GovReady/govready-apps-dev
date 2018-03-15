@@ -1,0 +1,9 @@
+id: progress_log
+title: Progress log
+questions:
+- id: activity_log
+  title: Activity Log
+  type: text
+  prompt: |
+    Log progress and notes related to this activity.
+  help: Use the comments to track interim activity.
