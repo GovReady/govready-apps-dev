@@ -1,0 +1,67 @@
+id: github_repo
+title: GitHub Repository Details
+introduction:
+  format: markdown
+  template: |
+    It's great practice to maintain code in a source code repository.
+
+    Let's document soem reference information about your primary source code repository.
+
+questions:
+
+  - id: repo_url
+    title: Repo URL
+    prompt: |
+      What is URL of the GitHub source code repository?
+    type: url
+    group:
+
+  - id: primary_poc
+    title: Primary Point of Contact
+    prompt: |
+      Who is the primary Point of Contact for administering and maintaining the repository?
+    type: text
+
+  - id: base_branch
+    title: Base branch
+    prompt: |
+      What is the default, "base" branch or your repository?
+    type: text
+    help: The branch against which pulls and commits are made automatically unless an alternate branch is specified. Typically "master".
+
+  - id: public_status
+    title: Public or private
+    prompt: |
+      Is the repository public or private?
+    type: choice
+    choices:
+    - key: public
+      text: Public
+      help: Anyone can view the souce code repository.
+    - key: service
+      text: Private
+      help: Access to the souce code repository is restricted.
+
+  - id: created_date
+    title: Created date
+    prompt: |
+      Enter the date the repository was created.
+    type: date
+
+  - id: readme_maintenance
+    title: README maintenance
+    prompt: |
+      Does the repository contain an upto date, well-maintained README file?
+    type: yesno
+    
+
+output:
+  - tab: GitHub Repo
+    format: markdown
+    template: |
+      # GitHub Repository Information
+
+      The GitHub {{public_status}} source code can be found at {{repo_url}}. The name of the default, "base" branch is <b>{{base_branch}}</b>.
+      The repository was created on {{created_date}}. The repository README file is{% if not readme_maintenance %} not{% endif %} well-maintained.
+      
+      For help with the repository, contact {{primary_poc}}.
