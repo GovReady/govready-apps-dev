@@ -1,7 +1,7 @@
 id: app
 title: Django App Deployed with Docker
 type: project
-version: 0.7.0
+version: 0.7.1
 icon: app.png
 protocol:
   - govready.com/apps/compliance/2018/information-technology-system
@@ -11,7 +11,7 @@ catalog:
   vendor: GovReady
   vendor_url: http://www.govready.com
   status: stub
-  version: 0.2
+  version: 0.3
   source_url: https://github.com/GovReady/govready-apps-dev/django-docker-system
   description:
     short: |
