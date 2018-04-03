@@ -1,5 +1,5 @@
 id: app
-title: Django App Deployed with Docker
+title: Django App Deployed with Docker (1.2)
 type: project
 version: 0.7.1
 icon: app.png
