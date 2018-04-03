@@ -37,11 +37,7 @@ questions:
     - key: public
       text: Public
       help: Anyone can view the souce code repository.
-<<<<<<< HEAD
     - key: private
-=======
-    - key: service
->>>>>>> 4a9621decc5375e37733009c98322b49b9aee0a0
       text: Private
       help: Access to the souce code repository is restricted.
 
@@ -54,13 +50,8 @@ questions:
   - id: readme_maintenance
     title: README maintenance
     prompt: |
-<<<<<<< HEAD
       Does the repository contain an up-to-date, well-maintained README file?
-=======
-      Does the repository contain an upto date, well-maintained README file?
->>>>>>> 4a9621decc5375e37733009c98322b49b9aee0a0
     type: yesno
-    
 
 output:
   - tab: GitHub Repo
