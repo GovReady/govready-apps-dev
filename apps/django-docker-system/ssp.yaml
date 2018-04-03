@@ -1,10 +1,6 @@
 id: ssp
 title: System Security Plan Preview
-<<<<<<< HEAD
 version: 2
-=======
-version: 1
->>>>>>> 4a9621decc5375e37733009c98322b49b9aee0a0
 
 questions:
 - id: dummy
@@ -20,7 +16,6 @@ output:
   title: System Security Plan
   template: |
     <style type="text/css" scoped>
-<<<<<<< HEAD
       h2 { border-bottom:1px solid #888; }
       h3 { border-bottom:0.5px solid #aaa; }
       h4 { font-weight:bold; font-size:0.9em; }
@@ -73,21 +68,6 @@ output:
       The system impact level has not yet been determined.
     {% else %}
       {{project.system_categorization.output_documents.ssp_template|safe}}
-=======
-        # h2 { border-bottom:1px solid #888; }
-        h3 { border-bottom:0.5px solid #aaa; } 
-        h4 { font-weight:bold; font-size:0.9em; }
-        blockquote { color: #666; font-size:0.8em;}
-        .notice {color: red; font-size:3.0em; text-align:center; transform: scaleY(.85); font-weight: bold;}
-    </style>
-
-    <h2>System Categorization</h2>
-
-    {% if not project.fisma_system_categorization %}
-      The system impact level has not yet been determined.
-    {% else %}
-      {{project.fisma_system_categorization.output_documents.ssp_template|safe}}
->>>>>>> 4a9621decc5375e37733009c98322b49b9aee0a0
     {% endif %}
 
 
