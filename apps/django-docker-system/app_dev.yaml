@@ -1,0 +1,278 @@
+id: app_dev 
+title: Django App Deployed with Docker
+type: project
+version: 0.7.1
+icon: app.png
+protocol:
+  - govready.com/apps/compliance/2018/information-technology-system
+instance-name: "{{system_profile.system_basics.system_name}}"
+catalog:
+  category: IT System Templates
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: stub
+  version: 0.3
+  source_url: https://github.com/GovReady/govready-apps-dev/django-docker-system
+  description:
+    short: |
+      Compliance under NIST RMF for a Django application deployed using Docker.
+    long: |
+      This compliance app will help you achieve compliance for a Django application deployed
+      using Docker. The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
+      and NIST SP 800-171 Rev 1.
+  recommended_for:
+  - key_short: Org
+    value: Small
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
+introduction:
+  format: markdown
+  template: |
+      800-53 compliance for a Django web application
+questions:
+
+# System Overview
+- id: system_profile
+  title: System Profile
+  type: module
+  protocol: govready.com/apps/compliance/2018/basic-system-description
+  group: System Overview
+- id: system_categorization
+  title: System Categorization
+  type: module
+  protocol: govready.com/apps/compliance/2018/fisma/system-categorization
+  group: System Overview
+- id: control_selection
+  title: Control Selection Report
+  type: module
+  module-id: control_selection
+  group: System Overview
+
+# Technical Overview
+- id: source_code_repo
+  title: Source Code Repository
+  type: module
+  protocol: govready.com/apps/compliance/2018/source-code-repository
+  group: Technical Overview
+
+# Technology
+- id: web_server
+  title: Web Server
+  type: module
+  protocol: web_server
+  group: Technology
+
+- id: infrastructure
+  title: Infrastructure
+  type: module
+  protocol: opencontrol
+  group: Technology
+
+# Tasks
+- id: actvitity
+  title: Actvitity
+  group: Tasks
+  type: module-set
+  protocol:
+  - govready.com/apps/compliance/2018/general/activity
+- id: poams
+  title: POAMs
+  group: Tasks
+  type: module-set
+  protocol:
+  - govready.com/apps/compliance/2018/POAM
+  icon: app.png
+
+# People
+- id: fed_poc_pm
+  title: PM
+  type: module
+  protocol: fed_poc_pm
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_developer
+  title: Developer
+  type: module
+  protocol: fed_poc_developer
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_issm
+  title: ISSM
+  type: module
+  protocol: fed_poc_issm
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_isso
+  title: ISSO
+  type: module
+  protocol: fed_poc_isso
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_ciso
+  title: CISO
+  type: module
+  protocol: fed_poc_ciso
+  icon: person-3.png
+  group: People
+
+- id: fed_poc_ao
+  title: AO
+  type: module
+  protocol: fed_poc_ao
+  icon: person-3.png
+  group: People
+
+# Policies and Procedures
+- id: contingency_plan
+  title: Contingency Plan
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/contingency-plan
+  type: module
+- id: security_irp
+  title: Security Incident Response Procedure
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/security-irp
+  type: module
+- id: applicable_laws_and_regulations
+  title: Applicable Laws and Regulations
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/applicable-laws-and-regulations
+  type: module
+- id: Annual_Contigency_Training_Testing_and_Exercise
+  title: Annual Contigency Training, Testing, and Exercise
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/annual-contigency-training-testing-and-exercise
+  type: module
+- id: Contingency_Planning_Policy
+  title: Contingency Planning Policy
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/contingency-planning-policy
+  type: module
+- id: Identification_and_Authentication_Policy
+  title: Identification and Authentication Policy
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/identification-and-authentication-policy
+  type: module
+- id: System_Security_Plan
+  title: System Security Plan Policy
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/system-security-plan-policy
+  type: module
+- id: System_Security_Policy
+  title: System Security Policy
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/system-security-policy
+  type: module
+- id: privacy_policy
+  title: Technology Privacy Policy
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/privacy-policy
+  type: module
+- id: Configuration_Management_Plan
+  title: Configuration Management Plan (CMP)
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/configuration-management-plan
+  type: module
+- id: media_protection_policy
+  title: Media Protection Policy
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/media-protection-policy
+  type: module
+- id: System_documentation
+  title: System documentation
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/system-documentation
+  type: module
+- id: Media_Destruction_and_Disposal_Policy
+  title: Media Destruction and Disposal Policy
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/media-destruction-and-disposal-policy
+  type: module
+- id: Risk_Assessment
+  title: Risk Assessment
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/risk-assessment
+  type: module
+- id: Rules_of_Behavior
+  title: Rules of Behavior
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/rules-of-behavior
+  type: module
+- id: System_Rules_of_Behavior
+  title: System Rules of Behavior
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/system-rules-of-behavior
+  type: module
+- id: System_Specific_Logging
+  title: System Specific Logging
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/system-specific-logging
+  type: module
+- id: annual_IT_security_awareness_training
+  title: Annual IT Security Awareness Training
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/annual-it-security-awareness-training
+  type: module
+
+
+# Artifacts
+- id: ssp
+  title: View SSP
+  type: module
+  module-id: ssp
+  icon: checkmark.png
+  placement: action-buttons
+
+output:
+  - id: govready_lifecycle_stage_code
+    format: text
+    template: |
+      {% if not system_profile.is_finished() or not system_categorization.is_finished() %}
+        us_nist_rmf_1_categorize
+      {% elif not control_selection.is_finished() %}
+        us_nist_rmf_2_select
+      {% else %}
+        us_nist_rmf_3_implement
+      {% endif %}

@@ -1,0 +1,164 @@
+id: rob
+title: Rules of Behavior
+misc:
+  sources: |
+    The content of this document was prepared from multiple sources, including but not limited to:
+
+    * https://www.ice.gov/doclib/sevis/pdf/behavior-rules.pdf
+    * https://www.dhs.gov/sites/default/files/publications/4300A-Handbook-Attachmentt-G-Rules-of-Behavior_0.pdf
+    * https://www.hhs.gov/about/agencies/asa/ocio/cybersecurity/rules-of-behavior-for-use-of-hhs-information-resources/index.html
+    * https://www.justice.gov/sites/default/files/ust/legacy/2012/07/03/Sample_Rules_of_Behavior_re_Computer_Use.pdf
+    * https://github.com/GovReady/govready-pbc-practices/blob/master/practices/p-0020.md
+
+introduction:
+  format: markdown
+  template: |
+    Rules of Behavior 
+
+    In this module, we'll ask you to describe the responsibilities and expected behavior of users
+    and administrators of your organization's information systems and devices.
+
+    This information will be used to describe the essense of your rules in your compliance documentation for auditors.
+
+    {% if project.general_info.exists == "no" %}
+    You said your organization's Rules of Behavior don't exist. You can use your answers to these questions
+    to draft them.
+    {% endif %}
+
+output:
+- format: markdown
+  title: Policy Content Statement for Rules of Behavior for Control PL-4
+  template: |
+    {{organization}} Rules of Behavior (ROB) are described in the document _{{project.general_info.official_name}}_.
+
+    {{applies_to}}
+
+    {% if policy_consistent %}ROB enumerates other policies with which it is consistent.{% endif %}
+
+    ### Passwords and Authentication Rules
+
+    {{password_strength}}
+
+    Authorized password and authentication rules include: 
+    {% for rule in password_rules %}
+    * {{rule.text}}
+
+    {% endfor %}
+
+    Authorized password management tools include: 
+    {% for tool in authorized_password_tools %}
+    * {{tool.text}}
+
+    {% endfor %}
+
+questions:
+- id: applies_to
+  title: To whom do your organizational Rules of Behavior apply?
+  prompt: To whom do your organizational Rules of Behavior apply?
+  type: longtext
+  help: |
+    Example: "CompanyCo's Rules of Behavior apply to all CompanyCo employees and support contractors who
+    use CompanyCo IT resources such as workstations, portable electronic devices to access, store,
+    receive or transmit sensitive information."
+
+- id: policy_consistent
+  title: Briefly describe or list any laws or policies with which your Rules of Behavior are consistent
+  prompt: Briefly describe or list any laws or policies with which your Rules of Behavior are consistent
+  type: longtext
+  help: |
+    Example: "These rules of behavior are consistent with IT security policy and procedures given in 
+    DHS Management Directive 140-1, “Information Technology Systems Security,” 
+    DHS Sensitive Systems Policy Directive 4300A, and the DHS 4300A Sensitive Systems Handbook."
+
+- id: password_interstitial
+  type: interstitial
+  title: Password and Authentation Rules
+  prompt: |
+    Password and Authentation Rules
+
+    Rules of Behavior are a good place to make password and authentication related rules explicit.
+
+    Indicate the password and authentication related rules that are part of your organization's 
+    Rules of Behavior.
+
+- id: password_strength
+  title: What are your organization's password strength rules?
+  prompt: What are your organization's password strength rules?
+  type: longtext
+  help: |
+    Example: "Passwords must be at least 12 characters in length and include upper and 
+    lower case letters, numerals, and special characters." 
+
+- id: password_rules
+  title: What are your password and authentication rules? (Select all that apply)
+  prompt: What are your password and authentication rules? (Select all that apply)
+  type: multiple-choice
+  choices:
+    - key: protect
+      text: Users will protect passwords from disclosure
+    - key: notshare
+      text: Users will not share passwords
+    - key: notprovide
+      text: Users will not provide my password to anyone, including system administrators
+    - key: unwritten
+      text: Users will not write down passwords on paper
+    - key: password_managers
+      text: Users will only used authorized password management tools
+    - key: piv
+      text: |
+        Users will store their Personal Identity Verification (PIV) separate from their computers
+        and mobile devices (e.g., not in computer bag) 
+    - key: change_on_suspicion
+      text: Users will change their password in reaction to any suspicion activity
+    - key: nobypass
+      text: Users will not attemp to bypass access control measures
+
+- id: password_rules_other
+  title: List any other password and authentication rules required by your organization
+  prompt: List any other password and authentication rules required by your organization
+  type: longtext
+
+- id: authorized_password_tools
+  title: Which of the following password management tools are authorized by your organization?
+  prompt: Which of the following password management tools are authorized by your organization?
+  type: multiple-choice
+  choices:
+  - key: 1password
+    text: 1 Password
+  - key: dashlane
+    text: Dashlane
+  - key: enpass
+    text: Enpass
+  - key: keeper
+    text: Keeper
+  - key: lastpass
+    text: Lastpass
+  - key: passpack
+    text: Passpack
+  - key: roboform
+    text: Roboform
+  - key: zoho
+    text: zoho
+
+- id: authorized_password_tools_other
+  title: List any other password tools authorized by your organization
+  prompt: List any other password tools authorized by your organization
+  type: text
+
+- id: completion_interstitial
+  type: interstitial
+  title: Module complete!
+  prompt: |
+    Module complete!
+
+    Congratulations! You've successfully described your ROB.
+
+    You'll now be able to access a summary as well as an automatically prepared
+    Rules of Behavior document.
+
+    {% if project.general_info.exists == "yes" %}
+    You can ignore the automatically prepared ROB document since you already have one.
+    {% else %}
+    You can copy and paste the automatically prepared ROB document and modify it to create
+    your official ROB.
+    {% endif %}

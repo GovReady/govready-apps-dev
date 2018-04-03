@@ -127,11 +127,13 @@ questions:
   icon: person-3.png
   group: People
 # Policy
-- id: sm_policy_privacy
-  title: Privacy Policy
+- id: Rules_of_Behavior
+  title: Rules of Behavior
+  group: Policies and Procedures
+  protocol:
+  - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+  - govready.com/apps/compliance/2017/rules-of-behavior
   type: module
-  protocol: sm_policy_privacy
-  group: Policy
 # Artifacts
 - id: ssp
   title: View SSP

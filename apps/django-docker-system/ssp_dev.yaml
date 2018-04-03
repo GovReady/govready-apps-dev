@@ -1,4 +1,4 @@
-id: ssp
+id: ssp_dev
 title: System Security Plan Preview
 version: 2
 
@@ -118,6 +118,14 @@ output:
     {% endif %}
 
     <h2>Polices</h2>
+
+    {% if not project.privacy_policy %}
+      The web site will have a privacy policy
+    {% else %}
+      {{project.privacy_policy.output_documents.ssp_template|safe}}
+    {% endif %}
+
+
 
 
     <h2>AC-10</h2>
