@@ -54,21 +54,27 @@ output:
 questions:
 - id: applies_to
   title: To whom do your organizational Rules of Behavior apply?
-  prompt: To whom do your organizational Rules of Behavior apply?
+  prompt: |
+    To whom {% if project.general_info.exists == 'yes' %}do{% else %}will{% endif %} your organizational Rules of Behavior apply?
   type: longtext
-  help: |
-    Example: "CompanyCo's Rules of Behavior apply to all CompanyCo employees and support contractors who
+  default: |
+    _*boilerplate*_
+
+    CompanyCo's Rules of Behavior apply to all CompanyCo employees and support contractors who
     use CompanyCo IT resources such as workstations, portable electronic devices to access, store,
-    receive or transmit sensitive information."
+    receive or transmit sensitive information.
 
 - id: policy_consistent
   title: Briefly describe or list any laws or policies with which your Rules of Behavior are consistent
-  prompt: Briefly describe or list any laws or policies with which your Rules of Behavior are consistent
+  prompt: |
+    Briefly describe or list any laws or policies with which your Rules of Behavior {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} consistent
   type: longtext
-  help: |
-    Example: "These rules of behavior are consistent with IT security policy and procedures given in 
+  default: |
+    _*boilerplate*_
+
+    These rules of behavior are consistent with IT security policy and procedures given in 
     DHS Management Directive 140-1, “Information Technology Systems Security,” 
-    DHS Sensitive Systems Policy Directive 4300A, and the DHS 4300A Sensitive Systems Handbook."
+    DHS Sensitive Systems Policy Directive 4300A, and the DHS 4300A Sensitive Systems Handbook.
 
 - id: password_interstitial
   type: interstitial
@@ -83,15 +89,17 @@ questions:
 
 - id: password_strength
   title: What are your organization's password strength rules?
-  prompt: What are your organization's password strength rules?
+  prompt: What {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} your organization's password strength rules?
   type: longtext
-  help: |
-    Example: "Passwords must be at least 12 characters in length and include upper and 
-    lower case letters, numerals, and special characters." 
+  default: |
+    _*boilerplate*_
+
+    Passwords must be at least 12 characters in length and include upper and 
+    lower case letters, numerals, and special characters.
 
 - id: password_rules
   title: What are your password and authentication rules? (Select all that apply)
-  prompt: What are your password and authentication rules? (Select all that apply)
+  prompt: What {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} your password and authentication rules? (Select all that apply)
   type: multiple-choice
   choices:
     - key: protect
@@ -116,16 +124,16 @@ questions:
     - key: change_on_suspicion
       text: Users will change their password in reaction to any suspicion activity
     - key: nobypass
-      text: Users will not attemp to bypass access control measures
+      text: Users will not attempt to bypass access control measures
 
 - id: password_rules_other
   title: List any other password and authentication rules required by your organization
-  prompt: List any other password and authentication rules required by your organization
+  prompt: List any other password and authentication rules {% if project.general_info.exists == 'yes' %}required{% else %}to be required{% endif %} by your organization
   type: longtext
 
 - id: authorized_password_tools
   title: Which of the following password management tools are authorized by your organization?
-  prompt: Which of the following password management tools are authorized by your organization?
+  prompt: Which of the following password management tools {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} authorized by your organization?
   type: multiple-choice
   choices:
   - key: apple_keychain
@@ -149,7 +157,7 @@ questions:
 
 - id: authorized_password_tools_other
   title: List any other password tools authorized by your organization
-  prompt: List any other password tools authorized by your organization
+  prompt: List any other password tools {% if project.general_info.exists == 'yes' %}authorized{% else %}will be authorized{% endif %} by your organization
   type: text
 
 - id: completion_interstitial

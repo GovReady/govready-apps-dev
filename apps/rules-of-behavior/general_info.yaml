@@ -78,20 +78,25 @@ questions:
 
 - id: official_name
   title: What is the official name of your organization's Rules of Behavior document?
-  prompt: What is the official name of your organization's Rules of Behavior document?
-  help: |
-    Other common titles are "Acceptable Use Policy", "Employee IT Manual", or "General Rules of Behavior for Users of CompanyCo IT Resources"
-  placeholder: Rules of Behavior for IT Resources
+  prompt: |
+    What {% if exists == 'yes' %}is{% else %}will be{% endif %} the official name of your organization's Rules of Behavior document?
+
+    Common titles are "Acceptable Use Policy", "Employee IT Manual", or "General Rules of Behavior for Users of CompanyCo IT Resources"
+  default: Rules of Behavior for {{organization}} IT Resources
   type: text
 
 - id: source_public
   title: Do you publish your Rules of Behavior publicly online?
-  prompt: Do you publish your Rules of Behavior publicly online?
+  prompt: |
+    {% if exists == 'yes' %}Do{% else %}Will{% endif %} you publish your Rules of Behavior publicly online?
   type: yesno
 
 - id: source_public_url
   title: What is the URL for the publicly available Rules of Behavior? 
-  prompt: What is the URL for the publicly available Rules of Behavior? 
+  prompt: |
+    What {% if exists == 'yes' %}is{% else %}will be{% endif %} the URL for the publicly available Rules of Behavior?
+
+    {% if exists == 'no' %}Skip this question if you do not know.{% endif %} 
   type: url
   impute:
   - condition: source_public == "no"
@@ -99,7 +104,8 @@ questions:
 
 - id: source_repo
   title: Where does your organization maintain the Rules of Behavior file for editing?
-  prompt: Where does your organization maintain the Rules of Behavior file for editing?
+  prompt: |
+    Where {% if exists == 'yes' %}does{% else %}will{% endif %} your organization maintain the Rules of Behavior file for editing?
   type: choice
   choices:
   - key: workstation_file
@@ -129,7 +135,8 @@ questions:
 
 - id: source_repo_other
   title: Describe the "Other" location where your organization stores the authoritative Rules of Behavior?
-  prompt: Describe the "Other" location where your organization stores the authoritative Rules of Behavior?
+  prompt: |
+    Describe the "Other" location where your organization {% if exists == 'yes' %}stores{% else %}will store{% endif %} the authoritative Rules of Behavior?
   type: text
   impute:
   - condition: source_repo != "other"
@@ -137,20 +144,24 @@ questions:
 
 - id: source_repo_identifier
   title: Describe in a sentence where your organization maintains the Rules of Behavior file for editing   
-  prompt: Describe in a sentence where your organization maintains the Rules of Behavior {{source_repo.text}} for editing
+  prompt: |
+    Describe in a sentence where your organization {% if exists == 'yes' %}maintains{% else %}will maintain{% endif %} the Rules of Behavior {{source_repo.text}} for editing
   type: longtext
-  help: |
-    Example: "The Rules and Behavior authoritative network file is maintained on the Security Team's file share at '/path/to/rob_file_v.docx'."
+  default: |
+    _*boilerplate *:_
+    The Rules and Behavior authoritative {{source_repo.text}} is maintained on the Security Team's file share at '/path/to/rob_file_v.docx'."
 
 - id: role_owner
   title: What organizational role is responsible for maintaining the content of the Rules of Behavior?
-  prompt: What organizational role is responsible for maintaining the content of the Rules of Behavior?
+  prompt: |
+    What organizational role {% if exists == 'yes' %}does{% else %}will be{% endif %} responsible for maintaining the content of the Rules of Behavior?
   type: text
   help: "E.g.: CISO, Security Team, CIO, Chief Security Executive..."
 
 - id: review_frequency
   title: How frequently does your organization review the Rules of Behavior for possible updates?
-  prompt: How frequently does your organization review the Rules of Behavior for possible updates?
+  prompt: |
+    How frequently {% if exists == 'yes' %}does{% else %}will{% endif %} your organization review the Rules of Behavior for possible updates?
   type: choice
   choices:
     - key: as_needed
@@ -175,18 +186,19 @@ questions:
 
 - id: obtain
   title: How do new users obtain the Rules of Behavior?
-  prompt: How do new users obtain the Rules of Behavior?
+  prompt: |
+    How {% if exists == 'yes' %}do{% else %}will{% endif %} new users obtain the Rules of Behavior?
   type: longtext
-  placeholder: |
-    "New system users receive the organization Rules of Behavior
-    from the organization's System Security Team as part of their onboarding documents."
-  help: |
-    Example: "New system users receive the organization Rules of Behavior
-    from the organization's System Security Team as part of their onboarding documents."
+  default: |
+    _*boilerplate*_
+
+    New system users receive the organization Rules of Behavior
+    from the organization's System Security Team as part of their onboarding documents.
 
 - id: maintain
   title: Who maintains the completed and signed Rules of Behavior?
-  prompt: Who maintains the completed and signed Rules of Behavior?
+  prompt: |
+    Who {% if exists == 'yes' %}maintains{% else %}will maintain{% endif %} the completed and signed Rules of Behavior?
   type: choice
   choices:
   - key: org_security_team
