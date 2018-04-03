@@ -1,11 +1,7 @@
 id: app
 title: Django App Deployed with Docker
 type: project
-<<<<<<< HEAD
 version: 0.7.1
-=======
-version: 0.7.0
->>>>>>> 4a9621decc5375e37733009c98322b49b9aee0a0
 icon: app.png
 protocol:
   - govready.com/apps/compliance/2018/information-technology-system
@@ -85,13 +81,7 @@ questions:
   group: Tasks
   type: module-set
   protocol:
-<<<<<<< HEAD
   - govready.com/apps/compliance/2018/POAM
-=======
-  - govready.com/apps/compliance/2017/nist-sp-800-171-r1-ssp/poam
-  - govready.com/apps/compliance/2017/nist-sp-800-53-r4/poam
-  - govready.com/apps/compliance/2017/nist-sp-800-53-r5/poam
->>>>>>> 4a9621decc5375e37733009c98322b49b9aee0a0
   icon: app.png
 
 # People

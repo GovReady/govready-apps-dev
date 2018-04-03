@@ -55,8 +55,10 @@ output:
 
 questions:
 - id: exists
-  title: Does your organization currently have a Rules of Behavior?
-  prompt: Does your organization currently have a Rules of Behavior?
+  title: Does your organization's already have Rules of Behavior for using IT resources?
+  prompt: Does your organization already have Rules of Behavior for using IT resources?
+  help: |
+    Hint: Your Rules of Behavior document may called something else.
   type: yesno
 
 - id: exists_interstitial
@@ -161,10 +163,10 @@ questions:
       text: Annually
 
 - id: obtain_interstitial
-  title: Rules of Behavior location and management completed
+  title: Rules of Behavior document management completed
   prompt: |
 
-    Rules of Behavior location and management completed.
+    Rules of Behavior document management completed.
 
     Excellent! You've answered questions regarding how your organization maintains the Rules of Behavior file.
 

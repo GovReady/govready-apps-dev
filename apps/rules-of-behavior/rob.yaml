@@ -97,9 +97,14 @@ questions:
     - key: protect
       text: Users will protect passwords from disclosure
     - key: notshare
-      text: Users will not share passwords
+      text: Users will not share passwords to their individual accounts
+    - key: notshare_except
+      text: |
+        Users will not share passwords to administrative accounts except
+        where individuals are require access to the same account for redunancy
+        and the credentials are shared only through an approved Password Manager
     - key: notprovide
-      text: Users will not provide my password to anyone, including system administrators
+      text: Users will not provide their individual account passwords to anyone, including system administrators
     - key: unwritten
       text: Users will not write down passwords on paper
     - key: password_managers
@@ -123,6 +128,8 @@ questions:
   prompt: Which of the following password management tools are authorized by your organization?
   type: multiple-choice
   choices:
+  - key: apple_keychain
+    text: Apple OS X KeyChain
   - key: 1password
     text: 1 Password
   - key: dashlane
