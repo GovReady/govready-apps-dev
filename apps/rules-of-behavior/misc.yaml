@@ -1,5 +1,12 @@
 id: misc
 title: Miscellaneous
+internal:
+  questions_to_add: |
+    * Do you have a different or additional Rules of Behavior for privileged users
+    * Describe the additional requirements of the rules of behavior
+    * Is the Rules of Behavior incorporated into an online Terms of Service?
+    * Has it been reviewed by legal?
+  
 introduction:
   format: markdown
   template: |
