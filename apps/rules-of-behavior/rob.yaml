@@ -44,9 +44,11 @@ questions:
   prompt: |
     To whom {% if project.general_info.exists == 'yes' %}do{% else %}will{% endif %} your organizational Rules of Behavior apply?
 
-    Example: {{organization}}'s Rules of Behavior apply to all {{organization}} employees and support contractors who
-    use {{organization}} IT resources such as workstations, portable electronic devices to access, store,
-    receive or transmit sensitive information.
+  examples:
+  - example: |
+      {{organization}}'s Rules of Behavior apply to all {{organization}} employees and support contractors who
+      use {{organization}} IT resources such as workstations, portable electronic devices to access, store,
+      receive or transmit sensitive information.
   type: longtext
 
 # Policy Consistency
@@ -56,7 +58,9 @@ questions:
   prompt: |
     Briefly describe or list any laws or policies with which your Rules of Behavior {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} consistent
 
-    Example: These rules of behavior are consistent with IT security policy and procedures given in DHS Management Directive 140-1, "Information Technology Systems Security," DHS Sensitive Systems Policy Directive 4300A, and the DHS 4300A Sensitive Systems Handbook.
+  examples:
+  - example: |
+      These rules of behavior are consistent with IT security policy and procedures given in DHS Management Directive 140-1, "Information Technology Systems Security," DHS Sensitive Systems Policy Directive 4300A, and the DHS 4300A Sensitive Systems Handbook.
 
     Hint: You may need to invite a security specialist or organization lawyer to help answer this question.
   type: longtext
@@ -79,7 +83,9 @@ questions:
   prompt: |
     What {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} your organization's password strength rules?
 
-    Example: Passwords must be at least 12 characters in length and include upper and lower case letters, numerals, and special characters.
+  examples:
+  - example: |
+      Passwords must be at least 12 characters in length and include upper and lower case letters, numerals, and special characters.
   type: longtext
 
 - id: authorized_password_tools
@@ -135,6 +141,7 @@ output:
 
 - id: instructions
   format: markdown
+  display: top
   title: |
     Instructions for Downloading and Using Sample Rules of Behaviors
   template: |
