@@ -188,12 +188,16 @@ questions:
   title: How do new users obtain the Rules of Behavior?
   prompt: |
     How {% if exists == 'yes' %}do{% else %}will{% endif %} new users obtain the Rules of Behavior?
-  type: longtext
-  default: |
-    _*boilerplate*_
+    
+    Describe in one or two sentences when and how users and administrators {% if exists == 'yes' %}receive{% else %}will receive{% endif %} and agree to your rules by as part of their pre-access training.
 
-    New system users receive the organization Rules of Behavior
-    from the organization's System Security Team as part of their onboarding documents.
+  type: longtext
+  reference_text: |
+    ## Example 1
+    New system users receive the organization Rules of Behavior from the organization's System Security Team as part of their onboarding documents.
+
+    ## Example 2
+    The Information Systems Security Officer (ISSO) shall ensure that a user reads, accepts, and signs the general rules of behavior and all system-specific rules of behavior pertaining to systems to which that user will be given access; the rules must be signed before the user is given access. The signed rules of behavior may be filed either in the employee’s Official Personnel Folder (OPF) or in the employee’s personnel file.
 
 - id: maintain
   title: Who maintains the completed and signed Rules of Behavior?

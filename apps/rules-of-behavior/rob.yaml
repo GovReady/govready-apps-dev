@@ -9,6 +9,13 @@ misc:
     * https://www.hhs.gov/about/agencies/asa/ocio/cybersecurity/rules-of-behavior-for-use-of-hhs-information-resources/index.html
     * https://www.justice.gov/sites/default/files/ust/legacy/2012/07/03/Sample_Rules_of_Behavior_re_Computer_Use.pdf
     * https://github.com/GovReady/govready-pbc-practices/blob/master/practices/p-0020.md
+    * https://csrc.nist.gov/publications/detail/sp/800-18/rev-1/final
+    * https://a130.cio.gov/appendix3/
+
+  snippets:
+    - snippet: |
+          Don't over think this. Rules of Behavior are just the major Do's and Dont's users and administrators receive and agree to abide by as part of their pre-access training. (The requirement flows from See Section (h) of Appendix III to OMB Circular A-130 and NIST Special Publication (SP) 800-18, Rev. 1 implemented under FISMA.)
+  
 
 introduction:
   format: markdown
@@ -18,12 +25,16 @@ introduction:
     In this module, we'll ask you to describe the responsibilities and expected behavior of users
     and administrators of your organization's information systems and devices.
 
-    This information will be used to describe the essense of your rules in your compliance documentation for auditors.
-
     {% if project.general_info.exists == "no" %}
-    You said your organization's Rules of Behavior don't exist. You can use your answers to these questions
-    to draft them.
+    You said your organization's Rules of Behavior don't exist. We'll draft a version from your answers to these questions.
     {% endif %}
+    
+    This information will {% if project.general_info.exists == "no" %}also{% endif %} be used to describe the essense of your rules in your compliance documentation for auditors.
+
+    ## References
+    1. Section (h) of Appendix III to OMB Circular A-130 
+    1. NIST Special Publication (SP) 800-18, Rev. 1, Section 1.8
+    <!--nice to add popup graphic of example rules from 800-18-->
 
 output:
 - format: markdown
@@ -51,6 +62,8 @@ output:
 
     {% endfor %}
 
+# Applicability
+
 questions:
 - id: applies_to
   title: To whom do your organizational Rules of Behavior apply?
@@ -64,6 +77,8 @@ questions:
     use CompanyCo IT resources such as workstations, portable electronic devices to access, store,
     receive or transmit sensitive information.
 
+# Policy Consistency
+
 - id: policy_consistent
   title: Briefly describe or list any laws or policies with which your Rules of Behavior are consistent
   prompt: |
@@ -75,6 +90,8 @@ questions:
     These rules of behavior are consistent with IT security policy and procedures given in 
     DHS Management Directive 140-1, “Information Technology Systems Security,” 
     DHS Sensitive Systems Policy Directive 4300A, and the DHS 4300A Sensitive Systems Handbook.
+
+# Password and Authentation Rules
 
 - id: password_interstitial
   type: interstitial
@@ -159,6 +176,8 @@ questions:
   title: List any other password tools authorized by your organization
   prompt: List any other password tools {% if project.general_info.exists == 'yes' %}authorized{% else %}will be authorized{% endif %} by your organization
   type: text
+
+# Completion
 
 - id: completion_interstitial
   type: interstitial
