@@ -4,7 +4,7 @@ type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
 - govready.com/apps/compliance/2017/rules-of-behavior
-version: 0.6
+version: 0.7
 icon: app.png
 
 catalog:

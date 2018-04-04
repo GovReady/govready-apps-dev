@@ -145,8 +145,9 @@ questions:
   title: Describe in a sentence where your organization maintains the Rules of Behavior file for editing   
   prompt: |
     Describe in a sentence where your organization {% if exists == 'yes' %}maintains{% else %}will maintain{% endif %} the Rules of Behavior {{source_repo.text}} for editing
-
-    Example: The Rules and Behavior authoritative {{source_repo.text}} is maintained on the Security Team's file share at '/path/to/rob_file_v.docx'.
+  examples:
+  - example: |
+      The Rules and Behavior authoritative {{source_repo.text}} is maintained on the Security Team's file share at '/path/to/rob_file_v.docx'.
   type: longtext
 
 - id: role_owner
@@ -191,12 +192,11 @@ questions:
     Describe in one or two sentences when and how users and administrators {% if exists == 'yes' %}receive{% else %}will receive{% endif %} and agree to your rules by as part of their pre-access training.
 
   type: longtext
-  reference_text: |
-    ## Example 1
-    New system users receive the organization Rules of Behavior from the organization's System Security Team as part of their onboarding documents.
-
-    ## Example 2
-    The Information Systems Security Officer (ISSO) shall ensure that a user reads, accepts, and signs the general rules of behavior and all system-specific rules of behavior pertaining to systems to which that user will be given access; the rules must be signed before the user is given access. The signed rules of behavior may be filed either in the employee’s Official Personnel Folder (OPF) or in the employee’s personnel file.
+  examples:
+  - example: |
+      New system users receive the organization Rules of Behavior from the organization's System Security Team as part of their onboarding documents.
+  - example: |
+      The Information Systems Security Officer (ISSO) shall ensure that a user reads, accepts, and signs the general rules of behavior and all system-specific rules of behavior pertaining to systems to which that user will be given access; the rules must be signed before the user is given access. The signed rules of behavior may be filed either in the employee’s Official Personnel Folder (OPF) or in the employee’s personnel file.
 
 - id: maintain
   title: Who maintains the completed and signed Rules of Behavior?
