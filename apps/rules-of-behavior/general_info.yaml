@@ -81,8 +81,7 @@ questions:
   prompt: |
     What {% if exists == 'yes' %}is{% else %}will be{% endif %} the official name of your organization's Rules of Behavior document?
 
-    Common titles are "Acceptable Use Policy", "Employee IT Manual", or "General Rules of Behavior for Users of CompanyCo IT Resources"
-  default: Rules of Behavior for {{organization}} IT Resources
+    Common titles are "Acceptable Use Policy", "Employee IT Manual", or "General Rules of Behavior for Users of {{organization}} IT Resources"
   type: text
 
 - id: source_public
@@ -146,17 +145,17 @@ questions:
   title: Describe in a sentence where your organization maintains the Rules of Behavior file for editing   
   prompt: |
     Describe in a sentence where your organization {% if exists == 'yes' %}maintains{% else %}will maintain{% endif %} the Rules of Behavior {{source_repo.text}} for editing
+
+    Example: The Rules and Behavior authoritative {{source_repo.text}} is maintained on the Security Team's file share at '/path/to/rob_file_v.docx'.
   type: longtext
-  default: |
-    _*boilerplate *:_
-    The Rules and Behavior authoritative {{source_repo.text}} is maintained on the Security Team's file share at '/path/to/rob_file_v.docx'."
 
 - id: role_owner
   title: What organizational role is responsible for maintaining the content of the Rules of Behavior?
   prompt: |
     What organizational role {% if exists == 'yes' %}does{% else %}will be{% endif %} responsible for maintaining the content of the Rules of Behavior?
+
+    Common responsible roles are: CISO, Security Team, CIO, Chief Security Executive, ISSO, etc.   
   type: text
-  help: "E.g.: CISO, Security Team, CIO, Chief Security Executive..."
 
 - id: review_frequency
   title: How frequently does your organization review the Rules of Behavior for possible updates?
