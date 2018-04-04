@@ -29,6 +29,11 @@ questions:
   type: module
   module-id: general_info
 
+- id: samples
+  title: Sample Rules of Behavior
+  type: module
+  module-id: samples
+
 - id: rob
   title: Rules of Behavior
   type: module
