@@ -18,7 +18,6 @@ catalog:
       Primary GitHub source code repository
     long: |
       Primary GitHub source code repository.
-
 introduction:
   format: markdown
   template: |

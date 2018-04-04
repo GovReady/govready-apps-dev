@@ -52,7 +52,6 @@ questions:
     prompt: |
       Does the repository contain an up-to-date, well-maintained README file?
     type: yesno
-    
 
 output:
   - tab: GitHub Repo
