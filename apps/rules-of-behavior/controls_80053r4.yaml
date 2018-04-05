@@ -1,51 +1,34 @@
-id: app
-title: Rules of Behavior
-type: project
-protocol:
-- govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
-- govready.com/apps/compliance/2017/rules-of-behavior
-version: 0.7
-icon: app.png
-
-catalog:
-  category: Technology
-  vendor: GovReady
-  vendor_url: http://www.govready.com
-  status: draft
-  version: 0.3
-  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
-  description:
-    short: Document organization's Rules of Behavior
-    long: Document organization's Rules of Behavior
+id: controls_80053r4
+title: 800-53r4 Controls
+version: 0.1
 
 introduction:
   format: markdown
-  template: >-
-    Document your organization's Rules of Behavior
+  template: |
+    Related 800-53r4 Controls 
 
-questions:
-- id: general_info
-  title: General Information
-  type: module
-  module-id: general_info
+    Here are your Rule of Behavior control implementation narratives.
 
-- id: rob
-  title: Rules of Behavior
-  type: module
-  module-id: rob
-
-- id: misc
-  title: Miscellaneous Information
-  type: module
-  module-id: misc
-
-- id: controls_80053r4
-  title: 800-53r4 Controls
-  type: module
-  module-id: controls_80053r4
-  placement: action-buttons
+    {% if project.general_info.exists != "yes" %}
+    You said your organization's Rules of Behavior don't exist. When you complete your Rules these narratives will update.
+    {% endif %}
 
 output:
+
+- id: instructions
+  title: instructions
+  format: markdown
+  display: top
+  template: |
+
+    # Related 800-53r4 Controls 
+
+    Here are your Rule of Behavior control implementation narratives.
+
+    {% if project.general_info.exists != "yes" %}
+    You said your organization's Rules of Behavior don't exist. When you complete your Rules these narratives will update.
+    {% endif %}
+
 - id: ssp_nist80053r4_AC_2
   title: NIST 800-53r4 AC-2 Control Implementation
   format: markdown
