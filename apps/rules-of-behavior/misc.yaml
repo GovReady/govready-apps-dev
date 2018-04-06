@@ -20,10 +20,11 @@ output:
   title: What You Chose
   template: |2
 
-    How do new users obtain the Rules of Behavior? {{obtain}}
-
-    Who maintains the completed and signed Rules of Behavior? 
-    {% if maintain == 'other' %} {{maintain_other}} {% else %} {{maintain}} {% endif %}
+    {% if exists_privileged_users == 'yes' %}
+    {{organization}} has different or additional Rules of Behavior for privileged users.
+    {% else %}
+    {{organization}} does not have different or additional Rules of Behavior for privileged users.
+    {% endif %}
 
 questions:
 - id: exists_privileged_users

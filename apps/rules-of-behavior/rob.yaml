@@ -1,21 +1,9 @@
 id: rob
 title: Rules of Behavior
 internal:
-  sources: |
-    The content of this document was prepared from multiple sources, including but not limited to:
-
-    * https://www.ice.gov/doclib/sevis/pdf/behavior-rules.pdf
-    * https://www.dhs.gov/sites/default/files/publications/4300A-Handbook-Attachmentt-G-Rules-of-Behavior_0.pdf
-    * https://www.hhs.gov/about/agencies/asa/ocio/cybersecurity/rules-of-behavior-for-use-of-hhs-information-resources/index.html
-    * https://www.justice.gov/sites/default/files/ust/legacy/2012/07/03/Sample_Rules_of_Behavior_re_Computer_Use.pdf
-    * https://github.com/GovReady/govready-pbc-practices/blob/master/practices/p-0020.md
-    * https://csrc.nist.gov/publications/detail/sp/800-18/rev-1/final
-    * https://a130.cio.gov/appendix3/
-
   snippets:
     - snippet: |
           Don't over think this. Rules of Behavior are just the major Do's and Dont's users and administrators receive and agree to abide by as part of their pre-access training. (The requirement flows from See Section (h) of Appendix III to OMB Circular A-130 and NIST Special Publication (SP) 800-18, Rev. 1 implemented under FISMA.)
-  
 
 introduction:
   format: markdown
@@ -429,29 +417,3 @@ output:
     ## Credits
 
     1. [Acceptable Use Policy, GovReady PBC](https://github.com/GovReady/govready-pbc-practices/blob/master/practices/p-0020.md),  License: Creative Commons ShareAlike
-
-- id: summary
-  format: markdown
-  title: Policy Content Statement for Rules of Behavior for Control PL-4
-  template: |
-    {{organization}} Rules of Behavior (ROB) are described in the document _{{project.general_info.official_name}}_.
-
-    {{applies_to}}
-
-    {% if policy_consistent %}ROB enumerates other policies with which it is consistent.{% endif %}
-
-    ### Passwords and Authentication Rules
-
-    {{password_strength}}
-
-    Authorized password and authentication rules include: 
-    {% for rule in password_rules %}
-    * {{rule.text}}
-
-    {% endfor %}
-
-    Authorized password management tools include: 
-    {% for tool in authorized_password_tools %}
-    * {{tool.text}}
-
-    {% endfor %}
