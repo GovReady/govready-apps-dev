@@ -46,40 +46,27 @@ questions:
   placement: action-buttons
 
 output:
+
 - id: ssp_nist80053r4_AC_2
-  title: NIST 800-53r4 AC-2 Control Implementation
+  title: NIST 800-53r4 AC-2 Account Management
   format: markdown
   template: |
     {% if project.general_info.exists != "yes" %}The following controls will be in place with the completion of the Rules of Behavior.{% endif %}
 
-    The Rules of Behavior {% if project.general_info.exists == "yes" %}describes{% else %}will describe{% endif %} users' responsibilities and expected behavior when using {{organization}} IT resources.
-
-    The Rules of Behavior {% if project.general_info.exists == "yes" %}define{% else %}will define{% endif %} that the system administrator, based on need-to-know, assigns the proper permissions to system users.
-
-    The Rules of Behavior {% if project.general_info.exists == "yes" %}define{% else %}will define{% endif %} that the employee’s manager approves the access rights before the initial account is created by signing off on the forms.
-
-    All users (privileged and program account users) requesting access to the IT System {% if project.general_info.exists == "yes" %}are{% else %}will be{% endif %} required to read the IT System Rules of Behaviors, complete an account request form and sign both documents. User access is controlled by the completion and submission of IT System Rules of Behavior and New User Account Request forms by the user and management. These items {% if project.general_info.exists == "yes" %}are{% else %}will be{% endif %} completed and submitted whenever a new user requires access or an existing user requires access changes.
+    {{project.rob.applies_to}}
 
     {{project.general_info.obtain}}
 
 - id: ssp_nist80053r4_AT_2
-  title: NIST 800-53r4 AT-2 Control Implementation
+  title: NIST 800-53r4 AT-2 Security Awareness Training
   format: markdown
   template: >+
     {% if project.general_info.exists != "yes" %}The following controls will be in place with the completion of the Rules of Behavior.{% endif %}
 
     The Rules of Behavior of the IT System {% if project.general_info.exists == "yes" %}requires{% else %}will require{% endif %} Department personnel and contractor employees involved with the management, operation, programming, maintenance, or use of IT System receive training in acceptable computer security practices prior to system access.
 
-- id: ssp_nist80053r4_SA_7
-  title: NIST 800-53r4 SA-7 Control Implementation
-  format: markdown
-  template: |+
-    {% if project.general_info.exists != "yes" %}The following controls will be in place with the completion of the Rules of Behavior.{% endif %}
-
-    {{organization}} {% if project.general_info.exists == "yes" %}uses{% else %}will use{% endif %} the Rules of Behavior to document and set forth appropriate activities on an information system.
-
 - id: ssp_nist80053r4_MP_1
-  title: NIST 800-53r4 MP-1 Control Implementation
+  title: NIST 800-53r4 MP-1 Media Protection Policy And Procedures
   format: markdown
   template: >+
     {% if project.general_info.exists != "yes" %}The following controls will be in place with the completion of the Rules of Behavior.{% endif %}
@@ -87,25 +74,73 @@ output:
     Media protection policy and procedures {% if project.general_info.exists == "yes" %}are{% else %}will be{% endif %} documented in System Security Plan and the IT System Rules of Behavior. These documents provide the roles and responsibilities for media protection policies and procedures as it pertains to clearing, sanitization, disposal, and storage of media.
 
 - id: ssp_nist80053r4_PL_4
-  title: NIST 800-53r4 PL-4 Control Implementation
+  title: NIST 800-53r4 PL-4 Rules of Behavior
   format: markdown
   template: >+
-    {% if project.general_info.exists != "yes" %}The following controls will be in place with the completion of the Rules of Behavior.{% endif %}
+    {% if project.general_info.exists == 'yes' %}
 
-    All users (privileged and program account users) requesting access to the IT System {% if project.general_info.exists == "yes" %}are{% else %}will be{% endif %} required to read and sign the IT System's Rules of Behaviors. The Rules of Behavior describe the user’s responsibilities and expected behavior when using the IT System.
+    {{project.general_info.organization}} implements Control PL-4 with its Rules of Behavior document
+    officially titled _{{project.general_info.official_name}}_.
+    The Rules of Behavior describes users' responsibilities and expected behavior when using {{organization}} IT resources.
+    {{project.rob.applies_to}}
+
+    The Rules of Behavior doucement is maintained as a {{project.general_info.source_repo.text}}. {{project.general_info.source_repo_identifier}}
+
+    The {{project.general_info.role_owner}} maintains the Rules of Behavior and reviews
+    the Rules of Behavior {{project.general_info.review_frequency.text}}. 
+
+    
+    {{project.general_info.obtain}}
+
+    {% if project.general_info.source_public == 'yes' %}
+    The Rules of Behavior is available publicly online at [{{project.general_info.source_public_url}}]({{project.general_info.source_public_url}}).
+    {% else %}
+    The Rules of Behavior is not available publicly online.
+    {% endif %}
+
+    {% else %}
+
+    {{project.general_info.organization}} will implement Control PL-4 with Rules of Behavior document
+    officially titled _{{project.general_info.official_name}}_.
+    The Rules of Behavior will describe users' responsibilities and expected behavior when using {{organization}} IT resources.
+    {{project.rob.applies_to}}
+
+    The Rules of Behavior doucement will be maintained as a {{project.general_info.source_repo.text}}. {{project.general_info.source_repo_identifier}}
+
+    The {{project.general_info.role_owner}} will maintain the Rules of Behavior and review
+    them {{project.general_info.review_frequency.text}}. 
+
+
+    {{project.general_info.obtain}}
+
+    {% if project.general_info.source_public == 'yes' %}
+    The Rules of Behavior will be available publicly online at [{{project.general_info.source_public_url}}]({{project.general_info.source_public_url}}).
+    {% else %}
+    The Rules of Behavior will not be available publicly online.
+    {% endif %}
+
+    {% endif %}
 
 - id: ssp_nist80053r4_PS_6
-  title: NIST 800-53r4 PS-6 Control Implementation
+  title: NIST 800-53r4 PS-6 Access Agreements
   format: markdown
   template: >+
     {% if project.general_info.exists != "yes" %}The following controls will be in place with the completion of the Rules of Behavior.{% endif %}
 
-    The Department {% if project.general_info.exists == "yes" %}has implemented{% else %}will implement{% endif %} a formalized process for user account administration which requires all new users requesting access to the IT System read and agree to the Rules of Behavior.
+    The Department {% if project.general_info.exists == "yes" %}has implemented{% else %}will implement{% endif %} a formalized process for user account administration which requires applicable personnel requesting access to organization IT resources read and agree to the Rules of Behavior found in the document officially titled _{{project.general_info.official_name}}_.
 
 - id: ssp_nist80053r4_PS_7
-  title: NIST 800-53r4 PS-7 Control Implementation
+  title: NIST 800-53r4 PS-7 Third-Party Personnel Security
   format: markdown
   template: >+
     {% if project.general_info.exists != "yes" %}The following controls will be in place with the completion of the Rules of Behavior.{% endif %}
 
-    All contractor support personnel are required to meet the same personnel security policy requirements as Department personnel who have privileged access to the IT System. Third party providers {% if project.general_info.exists == "yes" %}are required{% else %}will be required{% endif %} to review and sign the Rules of Behavior prior to being granted access to the system.
+    All contractor support personnel are required to meet the same personnel security policy requirements as {{organization}} personnel who have privileged access to the IT System. Third party providers {% if project.general_info.exists == "yes" %}are required{% else %}will be required{% endif %} to review and sign the Rules of Behavior found in the document officially titled _{{project.general_info.official_name}}_ prior to being granted access to the system.
+
+- id: ssp_nist80053r4_SA_7
+  title: NIST 800-53r4 SA-7 User-Installed Software
+  format: markdown
+  template: |+
+    {% if project.general_info.exists != "yes" %}The following controls will be in place with the completion of the Rules of Behavior.{% endif %}
+
+    {{organization}} {% if project.general_info.exists == "yes" %}uses{% else %}will use{% endif %} the Rules of Behavior (officially titled _{{project.general_info.official_name}}_) to document and set forth appropriate activities on an information system.

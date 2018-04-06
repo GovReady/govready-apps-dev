@@ -1644,7 +1644,7 @@ output:
         {% endfor %}
     {# END COMPONENTS #}
 
-    <h3>PS-7</h3>
+    <h3>PS-7: Third-Party Personnel Security</h3>
 
     {# BEGIN COMPONENTS #}
         {% for question, answer in project.questions %}
@@ -1654,7 +1654,7 @@ output:
         {% endfor %}
     {# END COMPONENTS #}
 
-    <h3>SA -7</h3>
+    <h3>SA-7: User-Installed Software</h3>
 
     {# BEGIN COMPONENTS #}
         {% for question, answer in project.questions %}
