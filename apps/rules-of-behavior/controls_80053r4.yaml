@@ -61,7 +61,7 @@ output:
   template: >+
     {% if project.general_info.exists == 'yes' %}
 
-    {{project.general_info.organization}} implements Control PL-4 with its Rules of Behavior document
+    {{organization}} implements Control PL-4 with its Rules of Behavior document
     officially titled _{{project.general_info.official_name}}_.
     The Rules of Behavior describes users' responsibilities and expected behavior when using {{organization}} IT resources.
     {{project.rob.applies_to}}
@@ -82,7 +82,7 @@ output:
 
     {% else %}
 
-    {{project.general_info.organization}} will implement Control PL-4 with Rules of Behavior document
+    {{organization}} will implement Control PL-4 with Rules of Behavior document
     officially titled _{{project.general_info.official_name}}_.
     The Rules of Behavior will describe users' responsibilities and expected behavior when using {{organization}} IT resources.
     {{project.rob.applies_to}}
