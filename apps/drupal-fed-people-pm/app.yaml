@@ -71,3 +71,13 @@ output:
         The Project Manager for the system is {{poc.q1_name}} ({{poc.q5_email}}).
 
       {% endif %}
+tests:
+  simple:
+    answers:
+      poc:
+        answers:
+          q1_name: Jane Johnson
+          q3_ev: employee
+          q5_email: jane@example.com
+          q6_work_phone: "202-555-0000"
+          q7_mobile_phone: "202-555-0001"
