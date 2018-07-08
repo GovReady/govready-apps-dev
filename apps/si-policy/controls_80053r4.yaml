@@ -67,8 +67,6 @@ output:
     them {{project.general_info.review_frequency.text}}. 
 
 
-    {{project.general_info.obtain}}
-
     {% if project.general_info.source_public == 'yes' %}
     The System and Information Integrity Policy and Procedures will be available publicly online at [{{project.general_info.source_public_url}}]({{project.general_info.source_public_url}}).
     {% else %}

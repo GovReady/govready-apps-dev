@@ -75,8 +75,8 @@ output:
 
 questions:
 - id: exists
-  title: Does your organization already have System and Information Integrity Policy?
-  prompt: Does your organization already have System and Information Integrity Policy?
+  title: Does your organization already have a System and Information Integrity Policy?
+  prompt: Does your organization already have a System and Information Integrity Policy?
   help: |
     Hint: Your System and Information Integrity Policy document may called something else.
   type: yesno
@@ -87,7 +87,7 @@ questions:
 
     Tip! Capture your intentions.
 
-    No System and Information Integrity Policy? No worries! Answer the following questions for the System and Information Integrity Policy your organization _will_ create.
+    No worries! Answer the following questions for the System and Information Integrity Policy your organization _will_ create.
 
     We'll help you create a System and Information Integrity Policy later on.
 
@@ -201,7 +201,6 @@ questions:
 
     Excellent! You've answered questions regarding how your organization maintains the System and Information Integrity Policy file.
 
-    Let's next find out how your users agree to the System and Information Integrity Policy and related recordkeeping.
   type: interstitial
 
 # - id: obtain
