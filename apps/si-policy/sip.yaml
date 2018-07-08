@@ -1,19 +1,19 @@
 id: sip
-title: Security and Information Integrity Policy
+title: System and Information Integrity Policy
 internal:
   snippets:
     - snippet: |
-          Security and Information Integrity Policy describes the major activities the organization does to insure system and information integrity and who is responsible for those activities.
+          System and Information Integrity Policy describes the major activities the organization does to insure system and information integrity and who is responsible for those activities.
 
 introduction:
   format: markdown
   template: |
-    Security and Information Integrity Policy 
+    System and Information Integrity Policy 
 
     In this module, we'll ask you to describe the overall activities your organization systematically takes to protect the integrity of its IT systems and information. 
 
     {% if project.general_info.exists == "no" %}
-    You said your organization's Security and Information Integrity Policy don't exist. We'll draft a version from your answers to these questions.
+    You said your organization's System and Information Integrity Policy don't exist. We'll draft a version from your answers to these questions.
     {% endif %}
     
     This information will {% if project.general_info.exists == "no" %}also{% endif %} be used to describe the essense of your rules in your compliance documentation for auditors.
@@ -27,7 +27,7 @@ introduction:
 
 questions:
 - id: applies_to
-  title: To whom do your organizational Security and Information Integrity Policy apply?
+  title: To whom do your organizational System and Information Integrity Policy apply?
   prompt: |
     To whom {% if project.general_info.exists == 'yes' %}do{% else %}will{% endif %} your organizational Rules of Behavior apply?
 

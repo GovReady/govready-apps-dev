@@ -15,13 +15,13 @@ catalog:
   version: 0.3
   source_url: https://github.com/GovReady/govready-apps-dev/tree/published/apps/si-policy
   description:
-    short: Document organization's Rules of Behavior
-    long: Document organization's Rules of Behavior
+    short: Document organization's System and Information Integrity Policy and Procedures
+    long: Document organization's System and Information Integrity Policy and Procedures
 
 introduction:
   format: markdown
   template: >-
-    Document your organization's Rules of Behavior
+    Document your organization's System and Information Integrity Policy and Procedures
 
 questions:
 - id: general_info
@@ -47,6 +47,9 @@ questions:
 
 output:
 
+- id: ssp_nist80053r4_SI-1
+  title: NIST 800-53r4 SI-1 System and Information Integrity Policy and Procedures
+  format: markdown
   template: >+
     {% if project.general_info.exists == 'yes' %}
 
@@ -91,3 +94,5 @@ output:
     {% endif %}
 
     {% endif %}
+
+    
