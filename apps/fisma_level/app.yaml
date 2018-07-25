@@ -82,7 +82,7 @@ output:
   - id: ssp_template
     format: markdown
     template: |
-      {% if not fisma_level.fisma_level.text %}
+      {% if not fisma_level.fisma_level %}
         The team is currently working on determining the system impact level.
 
       {% else %}

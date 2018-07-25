@@ -25,10 +25,10 @@ output:
 
     <h2>System Categorization</h2>
 
-    {% if not project.fisma_system_categorization %}
+    {% if not project.system_categorization %}
       The system impact level has not yet been determined.
     {% else %}
-      {{project.fisma_system_categorization.output_documents.ssp_template|safe}}
+      {{project.system_categorization.output_documents.ssp_template|safe}}
     {% endif %}
 
 
