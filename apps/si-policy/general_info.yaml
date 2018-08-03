@@ -203,45 +203,45 @@ questions:
 
   type: interstitial
 
-# - id: obtain
-#   title: How do new users obtain the System and Information Integrity Policy?
-#   prompt: |
-#     How {% if exists == 'yes' %}do{% else %}will{% endif %} new users obtain the System and Information Integrity Policy?
+- id: obtain
+  title: How do new users obtain the System and Information Integrity Policy?
+  prompt: |
+    How {% if exists == 'yes' %}do{% else %}will{% endif %} new users obtain the System and Information Integrity Policy?
 
-#     Users should receive and agree to your organization's System and Information Integrity Policy before getting access to its
-#     information technology.
+    Users should receive and agree to your organization's System and Information Integrity Policy before getting access to its
+    information technology.
     
-#     In your own words, share the process your org {% if exists == 'yes' %}uses{% else %}will use{% endif %} to ensure this happens.
+    In your own words, share the process your org {% if exists == 'yes' %}uses{% else %}will use{% endif %} to ensure this happens.
 
-#   type: longtext
-#   examples:
-#   - example: |
-#       New system users receive the organization System and Information Integrity Policy from the organization's System Security Team as part of their onboarding documents.
-#   - example: |
-#       The Information Systems Security Officer (ISSO) shall ensure that a user reads, accepts, and signs the general System and Information Integrity Policy and all system-specific System and Information Integrity Policy pertaining to systems to which that user will be given access; the rules must be signed before the user is given access. The signed System and Information Integrity Policy may be filed either in the employee’s Official Personnel Folder (OPF) or in the employee’s personnel file.
+  type: longtext
+  examples:
+  - example: |
+      New system users receive the organization System and Information Integrity Policy from the organization's System Security Team as part of their onboarding documents.
+  - example: |
+      The Information Systems Security Officer (ISSO) shall ensure that a user reads, accepts, and signs the general System and Information Integrity Policy and all system-specific System and Information Integrity Policy pertaining to systems to which that user will be given access; the rules must be signed before the user is given access. The signed System and Information Integrity Policy may be filed either in the employee’s Official Personnel Folder (OPF) or in the employee’s personnel file.
 
-# - id: maintain
-#   title: Who maintains the completed and signed System and Information Integrity Policy?
-#   prompt: |
-#     Who {% if exists == 'yes' %}maintains{% else %}will maintain{% endif %} the completed and signed System and Information Integrity Policy?
-#   type: choice
-#   choices:
-#   - key: org_security_team
-#     text: Organization Security Team
-#   - key: system_security_team
-#     text: System Security Team
-#   - key: isso
-#     text: Information System Security Officer
-#   - key: hr
-#     text: Human Resources
-#   - key: other
-#     text: Other
-# - id: maintain_other
-#   title: Who is the "Other" party who maintains the completed and signed Rules of
-#     Behavior?
-#   prompt: Who is the "Other" party who maintains the completed and signed Rules of
-#     Behavior?
-#   type: text
-#   impute:
-#   - condition: maintain != "other"
-#     value: ~
+- id: maintain
+  title: Who maintains the completed and signed System and Information Integrity Policy?
+  prompt: |
+    Who {% if exists == 'yes' %}maintains{% else %}will maintain{% endif %} the completed and signed System and Information Integrity Policy?
+  type: choice
+  choices:
+  - key: org_security_team
+    text: Organization Security Team
+  - key: system_security_team
+    text: System Security Team
+  - key: isso
+    text: Information System Security Officer
+  - key: hr
+    text: Human Resources
+  - key: other
+    text: Other
+- id: maintain_other
+  title: Who is the "Other" party who maintains the completed and signed Rules of
+    Behavior?
+  prompt: Who is the "Other" party who maintains the completed and signed Rules of
+    Behavior?
+  type: text
+  impute:
+  - condition: maintain != "other"
+    value: ~
