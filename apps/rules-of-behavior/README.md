@@ -2,7 +2,7 @@
 
 ## About
 
-Documents FISMA requires Rules of Behavior Rules describing the "responsibilities and expected behavior"
+Documents FISMA required Rules of Behavior Rules describing the "responsibilities and expected behavior"
 of users and administrators of your organization's information systems and devices.
 
 Gather general information about your Rules of Behavior: who manages it, how users agree to it, and recordkeeping.

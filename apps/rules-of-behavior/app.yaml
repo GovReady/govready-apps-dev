@@ -4,7 +4,7 @@ type: project
 protocol:
 - govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
 - govready.com/apps/compliance/2017/rules-of-behavior
-version: 0.7
+version: 0.7.1
 icon: app.png
 
 catalog:
@@ -13,7 +13,7 @@ catalog:
   vendor_url: http://www.govready.com
   status: draft
   version: 0.3
-  source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
+  source_url: https://github.com/GovReady/govready-apps-dev/tree/published/apps/rules-of-behavior
   description:
     short: Document organization's Rules of Behavior
     long: Document organization's Rules of Behavior
