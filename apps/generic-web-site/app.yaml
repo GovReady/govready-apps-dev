@@ -128,12 +128,19 @@ questions:
   protocol: fed_poc_ao
   icon: person-3.png
   group: People
+
 # Policy
 - id: sm_policy_privacy
   title: Privacy Policy
   type: module
   protocol: sm_policy_privacy
   group: Policy
+- id: rules_of_behavior
+  title: Rules of Behavior
+  type: module
+  protocol: govready.com/apps/compliance/2017/rules-of-behavior
+  group: Policy
+
 # Artifacts
 - id: ssp
   title: View SSP
