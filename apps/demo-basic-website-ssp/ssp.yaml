@@ -23,13 +23,105 @@ output:
         .notice {color: red; font-size:3.0em; text-align:center; transform: scaleY(.85); font-weight: bold;}
     </style>
 
-    <h2>System Categorization</h2>
+
+    <style type="text/css" scoped>
+      h2 { border-bottom:1px solid #888; }
+      h3 { border-bottom:0.5px solid #aaa; }
+      h4 { font-weight:bold; font-size:0.9em; }
+      blockquote { color: #666; font-size:0.8em;}
+      .notice {color: red; font-size:3.0em; text-align:center; transform: scaleY(.85);
+      font-weight: bold;}
+      table, th, td { border: 1px solid #888; }
+      th, td { padding: 15px; text-align: left;}
+    </style>
+
+    {% if project.file_server and project.file_server.file_server.port_scan_ok == 'yes' %}
+    <h2 style="position: fixed;background-color: #4B0;color: white;margin-left: -15px;padding: .5em;">COMPLIANCE CHECKS PASSED.</h2>
+    {% endif %}
+    {% if project.file_server and project.file_server.file_server.port_scan_ok == 'no' %}
+    <h2 style="position: fixed;background-color: #D44;color: white;margin-left: -15px;padding: .5em;">COMPLIANCE ISSUE IDENTIFIED. PLEASE REVIEW PORT SCAN.</h2>
+    {% endif %}
+
+    <center>
+
+    FOR OFFICIAL USE ONLY
+
+    {{organization}} System
+    System Security Plan (SSP)
+
+    <table border='3' width="400">
+    <tr><td>
+    <p>This document contains {{organization}} Sensitive Material
+    and is exempted from release under the Freedom of Information Act
+    by Exemption b(2).</p>
+    </tr></td>
+    </table> 
+
+    </center>
+
+
+    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+
+    {# BEGIN COMPONENTS #}
+        {% for question, answer in project.questions %}
+                {% if "protocol" in question and "govready.com/apps/compliance/2017/change-history" in question.protocol and answer and 'change_history' in answer.output_documents %}
+                   {{answer.output_documents.change_history|safe}}
+                {% endif %}
+        {% endfor %}
+    {# END COMPONENTS #}
+
+
+
+    # Table of Contents
+
+    <center>TOC GOES HERE</center>
+
+
+    # SYSTEM IDENTIFICATION
+
+    ## System Name and Identifier
+
+    *System Name* - {{project.system_profile.output_documents.ssp_system_name|safe}} ({{organization}})
+    
+
+    *Identifier* - XXX-XX-XX-XX-XX-XXXX-00
+
+    ## Responsible Organization
+
+    The responsible organization for the {{organization}} is:
+
+    <center>
+    <table>
+        <tr>
+            <td>{{organization}}</td>
+        </tr>
+    </table>
+    </center>
+
+    ## System FIPS 199 Categorization
 
     {% if not project.fisma_system_categorization %}
-      The system impact level has not yet been determined.
+      This web site resides within the {{organization}} accreditation boundary. A FIPS 199 system categorization has not yet been determined.
     {% else %}
-      {{project.fisma_system_categorization.output_documents.ssp_template|safe}}
+      This web site resides within the {{organization}} accreditation boundary.
+
+      <!--{{project.fisma_system_categorization.output_documents.ssp_template|safe}}-->
     {% endif %}
+
+    ## System Operational Status
+
+    As defined in NIST SP 800-64, Security Considerations in the System Development Life Cycle, the {{organization}} Sites described herein are in the implementation/assessment phase of the System Development Life Cycle (SDLC).
+
+
+    {# BEGIN COMPONENTS #}
+        {% for question, answer in project.questions %}
+                {% if "protocol" in question and "govready.com/apps/compliance/2018/basic-system-description" in question.protocol and answer and 'system_description' in answer.output_documents %}
+                   {{answer.output_documents.system_description|safe}}
+                {% endif %}
+        {% endfor %}
+    {# END COMPONENTS #}
 
 
     <h2>Web Server</h2>
@@ -42,12 +134,6 @@ output:
 
     <h2>Points of Contact</h2>
 
-    {% if not project.fed_poc_ciso %}
-      There will be a CISO.
-    {% else %}
-      {{project.fed_poc_ciso.output_documents.ssp_template|safe}}
-    {% endif %}
-
     {% if not project.fed_poc_isso %}
       There will be a ISSO.
     {% else %}
@@ -59,35 +145,6 @@ output:
     {% else %}
       {{project.fed_poc_issm.output_documents.ssp_template|safe}}
     {% endif %}
-
-    {% if not project.fed_poc_developer %}
-      There will be a Developer.
-    {% else %}
-      {{project.fed_poc_developer.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    {% if not project.fed_poc_pm %}
-      There will be a Project Manager.
-    {% else %}
-      {{project.fed_poc_pm.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    {% if not project.fed_poc_ao %}
-      There will be a Authorizing Official.
-    {% else %}
-      {{project.fed_poc_ao.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    <h2>Polices</h2>
-
-    {% if not project.sm_policy_privacy %}
-      The web site will have a privacy policy
-    {% else %}
-      {{project.sm_policy_privacy.output_documents.ssp_template|safe}}
-    {% endif %}
-
-
-
 
     <h2>AC-10</h2>
     {% if not project.infrastructure %}

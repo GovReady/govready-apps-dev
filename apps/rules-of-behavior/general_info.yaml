@@ -77,7 +77,7 @@ output:
 
 questions:
 - id: exists
-  title: Does your organization's already have Rules of Behavior for using IT resources?
+  title: Does your organization already have Rules of Behavior for using IT resources?
   prompt: Does your organization already have Rules of Behavior for using IT resources?
   help: |
     Hint: Your Rules of Behavior document may called something else.
