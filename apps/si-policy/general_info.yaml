@@ -1,0 +1,247 @@
+id: general_info
+title: General Information
+introduction:
+  format: markdown
+  template: |
+    FISMA compliance requires System and Information Integrity Policy and Procedures 
+
+    FISMA requires System and Information Integrity Policy and Procedures describing the major activities your organization does to insure system and information integrity and who is responsible for those activities.
+
+    System and Information Integrity Policy and Procedures are generally established at the organizational level. 
+
+    In this module, we will gather general information about your System and Information Integrity Policy and Procedures: who manages it, where the authoritative policy exists, and major activities pursued.
+
+output:
+
+- id: instructions
+  title: instructions
+  format: markdown
+  display: top
+  template: |
+
+    # System and Information Integrity Policy and Procedures General Information Complete 
+
+    Nice job! We have enough information to start drafting your related controls.
+
+    You can see your answers and the most pertinent text below. 
+
+- id: ssp_nist80053r4_SI-1
+  title: NIST 800-53r4 SI-1 System and Information Integrity Policy and Procedures (Partial)
+  format: markdown
+  template: >+
+    {% if project.general_info.exists == 'yes' %}
+
+    {{organization}} implements Control SI-4 with its System and Information Integrity Policy document
+    officially titled _{{project.general_info.official_name}}_.
+    The System and Information Integrity Policy and Procedures describes {{organization}}'s overall committment and approach to IT system and information integrity.
+
+    The System and Information Integrity Policy and Procedures document is maintained as a {{project.general_info.source_repo.text}}. {{project.general_info.source_repo_identifier}}
+
+    The {{project.general_info.role_owner}} maintains the System and Information Integrity Policy and reviews
+    the System and Information Integrity Policy and Procedures {{project.general_info.review_frequency.text}}. 
+
+    
+    {{project.general_info.obtain}}
+
+    {% if project.general_info.source_public == 'yes' %}
+    The System and Information Integrity Policy and Procedures is available publicly online at [{{project.general_info.source_public_url}}]({{project.general_info.source_public_url}}).
+    {% else %}
+    The System and Information Integrity Policy and Procedures is not available publicly online.
+    {% endif %}
+
+    {% else %}
+
+    {{organization}} will implement Control SI-4 with System and Information Integrity Policy and Procedures document
+    officially titled _{{project.general_info.official_name}}_.
+    The System and Information Integrity Policy and Procedures describes {{organization}}'s overall committment and approach to IT system and information integrity.
+    {{project.rob.applies_to}}
+
+    The System and Information Integrity Policy and Procedures document will be maintained as a {{project.general_info.source_repo.text}}. {{project.general_info.source_repo_identifier}}
+
+    The {{project.general_info.role_owner}} will maintain the System and Information Integrity Policy and Procedures and review
+    them {{project.general_info.review_frequency.text}}. 
+
+
+    {{project.general_info.obtain}}
+
+    {% if project.general_info.source_public == 'yes' %}
+    The System and Information Integrity Policy and Procedures will be available publicly online at [{{project.general_info.source_public_url}}]({{project.general_info.source_public_url}}).
+    {% else %}
+    The System and Information Integrity Policy and Procedures will not be available publicly online.
+    {% endif %}
+
+    {% endif %}
+
+
+questions:
+- id: exists
+  title: Does your organization already have a System and Information Integrity Policy?
+  prompt: Does your organization already have a System and Information Integrity Policy?
+  help: |
+    Hint: Your System and Information Integrity Policy document may called something else.
+  type: yesno
+
+- id: exists_interstitial
+  title: Tip! Capture your intentions.
+  prompt: |
+
+    Tip! Capture your intentions.
+
+    No worries! Answer the following questions for the System and Information Integrity Policy your organization _will_ create.
+
+    We'll help you create a System and Information Integrity Policy later on.
+
+  type: interstitial
+  impute:
+  - condition: exists == "yes"
+    value: ~
+
+- id: official_name
+  title: What is the official name of your organization's System and Information Integrity Policy document?
+  prompt: |
+    What {% if exists == 'yes' %}is{% else %}will be{% endif %} the official name of your organization's System and Information Integrity Policy document?
+
+    Common titles are "SI Policy", "Employee IT Manual", or "System and Information Integrity Policy"
+  type: text
+
+- id: source_public
+  title: Do you publish your System and Information Integrity Policy publicly online?
+  prompt: |
+    {% if exists == 'yes' %}Do{% else %}Will{% endif %} you publish your System and Information Integrity Policy publicly online?
+  type: yesno
+
+- id: source_public_url
+  title: What is the URL for the publicly available System and Information Integrity Policy? 
+  prompt: |
+    What {% if exists == 'yes' %}is{% else %}will be{% endif %} the URL for the publicly available System and Information Integrity Policy?
+
+    {% if exists == 'no' %}Skip this question if you do not know.{% endif %} 
+  type: url
+  impute:
+  - condition: source_public == "no"
+    value: ~
+
+- id: source_repo
+  title: Where does your organization maintain the System and Information Integrity Policy file for editing?
+  prompt: |
+    Where {% if exists == 'yes' %}does{% else %}will{% endif %} your organization maintain the System and Information Integrity Policy file for editing?
+  type: choice
+  choices:
+  - key: workstation_file
+    text: workstation file
+  - key: network_file
+    text: network file
+  - key: sharepoint_file
+    text: Sharepoint file
+  - key: other_internal_cms
+    text: internal CMS
+  - key: office_365_file
+    text: Office 365 file
+  - key: google_docs_file
+    text: Google Docs file
+  - key: box_file
+    text: Box
+  - key: dropbox_file
+    text: Dropbox file
+  - key: github_file
+    text: GitHub file
+  - key: gitlab_file
+    text: GitLab file
+  - key: external_filesharing
+    text: external filesharing file
+  - key: other
+    text: other
+
+- id: source_repo_other
+  title: Describe the "Other" location where your organization stores the authoritative System and Information Integrity Policy?
+  prompt: |
+    Describe the "Other" location where your organization {% if exists == 'yes' %}stores{% else %}will store{% endif %} the authoritative System and Information Integrity Policy?
+  type: text
+  impute:
+  - condition: source_repo != "other"
+    value: ~
+
+- id: source_repo_identifier
+  title: Describe in a sentence where your organization maintains the System and Information Integrity Policy file for editing   
+  prompt: |
+    Describe in a sentence where your organization {% if exists == 'yes' %}maintains{% else %}will maintain{% endif %} the System and Information Integrity Policy {{source_repo.text}} for editing
+  examples:
+  - example: |
+      The System and Information Integrity Policy authoritative {{source_repo.text}} is maintained on the Security Team's file share at '/path/to/si-policy.docx'.
+  type: longtext
+
+- id: role_owner
+  title: What organizational role is responsible for maintaining the content of the System and Information Integrity Policy?
+  prompt: |
+    What organizational role {% if exists == 'yes' %}does{% else %}will be{% endif %} responsible for maintaining the content of the System and Information Integrity Policy?
+
+    Common responsible roles are: CISO, Security Team, CIO, Chief Security Executive, ISSO, etc.   
+  type: text
+
+- id: review_frequency
+  title: How frequently does your organization review the System and Information Integrity Policy for possible updates?
+  prompt: |
+    How frequently {% if exists == 'yes' %}does{% else %}will{% endif %} your organization review the System and Information Integrity Policy for possible updates?
+  type: choice
+  choices:
+    - key: as_needed
+      text: As needed
+    - key: quarterly
+      text: Quarterly
+    - key: semi-annually
+      text: Semi-annually
+    - key: annually
+      text: Annually
+
+- id: obtain_interstitial
+  title: System and Information Integrity Policy document management completed
+  prompt: |
+
+    System and Information Integrity Policy document management completed.
+
+    Excellent! You've answered questions regarding how your organization maintains the System and Information Integrity Policy file.
+
+  type: interstitial
+
+- id: obtain
+  title: How do new users obtain the System and Information Integrity Policy?
+  prompt: |
+    How {% if exists == 'yes' %}do{% else %}will{% endif %} new users obtain the System and Information Integrity Policy?
+
+    Users should receive and agree to your organization's System and Information Integrity Policy before getting access to its
+    information technology.
+    
+    In your own words, share the process your org {% if exists == 'yes' %}uses{% else %}will use{% endif %} to ensure this happens.
+
+  type: longtext
+  examples:
+  - example: |
+      New system users receive the organization System and Information Integrity Policy from the organization's System Security Team as part of their onboarding documents.
+  - example: |
+      The Information Systems Security Officer (ISSO) shall ensure that a user reads, accepts, and signs the general System and Information Integrity Policy and all system-specific System and Information Integrity Policy pertaining to systems to which that user will be given access; the rules must be signed before the user is given access. The signed System and Information Integrity Policy may be filed either in the employee’s Official Personnel Folder (OPF) or in the employee’s personnel file.
+
+- id: maintain
+  title: Who maintains the completed and signed System and Information Integrity Policy?
+  prompt: |
+    Who {% if exists == 'yes' %}maintains{% else %}will maintain{% endif %} the completed and signed System and Information Integrity Policy?
+  type: choice
+  choices:
+  - key: org_security_team
+    text: Organization Security Team
+  - key: system_security_team
+    text: System Security Team
+  - key: isso
+    text: Information System Security Officer
+  - key: hr
+    text: Human Resources
+  - key: other
+    text: Other
+- id: maintain_other
+  title: Who is the "Other" party who maintains the completed and signed Rules of
+    Behavior?
+  prompt: Who is the "Other" party who maintains the completed and signed Rules of
+    Behavior?
+  type: text
+  impute:
+  - condition: maintain != "other"
+    value: ~

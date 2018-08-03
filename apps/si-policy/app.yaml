@@ -1,0 +1,95 @@
+id: app
+title: System and Information Integrity Policy and Procedures
+type: project
+protocol:
+- govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp
+- govready.com/apps/compliance/2018/si-policy
+version: 0.7
+icon: app.png
+
+catalog:
+  category: Technology
+  vendor: GovReady
+  vendor_url: http://www.govready.com
+  status: draft
+  version: 0.3
+  source_url: https://github.com/GovReady/govready-apps-dev/tree/published/apps/si-policy
+  description:
+    short: Document organization's System and Information Integrity Policy and Procedures
+    long: Document organization's System and Information Integrity Policy and Procedures
+
+introduction:
+  format: markdown
+  template: >-
+    Document your organization's System and Information Integrity Policy and Procedures
+
+questions:
+- id: general_info
+  title: General Information
+  type: module
+  module-id: general_info
+
+- id: sip
+  title: System and Information Integrity Policy and Procedures
+  type: module
+  module-id: sip
+
+- id: misc
+  title: Miscellaneous Information
+  type: module
+  module-id: misc
+
+- id: controls_80053r4
+  title: 800-53r4 Controls
+  type: module
+  module-id: controls_80053r4
+  placement: action-buttons
+
+output:
+
+- id: ssp_nist80053r4_SI-1
+  title: NIST 800-53r4 SI-1 System and Information Integrity Policy and Procedures
+  format: markdown
+  template: >+
+    {% if project.general_info.exists == 'yes' %}
+
+    {{project.general_info.organization}} implements Control SI-1 with its System and Information Integrity Policy and Procedures document
+    officially titled _{{project.general_info.official_name}}_.
+    The System and Information Integrity Policy and Procedures describes {{organization}}'s overall committment and approach to IT system and information integrity.
+    {{project.sip.applies_to}}
+
+    The System and Information Integrity Policy and Procedures document is maintained as a {{project.general_info.source_repo.text}}. {{project.general_info.source_repo_identifier}}
+
+    The {{project.general_info.role_owner}} maintains the System and Information Integrity Policy and Procedures and reviews
+    the System and Information Integrity Policy and Procedures {{project.general_info.review_frequency.text}}. 
+
+    
+    {{project.general_info.obtain}}
+
+    {% if project.general_info.source_public == 'yes' %}
+    The System and Information Integrity Policy and Procedures is available publicly online at [{{project.general_info.source_public_url}}]({{project.general_info.source_public_url}}).
+    {% else %}
+    The System and Information Integrity Policy and Procedures is not available publicly online.
+    {% endif %}
+
+    {% else %}
+
+    {{project.general_info.organization}} will implement Control SI-1 with System and Information Integrity Policy and Procedures document
+    officially titled _{{project.general_info.official_name}}_.
+    The System and Information Integrity Policy and Procedures describes {{organization}}'s overall committment and approach to IT system and information integrity.
+    {{project.sip.applies_to}}
+
+    The System and Information Integrity Policy and Procedures document will be maintained as a {{project.general_info.source_repo.text}}. {{project.general_info.source_repo_identifier}}
+
+    The {{project.general_info.role_owner}} will maintain the System and Information Integrity Policy and Procedures and review
+    them {{project.general_info.review_frequency.text}}. 
+
+    {% if project.general_info.source_public == 'yes' %}
+    The System and Information Integrity Policy and Procedures will be available publicly online at [{{project.general_info.source_public_url}}]({{project.general_info.source_public_url}}).
+    {% else %}
+    The System and Information Integrity Policy and Procedures will not be available publicly online.
+    {% endif %}
+
+    {% endif %}
+
+    

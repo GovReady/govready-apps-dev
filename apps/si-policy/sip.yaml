@@ -1,0 +1,431 @@
+id: sip
+title: System and Information Integrity Policy
+internal:
+  snippets:
+    - snippet: |
+          System and Information Integrity Policy describes the major activities the organization does to insure system and information integrity and who is responsible for those activities.
+
+introduction:
+  format: markdown
+  template: |
+    System and Information Integrity Policy 
+
+    In this module, we'll ask you to describe the overall activities your organization systematically takes to protect the integrity of its IT systems and information. 
+
+    {% if project.general_info.exists == "no" %}
+    You said your organization's System and Information Integrity Policy doesn't exist. We'll draft a version from your answers to these questions.
+    {% endif %}
+    
+    This information will {% if project.general_info.exists == "no" %}also{% endif %} be used to describe the essense of your SI Policy in your compliance documentation for auditors.
+
+    <!--
+    ## References
+    1. Section (h) of Appendix III to OMB Circular A-130 
+    1. NIST Special Publication (SP) 800-18, Rev. 1, Section 1.8
+    -->
+    <!--nice to add popup graphic of example rules from 800-18-->
+
+# Applicability
+
+questions:
+- id: applies_to
+  title: To whom do your organizational System and Information Integrity Policy apply?
+  prompt: |
+    To whom {% if project.general_info.exists == 'yes' %}do{% else %}will{% endif %} your organizational Rules of Behavior apply?
+
+
+  examples:
+  - example: |
+      {{organization}}'s System and Information Integrity Policy apply to all {{organization}} employees and support contractors who develop, maintain, operate, or protect {{organization}} IT systems and data.
+  
+      All {{organization}} employees and contractors are subject to these policies as required by
+      contract, regulation or law.
+  type: longtext
+
+# Policy Consistency
+
+- id: policy_consistent
+  title: Briefly describe or list any laws or policies with which your System and Information Integrity Policy are consistent
+  prompt: |
+    Briefly describe or list any laws or policies with which your System and Information Integrity Policy {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} consistent
+
+  examples:
+  - example: |
+      These System and Information Integrity Policy are consistent with IT security policy and procedures given in DHS Management Directive 140-1, "Information Technology Systems Security," DHS Sensitive Systems Policy Directive 4300A, and the DHS 4300A Sensitive Systems Handbook.
+
+    Hint: You may need to invite a security specialist or organization lawyer to help answer this question.
+  type: longtext
+
+# Password and Authentation Rules
+
+# - id: password_interstitial
+#   type: interstitial
+#   title: Password and Authentation Rules
+#   prompt: |
+#     Password and Authentation Rules
+
+#     System and Information Integrity Policy are a good place to make password and authentication related rules explicit.
+
+#     Indicate the password and authentication related rules that are part of your organization's 
+#     System and Information Integrity Policy.
+
+# - id: password_strength
+#   title: What are your organization's password strength rules?
+#   prompt: |
+#     What {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} your organization's password strength rules?
+
+#   examples:
+#   - example: |
+#       Passwords must be at least 12 characters in length and include upper and lower case letters, numerals, and special characters.
+#   type: longtext
+
+- id: si_organizational_procedures
+  title: Which of the following IT integrity procedures are implemented at the organizational level?
+  prompt: |
+    Which of the following IT integrity procedures {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} implemented at the organizational level as part of your System and Information Integrity Policy?
+
+    (By "organizational level" we mean procedures that operated by enterprise teams rather than the team operating a specific system.)
+  type: multiple-choice
+  notes: |
+    {flaw remediation; protection against malicious code; information system monitoring; use of security alerts; advisories and directives; security function verification; software, firmware, and information integrity; protection against spam; restrictions on input of information; validation on information input, error handling, information handling and retention, predictable failure prevention, non-persistence, information output filtering, memory protection, fail-safe procedures}.
+  choices:
+  - key:  flaw_remediation
+    text: Flaw remediation
+    help: Identify and correct information system flaws including software and firmware updates as part of the configuration management process
+  - key:  malicious_code_protection
+    text: Protection against malicious code
+    help: Employs mechanisms at information system entry and exit points to detect, prevent, and eradicate malicious code and regularly updates these mechanisms; performs periodic scans for malicous code
+  - key:  information_system_monitoring
+    text: Information system monitoring
+    help: Monitors the IT system to detect attacks and/or indicators of attacks and deploys monitoring devices
+  - key:  security_alerts,_advisories,_and_directives
+    text: Use of security alerts, advisories and directives
+    help: Regularly gets (and/or internally generates) security alerts and advisories and shares them
+  - key:  security_function_verification
+    text: Security function verification
+    help: Actively tests and verifies security software and tools performs correctly
+  - key:  software_firmware_and_information_integrity
+    text: Software, firmware, and information integrity
+    help: Uses tools and techniques to check integrity of software and firmware (e.g., code signatures, checksums, diffs)
+  - key:  spam_protection
+    text: Protection against spam
+    help: Employs and updates spam protection mechanisms to reduce and take action on unsolicited messages reaching (or leaving) information system
+  - key:  information_input_validation
+    text: Validation on information input
+    help: System checks validatity of certain entered information to maintain information quality
+  - key:  error_handling
+    text: Error handling
+    help: Artfully generates error messags that help with corrective actions but do not reveal information that could be exploited to compromise the system (e.g., such as passwords in the clear)
+  - key:  information_handling_and_retention
+    text: Information handling and retention
+    help: Handle and retrain information within the information system and information output in accordance with applicable laws, regulations, standards, and operational requirements.
+  - key:  predictable_failure_prevention
+    text: Predictable failure prevention
+    help: Maintains replacements parts according to mean time to failure for replaceable parts
+  - key:  non-persistence
+    text: Non-persistence
+    help: Terminates non-persistence components and services at conclusion of use
+  - key:  information_output_filtering
+    text: Information output filtering
+    help: Filters output from system to ensure information meets expectation
+  - key:  memory_protection
+    text: Memory protection
+    help: Uses advanced memory protection techniques to prevent unauthorized code exectution
+  - key:  fail-safe_procedures
+    text: Fail-safe procedures
+    help: Implements planned shut downs and other fail-safe procedures as appropriate
+
+
+- id: si_system_procedures
+  title: Which of the following IT integrity procedures is it policy to implement system level?
+  prompt: |
+    Which of the following IT integrity procedures {% if project.general_info.exists == 'yes' %}is it{% else %}will be{% endif %} policy to implement system level?
+
+    (By "system level" we mean procedures that operated by the teams operating a specific system.)
+
+  type: multiple-choice
+  choices:
+  - key:  flaw_remediation
+    text: Flaw remediation
+    help: Identify and correct information system flaws including software and firmware updates as part of the configuration management process
+  - key:  malicious_code_protection
+    text: Protection against malicious code
+    help: Employs mechanisms at information system entry and exit points to detect, prevent, and eradicate malicious code and regularly updates these mechanisms; performs periodic scans for malicous code
+  - key:  information_system_monitoring
+    text: Information system monitoring
+    help: Monitors the IT system to detect attacks and/or indicators of attacks and deploys monitoring devices
+  - key:  security_alerts,_advisories,_and_directives
+    text: Use of security alerts, advisories and directives
+    help: Regularly gets (and/or internally generates) security alerts and advisories and shares them
+  - key:  security_function_verification
+    text: Security function verification
+    help: Actively tests and verifies security software and tools performs correctly
+  - key:  software_firmware_and_information_integrity
+    text: Software, firmware, and information integrity
+    help: Uses tools and techniques to check integrity of software and firmware (e.g., code signatures, checksums, diffs)
+  - key:  spam_protection
+    text: Protection against spam
+    help: Employs and updates spam protection mechanisms to reduce and take action on unsolicited messages reaching (or leaving) information system
+  - key:  information_input_validation
+    text: Validation on information input
+    help: System checks validatity of certain entered information to maintain information quality
+  - key:  error_handling
+    text: Error handling
+    help: Artfully generates error messags that help with corrective actions but do not reveal information that could be exploited to compromise the system (e.g., such as passwords in the clear)
+  - key:  information_handling_and_retention
+    text: Information handling and retention
+    help: Handle and retrain information within the information system and information output in accordance with applicable laws, regulations, standards, and operational requirements.
+  - key:  predictable_failure_prevention
+    text: Predictable failure prevention
+    help: Maintains replacements parts according to mean time to failure for replaceable parts
+  - key:  non-persistence
+    text: Non-persistence
+    help: Terminates non-persistence components and services at conclusion of use
+  - key:  information_output_filtering
+    text: Information output filtering
+    help: Filters output from system to ensure information meets expectation
+  - key:  memory_protection
+    text: Memory protection
+    help: Uses advanced memory protection techniques to prevent unauthorized code exectution
+  - key:  fail-safe_procedures
+    text: Fail-safe procedures
+    help: Implements planned shut downs and other fail-safe procedures as appropriate
+
+- id: authorized_password_tools_other
+  title: List any other password tools authorized by your organization
+  prompt: List any other password tools {% if project.general_info.exists == 'yes' %}authorized{% else %}will be authorized{% endif %} by your organization
+  type: text
+
+- id: role_accountable
+  title: Who managerially is ultimately responsible that the System and Information Integrity Policy is followed?
+  prompt: |
+    Who managerially {% if exists == 'yes' %}is{% else %}will be{% endif %} ultimately responsible that the System and Information Integrity Policy {% if exists == 'yes' %}is{% else %}will be{% endif %} followed?
+ 
+    Identify the accountable role instead of a person's name.
+  type: text
+
+# Completion
+
+- id: completion_interstitial
+  type: interstitial
+  title: Module complete!
+  prompt: |
+    Module complete!
+
+    Congratulations! You've successfully described your SI Policy.
+
+    We've prepared a summary describing your System and Information Integrity Policy for auditors.
+
+    {% if project.general_info.exists == "yes" %}
+    We've also prepared sample SI Policies you can compare with yours or ignore.
+    {% else %}
+    We've also prepared sample SI Policies to get you started with yours. 
+
+    Download and modify the boilerplate ROB document you like the best to create your organizations official System and Information Integrity Policy.
+    {% endif %}
+
+output:
+
+- id: instructions
+  format: markdown
+  display: top
+  title: |
+    Instructions for Downloading and Using Sample System and Information Integrity Policy and Procedures.
+  template: |
+
+    # Instructions for Downloading and Using Sample System and Information Integrity Policy and Procedures.
+
+    We've generated sample System and Information Integrity Policies based on the information you provided.
+
+    Click on each to review. Decide the one with the best format and content for the
+    organization Rules of Behavior you want.
+
+    Each sample is available under the copyright license indicated in the "Credits" section of document. Most documents are available under a license that permits your generous reuse. _Be sure to adhere to the indicated license._
+
+    Click the download button on the upper right of each to download the Policy you prefer. Modify it to your liking as permitted by its copyright license.
+
+    Save the document to maintenance location you earlier indicated.
+
+    {{project.general_info.source_repo_identifier}}
+
+    Have your organization and {{project.general_info.role_owner}} approve the document as your official Rules of Behavior and make it available 
+    as part of your training to personnel in accordance with your described policies.
+
+# template 1
+- id: 18f_cloudgov_sample
+  format: markdown
+  title: |
+    SAMPLE System and Information Integrity Policy and Procedures adopted from GSA 18F {Cloud.gov} SI Policy
+  template: |
+
+    (SAMPLE System and Information Integrity Policy and Procedures adopted from [GSA 18F {Cloud.gov} SI Policy](https://github.com/18F/compliance-docs/blob/master/SI-Policy.md))
+
+    # System and Information Integrity Policy
+
+    ## Purpose
+
+    Ensures information systems have not been compromised through system errors, malicious attacks, or unauthorized access during operation and transmission.
+
+    ## Scope
+
+    This IT Security Policy applies to all {{organization}} Employees and {{organization}} contractors or vendors who manage, maintain, operate, or protect {{organization}} systems or data, all {{organization}} IT systems, and any {{organization}} data contained on or processed by IT systems owned and operated by or on the behalf of any of the Services or Staff Offices.
+
+    All {{organization}} employees and contracts are subject to these policies.
+
+    {Contracting Officers must include compliance with this policy in the contract or task order for contractor employees (see Chapter 1 Section 11).}
+
+    {This policy applies to the Office of Inspector General (OIG) only to the extent that the OIG determines it is consistent with the OIG’s independent authority under the IG Act and it does not conflict with other OIG policies or the OIG mission.}
+
+    ## Roles and responsibilities
+
+    The {{organization}}'s {responsible_role} is responsible for ensuring that all employees and contracts are familiar and trained in these policies, and to ensure that appropriate procedures are established and tested. 
+
+    The {{organization}}'s {responsible_role} is responsible for all procedures and implementations.
+
+    The {{project.general_info.role_owner}} maintains the System and Information Integrity Policy and Procedures and reviews
+    the System and Information Integrity Policy and Procedures {{project.general_info.review_frequency.text}}. 
+
+    The {project.general_info.role_owner} is responsible for disimenating this policy to all employees and contracts and vendors.  
+
+    ## Organizational Procedures
+
+    {{organization}} has implemented multiple procedures and requires to insure system and information integrity. These procedures include: {flaw remediation; protection against malicious code; information system monitoring; use of security alerts; advisories and directives; security function verification; software, firmware, and information integrity; protection against spam; restrictions on input of information; validation on information input, error handling, information handling and retention, predictable failure prevention, non-persistence, information output filtering, memory protection, fail-safe procedures}.
+
+    {% for procedure in si_organizational_procedures %}* {{procedure.text|safe}}
+    {% endfor %}
+
+    High-risk vulnerabilities are mitigated within thirty days (30); moderate risk vulnerabilities mitigated within ninety days (90). All findings that are not remediated immediately are tracked in the {cloud.gov} Plan of Action and Milestones (POAM).
+
+    ## System-Specific Procedures
+
+    {{organization}} also requires each IT system implements system-specific procedures to insure system and information integrity. Required system-specific procedures include: {flaw remediation; protection against malicious code; information system monitoring; use of security alerts; advisories and directives; security function verification; software, firmware, and information integrity; protection against spam; restrictions on input of information; validation on information input, error handling, information handling and retention, predictable failure prevention, non-persistence, information output filtering, memory protection, fail-safe procedures}.
+
+
+    {% for procedure in si_system_procedures %}
+      * {{procedure.text|safe}}
+    {% endfor %}
+
+
+    The {Cloud Operations team} follows the [Security Incident Response Guide](https://cloud.gov/docs/ops/security-ir/) upon detection of any potential security incident.
+
+    The {cloud.gov team} identifies {cloud.gov} system flaws, tracks and reports them, and corrects them.
+
+    The {Cloud Operations team} monitors upstream projects {(including Cloud Foundry)} for new releases, implements the new releases {(including promptly installing newly-released security-relevant patches)}, and tests patches for effectiveness and potential side effects on information systems before installation. {The testing takes place in development and test environments.}
+
+    {Flaws discovered during security assessments, continuous monitoring, incident response activities, and information system error handling are addressed through the {cloud.gov configuration management process}.}
+
+    The {Cloud Operations team} uses automated mechanisms, including automated monthly scans, to determine the state of flaw remediation in information system components.  {cloud.gov} management and security staff track the status of flaws identified with automated vulnerability scan tools using the monthly scan results.
+
+    {cloud.gov} keeps all flaw identifications and remediations stored in machine readable data within its issue tracker. Time between identifications and remediations is always tracked, and is also reflected in the Plan of Actions and Milestones (POAM).
+
+    See SI-2, SI-2 (2), SI-2 (3).
+
+    {cloud.gov} employs tools at information system entry and exit points to detect and eradicate malicious code with real-time scans, with virus definitions updated hourly. These send alerts to the {Cloud Operations team} if malicious code is detected. The {Cloud Operations team} follows the [Security Incident Response Guide](https://cloud.gov/docs/ops/security-ir/) upon detection of any potential security incident.
+
+    All 18F-developed open source code that is used in the {cloud.gov} system is scanned using static analysis tools. When anyone proposes a change to the code (a pull request), the static analysis tool automatically runs and displays results.
+
+    See SI-3, SI-3 (1), SC-3 (2), SC-3 (7).
+
+    The {Cloud Operations team} monitors the {cloud.gov} virtual infrastructure to detect potential attacks and intrusions from internal and external sources, including using automated monitoring tools. {Cloud Operations} monitors for attacks, indicators of potential attacks, and unauthorized connections, as well as monitoring inbound and outbound communications traffic for unusual or unauthorized activities or conditions.
+
+    All potential incidents identified by these tools are automatically processed through a centralized system that sends the information to a database and a centralized notification system.
+
+    The {cloud.gov} Program Manager and System Owner ensure intrusion and monitoring tools are protected from unauthorized access by only granting access to certain members from the {Cloud Operations team}. All monitoring and intrusion information data is protected by limiting accounts to authorized privileged users only and is maintained in secured repositories for review by those members.
+
+    The {cloud.gov team} uses additional sources such as Pivotal, US-CERT Advisories, OMB Mandates, commercial and open source security communities, and other sources to provide indication of increased risk to organizational operations and assets, individuals, other organizations.
+
+    See SI-4, SI-4 (1), SI-4 (2), SI-4 (4), SI-4 (5), SI-4 (14), SI-4 (16), SI-4 (23).
+
+    When the {cloud.gov team} receives security directives from {GSA Information Security}, {Cloud Operations} implements the directives in accordance with the requested time frames, or notifies the issuing organization of the degree of noncompliance.
+
+    See SI-5.
+
+    {cloud.gov} verifies the correct operation of services that detect malicious code, viruses, file integrity, network traffic, and security compliance of the OS using a continuous integration tool (Concourse) and automated monitoring tools. The {Cloud Operations team} is notified of a failure in security verification via PagerDuty.
+
+    See SI-6, SI-7, SI-7 (1), SI-7 (7).
+
+    All inputs passed to CLI interpreters are pre-screened to prevent the content from being unintentionally interpreted as commands.
+
+    All user input submitted via web forms is sanitized to prevent it being interpreted as a system command.
+
+    See SI-10.
+
+    PagerDuty sends {cloud.gov} alerts only to a limited set of {cloud.gov team} members who have privileged access to {cloud.gov} components (System Owner, Program Manager, {Cloud Operations team} members). This PagerDuty configuration is the responsibility of the Program Manager, who may delegate this to {Cloud Operations team} members.
+
+    See SI-11.
+
+    ## Credits
+
+    1. Adapted from [[GSA 18F {Cloud.gov} SI Policy](https://github.com/18F/compliance-docs/blob/master/SI-Policy.md),  License: public domain within United States and CC0 1.0 Universal public domain (see: [License](https://github.com/18F/compliance-docs/blob/master/LICENSE.md))
+
+- id: civicactions_si_policy
+  format: markdown
+  title: |
+    SAMPLE System and Information Integrity Policy and Procedures adopted from [CivicAction's SI-Policy](https://github.com/CivicActions/compliance-docs/blob/master/SI-Policy.md)
+  
+  template: |
+
+    # System and Information Integrity Policy
+
+    {{organization}} has a goal to ensure information integrity throughout its offerings. Services
+    to support this effort are available by contract and may be required by regulation or
+    law. When possible, support for this effort may cover one or more controls within these
+    families:
+
+    * Awareness and Training (AT)
+    * Configuration Management (CM)
+    * Contingency Planning (CP)
+    * Incident Response (IR)
+    * Maintenance (MA)
+    * Media Protection (MP)
+    * Physical and Environmental Protection (PE)
+    * Personnel Security (PS)
+    * System and Information Integrity (SI)
+
+    ## Purpose
+
+    Ensures information systems have not been compromised through system errors, malicious
+    attacks, or unauthorized access during operation and transmission.
+
+    # Scope
+
+    {{applies_to}}
+
+    {{policy_consistent}}
+
+    ## Roles and responsibilitis
+
+    The {{project.general_info.role_owner}} is responsible for maintaining the content of the System and Information Integrity Policy and reviews the Policy {{project.general_info.review_frequency.text}}. The {{project.general_info.role_owner}} (or individuals designated by {{project.general_info.role_owner}}) reviews all policies and procedures when new system assessments are required, or once every 3 years, whichever comes first. 
+
+    {{obtain}}
+
+    The {{organization}} {{role_accountable}} is ultimately responsible for these policies and ensuring that the procedures of all {{organization}} systems adhere.
+
+    ## Procedures
+
+    The {{organization}} [team] identifies system flaws, tracks and reports them, and corrects them.
+
+    The {{organization}} [Operations team] monitors upstream projects for new releases, implements
+    the new releases (including promptly installing newly-released security-relevant patches),
+    and tests patches for effectiveness and potential side effects on information systems
+    before installation. The testing takes place in development and test environments.
+
+    Flaws discovered during security assessments, continuous monitoring, incident response
+    activities, and information system error handling are addressed through the {{organization}}
+    configuration management process.
+
+    {{organization}} employs tools at information system entry and exit points to detect and
+    eradicate malicious code with real-time scans. 
+
+    {The {{organization}} [Operations team] follows a defined Security Incident Response Plan upon detection
+    of any potential security incident.}
+
+    [{{organization}}-developed source code that is used in the {{organization}} products and
+    services is scanned using static analysis tools.]
+
+    [When changes are made to the source code, the static analysis tool automatically runs and displays results.] See SI-3.
+
+    ## Credit and License
+
+    This SI Policy is derived from [CivicAction's SI-Policy](https://github.com/CivicActions/compliance-docs/blob/master/SI-Policy.md) and [CivicActions Common Control Policy](https://github.com/CivicActions/compliance-docs/blob/master/CivicActions-Common-Control-Policy.md) licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). (Do not remove this attribution.)
+

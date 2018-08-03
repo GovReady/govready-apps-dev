@@ -1,25 +1,25 @@
 id: app
-title: Generic Web Site
+title: "(DEMO) Basic Website SSP"
 type: project
-version: 0.4.0
+version: 0.1.0
 icon: app.png
 protocol:
   - govready.com/apps/compliance/2018/information-technology-system
+  - govready.com/apps/compliance/2018/demo
 instance-name: "{{system_profile.system_basics.system_name}}"
 catalog:
   category: IT System Templates
   vendor: GovReady
   vendor_url: http://www.govready.com
-  status: stub
-  version: 0.2
-  source_url: https://github.com/GovReady/govready-apps-dev/generic-web-site
+  status: candidate release
+  version: 0.1.0
+  source_url: https://github.com/GovReady/govready-apps-dev/demo-basic-website-ssp
   description:
     short: |
-      Compliance under NIST RMF for a generic web site
+      Demo of creating NIST RMF System Security Plan for a basic website
     long: |
-      This compliance app will help you achieve compliance for a generic web site. 
-      The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
-      and NIST SP 800-171 Rev 1.
+      Use this IT system template for a demonstration of how GovReady-Q compliance as code
+      automation makes it easier to generate a System Security Plan for a basic website.
   recommended_for:
   - key_short: Org
     value: Small
@@ -30,9 +30,9 @@ catalog:
 introduction:
   format: markdown
   template: |
-      This compliance app will help you achieve compliance for a generic web site.
-      The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
-      and NIST SP 800-171 Rev 1.
+      Use this IT system template for a demonstration of how GovReady-Q compliance as code
+      automation makes it easier to generate a System Security Plan as described in NIST 
+      Special Publication 800-53 Rev 4 for a basic website.
 questions:
 # System Overview
 - id: system_profile
@@ -87,19 +87,19 @@ questions:
   icon: app.png
 
 # People
-- id: fed_poc_pm
-  title: PM
-  type: module
-  protocol: fed_poc_pm
-  icon: person-3.png
-  group: People
+# - id: fed_poc_pm
+#   title: PM
+#   type: module
+#   protocol: fed_poc_pm
+#   icon: person-3.png
+#   group: People
 
-- id: fed_poc_developer
-  title: Developer
-  type: module
-  protocol: fed_poc_developer
-  icon: person-3.png
-  group: People
+# - id: fed_poc_developer
+#   title: Developer
+#   type: module
+#   protocol: fed_poc_developer
+#   icon: person-3.png
+#   group: People
 
 - id: fed_poc_issm
   title: ISSM
@@ -115,31 +115,36 @@ questions:
   icon: person-3.png
   group: People
 
-- id: fed_poc_ciso
-  title: CISO
-  type: module
-  protocol: fed_poc_ciso
-  icon: person-3.png
-  group: People
+# - id: fed_poc_ciso
+#   title: CISO
+#   type: module
+#   protocol: fed_poc_ciso
+#   icon: person-3.png
+#   group: People
 
-- id: fed_poc_ao
-  title: AO
-  type: module
-  protocol: fed_poc_ao
-  icon: person-3.png
-  group: People
+# - id: fed_poc_ao
+#   title: AO
+#   type: module
+#   protocol: fed_poc_ao
+#   icon: person-3.png
+#   group: People
 
 # Policy
-- id: sm_policy_privacy
-  title: Privacy Policy
-  type: module
-  protocol: sm_policy_privacy
-  group: Policy
 - id: rules_of_behavior
   title: Rules of Behavior
   type: module
   protocol: govready.com/apps/compliance/2017/rules-of-behavior
   group: Policy
+# - id: sm_policy_privacy
+#   title: Privacy Policy
+#   type: module
+#   protocol: sm_policy_privacy
+#   group: Policy
+# - id: si_policy
+#   title: System and Information Integrity Policy and Procedures
+#   type: module
+#   protocol: govready.com/apps/compliance/2018/si-policy
+#   group: Policy
 
 # Artifacts
 - id: ssp
