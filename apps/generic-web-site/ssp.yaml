@@ -1263,6 +1263,8 @@ output:
       There will be infrastructure.
     {% else %}
       {{project.infrastructure.output_documents.ssp_template_mp_1|safe}}
+
+      {{project.rules_of_behavior.output_documents.ssp_nist80053r4_MP_1|safe}}
     {% endif %}
 
     <h2>MP-2</h2>
