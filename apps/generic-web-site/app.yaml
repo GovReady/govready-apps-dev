@@ -45,11 +45,11 @@ questions:
   type: module
   protocol: govready.com/apps/compliance/2018/fisma/system-categorization
   group: System Overview
-- id: control_selection
-  title: Control Selection Report
-  type: module
-  module-id: control_selection
-  group: System Overview
+# - id: control_selection
+#   title: Control Selection Report
+#   type: module
+#   module-id: control_selection
+#   group: System Overview
 # Technical Overview
 - id: source_code_repo
   title: Source Code Repository
