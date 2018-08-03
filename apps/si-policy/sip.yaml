@@ -36,9 +36,10 @@ questions:
 
   examples:
   - example: |
-      {{organization}}'s System and Information Integrity Policy apply to all {{organization}} employees and support contractors who
-      use {{organization}} IT resources such as workstations, portable electronic devices to access, store,
-      receive or transmit sensitive information.
+      {{organization}}'s System and Information Integrity Policy apply to all {{organization}} employees and support contractors who develop, maintain, operate, or protect {{organization}} IT systems and data.
+  
+      All {{organization}} employees and contractors are subject to these policies as required by
+      contract, regulation or law.
   type: longtext
 
 # Policy Consistency
@@ -57,26 +58,26 @@ questions:
 
 # Password and Authentation Rules
 
-- id: password_interstitial
-  type: interstitial
-  title: Password and Authentation Rules
-  prompt: |
-    Password and Authentation Rules
+# - id: password_interstitial
+#   type: interstitial
+#   title: Password and Authentation Rules
+#   prompt: |
+#     Password and Authentation Rules
 
-    System and Information Integrity Policy are a good place to make password and authentication related rules explicit.
+#     System and Information Integrity Policy are a good place to make password and authentication related rules explicit.
 
-    Indicate the password and authentication related rules that are part of your organization's 
-    System and Information Integrity Policy.
+#     Indicate the password and authentication related rules that are part of your organization's 
+#     System and Information Integrity Policy.
 
-- id: password_strength
-  title: What are your organization's password strength rules?
-  prompt: |
-    What {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} your organization's password strength rules?
+# - id: password_strength
+#   title: What are your organization's password strength rules?
+#   prompt: |
+#     What {% if project.general_info.exists == 'yes' %}are{% else %}will be{% endif %} your organization's password strength rules?
 
-  examples:
-  - example: |
-      Passwords must be at least 12 characters in length and include upper and lower case letters, numerals, and special characters.
-  type: longtext
+#   examples:
+#   - example: |
+#       Passwords must be at least 12 characters in length and include upper and lower case letters, numerals, and special characters.
+#   type: longtext
 
 - id: si_organizational_procedures
   title: Which of the following IT integrity procedures are implemented at the organizational level?
@@ -195,6 +196,14 @@ questions:
   prompt: List any other password tools {% if project.general_info.exists == 'yes' %}authorized{% else %}will be authorized{% endif %} by your organization
   type: text
 
+- id: role_accountable
+  title: Who managerially is ultimately responsible that the System and Information Integrity Policy is followed?
+  prompt: |
+    Who managerially {% if exists == 'yes' %}is{% else %}will be{% endif %} ultimately responsible that the System and Information Integrity Policy {% if exists == 'yes' %}is{% else %}will be{% endif %} followed?
+ 
+    Identify the accountable role instead of a person's name.
+  type: text
+
 # Completion
 
 - id: completion_interstitial
@@ -203,14 +212,14 @@ questions:
   prompt: |
     Module complete!
 
-    Congratulations! You've successfully described your ROB.
+    Congratulations! You've successfully described your SI Policy.
 
     We've prepared a summary describing your System and Information Integrity Policy for auditors.
 
     {% if project.general_info.exists == "yes" %}
-    We've also prepared sample ROBs you can compare with yours or ignore.
+    We've also prepared sample SI Policies you can compare with yours or ignore.
     {% else %}
-    We've also prepared sample ROBs to get you started with yours. 
+    We've also prepared sample SI Policies to get you started with yours. 
 
     Download and modify the boilerplate ROB document you like the best to create your organizations official System and Information Integrity Policy.
     {% endif %}
@@ -226,14 +235,14 @@ output:
 
     # Instructions for Downloading and Using Sample System and Information Integrity Policy and Procedures.
 
-    We've generated a sample System and Information Integrity Policies based on the information you provided.
+    We've generated sample System and Information Integrity Policies based on the information you provided.
 
     Click on each to review. Decide the one with the best format and content for the
     organization Rules of Behavior you want.
 
     Each sample is available under the copyright license indicated in the "Credits" section of document. Most documents are available under a license that permits your generous reuse. _Be sure to adhere to the indicated license._
 
-    Click the download button on the upper right of each to download the ROB you prefer. Modify it to your liking as permitted by its copyright license.
+    Click the download button on the upper right of each to download the Policy you prefer. Modify it to your liking as permitted by its copyright license.
 
     Save the document to maintenance location you earlier indicated.
 
@@ -275,7 +284,6 @@ output:
 
     The {{project.general_info.role_owner}} maintains the System and Information Integrity Policy and Procedures and reviews
     the System and Information Integrity Policy and Procedures {{project.general_info.review_frequency.text}}. 
-
 
     The {project.general_info.role_owner} is responsible for disimenating this policy to all employees and contracts and vendors.  
 
@@ -350,5 +358,74 @@ output:
 
     1. Adapted from [[GSA 18F {Cloud.gov} SI Policy](https://github.com/18F/compliance-docs/blob/master/SI-Policy.md),  License: public domain within United States and CC0 1.0 Universal public domain (see: [License](https://github.com/18F/compliance-docs/blob/master/LICENSE.md))
 
+- id: civicactions_si_policy
+  format: markdown
+  title: |
+    SAMPLE System and Information Integrity Policy and Procedures adopted from [CivicAction's SI-Policy](https://github.com/CivicActions/compliance-docs/blob/master/SI-Policy.md)
+  
+  template: |
 
+    # System and Information Integrity Policy
+
+    {{organization}} has a goal to ensure information integrity throughout its offerings. Services
+    to support this effort are available by contract and may be required by regulation or
+    law. When possible, support for this effort may cover one or more controls within these
+    families:
+
+    * Awareness and Training (AT)
+    * Configuration Management (CM)
+    * Contingency Planning (CP)
+    * Incident Response (IR)
+    * Maintenance (MA)
+    * Media Protection (MP)
+    * Physical and Environmental Protection (PE)
+    * Personnel Security (PS)
+    * System and Information Integrity (SI)
+
+    ## Purpose
+
+    Ensures information systems have not been compromised through system errors, malicious
+    attacks, or unauthorized access during operation and transmission.
+
+    # Scope
+
+    {{applies_to}}
+
+    {{policy_consistent}}
+
+    ## Roles and responsibilitis
+
+    The {{project.general_info.role_owner}} is responsible for maintaining the content of the System and Information Integrity Policy and reviews the Policy {{project.general_info.review_frequency.text}}. The {{project.general_info.role_owner}} (or individuals designated by {{project.general_info.role_owner}}) reviews all policies and procedures when new system assessments are required, or once every 3 years, whichever comes first. 
+
+    {{obtain}}
+
+    The {{organization}} {{role_accountable}} is ultimately responsible for these policies and ensuring that the procedures of all {{organization}} systems adhere.
+
+    ## Procedures
+
+    The {{organization}} [team] identifies system flaws, tracks and reports them, and corrects them.
+
+    The {{organization}} [Operations team] monitors upstream projects for new releases, implements
+    the new releases (including promptly installing newly-released security-relevant patches),
+    and tests patches for effectiveness and potential side effects on information systems
+    before installation. The testing takes place in development and test environments.
+
+    Flaws discovered during security assessments, continuous monitoring, incident response
+    activities, and information system error handling are addressed through the {{organization}}
+    configuration management process.
+
+    {{organization}} employs tools at information system entry and exit points to detect and
+    eradicate malicious code with real-time scans. 
+
+    {The {{organization}} [Operations team] follows a defined Security Incident Response Plan upon detection
+    of any potential security incident.}
+
+    [{{organization}}-developed source code that is used in the {{organization}} products and
+    services is scanned using static analysis tools.]
+
+    [When changes are made to the source code, the static analysis tool automatically runs and displays results.] See SI-3.
+
+    ## Credit and License
+
+    This SI Policy is derived from [CivicAction's SI-Policy](https://github.com/CivicActions/compliance-docs/blob/master/SI-Policy.md) and [CivicActions Common Control Policy](https://github.com/CivicActions/compliance-docs/blob/master/CivicActions-Common-Control-Policy.md) licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). (Do not remove this attribution.)
 
