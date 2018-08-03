@@ -1,8 +1,8 @@
 id: app
-title: Drupal Fed Chief Information Security Officer (CISO)
+title: Authorizing Official (AO)
 type: project
 version: 1
-protocol: fed_poc_ciso
+protocol: fed_poc_ao
 icon: app.png
 
 catalog:
@@ -14,11 +14,11 @@ catalog:
   source_url: https://github.com/GovReady/govready-q-drupal-fed-people
   description:
     short: |
-      Chief Information Security Officer
+      Authorizing Official
     long: |
-      # Chief Information Security Officer
+      # Authorizing Official
 
-      This module provides point of contact information for the Chief Information Security Officer (CISO) supporting a Drupal website for a US Federal government agency.
+      This module provides point of contact information for the Authorizing Official (AO) supporting a Drupal website for a US Federal government agency.
 
       ## Who Should Use:
 
@@ -28,11 +28,11 @@ catalog:
 
       Completion of these tasks addresses the following controls in FISMA NIST SP 800-53:
 
-      - ??? (role CISO)
+      - ??? (role AO)
 
       ## What App Does:
 
-      - Gathers point of contact information for an CISO
+      - Gathers point of contact information for an AO
 
       ## What You Do:
 
@@ -54,7 +54,7 @@ catalog:
 
 questions:
   - id: poc
-    title: CISO
+    title: AO
     module-id: poc
     type: module
 
@@ -65,9 +65,11 @@ output:
     template: |
 
       {% if not poc.q1_name %}
-        The system will have a CIO.
+        The system will have a Authorizing Official.
       {% else %}
 
-         The Chief Information Officer for the system is {{poc.q1_name}} ({{poc.q5_email}}).
+        The Authorizing Official for the system is {{poc.q1_name}} ({{poc.q5_email}}).
 
       {% endif %}
+
+

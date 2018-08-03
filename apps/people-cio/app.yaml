@@ -1,8 +1,8 @@
 id: app
-title: Drupal Fed Information System Security Manager (ISSM)
+title: Chief Information Officer (CIO)
 type: project
 version: 1
-protocol: fed_poc_issm
+protocol: fed_poc_cio
 icon: app.png
 
 catalog:
@@ -14,11 +14,11 @@ catalog:
   source_url: https://github.com/GovReady/govready-q-drupal-fed-people
   description:
     short: |
-      Information System Security Manager
+      Chief Information Officer
     long: |
-      # Information System Security Manager
+      # Chief Information Officer
 
-      This module provides point of contact information for the Information System Security Manager (ISSM) supporting a Drupal website for a US Federal government agency.
+      This module provides point of contact information for the Chief Information Officer (collection) supporting a Drupal website for a US Federal government agency.
 
       ## Who Should Use:
 
@@ -28,11 +28,11 @@ catalog:
 
       Completion of these tasks addresses the following controls in FISMA NIST SP 800-53:
 
-      - ??? (role ISSM)
+      - ??? (role collection)
 
       ## What App Does:
 
-      - Gathers point of contact information for an ISSM
+      - Gathers point of contact information for an collection
 
       ## What You Do:
 
@@ -54,7 +54,7 @@ catalog:
 
 questions:
   - id: poc
-    title: ISSM
+    title: collection
     module-id: poc
     type: module
 
@@ -65,9 +65,9 @@ output:
     template: |
 
       {% if not poc.q1_name %}
-        The system will have a ISSM.
+        The system will have a CIO.
       {% else %}
 
-        The Information System Security Manager for the system is {{poc.q1_name}} ({{poc.q5_email}}).
+         The Chief Information Officer for the system is {{poc.q1_name}} ({{poc.q5_email}}).
 
       {% endif %}

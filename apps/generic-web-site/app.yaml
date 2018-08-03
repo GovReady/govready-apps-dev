@@ -10,7 +10,7 @@ catalog:
   category: IT System Templates
   vendor: GovReady
   vendor_url: http://www.govready.com
-  status: stub
+  status: demo
   version: 0.2
   source_url: https://github.com/GovReady/govready-apps-dev/generic-web-site
   description:

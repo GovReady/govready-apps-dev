@@ -1,8 +1,8 @@
 id: app
-title: Drupal Fed Developer (Dev)
+title: Information System Security Manager (ISSM)
 type: project
 version: 1
-protocol: fed_poc_developer
+protocol: fed_poc_issm
 icon: app.png
 
 catalog:
@@ -14,11 +14,11 @@ catalog:
   source_url: https://github.com/GovReady/govready-q-drupal-fed-people
   description:
     short: |
-      Developer
+      Information System Security Manager
     long: |
-      # Developer
+      # Information System Security Manager
 
-      This module provides point of contact information for the Developer (Developer) supporting a Drupal website for a US Federal government agency.
+      This module provides point of contact information for the Information System Security Manager (ISSM) supporting a Drupal website for a US Federal government agency.
 
       ## Who Should Use:
 
@@ -28,11 +28,11 @@ catalog:
 
       Completion of these tasks addresses the following controls in FISMA NIST SP 800-53:
 
-      - ??? (role Developer)
+      - ??? (role ISSM)
 
       ## What App Does:
 
-      - Gathers point of contact information for an Developer
+      - Gathers point of contact information for an ISSM
 
       ## What You Do:
 
@@ -54,7 +54,7 @@ catalog:
 
 questions:
   - id: poc
-    title: Developer
+    title: ISSM
     module-id: poc
     type: module
 
@@ -65,9 +65,9 @@ output:
     template: |
 
       {% if not poc.q1_name %}
-        The system will have a Developer.
+        The system will have a ISSM.
       {% else %}
 
-        The Developer for the system is {{poc.q1_name}} ({{poc.q5_email}}).
+        The Information System Security Manager for the system is {{poc.q1_name}} ({{poc.q5_email}}).
 
       {% endif %}

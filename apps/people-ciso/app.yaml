@@ -1,8 +1,8 @@
 id: app
-title: Drupal Fed Project Manager (PM)
+title: Chief Information Security Officer (CISO)
 type: project
 version: 1
-protocol: fed_poc_pm
+protocol: fed_poc_ciso
 icon: app.png
 
 catalog:
@@ -14,11 +14,11 @@ catalog:
   source_url: https://github.com/GovReady/govready-q-drupal-fed-people
   description:
     short: |
-      Project Manager
+      Chief Information Security Officer
     long: |
-      # Project Manager
+      # Chief Information Security Officer
 
-      This module provides point of contact information for the Project Manager (PM) supporting a Drupal website for a US Federal government agency.
+      This module provides point of contact information for the Chief Information Security Officer (CISO) supporting a Drupal website for a US Federal government agency.
 
       ## Who Should Use:
 
@@ -28,11 +28,11 @@ catalog:
 
       Completion of these tasks addresses the following controls in FISMA NIST SP 800-53:
 
-      - ??? (role PM)
+      - ??? (role CISO)
 
       ## What App Does:
 
-      - Gathers point of contact information for an PM
+      - Gathers point of contact information for an CISO
 
       ## What You Do:
 
@@ -54,7 +54,7 @@ catalog:
 
 questions:
   - id: poc
-    title: PM
+    title: CISO
     module-id: poc
     type: module
 
@@ -65,19 +65,9 @@ output:
     template: |
 
       {% if not poc.q1_name %}
-        The system will have a PM.
+        The system will have a CIO.
       {% else %}
 
-        The Project Manager for the system is {{poc.q1_name}} ({{poc.q5_email}}).
+         The Chief Information Officer for the system is {{poc.q1_name}} ({{poc.q5_email}}).
 
       {% endif %}
-tests:
-  simple:
-    answers:
-      poc:
-        answers:
-          q1_name: Jane Johnson
-          q3_ev: employee
-          q5_email: jane@example.com
-          q6_work_phone: "202-555-0000"
-          q7_mobile_phone: "202-555-0001"
