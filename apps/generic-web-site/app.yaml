@@ -130,11 +130,11 @@ questions:
   group: People
 
 # Policy
-- id: sm_policy_privacy
-  title: Privacy Policy
-  type: module
-  protocol: sm_policy_privacy
-  group: Policy
+# - id: sm_policy_privacy
+#   title: Privacy Policy
+#   type: module
+#   protocol: sm_policy_privacy
+#   group: Policy
 - id: rules_of_behavior
   title: Rules of Behavior
   type: module
