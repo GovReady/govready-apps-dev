@@ -33,15 +33,8 @@ introduction:
     Atlassian Jira supports a compliant software development life cycle by tracking issues and change requests.
 
     This application will make sure you are properly using Jira to support the protection of CUI.
-
-questions:
-- id: example
-  title: Example Module
-  type: module
-  module-id: example
-
+questions: []
 output:
-
 - id: ssp_nist800171r1_3_4_3
   format: markdown
   template: |+

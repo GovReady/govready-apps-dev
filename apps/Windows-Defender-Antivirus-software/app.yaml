@@ -33,11 +33,7 @@ introduction:
     This application will make sure you are properly using Windows Defender Antivirus
     software to protect CUI (Controlled Unclassified Information) as per NIST SP 800-171
     controls.
-questions:
-- id: example
-  title: Example Module
-  type: module
-  module-id: example
+questions: []
 output:
 - id: ssp_nist800171r1_3_4_8
   title: NIST SP 800-171 3.4.8 Control Implementation

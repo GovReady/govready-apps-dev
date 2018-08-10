@@ -28,12 +28,8 @@ catalog:
     value: SysAdmin
 introduction:
   format: markdown
-  template: "Red Hat 4.8.3.9 is a Linux operating system. \nThis application will
-    make sure you are properly using Red Hat 4.8.3-9 to protect CUI (Controlled Unclassified
-    Information) as per NIST SP 800-171 controls."
-questions:
-- id: example
-  title: Example Module
-  type: module
-  module-id: example
+  template: "Red Hat 4.8.3.9 is a Linux operating system. \nThis application will\
+    \ make sure you are properly using Red Hat 4.8.3-9 to protect CUI (Controlled\
+    \ Unclassified Information) as per NIST SP 800-171 controls."
+questions: []
 output: []

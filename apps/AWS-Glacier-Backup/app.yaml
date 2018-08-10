@@ -34,11 +34,7 @@ introduction:
     Many organizations use AWS Glacier service for storing backup copy of files, some of which may contain CUI (Controled Unclassified Information).
 
     This application will make sure you are properly using AWS Glacier to protect CUI.
-questions:
-- id: example
-  title: Example Module
-  type: module
-  module-id: example
+questions: []
 output:
 
 - id: ssp_nist800171r1_3_3_1

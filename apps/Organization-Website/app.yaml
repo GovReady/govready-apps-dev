@@ -32,11 +32,7 @@ introduction:
 
     This application will make sure you are properly using Organization Website to
     protect CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
-questions:
-- id: example
-  title: Example Module
-  type: module
-  module-id: example
+questions: []
 output:
 - id: ssp_nist800171r1_3_1_22
   title: NIST SP 800-171 3.1.22
