@@ -1,162 +1,151 @@
 id: description
 title: Description of the POAM
-
 questions:
-  - id: identifier
-    title: Identifier
-    type: text
-    prompt: |
-      Give this POAM an alphanumeric identifier that will aid in reporting and
-      tracking the progress on milestones.
+- id: identifier
+  title: Identifier
+  type: text
+  prompt: |
+    Give this POAM an alphanumeric identifier that will aid in reporting and
+    tracking the progress on milestones.
 
-      Example: ISSUE1, LOGIN-BUG, NO_LOGS
+    Example: ISSUE1, LOGIN-BUG, NO_LOGS
+- id: poam_level
+  title: POAM Level
+  type: choice
+  prompt: |
+    Are you creating an organization level or system level POAM?
+  choices:
+  - key: organization
+    text: Organization Level
+    help: |
+      An organization level POAM addresses a deficiency that impacts
+      the entire organization, such as a lack of a password policy.
+  - key: system
+    text: System Level
+    help: |
+      A system level POAM addresses a deficiency that impacts
+      only the information system being described, such as non compliance
+      with the organization's password policy.
+- id: problem_description
+  title: Problem Description
+  type: longtext
+  prompt: |
+    Describe the deficiency, finding, or weakness that will be resolved in this POAM.
 
-  # see https://www.energy.gov/sites/prod/files/cioprod/documents/Mon_1300_SalonIII_POAMv11_DataSphere01_jmn.pdf
-  - id: poam_level
-    title: POAM Level
-    type: choice
-    prompt: |
-      Are you creating an organization level or system level POAM?
-    choices:
-      - key: organization
-        text: Organization Level
-        help: |
-          An organization level POAM addresses a deficiency that impacts
-          the entire organization, such as a lack of a password policy.
-      - key: system
-        text: System Level
-        help: |
-          A system level POAM addresses a deficiency that impacts
-          only the information system being described, such as non compliance
-          with the organization's password policy.
+    The purpose of this field is to permit oversight and tracking of progress on
+    remediation. It is not necesary to include sensitive information here.
+- id: risk_level
+  title: Risk Level
+  type: choice
+  prompt: |
+    Rank the level of risk associated with the deficiency.
+  choices:
+  - key: low
+    text: Low
+    help: Low risk is typically associated with inconvenience but not long term harm.
+  - key: medium
+    text: Medium
+    help: Medium risk is typically associated with harm that can be corrected.
+  - key: high
+    text: High
+    help: High risk is typically associated with injury or loss of life.
+- id: cost
+  title: Estimated Cost
+  type: text
+  prompt: |
+    Estimate the cost of correcting the deficiency.
+- id: impacted_control_families
+  title: Impacted Control Families
+  type: multiple-choice
+  prompt: |
+    What NIST SP 800-53r4 security control familiess are impacted by the deficiency?
+  choices:
+  - key: AC
+    text: AC - Access Control
+    help: ~
+  - key: AU
+    text: AU - Audit and Accountability
+    help: ~
+  - key: AT
+    text: AT - Awareness and Training
+    help: ~
+  - key: CM
+    text: CM - Configuration Management
+    help: ~
+  - key: CP
+    text: CP - Contingency Planning
+    help: ~
+  - key: IA
+    text: IA - Identification and Authentication
+    help: ~
+  - key: IR
+    text: IR - Incident Response
+    help: ~
+  - key: MA
+    text: MA - Maintenance
+    help: ~
+  - key: MP
+    text: MP - Media Protection
+    help: ~
+  - key: PS
+    text: PS - Personnel Security
+    help: ~
+  - key: PE
+    text: PE - Physical and Environmental Protection
+    help: ~
+  - key: PL
+    text: PL - Planning
+    help: ~
+  - key: PM
+    text: PM - Program Management
+    help: ~
+  - key: RA
+    text: RA - Risk Assessment
+    help: ~
+  - key: CA
+    text: CA - Security Assessment and Authorization
+    help: ~
+  - key: SC
+    text: SC - System and Communications Protection
+    help: ~
+  - key: SI
+    text: SI - System and Information Integrity
+    help: ~
+  - key: SA
+    text: SA - System and Services Acquisition
+    help: ~
+- id: source
+  title: Identified By
+  type: longtext
+  prompt: |
+    How and when was the deficiency identified?
 
-  - id: problem_description
-    title: Problem Description
-    type: longtext
-    prompt: |
-      Describe the deficiency, finding, or weakness that will be resolved in this POAM.
+    Include what organization or team identified the deficiency, when they
+    identified it, and what action caused the deficiency to be identified.
+- id: remediation
+  title: Remediation
+  type: longtext
+  prompt: |
+    Describe the remediation or mitigation action that will be taken to correct the deficiency.
 
-      The purpose of this field is to permit oversight and tracking of progress on
-      remediation. It is not necesary to include sensitive information here.
+    Include:
 
-  - id: risk_level
-    title: Risk Level
-    type: choice
-    prompt: |
-      Rank the level of risk associated with the deficiency.
-    choices:
-      - key: low
-        text: Low
-        help: Low risk is typically associated with inconvenience but not long term harm.
-      - key: medium
-        text: Medium
-        help: Medium risk is typically associated with harm that can be corrected.
-      - key: high
-        text: High
-        help: High risk is typically associated with injury or loss of life.
+    * Any resources needed to perform the action.
+    * How it will be verified that the action corrected the deficiency.
+- id: scheduled_completion_date
+  title: Scheduled Completion Date
+  type: date
+  prompt: |
+    When is the plan of action scheduled to be completed?
+- id: milestones
+  title: Milestones
+  type: longtext
+  prompt: |
+    List the milestones that will be achieved up to and including completing
+    the POAM on {{scheduled_completion_date}}.
 
-  - id: cost
-    title: Estimated Cost
-    type: text
-    prompt: |
-      Estimate the cost of correcting the deficiency.
+    For each milestones:
 
-  - id: impacted_control_families
-    title: Impacted Control Families
-    type: multiple-choice
-    prompt: |
-      What NIST SP 800-53r4 security control familiess are impacted by the deficiency?
-    choices:
-    - key: AC
-      text: "AC - Access Control"
-      help: 
-    - key: AU
-      text: "AU - Audit and Accountability"
-      help: 
-    - key: AT
-      text: "AT - Awareness and Training"
-      help: 
-    - key: CM
-      text: "CM - Configuration Management"
-      help: 
-    - key: CP
-      text: "CP - Contingency Planning"
-      help: 
-    - key: IA
-      text: "IA - Identification and Authentication"
-      help: 
-    - key: IR
-      text: "IR - Incident Response"
-      help: 
-    - key: MA
-      text: "MA - Maintenance"
-      help: 
-    - key: MP
-      text: "MP - Media Protection"
-      help: 
-    - key: PS
-      text: "PS - Personnel Security"
-      help: 
-    - key: PE
-      text: "PE - Physical and Environmental Protection"
-      help: 
-    - key: PL
-      text: "PL - Planning"
-      help: 
-    - key: PM
-      text: "PM - Program Management"
-      help: 
-    - key: RA
-      text: "RA - Risk Assessment"
-      help: 
-    - key: CA
-      text: "CA - Security Assessment and Authorization"
-      help: 
-    - key: SC
-      text: "SC - System and Communications Protection"
-      help: 
-    - key: SI
-      text: "SI - System and Information Integrity"
-      help: 
-    - key: SA
-      text: "SA - System and Services Acquisition"
-      help: 
-
-  - id: source
-    title: Identified By
-    type: longtext
-    prompt: |
-      How and when was the deficiency identified?
-
-      Include what organization or team identified the deficiency, when they
-      identified it, and what action caused the deficiency to be identified.
-
-  - id: remediation
-    title: Remediation
-    type: longtext
-    prompt: |
-      Describe the remediation or mitigation action that will be taken to correct the deficiency.
-
-      Include:
-
-      * Any resources needed to perform the action.
-      * How it will be verified that the action corrected the deficiency.
-
-  - id: scheduled_completion_date
-    title: Scheduled Completion Date
-    type: date
-    prompt: |
-      When is the plan of action scheduled to be completed?
-
-  - id: milestones
-    title: Milestones
-    type: longtext
-    prompt: |
-      List the milestones that will be achieved up to and including completing
-      the POAM on {{scheduled_completion_date}}.
-
-      For each milestones:
-
-      * Describe the action that will be taken.
-      * Include the date it is scheduled to be completed and verified by.
-      * Assign the milestone to one or more responsible parties, including their name, title and organization.
+    * Describe the action that will be taken.
+    * Include the date it is scheduled to be completed and verified by.
+    * Assign the milestone to one or more responsible parties, including their name, title and organization.

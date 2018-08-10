@@ -1,38 +1,33 @@
 id: questions
 title: Questions about the QNAP NAS
-
 questions:
 - id: product_name
   title: What QNAP NAS device are you using?
   prompt: What QNAP NAS device are you using?
   type: text
   help: Enter a product name, such as TS-670.
-
 - id: physical_location
   title: Where is the QNAP NAS located?
   prompt: Where is the {{product_name}} located?
   type: text
   help: Name the office and describe its location.
-
 - id: what_is_stored
   title: What do you store in the QNAP NAS?
   prompt: What do you store in the {{product_name}}?
   type: text
   help: e.g. data files, source code
-
 - id: cui_stored
   title: Is any CUI stored in the QNAP NAS?
   prompt: Is any Controlled Unclassified Information stored in the {{product_name}}?
   type: yesno
-
 - id: cui_system_configuration_stored
   title: Are any configurations for systems that store CUI located in the QNAP NAS?
-  prompt: Is the {{product_name}} used to store configurations for systems that store CUI?
+  prompt: Is the {{product_name}} used to store configurations for systems that store
+    CUI?
   type: yesno
-
 - id: session_termination_settings_description
   title: Session termination
   prompt: Describe the settings on the QNAP NAS for terminateing network connections
-    associated with communications sessions at the end of the sessions or after a period of
-    inactivity.
+    associated with communications sessions at the end of the sessions or after a
+    period of inactivity.
   type: text

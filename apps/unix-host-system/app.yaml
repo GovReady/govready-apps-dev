@@ -32,124 +32,16 @@ protocol:
 - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp
 - govready.com/apps/compliance/2018/nist-sp-800-53-r5-ssp/unix-host-system
 output:
-- id: ssp_nistsp80053r5_control_ac_3_impl
-  title: NIST SP 800-53 Rev 5 AC-3 Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to        Enforce approved authorizations for logical access to information and system resources in
-
-    accordance with applicable access control policies.
-     DESCR
-- id: ssp_nistsp80053r5_control_ac_6_9_impl
-  title: NIST SP 800-53 Rev 5 AC-6(9) Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to audit the execution of privileged functions. DESCR
-- id: ssp_nistsp80053r5_control_ac_7_impl
-  title: NIST SP 800-53 Rev 5 AC-7 Control Implementation
-  format: markdown
-  template: >
-    {{organization}} uses Unix Host System to a.    Enforce a limit of [Assignment:
-    organization-defined number] consecutive invalid logon
-          attempts by a user during a [Assignment: organization-defined time-period];
-    and b.    Automatically [Selection (one or more): lock the account/node for an
-    <3>; lock the account/node until released by an administrator; delay next logon
-    prompt per <4>; take <5>] when the maximum number of unsuccessful
-          attempts is exceeded.
-     DESCR
-- id: ssp_nistsp80053r5_control_ac_8_impl
-  title: NIST SP 800-53 Rev 5 AC-8 Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to a.    Display [Assignment: organization-defined system use notification message or banner] to
-          users before granting access to the system that provides privacy and security
-    notices
-          consistent with applicable laws, Executive Orders, directives, policies,
-    regulations, standards,
-          and guidelines and state that:
-          1.   Users are accessing a U.S. Government system;
-          2.   System usage may be monitored, recorded, and subject to audit;
-          3.   Unauthorized use of the system is prohibited and subject to criminal
-    and civil penalties;
-               and
-          4.   Use of the system indicates consent to monitoring and recording;
-    b.    Retain the notification message or banner on the screen until users acknowledge the usage
-          conditions and take explicit actions to log on to or further access the
-    system; and c.    For publicly accessible systems:
-          1.   Display system use information [Assignment: organization-defined conditions],
-    before
-               granting further access to the publicly accessible system;
-          2.   Display references, if any, to monitoring, recording, or auditing that
-    are consistent with
-               privacy accommodations for such systems that generally prohibit those
-    activities; and
-          3.   Include a description of the authorized uses of the system.
-     DESCR
-- id: ssp_nistsp80053r5_control_au_3_impl
-  title: NIST SP 800-53 Rev 5 AU-3 Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to the system generates audit records containing information that establishes what type of
-    event occurred, when the event occurred, where the event occurred, the source of the event, the
-    outcome of the event, and the identity of any individuals or subjects associated with the event.
-     DESCR
-- id: ssp_nistsp80053r5_control_au_5_impl
-  title: NIST SP 800-53 Rev 5 AU-5 Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to a.    Alert [Assignment: organization-defined personnel or roles] in the event of an audit
-          processing failure within [Assignment: organization-defined time-period]; and
-    b.    Take the following additional actions: [Assignment: organization-defined actions to be taken].
-     DESCR
-- id: ssp_nistsp80053r5_control_au_12_impl
-  title: NIST SP 800-53 Rev 5 AU-12 Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to a.    Provide audit record generation capability for the auditable event types in AU-2 a. at
-          [Assignment: organization-defined system components];
-    b.    Allow [Assignment: organization-defined personnel or roles] to select which auditable event
-          types are to be audited by specific components of the system; and
-    c.    Generate audit records for the event types defined in AU-2 d. with the content in AU-3.
-     DESCR
-- id: ssp_nistsp80053r5_control_ia_2_impl
-  title: NIST SP 800-53 Rev 5 IA-2 Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to uniquely identify and authenticate organizational users or processes acting on behalf of
-    organizational users.
-     DESCR
-- id: ssp_nistsp80053r5_control_ia_2_1_impl
-  title: NIST SP 800-53 Rev 5 IA-2(1) Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to implement multifactor authentication for access to privileged accounts. DESCR
-- id: ssp_nistsp80053r5_control_ia_2_8_impl
-  title: NIST SP 800-53 Rev 5 IA-2(8) Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to implement replay-resistant authentication mechanisms for access to [Selection (one or more): privileged accounts; non-privileged accounts].
-     DESCR
-- id: ssp_nistsp80053r5_control_sc_5_impl
-  title: NIST SP 800-53 Rev 5 SC-5 Control Implementation
-  format: markdown
-  template: >
-    {{organization}} uses Unix Host System to protect against or limit the effects
-    of the following types of denial of service events:
-
-    [Assignment: organization-defined types of denial of service events or references
-    to sources for such information] by employing [Assignment: organization-defined
-    security safeguards].
-     DESCR
-- id: ssp_nistsp80053r5_control_sc_21_impl
-  title: NIST SP 800-53 Rev 5 SC-21 Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to        Request and perform data origin authentication and data integrity verification on the
-
-    name/address resolution responses the system receives from authoritative sources.
-     DESCR
-- id: ssp_nistsp80053r5_control_sc_39_impl
-  title: NIST SP 800-53 Rev 5 SC-39 Control Implementation
-  format: markdown
-  template: |
-    {{organization}} uses Unix Host System to maintain a separate execution domain for each executing process with the system. DESCR
+- ssp_nistsp80053r5_control_ac_3_impl.md
+- ssp_nistsp80053r5_control_ac_6_9_impl.md
+- ssp_nistsp80053r5_control_ac_7_impl.md
+- ssp_nistsp80053r5_control_ac_8_impl.md
+- ssp_nistsp80053r5_control_au_3_impl.md
+- ssp_nistsp80053r5_control_au_5_impl.md
+- ssp_nistsp80053r5_control_au_12_impl.md
+- ssp_nistsp80053r5_control_ia_2_impl.md
+- ssp_nistsp80053r5_control_ia_2_1_impl.md
+- ssp_nistsp80053r5_control_ia_2_8_impl.md
+- ssp_nistsp80053r5_control_sc_5_impl.md
+- ssp_nistsp80053r5_control_sc_21_impl.md
+- ssp_nistsp80053r5_control_sc_39_impl.md

@@ -16,9 +16,10 @@ catalog:
   description:
     short: |
       CUI (NIST SP 800-171) Compliance of AWS Glacier Backup
-    long: |
-      Generates the compliance documentation of AWS Glacier Backup as it pertains to managing the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
-
+    long: >
+      Generates the compliance documentation of AWS Glacier Backup as it pertains
+      to managing the security of CUI (Controlled Unclassified Information) as per
+      NIST SP 800-171 controls.
   recommended_for:
   - key_short: Org
     value: Small
@@ -36,40 +37,8 @@ introduction:
     This application will make sure you are properly using AWS Glacier to protect CUI.
 questions: []
 output:
-
-- id: ssp_nist800171r1_3_3_1
-  format: markdown
-  template: >
-    3.3.1 goes here. The control
-    text is:
-
-    Audit record retention (3.3.1) is satisified by use  __Organization__ use of Amazon Glacier to retain audit records to the extent needed to enable the monitoring, analysis, investigation, and reporting of unlawful, unauthorized, or inappropriate system activity. All __Organization__ system audit records are backed up to Amazon Glacier __describe period__ via __describe process__. Amazon Glacier is a secure, durable, and extremely low-cost cloud storage service for data archiving and long-term backup. Amazon Glacier is off site relative to __Organization__'s systems containing CUI. See https://aws.amazon.com/glacier/ for additional information.
-
-- id: ssp_nist800171r1_3_3_8
-  format: markdown
-  template: |
-    Control implementation text for NIST SP 800-171 r1 3.3.8 goes here. The control text is:
-
-    Protect audit information and audit tools from unauthorized access, modification, and deletion.
-
-######################
-- id: ssp_nist800171r1_3_8_9
-  format: markdown
-  template: |
-    __Organization__ stores all backups containing CUI __only__ in Amazon Glacier to protect the confidentiality of backup CUI at storage locations. All __Organization__ backups are copied to Amazon Glacier __describe period__ via __describe process__ for long term storage. Amazon Glacier is a secure, durable, and extremely low-cost cloud storage service for data archiving and long-term backup. Amazon Glacier is off site relative to __Organization__'s systems containing CUI. See https://aws.amazon.com/glacier/ for additional information. 
-
-- id: ssp_nist800171r1_3_13_11
-  format: markdown
-  template: |
-    __Organization__ stores all backups containing CUI __only__ in Amazon Glacier to protect the confidentiality of backup CUI at rest. Amazon Glacier is a secure, durable, and extremely low-cost cloud storage service for data archiving and long-term backup. Amazon Glacier supports data transfer over SSL and automatically encrypts data at rest. See https://aws.amazon.com/glacier/ for additional information. Amazon Glacier uses one of the strongest block ciphers available, 256-bit Advanced Encryption Standard (AES-256). 256-bit is the largest key size defined for AES (see: https://aws.amazon.com/glacier/faqs/#dataretrievals).
-    __Link for FIPS validated cryptography? Employ FIPS-validated cryptography when used to protect the confidentiality of CUI.__
-
-
-    https://aws.amazon.com/glacier/faqs/#dataretrievals
-
-- id: ssp_nist800171r1_3_13_16
-  format: markdown
-  template: |
-
-    __Organization__ stores all backups containing CUI __only__ in Amazon Glacier to protect the confidentiality of backup CUI at rest. Amazon Glacier is a secure, durable, and extremely low-cost cloud storage service for data archiving and long-term backup. Amazon Glacier supports data transfer over SSL and automatically encrypts data at rest. Amazon Glacier is off site relative to __Organization__'s systems containing CUI. See https://aws.amazon.com/glacier/ for additional information. Amazon Glacier uses one of the strongest block ciphers available, 256-bit Advanced Encryption Standard (AES-256). 256-bit is the largest key size defined for AES (see: https://aws.amazon.com/glacier/faqs/#dataretrievals).
-
+- ssp_nist800171r1_3_3_1.md
+- ssp_nist800171r1_3_3_8.md
+- ssp_nist800171r1_3_8_9.md
+- ssp_nist800171r1_3_13_11.md
+- ssp_nist800171r1_3_13_16.md

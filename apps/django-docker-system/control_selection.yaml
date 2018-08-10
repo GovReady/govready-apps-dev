@@ -7,7 +7,6 @@ questions:
   title: Introduction
   prompt: |
     You've finished the system categorization step. Now you will perform control selection.
-
 - id: fisma_level
   type: interstitial
   title: FISMA Level
@@ -17,1455 +16,1453 @@ questions:
 
     Your FISMA level gives you a starting point for contorl selection.
 output:
-  - title: Control Selection
-    format: markdown
-    template: |
-      {# generated using make_control_selection_list.py and some find/replace #}
+- title: Control Selection
+  format: markdown
+  template: |
+    {# generated using make_control_selection_list.py and some find/replace #}
 
-      {% set fisma_level=project.system_categorization.fisma_level.fisma_level %}
+    {% set fisma_level=project.system_categorization.fisma_level.fisma_level %}
 
-      The following controls are selected based on your system's FISMA Level of {{fisma_level}}.
+    The following controls are selected based on your system's FISMA Level of {{fisma_level}}.
 
-      AC-1: Access Control Policy and Procedures (Low)
+    AC-1: Access Control Policy and Procedures (Low)
 
 
-      AC-2: Account Management (Low)
+    AC-2: Account Management (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(1): Automated System Account Management (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(1): Automated System Account Management (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(2): Removal of Temporary and Emergency Accounts (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(2): Removal of Temporary and Emergency Accounts (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(3): Disable Accounts (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(3): Disable Accounts (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(4): Automated Audit Actions (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(4): Automated Audit Actions (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(5): Inactivity Logout (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(5): Inactivity Logout (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(10): Shared and Group Account Credential Change (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(10): Shared and Group Account Credential Change (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}AC-2(11): Usage Conditions (High){% endif %}
+    {% if fisma_level == "High" %}AC-2(11): Usage Conditions (High){% endif %}
 
 
-      {% if fisma_level == "High" %}AC-2(12): Account Monitoring for Atypical Usage (High){% endif %}
+    {% if fisma_level == "High" %}AC-2(12): Account Monitoring for Atypical Usage (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(13): Disable Accounts for High-Risk Individuals (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-2(13): Disable Accounts for High-Risk Individuals (Moderate){% endif %}
 
 
-      AC-3: Access Enforcement (Low)
+    AC-3: Access Enforcement (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-4: Information Flow Enforcement (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-4: Information Flow Enforcement (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}AC-4(4): Flow Control of Encrypted Information (High){% endif %}
+    {% if fisma_level == "High" %}AC-4(4): Flow Control of Encrypted Information (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-5: Separation of Duties (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-5: Separation of Duties (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6: Least Privilege (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6: Least Privilege (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6(1): Authorize Access to Security Functions (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6(1): Authorize Access to Security Functions (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6(2): Non-Privileged Access for Nonsecurity Functions (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6(2): Non-Privileged Access for Nonsecurity Functions (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}AC-6(3): Network Access to Privileged Commands (High){% endif %}
+    {% if fisma_level == "High" %}AC-6(3): Network Access to Privileged Commands (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6(5): Privileged Accounts (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6(5): Privileged Accounts (Moderate){% endif %}
 
 
-      AC-6(7): Review of User Privileges (Low)
+    AC-6(7): Review of User Privileges (Low)
 
 
-      AC-6(9): Auditing Use of Privileged Functions (Low)
+    AC-6(9): Auditing Use of Privileged Functions (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6(10): Prohibit Non-Privileged Users From Executing Privileged Functions (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-6(10): Prohibit Non-Privileged Users From Executing Privileged Functions (Moderate){% endif %}
 
 
-      AC-7: Unsuccessful Logon Attempts (Low)
+    AC-7: Unsuccessful Logon Attempts (Low)
 
 
-      AC-8: System Use Notification (Low)
+    AC-8: System Use Notification (Low)
 
 
-      {% if fisma_level == "High" %}AC-10: Concurrent Session Control (High){% endif %}
+    {% if fisma_level == "High" %}AC-10: Concurrent Session Control (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-11: Device Lock (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-11: Device Lock (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-11(1): Pattern-Hiding Displays (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-11(1): Pattern-Hiding Displays (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-12: Session Termination (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-12: Session Termination (Moderate){% endif %}
 
 
-      AC-14: Permitted Actions without Identification or Authentication (Low)
+    AC-14: Permitted Actions without Identification or Authentication (Low)
 
 
-      AC-16: Security and Privacy Attributes (privacy-related)
+    AC-16: Security and Privacy Attributes (privacy-related)
 
 
-      AC-16(1): Dynamic Attribute Association (privacy-related)
+    AC-16(1): Dynamic Attribute Association (privacy-related)
 
 
-      AC-16(2): Attribute Value Changes by Authorized Individuals (privacy-related)
+    AC-16(2): Attribute Value Changes by Authorized Individuals (privacy-related)
 
 
-      AC-16(3): Maintenance of Attribute Associations by System (privacy-related)
+    AC-16(3): Maintenance of Attribute Associations by System (privacy-related)
 
 
-      AC-16(4): Association of Attributes by Authorized Individuals (privacy-related)
+    AC-16(4): Association of Attributes by Authorized Individuals (privacy-related)
 
 
-      AC-16(5): Attribute Displays for Output Devices (privacy-related)
+    AC-16(5): Attribute Displays for Output Devices (privacy-related)
 
 
-      AC-16(6): Maintenance of Attribute Association by Organization (privacy-related)
+    AC-16(6): Maintenance of Attribute Association by Organization (privacy-related)
 
 
-      AC-16(7): Consistent Attribute Interpretation (privacy-related)
+    AC-16(7): Consistent Attribute Interpretation (privacy-related)
 
 
-      AC-16(8): Association Techniques and Technologies (privacy-related)
+    AC-16(8): Association Techniques and Technologies (privacy-related)
 
 
-      AC-16(9): Attribute Reassignment (privacy-related)
+    AC-16(9): Attribute Reassignment (privacy-related)
 
 
-      AC-16(10): Attribute Configuration by Authorized Individuals (privacy-related)
+    AC-16(10): Attribute Configuration by Authorized Individuals (privacy-related)
 
 
-      AC-16(11): Audit Changes (privacy-related)
+    AC-16(11): Audit Changes (privacy-related)
 
 
-      AC-17: Remote Access (Low)
+    AC-17: Remote Access (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-17(1): Automated Monitoring and Control (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-17(1): Automated Monitoring and Control (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-17(2): Protection of Confidentiality and Integrity Using Encryption (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-17(2): Protection of Confidentiality and Integrity Using Encryption (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-17(3): Managed Access Control Points (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-17(3): Managed Access Control Points (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-17(4): Privileged Commands and Access (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-17(4): Privileged Commands and Access (Moderate){% endif %}
 
 
-      AC-18: Wireless Access (Low)
+    AC-18: Wireless Access (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-18(1): Authentication and Encryption (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-18(1): Authentication and Encryption (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-18(3): Disable Wireless Networking (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-18(3): Disable Wireless Networking (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}AC-18(4): Restrict Configurations by Users (High){% endif %}
+    {% if fisma_level == "High" %}AC-18(4): Restrict Configurations by Users (High){% endif %}
 
 
-      {% if fisma_level == "High" %}AC-18(5): Antennas and Transmission Power Levels (High){% endif %}
+    {% if fisma_level == "High" %}AC-18(5): Antennas and Transmission Power Levels (High){% endif %}
 
 
-      AC-19: Access Control for Mobile Devices (Low)
+    AC-19: Access Control for Mobile Devices (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-19(5): Full Device and Container-Based Encryption (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-19(5): Full Device and Container-Based Encryption (Moderate){% endif %}
 
 
-      AC-20: Use of External Systems (Low)
+    AC-20: Use of External Systems (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-20(1): Limits on Authorized Use (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-20(1): Limits on Authorized Use (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-20(2): Portable Storage Devices (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-20(2): Portable Storage Devices (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-21: Information Sharing (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AC-21: Information Sharing (Moderate){% endif %}
 
 
-      AC-22: Publicly Accessible Content (Low)
+    AC-22: Publicly Accessible Content (Low)
 
 
-      AC-23: Data Mining Protection (privacy-related)
+    AC-23: Data Mining Protection (privacy-related)
 
 
-      AT-1: Awareness and Training Policy and Procedures (Low)
+    AT-1: Awareness and Training Policy and Procedures (Low)
 
 
-      AT-2: Awareness Training (Low)
+    AT-2: Awareness Training (Low)
 
 
-      AT-2(1): Practical Exercises (privacy-related)
+    AT-2(1): Practical Exercises (privacy-related)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AT-2(2): Insider Threat (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AT-2(2): Insider Threat (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AT-2(3): Social Engineering and Mining (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AT-2(3): Social Engineering and Mining (Moderate){% endif %}
 
 
-      AT-3: Role-Based Training (Low)
+    AT-3: Role-Based Training (Low)
 
 
-      AT-3(3): Practical Exercises (privacy-related)
+    AT-3(3): Practical Exercises (privacy-related)
 
 
-      AT-3(5): Personally Identifiable Information Processing (privacy-related)
+    AT-3(5): Personally Identifiable Information Processing (privacy-related)
 
 
-      AT-4: Training Records (Low)
+    AT-4: Training Records (Low)
 
 
-      AU-1: Audit and Accountability Policy and Procedures (Low)
+    AU-1: Audit and Accountability Policy and Procedures (Low)
 
 
-      AU-2: Audit Events (Low)
+    AU-2: Audit Events (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-2(3): Reviews and Updates (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-2(3): Reviews and Updates (Moderate){% endif %}
 
 
-      AU-3: Content of Audit Records (Low)
+    AU-3: Content of Audit Records (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-3(1): Additional Audit Information (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-3(1): Additional Audit Information (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}AU-3(2): Centralized Management of Planned Audit Record Content (High){% endif %}
+    {% if fisma_level == "High" %}AU-3(2): Centralized Management of Planned Audit Record Content (High){% endif %}
 
 
-      AU-3(3): Limit Personally Identifiable Information Elements (privacy-related)
+    AU-3(3): Limit Personally Identifiable Information Elements (privacy-related)
 
 
-      AU-4: Audit Storage Capacity (Low)
+    AU-4: Audit Storage Capacity (Low)
 
 
-      AU-5: Response to Audit Processing Failures (Low)
+    AU-5: Response to Audit Processing Failures (Low)
 
 
-      {% if fisma_level == "High" %}AU-5(1): Audit Storage Capacity (High){% endif %}
+    {% if fisma_level == "High" %}AU-5(1): Audit Storage Capacity (High){% endif %}
 
 
-      {% if fisma_level == "High" %}AU-5(2): Real-Time Alerts (High){% endif %}
+    {% if fisma_level == "High" %}AU-5(2): Real-Time Alerts (High){% endif %}
 
 
-      AU-6: Audit Review, Analysis, and Reporting (Low)
+    AU-6: Audit Review, Analysis, and Reporting (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-6(1): Automated Process Integration (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-6(1): Automated Process Integration (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-6(3): Correlate Audit Repositories (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-6(3): Correlate Audit Repositories (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}AU-6(5): Integrated Analysis of Audit Records (High){% endif %}
+    {% if fisma_level == "High" %}AU-6(5): Integrated Analysis of Audit Records (High){% endif %}
 
 
-      {% if fisma_level == "High" %}AU-6(6): Correlation With Physical Monitoring (High){% endif %}
+    {% if fisma_level == "High" %}AU-6(6): Correlation With Physical Monitoring (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-7: Audit Reduction and Report Generation (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-7: Audit Reduction and Report Generation (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-7(1): Automatic Processing (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-7(1): Automatic Processing (Moderate){% endif %}
 
 
-      AU-8: Time Stamps (Low)
+    AU-8: Time Stamps (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-8(1): Synchronization With Authoritative Time Source (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-8(1): Synchronization With Authoritative Time Source (Moderate){% endif %}
 
 
-      AU-9: Protection of Audit Information (Low)
+    AU-9: Protection of Audit Information (Low)
 
 
-      {% if fisma_level == "High" %}AU-9(2): Store on Separate Physical Systems or Components (High){% endif %}
+    {% if fisma_level == "High" %}AU-9(2): Store on Separate Physical Systems or Components (High){% endif %}
 
 
-      {% if fisma_level == "High" %}AU-9(3): Cryptographic Protection (High){% endif %}
+    {% if fisma_level == "High" %}AU-9(3): Cryptographic Protection (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-9(4): Access by Subset of Privileged Users (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}AU-9(4): Access by Subset of Privileged Users (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}AU-10: Non-repudiation (High){% endif %}
+    {% if fisma_level == "High" %}AU-10: Non-repudiation (High){% endif %}
 
 
-      AU-11: Audit Record Retention (Low)
+    AU-11: Audit Record Retention (Low)
 
 
-      AU-12: Audit Generation (Low)
+    AU-12: Audit Generation (Low)
 
 
-      {% if fisma_level == "High" %}AU-12(1): System-Wide and Time-Correlated Audit Trail (High){% endif %}
+    {% if fisma_level == "High" %}AU-12(1): System-Wide and Time-Correlated Audit Trail (High){% endif %}
 
 
-      {% if fisma_level == "High" %}AU-12(3): Changes by Authorized Individuals (High){% endif %}
+    {% if fisma_level == "High" %}AU-12(3): Changes by Authorized Individuals (High){% endif %}
 
 
-      AU-12(4): Query Parameter Audits of Personally Identifiable Information (privacy-related)
+    AU-12(4): Query Parameter Audits of Personally Identifiable Information (privacy-related)
 
 
-      AU-16: Cross-Organizational Auditing (privacy-related)
+    AU-16: Cross-Organizational Auditing (privacy-related)
 
 
-      CA-1: Assessment, Authorization, and Monitoring Policies and Procedures (Low)
+    CA-1: Assessment, Authorization, and Monitoring Policies and Procedures (Low)
 
 
-      CA-2: Assessments (Low)
+    CA-2: Assessments (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CA-2(1): Independent Assessors (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CA-2(1): Independent Assessors (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CA-2(2): Specialized Assessments (High){% endif %}
+    {% if fisma_level == "High" %}CA-2(2): Specialized Assessments (High){% endif %}
 
 
-      CA-2(3): External Organizations (privacy-related)
+    CA-2(3): External Organizations (privacy-related)
 
 
-      CA-3: System Interconnections (Low)
+    CA-3: System Interconnections (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CA-3(5): Restrictions on External System Connections (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CA-3(5): Restrictions on External System Connections (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CA-3(6): Secondary and Tertiary Connections (High){% endif %}
+    {% if fisma_level == "High" %}CA-3(6): Secondary and Tertiary Connections (High){% endif %}
 
 
-      CA-5: Plan of Action and Milestones (Low)
+    CA-5: Plan of Action and Milestones (Low)
 
 
-      CA-6: Authorization (Low)
+    CA-6: Authorization (Low)
 
 
-      CA-7: Continuous Monitoring (Low)
+    CA-7: Continuous Monitoring (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CA-7(1): Independent Assessment (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CA-7(1): Independent Assessment (Moderate){% endif %}
 
 
-      CA-7(4): Risk Monitoring (Low)
+    CA-7(4): Risk Monitoring (Low)
 
 
-      {% if fisma_level == "High" %}CA-8: Penetration Testing (High){% endif %}
+    {% if fisma_level == "High" %}CA-8: Penetration Testing (High){% endif %}
 
 
-      {% if fisma_level == "High" %}CA-8(1): Independent Penetration Agent or Team (High){% endif %}
+    {% if fisma_level == "High" %}CA-8(1): Independent Penetration Agent or Team (High){% endif %}
 
 
-      CA-9: Internal System Connections (Low)
+    CA-9: Internal System Connections (Low)
 
 
-      CM-1: Configuration Management Policy and Procedures (Low)
+    CM-1: Configuration Management Policy and Procedures (Low)
 
 
-      CM-2: Baseline Configuration (Low)
+    CM-2: Baseline Configuration (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-2(2): Automation Support for Accuracy and Currency (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-2(2): Automation Support for Accuracy and Currency (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-2(3): Retention of Previous Configurations (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-2(3): Retention of Previous Configurations (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-2(7): Configure Systems and Components for High-Risk Areas (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-2(7): Configure Systems and Components for High-Risk Areas (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-3: Configuration Change Control (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-3: Configuration Change Control (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CM-3(1): Automated Documentation, Notification, and Prohibition of Changes (High){% endif %}
+    {% if fisma_level == "High" %}CM-3(1): Automated Documentation, Notification, and Prohibition of Changes (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-3(2): Testing, Validation, and Documentation of Changes (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-3(2): Testing, Validation, and Documentation of Changes (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-3(4): Security Representative (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-3(4): Security Representative (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CM-3(6): Cryptography Management (High){% endif %}
+    {% if fisma_level == "High" %}CM-3(6): Cryptography Management (High){% endif %}
 
 
-      CM-4: Security and Privacy Impact Analyses (Low)
+    CM-4: Security and Privacy Impact Analyses (Low)
 
 
-      {% if fisma_level == "High" %}CM-4(1): Separate Test Environments (High){% endif %}
+    {% if fisma_level == "High" %}CM-4(1): Separate Test Environments (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-4(2): Verification of Security and Privacy Functions (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-4(2): Verification of Security and Privacy Functions (Moderate){% endif %}
 
 
-      CM-5: Access Restrictions for Change (Low)
+    CM-5: Access Restrictions for Change (Low)
 
 
-      {% if fisma_level == "High" %}CM-5(1): Automated Access Enforcement and Auditing (High){% endif %}
+    {% if fisma_level == "High" %}CM-5(1): Automated Access Enforcement and Auditing (High){% endif %}
 
 
-      {% if fisma_level == "High" %}CM-5(2): Review System Changes (High){% endif %}
+    {% if fisma_level == "High" %}CM-5(2): Review System Changes (High){% endif %}
 
 
-      {% if fisma_level == "High" %}CM-5(3): Signed Components (High){% endif %}
+    {% if fisma_level == "High" %}CM-5(3): Signed Components (High){% endif %}
 
 
-      CM-6: Configuration Settings (Low)
+    CM-6: Configuration Settings (Low)
 
 
-      {% if fisma_level == "High" %}CM-6(1): Automated Management, Application, and Verification (High){% endif %}
+    {% if fisma_level == "High" %}CM-6(1): Automated Management, Application, and Verification (High){% endif %}
 
 
-      {% if fisma_level == "High" %}CM-6(2): Respond to Unauthorized Changes (High){% endif %}
+    {% if fisma_level == "High" %}CM-6(2): Respond to Unauthorized Changes (High){% endif %}
 
 
-      CM-7: Least Functionality (Low)
+    CM-7: Least Functionality (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-7(1): Periodic Review (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-7(1): Periodic Review (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-7(2): Prevent Program Execution (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-7(2): Prevent Program Execution (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-7(5): Authorized Software — Whitelisting (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-7(5): Authorized Software — Whitelisting (Moderate){% endif %}
 
 
-      CM-8: System Component Inventory (Low)
+    CM-8: System Component Inventory (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-8(1): Updates During Installation and Removal (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-8(1): Updates During Installation and Removal (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CM-8(2): Automated Maintenance (High){% endif %}
+    {% if fisma_level == "High" %}CM-8(2): Automated Maintenance (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-8(3): Automated Unauthorized Component Detection (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-8(3): Automated Unauthorized Component Detection (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CM-8(4): Accountability Information (High){% endif %}
+    {% if fisma_level == "High" %}CM-8(4): Accountability Information (High){% endif %}
 
 
-      CM-8(10): Data Action Mapping (privacy-related)
+    CM-8(10): Data Action Mapping (privacy-related)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-9: Configuration Management Plan (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-9: Configuration Management Plan (Moderate){% endif %}
 
 
-      CM-10: Software Usage Restrictions (Low)
+    CM-10: Software Usage Restrictions (Low)
 
 
-      CM-11: User-Installed Software (Low)
+    CM-11: User-Installed Software (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-12: Information Location (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-12: Information Location (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-12(1): Automated Tools to Support Information Location (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CM-12(1): Automated Tools to Support Information Location (Moderate){% endif %}
 
 
-      CP-1: Contingency Planning Policy and Procedures (Low)
+    CP-1: Contingency Planning Policy and Procedures (Low)
 
 
-      CP-2: Contingency Plan (Low)
+    CP-2: Contingency Plan (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-2(1): Coordinate With Related Plans (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-2(1): Coordinate With Related Plans (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-2(2): Capacity Planning (High){% endif %}
+    {% if fisma_level == "High" %}CP-2(2): Capacity Planning (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-2(3): Resume Essential Missions and Business Functions (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-2(3): Resume Essential Missions and Business Functions (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-2(4): Resume All Missions and Business Functions (High){% endif %}
+    {% if fisma_level == "High" %}CP-2(4): Resume All Missions and Business Functions (High){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-2(5): Continue Essential Missions and Business Functions (High){% endif %}
+    {% if fisma_level == "High" %}CP-2(5): Continue Essential Missions and Business Functions (High){% endif %}
 
 
-      CP-2(7): Coordinate With External Service Providers (privacy-related)
+    CP-2(7): Coordinate With External Service Providers (privacy-related)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-2(8): Identify Critical Assets (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-2(8): Identify Critical Assets (Moderate){% endif %}
 
 
-      CP-3: Contingency Training (Low)
+    CP-3: Contingency Training (Low)
 
 
-      {% if fisma_level == "High" %}CP-3(1): Simulated Events (High){% endif %}
+    {% if fisma_level == "High" %}CP-3(1): Simulated Events (High){% endif %}
 
 
-      CP-3(2): Automated Training Environments (privacy-related)
+    CP-3(2): Automated Training Environments (privacy-related)
 
 
-      CP-4: Contingency Plan Testing (Low)
+    CP-4: Contingency Plan Testing (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-4(1): Coordinate With Related Plans (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-4(1): Coordinate With Related Plans (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-4(2): Alternate Processing Site (High){% endif %}
+    {% if fisma_level == "High" %}CP-4(2): Alternate Processing Site (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-6: Alternate Storage Site (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-6: Alternate Storage Site (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-6(1): Separation From Primary Site (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-6(1): Separation From Primary Site (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-6(2): Recovery Time and Recovery Point Objectives (High){% endif %}
+    {% if fisma_level == "High" %}CP-6(2): Recovery Time and Recovery Point Objectives (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-6(3): Accessibility (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-6(3): Accessibility (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-7: Alternate Processing Site (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-7: Alternate Processing Site (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-7(1): Separation From Primary Site (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-7(1): Separation From Primary Site (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-7(2): Accessibility (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-7(2): Accessibility (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-7(3): Priority of Service (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-7(3): Priority of Service (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-7(4): Preparation for Use (High){% endif %}
+    {% if fisma_level == "High" %}CP-7(4): Preparation for Use (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-8: Telecommunications Services (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-8: Telecommunications Services (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-8(1): Priority of Service Provisions (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-8(1): Priority of Service Provisions (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-8(2): Single Points of Failure (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-8(2): Single Points of Failure (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-8(3): Separation of Primary and Alternate Providers (High){% endif %}
+    {% if fisma_level == "High" %}CP-8(3): Separation of Primary and Alternate Providers (High){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-8(4): Provider Contingency Plan (High){% endif %}
+    {% if fisma_level == "High" %}CP-8(4): Provider Contingency Plan (High){% endif %}
 
 
-      CP-9: System Backup (Low)
+    CP-9: System Backup (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-9(1): Testing for Reliability and Integrity (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-9(1): Testing for Reliability and Integrity (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-9(2): Test Restoration Using Sampling (High){% endif %}
+    {% if fisma_level == "High" %}CP-9(2): Test Restoration Using Sampling (High){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-9(3): Separate Storage for Critical Information (High){% endif %}
+    {% if fisma_level == "High" %}CP-9(3): Separate Storage for Critical Information (High){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-9(5): Transfer to Alternate Storage Site (High){% endif %}
+    {% if fisma_level == "High" %}CP-9(5): Transfer to Alternate Storage Site (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-9(8): Cryptographic Protection (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-9(8): Cryptographic Protection (Moderate){% endif %}
 
 
-      CP-10: System Recovery and Reconstitution (Low)
+    CP-10: System Recovery and Reconstitution (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-10(2): Transaction Recovery (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}CP-10(2): Transaction Recovery (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}CP-10(4): Restore Within Time-Period (High){% endif %}
+    {% if fisma_level == "High" %}CP-10(4): Restore Within Time-Period (High){% endif %}
 
 
-      IA-1: Identification and Authentication Policy and Procedures (Low)
+    IA-1: Identification and Authentication Policy and Procedures (Low)
 
 
-      IA-2: Identification and Authentication (Organizational Users) (Low)
+    IA-2: Identification and Authentication (Organizational Users) (Low)
 
 
-      IA-2(1): Multifactor Authentication to Privileged Accounts (Low)
+    IA-2(1): Multifactor Authentication to Privileged Accounts (Low)
 
 
-      IA-2(2): Multifactor Authentication to Non-Privileged Accounts (Low)
+    IA-2(2): Multifactor Authentication to Non-Privileged Accounts (Low)
 
 
-      {% if fisma_level == "High" %}IA-2(5): Individual Authentication With Group Authentication (High){% endif %}
+    {% if fisma_level == "High" %}IA-2(5): Individual Authentication With Group Authentication (High){% endif %}
 
 
-      IA-2(8): Access to Accounts — Replay Resistant (Low)
+    IA-2(8): Access to Accounts — Replay Resistant (Low)
 
 
-      IA-2(12): Acceptance of Piv Credentials (Low)
+    IA-2(12): Acceptance of Piv Credentials (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-3: Device Identification and Authentication (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-3: Device Identification and Authentication (Moderate){% endif %}
 
 
-      IA-4: Identifier Management (Low)
+    IA-4: Identifier Management (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-4(4): Identify User Status (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-4(4): Identify User Status (Moderate){% endif %}
 
 
-      IA-4(8): Pairwise Pseudonymous Identifiers (privacy-related)
+    IA-4(8): Pairwise Pseudonymous Identifiers (privacy-related)
 
 
-      IA-5: Authenticator Management (Low)
+    IA-5: Authenticator Management (Low)
 
 
-      IA-5(1): Password-Based Authentication (Low)
+    IA-5(1): Password-Based Authentication (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-5(2): Public Key-Based Authentication (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-5(2): Public Key-Based Authentication (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-5(6): Protection of Authenticators (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-5(6): Protection of Authenticators (Moderate){% endif %}
 
 
-      IA-6: Authenticator Feedback (Low)
+    IA-6: Authenticator Feedback (Low)
 
 
-      IA-7: Cryptographic Module Authentication (Low)
+    IA-7: Cryptographic Module Authentication (Low)
 
 
-      IA-8: Identification and Authentication (Non-Organizational Users) (Low)
+    IA-8: Identification and Authentication (Non-Organizational Users) (Low)
 
 
-      IA-8(1): Acceptance of Piv Credentials From Other Agencies (Low)
+    IA-8(1): Acceptance of Piv Credentials From Other Agencies (Low)
 
 
-      IA-8(2): Acceptance of External Party Credentials (Low)
+    IA-8(2): Acceptance of External Party Credentials (Low)
 
 
-      IA-8(4): Use of Nist-Issued Profiles (Low)
+    IA-8(4): Use of Nist-Issued Profiles (Low)
 
 
-      IA-8(6): Disassociability (privacy-related)
+    IA-8(6): Disassociability (privacy-related)
 
 
-      IA-11: Re-authentication (Low)
+    IA-11: Re-authentication (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-12: Identity Proofing (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-12: Identity Proofing (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-12(2): Identity Evidence (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-12(2): Identity Evidence (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-12(3): Identity Evidence Validation and Verification (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-12(3): Identity Evidence Validation and Verification (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}IA-12(4): In-Person Validation and Verification (High){% endif %}
+    {% if fisma_level == "High" %}IA-12(4): In-Person Validation and Verification (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-12(5): Address Confirmation (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IA-12(5): Address Confirmation (Moderate){% endif %}
 
 
-      IP-1: Individual Participation Policy and Procedures (privacy-related)
+    IP-1: Individual Participation Policy and Procedures (privacy-related)
 
 
-      IP-2: Consent (privacy-related)
+    IP-2: Consent (privacy-related)
 
 
-      IP-2(1): Attribute Management (privacy-related)
+    IP-2(1): Attribute Management (privacy-related)
 
 
-      IP-2(2): Just-In-Time Notice of Consent (privacy-related)
+    IP-2(2): Just-In-Time Notice of Consent (privacy-related)
 
 
-      IP-3: Redress (privacy-related)
+    IP-3: Redress (privacy-related)
 
 
-      IP-3(1): Notice of Correction or Amendment (privacy-related)
+    IP-3(1): Notice of Correction or Amendment (privacy-related)
 
 
-      IP-3(2): Appeal (privacy-related)
+    IP-3(2): Appeal (privacy-related)
 
 
-      IP-4: Privacy Notice (privacy-related)
+    IP-4: Privacy Notice (privacy-related)
 
 
-      IP-4(1): Just-In-Time Notice of Privacy Authorization (privacy-related)
+    IP-4(1): Just-In-Time Notice of Privacy Authorization (privacy-related)
 
 
-      IP-5: Privacy Act Statements (privacy-related)
+    IP-5: Privacy Act Statements (privacy-related)
 
 
-      IP-6: Individual Access (privacy-related)
+    IP-6: Individual Access (privacy-related)
 
 
-      IR-1: Incident Response Policy and Procedures (Low)
+    IR-1: Incident Response Policy and Procedures (Low)
 
 
-      IR-2: Incident Response Training (Low)
+    IR-2: Incident Response Training (Low)
 
 
-      {% if fisma_level == "High" %}IR-2(1): Simulated Events (High){% endif %}
+    {% if fisma_level == "High" %}IR-2(1): Simulated Events (High){% endif %}
 
 
-      {% if fisma_level == "High" %}IR-2(2): Automated Training Environments (High){% endif %}
+    {% if fisma_level == "High" %}IR-2(2): Automated Training Environments (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-3: Incident Response Testing (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-3: Incident Response Testing (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-3(2): Coordination With Related Plans (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-3(2): Coordination With Related Plans (Moderate){% endif %}
 
 
-      IR-4: Incident Handling (Low)
+    IR-4: Incident Handling (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-4(1): Automated Incident Handling Processes (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-4(1): Automated Incident Handling Processes (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}IR-4(4): Information Correlation (High){% endif %}
+    {% if fisma_level == "High" %}IR-4(4): Information Correlation (High){% endif %}
 
 
-      IR-5: Incident Monitoring (Low)
+    IR-5: Incident Monitoring (Low)
 
 
-      {% if fisma_level == "High" %}IR-5(1): Automated Tracking, Data Collection, and Analysis (High){% endif %}
+    {% if fisma_level == "High" %}IR-5(1): Automated Tracking, Data Collection, and Analysis (High){% endif %}
 
 
-      IR-6: Incident Reporting (Low)
+    IR-6: Incident Reporting (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-6(1): Automated Reporting (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-6(1): Automated Reporting (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-6(3): Supply Chain Coordination (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-6(3): Supply Chain Coordination (Moderate){% endif %}
 
 
-      IR-7: Incident Response Assistance (Low)
+    IR-7: Incident Response Assistance (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-7(1): Automation Support for Availability of Information and Support (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}IR-7(1): Automation Support for Availability of Information and Support (Moderate){% endif %}
 
 
-      IR-8: Incident Response Plan (Low)
+    IR-8: Incident Response Plan (Low)
 
 
-      IR-8(1): Personally Identifiable Information Processes (privacy-related)
+    IR-8(1): Personally Identifiable Information Processes (privacy-related)
 
 
-      IR-9: Information Spillage Response (privacy-related)
+    IR-9: Information Spillage Response (privacy-related)
 
 
-      {% if fisma_level == "High" %}IR-10: Integrated Information Security Analysis Team (High){% endif %}
+    {% if fisma_level == "High" %}IR-10: Integrated Information Security Analysis Team (High){% endif %}
 
 
-      MA-1: System Maintenance Policy and Procedures (Low)
+    MA-1: System Maintenance Policy and Procedures (Low)
 
 
-      MA-2: Controlled Maintenance (Low)
+    MA-2: Controlled Maintenance (Low)
 
 
-      {% if fisma_level == "High" %}MA-2(2): Automated Maintenance Activities (High){% endif %}
+    {% if fisma_level == "High" %}MA-2(2): Automated Maintenance Activities (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-3: Maintenance Tools (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-3: Maintenance Tools (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-3(1): Inspect Tools (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-3(1): Inspect Tools (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-3(2): Inspect Media (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-3(2): Inspect Media (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-3(3): Prevent Unauthorized Removal (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-3(3): Prevent Unauthorized Removal (Moderate){% endif %}
 
 
-      MA-4: Nonlocal Maintenance (Low)
+    MA-4: Nonlocal Maintenance (Low)
 
 
-      {% if fisma_level == "High" %}MA-4(3): Comparable Security and Sanitization (High){% endif %}
+    {% if fisma_level == "High" %}MA-4(3): Comparable Security and Sanitization (High){% endif %}
 
 
-      MA-5: Maintenance Personnel (Low)
+    MA-5: Maintenance Personnel (Low)
 
 
-      {% if fisma_level == "High" %}MA-5(1): Individuals Without Appropriate Access (High){% endif %}
+    {% if fisma_level == "High" %}MA-5(1): Individuals Without Appropriate Access (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-6: Timely Maintenance (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}MA-6: Timely Maintenance (Moderate){% endif %}
 
 
-      MP-1: Media Protection Policy and Procedures (Low)
+    MP-1: Media Protection Policy and Procedures (Low)
 
 
-      MP-2: Media Access (Low)
+    MP-2: Media Access (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}MP-3: Media Marking (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}MP-3: Media Marking (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}MP-4: Media Storage (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}MP-4: Media Storage (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}MP-5: Media Transport (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}MP-5: Media Transport (Moderate){% endif %}
 
 
-      MP-6: Media Sanitization (Low)
+    MP-6: Media Sanitization (Low)
 
 
-      {% if fisma_level == "High" %}MP-6(1): Review, Approve, Track, Document, Verify (High){% endif %}
+    {% if fisma_level == "High" %}MP-6(1): Review, Approve, Track, Document, Verify (High){% endif %}
 
 
-      {% if fisma_level == "High" %}MP-6(2): Equipment Testing (High){% endif %}
+    {% if fisma_level == "High" %}MP-6(2): Equipment Testing (High){% endif %}
 
 
-      {% if fisma_level == "High" %}MP-6(3): Nondestructive Techniques (High){% endif %}
+    {% if fisma_level == "High" %}MP-6(3): Nondestructive Techniques (High){% endif %}
 
 
-      MP-7: Media Use (Low)
+    MP-7: Media Use (Low)
 
 
-      PA-1: Privacy Authorization Policy and Procedures (privacy-related)
+    PA-1: Privacy Authorization Policy and Procedures (privacy-related)
 
 
-      PA-2: Authority to Collect (privacy-related)
+    PA-2: Authority to Collect (privacy-related)
 
 
-      PA-3: Purpose Specification (privacy-related)
+    PA-3: Purpose Specification (privacy-related)
 
 
-      PA-3(1): Usage Restrictions of Personally Identifiable Information (privacy-related)
+    PA-3(1): Usage Restrictions of Personally Identifiable Information (privacy-related)
 
 
-      PA-3(2): Automation (privacy-related)
+    PA-3(2): Automation (privacy-related)
 
 
-      PA-4: Information Sharing with External Parties (privacy-related)
+    PA-4: Information Sharing with External Parties (privacy-related)
 
 
-      PE-1: Physical and Environmental Protection Policy and Procedures (Low)
+    PE-1: Physical and Environmental Protection Policy and Procedures (Low)
 
 
-      PE-2: Physical Access Authorizations (Low)
+    PE-2: Physical Access Authorizations (Low)
 
 
-      PE-3: Physical Access Control (Low)
+    PE-3: Physical Access Control (Low)
 
 
-      {% if fisma_level == "High" %}PE-3(1): System Access (High){% endif %}
+    {% if fisma_level == "High" %}PE-3(1): System Access (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-4: Access Control for Transmission (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-4: Access Control for Transmission (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-5: Access Control for Output Devices (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-5: Access Control for Output Devices (Moderate){% endif %}
 
 
-      PE-6: Monitoring Physical Access (Low)
+    PE-6: Monitoring Physical Access (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-6(1): Intrusion Alarms and Surveillance Equipment (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-6(1): Intrusion Alarms and Surveillance Equipment (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}PE-6(4): Monitoring Physical Access to Systems (High){% endif %}
+    {% if fisma_level == "High" %}PE-6(4): Monitoring Physical Access to Systems (High){% endif %}
 
 
-      PE-8: Visitor Access Records (Low)
+    PE-8: Visitor Access Records (Low)
 
 
-      {% if fisma_level == "High" %}PE-8(1): Automated Records Maintenance and Review (High){% endif %}
+    {% if fisma_level == "High" %}PE-8(1): Automated Records Maintenance and Review (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-9: Power Equipment and Cabling (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-9: Power Equipment and Cabling (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-10: Emergency Shutoff (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-10: Emergency Shutoff (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-11: Emergency Power (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-11: Emergency Power (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}PE-11(1): Long-Term Alternate Power Supply — Minimal Operational Capability (High){% endif %}
+    {% if fisma_level == "High" %}PE-11(1): Long-Term Alternate Power Supply — Minimal Operational Capability (High){% endif %}
 
 
-      PE-12: Emergency Lighting (Low)
+    PE-12: Emergency Lighting (Low)
 
 
-      PE-13: Fire Protection (Low)
+    PE-13: Fire Protection (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-13(1): Detection Devices and Systems (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-13(1): Detection Devices and Systems (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}PE-13(2): Automatic Suppression Devices and Systems (High){% endif %}
+    {% if fisma_level == "High" %}PE-13(2): Automatic Suppression Devices and Systems (High){% endif %}
 
 
-      PE-14: Temperature and Humidity Controls (Low)
+    PE-14: Temperature and Humidity Controls (Low)
 
 
-      PE-15: Water Damage Protection (Low)
+    PE-15: Water Damage Protection (Low)
 
 
-      {% if fisma_level == "High" %}PE-15(1): Automation Support (High){% endif %}
+    {% if fisma_level == "High" %}PE-15(1): Automation Support (High){% endif %}
 
 
-      PE-16: Delivery and Removal (Low)
+    PE-16: Delivery and Removal (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-17: Alternate Work Site (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PE-17: Alternate Work Site (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}PE-18: Location of System Components (High){% endif %}
+    {% if fisma_level == "High" %}PE-18: Location of System Components (High){% endif %}
 
 
-      PL-1: Planning Policy and Procedures (Low)
+    PL-1: Planning Policy and Procedures (Low)
 
 
-      PL-2: Security and Privacy Plans (Low)
+    PL-2: Security and Privacy Plans (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PL-2(3): Plan and Coordinate With Other Organizational Entities (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PL-2(3): Plan and Coordinate With Other Organizational Entities (Moderate){% endif %}
 
 
-      PL-4: Rules of Behavior (Low)
+    PL-4: Rules of Behavior (Low)
 
 
-      PL-4(1): Social Media and Networking Restrictions (Low)
+    PL-4(1): Social Media and Networking Restrictions (Low)
 
 
-      PL-7: Concept of Operations (privacy-related)
+    PL-7: Concept of Operations (privacy-related)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}PL-8: Security and Privacy Architectures (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}PL-8: Security and Privacy Architectures (Moderate){% endif %}
 
 
-      PL-8(2): Supplier Diversity (privacy-related)
+    PL-8(2): Supplier Diversity (privacy-related)
 
 
-      PL-9: Central Management (privacy-related)
+    PL-9: Central Management (privacy-related)
 
 
-      PL-10: Baseline Selection (Low)
+    PL-10: Baseline Selection (Low)
 
 
-      PL-11: Baseline Tailoring (Low)
+    PL-11: Baseline Tailoring (Low)
 
 
-      PM-1: Information Security Program Plan (all baselines)
+    PM-1: Information Security Program Plan (all baselines)
 
 
-      PM-2: Inforamtion Security Program Roles (all baselines)
+    PM-2: Inforamtion Security Program Roles (all baselines)
 
 
-      PM-3: Information Security and Privacy Resources (privacy-related)
+    PM-3: Information Security and Privacy Resources (privacy-related)
 
 
-      PM-4: Plan of Action and Milestones Process family have been (privacy-related)
+    PM-4: Plan of Action and Milestones Process family have been (privacy-related)
 
 
-      PM-5: System Inventory (all baselines)
+    PM-5: System Inventory (all baselines)
 
 
-      PM-6: Measures of Performance federal laws, Executive (privacy-related)
+    PM-6: Measures of Performance federal laws, Executive (privacy-related)
 
 
-      PM-7: Enterprise Architecture Orders, directives, (privacy-related)
+    PM-7: Enterprise Architecture Orders, directives, (privacy-related)
 
 
-      PM-8: Critical Infrastructure Plan (privacy-related)
+    PM-8: Critical Infrastructure Plan (privacy-related)
 
 
-      PM-9: Risk Management Strategy (privacy-related)
+    PM-9: Risk Management Strategy (privacy-related)
 
 
-      PM-10: Authorization Process (all baselines)
+    PM-10: Authorization Process (all baselines)
 
 
-      PM-11: Mission and Business Process Definition FIPS 200 impact levels (privacy-related)
+    PM-11: Mission and Business Process Definition FIPS 200 impact levels (privacy-related)
 
 
-      PM-12: Insider Threat Program (all baselines)
+    PM-12: Insider Threat Program (all baselines)
 
 
-      PM-13: Security and Privacy Workforce control baselines in (privacy-related)
+    PM-13: Security and Privacy Workforce control baselines in (privacy-related)
 
 
-      PM-14: Testing, Training, and Monitoring Appendix D. Tailoring (privacy-related)
+    PM-14: Testing, Training, and Monitoring Appendix D. Tailoring (privacy-related)
 
 
-      PM-15: Contacts with Groups and Associations (privacy-related)
+    PM-15: Contacts with Groups and Associations (privacy-related)
 
 
-      PM-16: Threat Awareness Program (all baselines)
+    PM-16: Threat Awareness Program (all baselines)
 
 
-      PM-16(1): Automated Means for Sharing Threat Intelligence (all baselines)
+    PM-16(1): Automated Means for Sharing Threat Intelligence (all baselines)
 
 
-      PM-17: Protecting CUI on External Systems on the programmatic, (all baselines)
+    PM-17: Protecting CUI on External Systems on the programmatic, (all baselines)
 
 
-      PM-18: Privacy Program Plan (privacy-related)
+    PM-18: Privacy Program Plan (privacy-related)
 
 
-      PM-19: Privacy Program Roles independent of any (privacy-related)
+    PM-19: Privacy Program Roles independent of any (privacy-related)
 
 
-      PM-20: System of Records Notice system and essential (privacy-related)
+    PM-20: System of Records Notice system and essential (privacy-related)
 
 
-      PM-21: Dissemination of Privacy Program Information (privacy-related)
+    PM-21: Dissemination of Privacy Program Information (privacy-related)
 
 
-      PM-22: Accounting of Disclosures (privacy-related)
+    PM-22: Accounting of Disclosures (privacy-related)
 
 
-      PM-23: Data Quality Management document the controls (privacy-related)
+    PM-23: Data Quality Management document the controls (privacy-related)
 
 
-      PM-23(1): AUTOMATION in their information (privacy-related)
+    PM-23(1): AUTOMATION in their information (privacy-related)
 
 
-      PM-23(2): Data Tagging (privacy-related)
+    PM-23(2): Data Tagging (privacy-related)
 
 
-      PM-23(3): UPDATING PERSONALLY IDENTIFIABLE INFORMATION plans, together with the (privacy-related)
+    PM-23(3): UPDATING PERSONALLY IDENTIFIABLE INFORMATION plans, together with the (privacy-related)
 
 
-      PM-24: Data Management Board security and privacy (privacy-related)
+    PM-24: Data Management Board security and privacy (privacy-related)
 
 
-      PM-25: Data Integrity Board (privacy-related)
+    PM-25: Data Integrity Board (privacy-related)
 
 
-      PM-25(1): PUBLISH AGREEMENTS ON WEBSITE totality of security and (privacy-related)
+    PM-25(1): PUBLISH AGREEMENTS ON WEBSITE totality of security and (privacy-related)
 
 
-      PM-26: Minimization of PII Used in Testing Training, and Research are employed by the (privacy-related)
+    PM-26: Minimization of PII Used in Testing Training, and Research are employed by the (privacy-related)
 
 
-      PM-27: Individual Access Control (privacy-related)
+    PM-27: Individual Access Control (privacy-related)
 
 
-      PM-28: Complaint Management (privacy-related)
+    PM-28: Complaint Management (privacy-related)
 
 
-      PM-29: Inventory of PII (privacy-related)
+    PM-29: Inventory of PII (privacy-related)
 
 
-      PM-29(1): Automation Support (privacy-related)
+    PM-29(1): Automation Support (privacy-related)
 
 
-      PM-30: Privacy Reporting (privacy-related)
+    PM-30: Privacy Reporting (privacy-related)
 
 
-      PM-31: Supply Chain Risk Management Plan (all baselines)
+    PM-31: Supply Chain Risk Management Plan (all baselines)
 
 
-      PM-32: Risk Framing (privacy-related)
+    PM-32: Risk Framing (privacy-related)
 
 
-      PS-1: Personnel Security Policy and Procedures (Low)
+    PS-1: Personnel Security Policy and Procedures (Low)
 
 
-      PS-2: Position Risk Designation (Low)
+    PS-2: Position Risk Designation (Low)
 
 
-      PS-3: Personnel Screening (Low)
+    PS-3: Personnel Screening (Low)
 
 
-      PS-4: Personnel Termination (Low)
+    PS-4: Personnel Termination (Low)
 
 
-      {% if fisma_level == "High" %}PS-4(2): Automated Notification (High){% endif %}
+    {% if fisma_level == "High" %}PS-4(2): Automated Notification (High){% endif %}
 
 
-      PS-5: Personnel Transfer (Low)
+    PS-5: Personnel Transfer (Low)
 
 
-      PS-6: Access Agreements (Low)
+    PS-6: Access Agreements (Low)
 
 
-      PS-7: External Personnel Security (Low)
+    PS-7: External Personnel Security (Low)
 
 
-      PS-8: Personnel Sanctions (Low)
+    PS-8: Personnel Sanctions (Low)
 
 
-      RA-1: Risk Assessment Policy and Procedures (Low)
+    RA-1: Risk Assessment Policy and Procedures (Low)
 
 
-      RA-2: Security Categorization (Low)
+    RA-2: Security Categorization (Low)
 
 
-      RA-3: Risk Assessment (Low)
+    RA-3: Risk Assessment (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}RA-3(1): Supply Chain Risk Assessment (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}RA-3(1): Supply Chain Risk Assessment (Moderate){% endif %}
 
 
-      RA-5: Vulnerability Scanning (Low)
+    RA-5: Vulnerability Scanning (Low)
 
 
-      RA-5(2): Update by Frequency, Prior to New Scan, or When Identified (Low)
+    RA-5(2): Update by Frequency, Prior to New Scan, or When Identified (Low)
 
 
-      {% if fisma_level == "High" %}RA-5(4): Discoverable Information (High){% endif %}
+    {% if fisma_level == "High" %}RA-5(4): Discoverable Information (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}RA-5(5): Privileged Access (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}RA-5(5): Privileged Access (Moderate){% endif %}
 
 
-      RA-7: Risk Response (Low)
+    RA-7: Risk Response (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}RA-9: Criticality Analysis (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}RA-9: Criticality Analysis (Moderate){% endif %}
 
 
-      SA-1: System and Services Acquisition Policy and Procedures (Low)
+    SA-1: System and Services Acquisition Policy and Procedures (Low)
 
 
-      SA-2: Allocation of Resources (Low)
+    SA-2: Allocation of Resources (Low)
 
 
-      SA-3: System Development Life Cycle (Low)
+    SA-3: System Development Life Cycle (Low)
 
 
-      SA-4: Acquisition Process (Low)
+    SA-4: Acquisition Process (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-4(1): Functional Properties of Controls (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-4(1): Functional Properties of Controls (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-4(2): Design and Implementation Information for Controls (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-4(2): Design and Implementation Information for Controls (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}SA-4(5): System, Component, and Service Configurations (High){% endif %}
+    {% if fisma_level == "High" %}SA-4(5): System, Component, and Service Configurations (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-4(9): Functions, Ports, Protocols, and Services in Use (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-4(9): Functions, Ports, Protocols, and Services in Use (Moderate){% endif %}
 
 
-      SA-4(10): Use of Approved Piv Products (Low)
+    SA-4(10): Use of Approved Piv Products (Low)
 
 
-      SA-5: System Documentation (Low)
+    SA-5: System Documentation (Low)
 
 
-      SA-8: Security and Privacy Engineering Principles (Low)
+    SA-8: Security and Privacy Engineering Principles (Low)
 
 
-      SA-9: External System Services (Low)
+    SA-9: External System Services (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-9(2): Identification of Functions, Ports, Protocols, and Services (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-9(2): Identification of Functions, Ports, Protocols, and Services (Moderate){% endif %}
 
 
-      SA-9(3): Establish and Maintain Trust Relationship With Providers (privacy-related)
+    SA-9(3): Establish and Maintain Trust Relationship With Providers (privacy-related)
 
 
-      SA-9(5): Processing, Storage, and Service Location (privacy-related)
+    SA-9(5): Processing, Storage, and Service Location (privacy-related)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-10: Developer Configuration Management (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-10: Developer Configuration Management (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-11: Developer Testing and Evaluation (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-11: Developer Testing and Evaluation (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-12: Supply Chain Risk Management (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-12: Supply Chain Risk Management (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-15: Development Process, Standards, and Tools (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-15: Development Process, Standards, and Tools (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-15(3): Criticality Analysis (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SA-15(3): Criticality Analysis (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}SA-16: Developer-Provided Training (High){% endif %}
+    {% if fisma_level == "High" %}SA-16: Developer-Provided Training (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SA-17: Developer Security Architecture and Design (High){% endif %}
+    {% if fisma_level == "High" %}SA-17: Developer Security Architecture and Design (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SA-21: Developer Screening (High){% endif %}
+    {% if fisma_level == "High" %}SA-21: Developer Screening (High){% endif %}
 
 
-      SA-22: Unsupported System Components (Low)
+    SA-22: Unsupported System Components (Low)
 
 
-      SC-1: System and Communications Protection Policy and Procedures (Low)
+    SC-1: System and Communications Protection Policy and Procedures (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-2: Application Partitioning (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-2: Application Partitioning (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}SC-3: Security Function Isolation (High){% endif %}
+    {% if fisma_level == "High" %}SC-3: Security Function Isolation (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-4: Information in Shared System Resources (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-4: Information in Shared System Resources (Moderate){% endif %}
 
 
-      SC-5: Denial of Service Protection (Low)
+    SC-5: Denial of Service Protection (Low)
 
 
-      SC-7: Boundary Protection (Low)
+    SC-7: Boundary Protection (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(3): Access Points (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(3): Access Points (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(4): External Telecommunications Services (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(4): External Telecommunications Services (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(5): Deny by Default — Allow by Exception (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(5): Deny by Default — Allow by Exception (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(7): Prevent Split Tunneling for Remote Devices (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(7): Prevent Split Tunneling for Remote Devices (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(8): Route Traffic to Authenticated Proxy Servers (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-7(8): Route Traffic to Authenticated Proxy Servers (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}SC-7(18): Fail Secure (High){% endif %}
+    {% if fisma_level == "High" %}SC-7(18): Fail Secure (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SC-7(21): Isolation of System Components (High){% endif %}
+    {% if fisma_level == "High" %}SC-7(21): Isolation of System Components (High){% endif %}
 
 
-      SC-7(24): Personally Identifiable Information (privacy-related)
+    SC-7(24): Personally Identifiable Information (privacy-related)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-8: Transmission Confidentiality and Integrity (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-8: Transmission Confidentiality and Integrity (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-8(1): Cryptographic Protection (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-8(1): Cryptographic Protection (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-10: Network Disconnect (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-10: Network Disconnect (Moderate){% endif %}
 
 
-      SC-12: Cryptographic Key Establishment and Management (Low)
+    SC-12: Cryptographic Key Establishment and Management (Low)
 
 
-      {% if fisma_level == "High" %}SC-12(1): Availability (High){% endif %}
+    {% if fisma_level == "High" %}SC-12(1): Availability (High){% endif %}
 
 
-      SC-13: Cryptographic Protection (Low)
+    SC-13: Cryptographic Protection (Low)
 
 
-      SC-15: Collaborative Computing Devices and Applications (Low)
+    SC-15: Collaborative Computing Devices and Applications (Low)
 
 
-      SC-16: Transmission of Security and Privacy Attributes (privacy-related)
+    SC-16: Transmission of Security and Privacy Attributes (privacy-related)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-17: Public Key Infrastructure Certificates (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-17: Public Key Infrastructure Certificates (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-18: Mobile Code (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-18: Mobile Code (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-19: Voice Over Internet Protocol (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-19: Voice Over Internet Protocol (Moderate){% endif %}
 
 
-      SC-20: Secure Name/Address Resolution Service (Authoritative Source) (Low)
+    SC-20: Secure Name/Address Resolution Service (Authoritative Source) (Low)
 
 
-      SC-21: Secure Name/Address Resolution Service (Recursive or Caching Resolver) (Low)
+    SC-21: Secure Name/Address Resolution Service (Recursive or Caching Resolver) (Low)
 
 
-      SC-22: Architecture and Provisioning for Name/Address Resolution Service (Low)
+    SC-22: Architecture and Provisioning for Name/Address Resolution Service (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-23: Session Authenticity (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-23: Session Authenticity (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}SC-24: Fail in Known State (High){% endif %}
+    {% if fisma_level == "High" %}SC-24: Fail in Known State (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-28: Protection of Information at Rest (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-28: Protection of Information at Rest (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-28(1): Cryptographic Protection (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SC-28(1): Cryptographic Protection (Moderate){% endif %}
 
 
-      SC-39: Process Isolation (Low)
+    SC-39: Process Isolation (Low)
 
 
-      SC-42(2): Authorized Use (privacy-related)
+    SC-42(2): Authorized Use (privacy-related)
 
 
-      SC-42(4): Notice of Collection (privacy-related)
+    SC-42(4): Notice of Collection (privacy-related)
 
 
-      SC-42(5): Collection Minimization (privacy-related)
+    SC-42(5): Collection Minimization (privacy-related)
 
 
-      SI-1: System and Information Integrity Policy and Procedures (Low)
+    SI-1: System and Information Integrity Policy and Procedures (Low)
 
 
-      SI-2: Flaw Remediation (Low)
+    SI-2: Flaw Remediation (Low)
 
 
-      {% if fisma_level == "High" %}SI-2(1): Central Management (High){% endif %}
+    {% if fisma_level == "High" %}SI-2(1): Central Management (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-2(2): Automated Flaw Remediation Status (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-2(2): Automated Flaw Remediation Status (Moderate){% endif %}
 
 
-      SI-2(7): Personally Identifiable Information (privacy-related)
+    SI-2(7): Personally Identifiable Information (privacy-related)
 
 
-      SI-3: Malicious Code Protection (Low)
+    SI-3: Malicious Code Protection (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-3(1): Central Management (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-3(1): Central Management (Moderate){% endif %}
 
 
-      SI-4: System Monitoring (Low)
+    SI-4: System Monitoring (Low)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-4(2): Automated Tools and Mechanisms for Real-Time Analysis (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-4(2): Automated Tools and Mechanisms for Real-Time Analysis (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-4(4): Inbound and Outbound Communications Traffic (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-4(4): Inbound and Outbound Communications Traffic (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-4(5): System-Generated Alerts (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-4(5): System-Generated Alerts (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-4(10): Visibility of Encrypted Communications (High){% endif %}
+    {% if fisma_level == "High" %}SI-4(10): Visibility of Encrypted Communications (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-4(12): Automated Organization-Generated Alerts (High){% endif %}
+    {% if fisma_level == "High" %}SI-4(12): Automated Organization-Generated Alerts (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-4(14): Wireless Intrusion Detection (High){% endif %}
+    {% if fisma_level == "High" %}SI-4(14): Wireless Intrusion Detection (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-4(20): Privileged Users (High){% endif %}
+    {% if fisma_level == "High" %}SI-4(20): Privileged Users (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-4(22): Unauthorized Network Services (High){% endif %}
+    {% if fisma_level == "High" %}SI-4(22): Unauthorized Network Services (High){% endif %}
 
 
-      SI-4(25): Personally Identifiable Information Monitoring (privacy-related)
+    SI-4(25): Personally Identifiable Information Monitoring (privacy-related)
 
 
-      SI-5: Security Alerts, Advisories, and Directives (Low)
+    SI-5: Security Alerts, Advisories, and Directives (Low)
 
 
-      {% if fisma_level == "High" %}SI-5(1): Automated Alerts and Advisories (High){% endif %}
+    {% if fisma_level == "High" %}SI-5(1): Automated Alerts and Advisories (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-6: Security and Privacy Function Verification (High){% endif %}
+    {% if fisma_level == "High" %}SI-6: Security and Privacy Function Verification (High){% endif %}
 
 
-      SI-6(3): Report Verification Results (privacy-related)
+    SI-6(3): Report Verification Results (privacy-related)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-7: Software, Firmware, and Information Integrity (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-7: Software, Firmware, and Information Integrity (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-7(1): Integrity Checks (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-7(1): Integrity Checks (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-7(2): Automated Notifications of Integrity Violations (High){% endif %}
+    {% if fisma_level == "High" %}SI-7(2): Automated Notifications of Integrity Violations (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-7(5): Automated Response to Integrity Violations (High){% endif %}
+    {% if fisma_level == "High" %}SI-7(5): Automated Response to Integrity Violations (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-7(7): Integration of Detection and Response (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-7(7): Integration of Detection and Response (Moderate){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-7(14): Binary or Machine Executable Code (High){% endif %}
+    {% if fisma_level == "High" %}SI-7(14): Binary or Machine Executable Code (High){% endif %}
 
 
-      {% if fisma_level == "High" %}SI-7(15): Code Authentication (High){% endif %}
+    {% if fisma_level == "High" %}SI-7(15): Code Authentication (High){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-8: Spam Protection (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-8: Spam Protection (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-8(1): Central Management (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-8(1): Central Management (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-8(2): Automatic Updates (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-8(2): Automatic Updates (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-10: Information Input Validation (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-10: Information Input Validation (Moderate){% endif %}
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-11: Error Handling (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-11: Error Handling (Moderate){% endif %}
 
 
-      SI-12: Information Management and Retention (Low)
+    SI-12: Information Management and Retention (Low)
 
 
-      SI-12(1): Limit Personally Identifiable Information Elements in Testing, Training, and Research (privacy-related)
+    SI-12(1): Limit Personally Identifiable Information Elements in Testing, Training, and Research (privacy-related)
 
 
-      SI-12(2): Minimize Personally Identifiable Information (privacy-related)
+    SI-12(2): Minimize Personally Identifiable Information (privacy-related)
 
 
-      SI-15(1): Limit Personally Identifiable Information Dissemination (privacy-related)
+    SI-15(1): Limit Personally Identifiable Information Dissemination (privacy-related)
 
 
-      {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-16: Memory Protection (Moderate){% endif %}
+    {% if fisma_level == "Moderate" or fisma_level == "High" %}SI-16: Memory Protection (Moderate){% endif %}
 
 
-      SI-18: Information Disposal (privacy-related)
+    SI-18: Information Disposal (privacy-related)
 
 
-      SI-19: Data Quality Operations (privacy-related)
+    SI-19: Data Quality Operations (privacy-related)
 
 
-      SI-19(1): Updating and Correcting Personally Identifiable Information (privacy-related)
+    SI-19(1): Updating and Correcting Personally Identifiable Information (privacy-related)
 
 
-      SI-19(2): Data Tags (privacy-related)
+    SI-19(2): Data Tags (privacy-related)
 
 
-      SI-19(3): Personally Identifiable Information Collection (privacy-related)
+    SI-19(3): Personally Identifiable Information Collection (privacy-related)
 
 
-      SI-20: De-Identification (privacy-related)
+    SI-20: De-Identification (privacy-related)
 
 
-      SI-20(1): Collection (privacy-related)
+    SI-20(1): Collection (privacy-related)
 
 
-      SI-20(2): Archiving (privacy-related)
+    SI-20(2): Archiving (privacy-related)
 
 
-      SI-20(3): Release (privacy-related)
+    SI-20(3): Release (privacy-related)
 
 
-      SI-20(4): Removal, Masking, Encryption, Hashing, or Replacement of Direct Identifiers (privacy-related)
+    SI-20(4): Removal, Masking, Encryption, Hashing, or Replacement of Direct Identifiers (privacy-related)
 
 
-      SI-20(5): Statistical Disclosure Control (privacy-related)
+    SI-20(5): Statistical Disclosure Control (privacy-related)
 
 
-      SI-20(6): Differential Privacy (privacy-related)
+    SI-20(6): Differential Privacy (privacy-related)
 
 
-      SI-20(7): Validated Software (privacy-related)
+    SI-20(7): Validated Software (privacy-related)
 
 
-      SI-20(8): Motivated Intruder (privacy-related)
-
-
+    SI-20(8): Motivated Intruder (privacy-related)

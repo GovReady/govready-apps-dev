@@ -2,7 +2,6 @@ id: app
 title: FISMA System Security Plan (SSP)
 type: project
 version: 1
-
 catalog:
   category: Processes
   vendor: GovReady PBC
@@ -16,17 +15,15 @@ catalog:
     long: |
       Long description here.
   recommended_for:
-    - key_short: Org
-      value: Large
-    - key_short: Tech
-      value: Sophisticated
-    - key_short: Role
-      value: PM
-
+  - key_short: Org
+    value: Large
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
 snippet:
   format: html
-  template: ""
-
+  template: ''
 interstitial:
   format: markdown
   template: |
@@ -41,12 +38,11 @@ interstitial:
     - Prepare various assessment package artifacts
 
     Are you ready?
-
 introduction:
   format: markdown
-  template: |
-    This project will guide you through preparing a System Security Plan (SSP) under the NIST Risk Management Framework to get the {{project}} its Authority to Operate.
-
+  template: >
+    This project will guide you through preparing a System Security Plan (SSP) under
+    the NIST Risk Management Framework to get the {{project}} its Authority to Operate.
 invitation_to_task_interstitial:
   format: markdown
   template: |
@@ -55,147 +51,124 @@ invitation_to_task_interstitial:
     You've been asked to help with {{task.title}} for {{project}}.
 
     We'll tell {{invitation.from_user}} you're getting started.
-
 questions:
-# - id: about_ssp
-#   title: About System Security Plans
-#   type: module
-#   module-id: about_ssp
-#   tab: System Profile
-#   group: Learn about System Security Plans
-
 - id: system_basics
   title: Document official system name and type
   type: module
   module-id: system_name_and_details
   tab: System Profile
   group: System Description
-
 - id: system_description
   title: Prepare re-usable system descriptions
   type: module
   module-id: system_description
   tab: System Profile
   group: System Description
-
 - id: system_basics_technical
   title: Document basic technical details
   type: module
   module-id: system_basics_technical
   tab: System Profile
   group: System Description
-
 - id: system_description
   title: Prepare re-usable system descriptions
   type: module
   module-id: system_description
   tab: System Profile
   group: System Description
-
 - id: system_urls
   title: Capture system URLs
   type: module
   module-id: system_urls
   tab: System Profile
   group: System Description
-
 - id: coming_soon_2
   title: Identify Points of Contact
   type: module
   module-id: coming_soon
   tab: System Profile
   group: Points of Contact
-
 - id: issuepack
   title: Add security stories to your issue tracker
   type: module-set
   module-id: issuepack
   tab: Agile Security Stories
   group: Security User Stories
-
 - id: au_part_1
   title: Audit and Accountability Part 1
   type: module
   module-id: au_part_1
   tab: System Security Controls
   group: AU - Audit and Accountability
-
 - id: control_sc_7
   title: Protect your system's boundary
   type: module
   module-id: control_sc_7
   tab: System Security Controls
   group: SC - System and Communications Protection
-
 - id: evidence
   title: Create evidence artifact
   type: module-set
   module-id: evidence
   tab: System Security Controls
   group: Supporting documents
-
 - id: coming_soon_3
   title: Review artifacts
   type: module
   module-id: coming_soon
   tab: Review
   group: Review
-
 - id: ssp
   title: Preview Draft SSP
   type: module
   module-id: ssp
   placement: action-buttons
-
 output:
-  - tab: System Profile
-    format: markdown
-    template: |
-      <div style="text-align:center;">
+- tab: System Profile
+  format: markdown
+  template: |
+    <div style="text-align:center;">
 
-      ## Create a profile for your system
+    ## Create a profile for your system
 
-      ![](icon_system_capital.png)
+    ![](icon_system_capital.png)
 
-      ### No sweat! We'll capture the details quickly.
+    ### No sweat! We'll capture the details quickly.
 
-      </div>
+    </div>
+- tab: Agile Security Stories
+  format: html
+  template: |
+    <div style="text-align:center;">
 
-  - tab: Agile Security Stories
-    format: html
-    template: |
-      <div style="text-align:center;">
+    <h3>Add security stories to your backlog</h3>
 
-      <h3>Add security stories to your backlog</h3>
+    <img src="{{static_asset_path_for('code-sprint.png')}}" />
 
-      <img src="{{static_asset_path_for('code-sprint.png')}}" />
+    <h4> Make your system more secure with every sprint</h4>
 
-      <h4> Make your system more secure with every sprint</h4>
+    </div>
+- tab: System Security Controls
+  format: markdown
+  template: |
+    <div style="text-align:center;">
 
-      </div>
+    ## Prepare your system security controls
 
-  - tab: System Security Controls
-    format: markdown
-    template: |
-      <div style="text-align:center;">
+    ![](icon_fisma_compliance.png)
 
-      ## Prepare your system security controls
+    ### Don't panic. We can do this together.
 
-      ![](icon_fisma_compliance.png)
+    </div>
+- tab: Review
+  format: markdown
+  template: |
+    <div style="text-align:center;">
 
-      ### Don't panic. We can do this together.
+    ## Review your stuff
 
-      </div>
+    ![](icon_fisma_compliance.png)
 
-  - tab: Review
-    format: markdown
-    template: |
-      <div style="text-align:center;">
+    ### Almost done! Let's check what you did.
 
-      ## Review your stuff
-
-      ![](icon_fisma_compliance.png)
-
-      ### Almost done! Let's check what you did.
-
-      </div>
+    </div>

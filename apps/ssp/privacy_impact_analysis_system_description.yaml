@@ -6,9 +6,7 @@ introduction:
     # Starting a Privacy Impact Analysis
 
     Something here.
-
 questions:
-
 - id: new_system
   title: Is this a new or existing system?
   prompt: Is this a new or existing system?
@@ -18,40 +16,58 @@ questions:
     text: New System
   - key: existing
     text: Existing System
-
 - id: changes_since_last_pia
   title: Changes to the system since the last PIA.
   type: longtext
-  prompt: If the system has already gone through a Privacy Impact Assessment (PIA), describe
-    in further detail any changes to the system that have occurred since the last PIA.
-    If there has not been a previous PIA, skip this question.
+  prompt: If the system has already gone through a Privacy Impact Assessment (PIA),
+    describe in further detail any changes to the system that have occurred since
+    the last PIA. If there has not been a previous PIA, skip this question.
   impute:
-    - condition: new_system == 'yes'
-      value: ~
-
+  - condition: new_system == 'yes'
+    value: ~
 - id: purpose_of_system
   title: What is the purpose of the system?
   type: longtext
-  prompt: |
-    Describe the purpose of the system and describe the information it will collect, maintain (store), or share, either permanently or temporarily.
-
+  prompt: >
+    Describe the purpose of the system and describe the information it will collect,
+    maintain (store), or share, either permanently or temporarily.
 - id: types_of_pii
   title: What types of PII are collected?
-  prompt: |
+  prompt: >
     What types of Personally Identifiable Information (PII) are collected?
 
-    PII is defined by OMB Memorandum 07-16 as information which can be used to distinguish or
-    trace an individual’s identity such as their name, social security number, biometric records,
-    etc., alone, or when combined with other personal or identifying information which is linked
-    or linkable to a specific individual, such as date and place of birth, mother’s maiden name,
-    etc. OMB Memorandum 10-22 further states that “the definition of PII is not anchored to any
-    single category of information or technology. Instead, it requires a case-by-case assessment
-    of the specific risk that an individual can be identified by examining the context of use and
-    combination of data elements. In performing this assessment, it is important for everyone to
-    recognize that non-PII can become PII, whenever additional information is made publicly available,
-    in any medium and from any source that, when combined with other available information, could
+
+    PII is defined by OMB Memorandum 07-16 as information which can be used to distinguish
+    or
+
+    trace an individual’s identity such as their name, social security number, biometric
+    records,
+
+    etc., alone, or when combined with other personal or identifying information which
+    is linked
+
+    or linkable to a specific individual, such as date and place of birth, mother’s
+    maiden name,
+
+    etc. OMB Memorandum 10-22 further states that “the definition of PII is not anchored
+    to any
+
+    single category of information or technology. Instead, it requires a case-by-case
+    assessment
+
+    of the specific risk that an individual can be identified by examining the context
+    of use and
+
+    combination of data elements. In performing this assessment, it is important for
+    everyone to
+
+    recognize that non-PII can become PII, whenever additional information is made
+    publicly available,
+
+    in any medium and from any source that, when combined with other available information,
+    could
+
     be used to identify an individual.
-  # NIST 80-53 Rev 4 Appendix J page J-1
   type: multiple-choice
   choices:
   - key: ssn
@@ -103,10 +119,10 @@ questions:
   - key: other
     text: Other
   min: 1
-
 - id: type_of_individuals
   title: Categories of individuals about whom PII is collected.
-  prompt: What categories of individuals is Personally Identifiable Information (PII) collected, maintained or shared about?
+  prompt: What categories of individuals is Personally Identifiable Information (PII)
+    collected, maintained or shared about?
   type: multiple-choice
   choices:
   - key: employees
@@ -121,70 +137,66 @@ questions:
     text: General Public
   - key: other
     text: Other
-    # TODO: Need a follow-up for Other.
   min: 1
-
 - id: pii_sources
   title: Sources of PII.
   prompt: What are sources from which the Personally Identifiable Information (PII)
-   collected, maintained, and used in the system originates?
+    collected, maintained, and used in the system originates?
   type: multiple-choice
   choices:
-    # Directly from an individual about whom the Information pertains:
-    - key: inperson
-      text: In person with the individual about whom the information pertains
-    - key: mailfax
-      text: Mail/Fax/Other hard copy from the individual about whom the information pertains
-    - key: email
-      text: E-Mail from the individual about whom the information pertains
-    - key: web
-      text: Web form filled out by the individual about whom the information pertains
-    - key: other_direct
-      text: Other, directly from the individual about whom the information pertains
-    # Government Sources:
-    - key: selfgroup
-      text: Within the group, agency sub group, educational or university school or institute group
-    - key: statelocal
-      text: State/Local/Tribal
-    - key: foreign
-      text: Foreign government
-    - key: federal
-      text: Federal government
-    - key: other_government
-      text: Other government source
-    # Non-Government Sources:
-    - key: public
-      text: Members of the public (except those whom the information is about)
-    - key: broker
-      text: Commercial Data Broker
-    - key: publicinfo
-      text: Public Media/Internet
-    - key: other_private
-      text: Other private sector source
+  - key: inperson
+    text: In person with the individual about whom the information pertains
+  - key: mailfax
+    text: Mail/Fax/Other hard copy from the individual about whom the information
+      pertains
+  - key: email
+    text: E-Mail from the individual about whom the information pertains
+  - key: web
+    text: Web form filled out by the individual about whom the information pertains
+  - key: other_direct
+    text: Other, directly from the individual about whom the information pertains
+  - key: selfgroup
+    text: Within the group, agency sub group, educational or university school or
+      institute group
+  - key: statelocal
+    text: State/Local/Tribal
+  - key: foreign
+    text: Foreign government
+  - key: federal
+    text: Federal government
+  - key: other_government
+    text: Other government source
+  - key: public
+    text: Members of the public (except those whom the information is about)
+  - key: broker
+    text: Commercial Data Broker
+  - key: publicinfo
+    text: Public Media/Internet
+  - key: other_private
+    text: Other private sector source
   min: 1
-
 - id: how_many_individuals
   title: How many individuals' PII is in the system?
-  prompt: How many individuals' Personally Identifiable Information (PII) is in the system?
+  prompt: How many individuals' Personally Identifiable Information (PII) is in the
+    system?
   type: choice
   choices:
-    - key: less_than_100
-      text: <100
-    - key: "100_499"
-      text: 100-499
-    - key: "500_4999"
-      text: 500-4,999
-    - key: "5000_9999"
-      text: 5,000-9,999
-    - key: "10000_49999"
-      text: 10,000-49,999
-    - key: "50000_99999"
-      text: 50,000-99,999
-    - key: "100000_999999"
-      text: 100,000-999,999
-    - key: "1M_or_more"
-      text: 1,000,000 or more
-
+  - key: less_than_100
+    text: <100
+  - key: '100_499'
+    text: 100-499
+  - key: '500_4999'
+    text: 500-4,999
+  - key: '5000_9999'
+    text: 5,000-9,999
+  - key: '10000_49999'
+    text: 10,000-49,999
+  - key: '50000_99999'
+    text: 50,000-99,999
+  - key: '100000_999999'
+    text: 100,000-999,999
+  - key: 1M_or_more
+    text: 1,000,000 or more
 - id: purpose_of_pii
   title: What is the purpose of collecting PII?
   type: longtext
@@ -202,56 +214,53 @@ questions:
       uses of PII, personnel who handle PII receive training on the organizational authorities
       for collecting PII, authorized uses of PII, and on the contents of the notice.
     #}
-
 - id: purpose_of_ssn
   title: What is the purpose of collecting SSNs?
   prompt: What is the purpose of collecting Social Security Number?
   type: longtext
   impute:
-  - condition: "'ssn' not in types_of_pii"
+  - condition: '''ssn'' not in types_of_pii'
     value: ~
-
 - id: minimization_interstitial
   title: Questions about Minimization
   type: interstitial
   prompt: |
     The next few questions will be about minimization. Auditors will want to know that you have
     thought about how to only collect the information you need.
-
 - id: minimization_method
   title: How is the PII limited only to the most critical data elements?
-  prompt: How is the collection of Personally Identifiable Information (PII) limited only to
-    the most critical data elements necessary for the system to function correctly? For example,
-    where is it documented, authorized and approved for this system to collect the various forms
-    of PII?
+  prompt: How is the collection of Personally Identifiable Information (PII) limited
+    only to the most critical data elements necessary for the system to function correctly?
+    For example, where is it documented, authorized and approved for this system to
+    collect the various forms of PII?
   type: longtext
   ask-first:
-    - minimization_interstitial
-
+  - minimization_interstitial
 - id: minimization_initial_evaluation
-  title: Was there an initial evaluation of the PII to ensure only the most critical data elements were collected?
-  prompt: Was there an initial evaluation of the Personally Identifiable Information (PII) to ensure only the most critical data elements were collected for use within the system?
+  title: Was there an initial evaluation of the PII to ensure only the most critical
+    data elements were collected?
+  prompt: Was there an initial evaluation of the Personally Identifiable Information
+    (PII) to ensure only the most critical data elements were collected for use within
+    the system?
   type: yesno
   ask-first:
-    - minimization_interstitial
-
+  - minimization_interstitial
 - id: voluntary
   title: Is the submission of PII by individuals voluntary or mandatory?
-  prompt: Is the submission of Personally Identifiable Information (PII) by individuals voluntary or mandatory?
+  prompt: Is the submission of Personally Identifiable Information (PII) by individuals
+    voluntary or mandatory?
   type: choice
   choices:
   - key: voluntary
     text: Voluntary
   - key: mandatory
     text: Mandatory
-
 - id: optout
   title: Can individuals opt-out of the collection or use of their PII?
-  prompt: Can individuals opt-out of the collection or use of their Personally Identifiable Information (PII)?
+  prompt: Can individuals opt-out of the collection or use of their Personally Identifiable
+    Information (PII)?
   type: yesno
-
 output:
 - title: PIA Result
   format: markdown
-  template: |-
-    Ok things here.
+  template: Ok things here.

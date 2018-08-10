@@ -1,23 +1,21 @@
 id: poc_org
 title: Organization Point of Contact
-instance-name: "{{poc_name}}"
+instance-name: '{{poc_name}}'
 introduction:
   format: markdown
   template: |
     Welcome to the Point of Contact
 
     Add an *Organization* as a Point of Contact
-
 questions:
-  - id: poc_name
-    title: Name
-    prompt: What is the POC's full name?
-    type: text
-
+- id: poc_name
+  title: Name
+  prompt: What is the POC's full name?
+  type: text
 output:
-  - title: Document
-    format: markdown
-    template: |
-      # {{organization}} Point of Contact
+- title: Document
+  format: markdown
+  template: |
+    # {{organization}} Point of Contact
 
-      {{poc_name}}
+    {{poc_name}}

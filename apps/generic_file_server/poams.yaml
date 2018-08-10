@@ -1,16 +1,14 @@
 id: poams
 title: Plan of Action and Milestones (POAMs)
 version: 1
-
 questions:
 - id: dummy
   title: dummy
   prompt: dummy
   type: raw
   impute:
-    - condition: "true"
-      value: ~
-
+  - condition: 'true'
+    value: ~
 output:
 - format: markdown
   title: Plan of Action and Milestones

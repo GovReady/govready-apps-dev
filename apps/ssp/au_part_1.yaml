@@ -1,5 +1,5 @@
 id: au_part_1
-title: "Audit and Accountability Part 1"
+title: Audit and Accountability Part 1
 introduction:
   format: html
   template: |
@@ -63,297 +63,201 @@ introduction:
             </div>
         </div>
     </div>
-
 questions:
-  - id: audited_events_intro
-    title: Types of audited events
-    type: interstitial
-    prompt: |
-      [{{organization}} policies](https://www2.ed.gov/fund/contract/about/acs/acshbocio01.pdf) define information system auditable events by to include:
+- id: audited_events_intro
+  title: Types of audited events
+  type: interstitial
+  prompt: "[{{organization}} policies](https://www2.ed.gov/fund/contract/about/acs/acshbocio01.pdf)\
+    \ define information system auditable events by to include:\n\n* Successful and\
+    \ unsuccessful attempts to access, modify, or delete privileges, security objects,\
+    \ security levels, or categories of information (e.g. classification levels),\n\
+    * Successful and unsuccessful logon attempts,\n* Privileged activities or other\
+    \ system level access,\n* Starting and ending time for user access to the system,\
+    \ \n* Concurrent logons from different workstations\n* Successful and unsuccessful\
+    \ accesses to objects,\n* All program initiations, \n* All direct access to the\
+    \ information system, \n* All account creations, modifications, disabling, and\
+    \ terminations,\n* All kernel module load, unload, and restart\n\nLet&rsquo;s\
+    \ take these one by one for **{{project}}**.\n"
+- id: audit_modify_privileges_os_level
+  title: Modify privileges at operating system level
+  type: yesno
+  prompt: >
+    Does **{{project}}** currently audit all successful and unsuccessful attempts
+    to access, modify, or delete privileges, security objects, security levels at
+    the level of the operating system?
 
-      * Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g. classification levels),
-      * Successful and unsuccessful logon attempts,
-      * Privileged activities or other system level access,
-      * Starting and ending time for user access to the system, 
-      * Concurrent logons from different workstations
-      * Successful and unsuccessful accesses to objects,
-      * All program initiations, 
-      * All direct access to the information system, 
-      * All account creations, modifications, disabling, and terminations,
-      * All kernel module load, unload, and restart
 
-      Let&rsquo;s take these one by one for **{{project}}**.
-
-  - id: audit_modify_privileges_os_level
-    title: Modify privileges at operating system level
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit all successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels at the level of the operating system?
-
-      This includes events like changing security permissions of an operating system-level user account, or a file directory permissions, or what is being audited by the operating system.
-
-  - id: audit_modify_privileges_application_level
-    title: Modify privileges at application level
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit all successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels at the level of the various applications composing **{{project}}**?
-
-      We are trying to make sure changes to security settings within applications (example: who becomes an admin) and access settings to application data are tracked. 
-      
-  - id: audit_logon_attempts 
-    title: Logon attempts
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit successful and unsuccessful login attempts at both the operating system level and the application level?
-
-  - id: audit_privileged_activities_os_level 
-    title: Privileged activities
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit those extra special, operating system level administration activities like creating and removing system accounts and copyring and deleting files?
-  
-  - id: audit_privileged_activities_application_level 
-    title: Privileged activities
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit those extra special, privileged activities like creating and removing accounts and deleting information that normal users of **{{project}}** would not be able to do?
-
-  - id: audit_user_access_startstop
-    title: User access start &amp; stop 
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit when system admininstrators start and stops being logged into the operating system level and application users and admininstrators start and stop being logged in to application level?
-  
-  - id: audit_concurrent_user_logons
-    title: Concurrent user logons
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit when the same user logons at the same time from two different workstations or devices?
-  
-  - id: audit_object_access
-    title: Objects access
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit who is accessing key application objects like data records or privileged pages?
-  
-  - id: audit_program_startups
-    title: Program startups
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit each time the software programs composing the system startup?
-  
-  - id: audit_direct_admin_access_to_host
-    title: Direct admin access to host
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit when system administrators directly log into the host computers (or host administration dashboards)?
-  
-  - id: audit_account_changes
-    title: Account changes
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit changes to operating system level user accounts and application level user accounts (e.g., create account, modify important account parameter, delete account)?
-  
-  - id: audit_kernel_module_loading_activities
-    title: Kernel module loading activities  
-    type: yesno
-    prompt: |
-      Does **{{project}}** currently audit any time operating system kernel module is loaded into the kernal, unloaded, and/or restarted?
-
+    This includes events like changing security permissions of an operating system-level
+    user account, or a file directory permissions, or what is being audited by the
+    operating system.
+- id: audit_modify_privileges_application_level
+  title: Modify privileges at application level
+  type: yesno
+  prompt: "Does **{{project}}** currently audit all successful and unsuccessful attempts\
+    \ to access, modify, or delete privileges, security objects, security levels at\
+    \ the level of the various applications composing **{{project}}**?\n\nWe are trying\
+    \ to make sure changes to security settings within applications (example: who\
+    \ becomes an admin) and access settings to application data are tracked. \n"
+- id: audit_logon_attempts
+  title: Logon attempts
+  type: yesno
+  prompt: >
+    Does **{{project}}** currently audit successful and unsuccessful login attempts
+    at both the operating system level and the application level?
+- id: audit_privileged_activities_os_level
+  title: Privileged activities
+  type: yesno
+  prompt: >
+    Does **{{project}}** currently audit those extra special, operating system level
+    administration activities like creating and removing system accounts and copyring
+    and deleting files?
+- id: audit_privileged_activities_application_level
+  title: Privileged activities
+  type: yesno
+  prompt: >
+    Does **{{project}}** currently audit those extra special, privileged activities
+    like creating and removing accounts and deleting information that normal users
+    of **{{project}}** would not be able to do?
+- id: audit_user_access_startstop
+  title: User access start &amp; stop
+  type: yesno
+  prompt: >
+    Does **{{project}}** currently audit when system admininstrators start and stops
+    being logged into the operating system level and application users and admininstrators
+    start and stop being logged in to application level?
+- id: audit_concurrent_user_logons
+  title: Concurrent user logons
+  type: yesno
+  prompt: |
+    Does **{{project}}** currently audit when the same user logons at the same time from two different workstations or devices?
+- id: audit_object_access
+  title: Objects access
+  type: yesno
+  prompt: |
+    Does **{{project}}** currently audit who is accessing key application objects like data records or privileged pages?
+- id: audit_program_startups
+  title: Program startups
+  type: yesno
+  prompt: |
+    Does **{{project}}** currently audit each time the software programs composing the system startup?
+- id: audit_direct_admin_access_to_host
+  title: Direct admin access to host
+  type: yesno
+  prompt: |
+    Does **{{project}}** currently audit when system administrators directly log into the host computers (or host administration dashboards)?
+- id: audit_account_changes
+  title: Account changes
+  type: yesno
+  prompt: >
+    Does **{{project}}** currently audit changes to operating system level user accounts
+    and application level user accounts (e.g., create account, modify important account
+    parameter, delete account)?
+- id: audit_kernel_module_loading_activities
+  title: Kernel module loading activities
+  type: yesno
+  prompt: |
+    Does **{{project}}** currently audit any time operating system kernel module is loaded into the kernal, unloaded, and/or restarted?
 output:
-  - title: What's Next
-    format: markdown
-    template: |
-      As a result of completing this task you now have access to some compliance outputs
-      you’ll be needing to submit. 
-
-      Click Control Text Segment to view whether enough information exists to prepare your
-      control implementation. Click Formatted Control Table to view a version that you can
-      copy/paste into your SSP.
-
-  - title: Control Text Segment
-    format: markdown
-    template: |
-
-      # AU Audit Family
-
-      From the NIST SP 800-53
-
-      [//] comment: This is a comment - REWRITE the rule...
-      <!-- COMMENT REWRITE the rule... -->
-
-      > The information system:
-      > 
-      > a. Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system;
-      > 
-      > b. Implements subnetworks for publicly accessible system components that are [Selection: physically; logically] separated from internal organizational networks; and
-      > 
-      > c. Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture.
-
-
-      % if 0 and project.system_basics.application_where_hosted and project.system_basics.application_where_hosted != "onpremesis" %
-
-      <!-- Amazon stuff -->
-
-        % if has_firewall %
-        <p>Evidence: }evidence_that_firewall_is_configured.text}</p>
-        <p>Last Monitored: }firewall_log_date.text}</p>
-        % else %}
-
-        The {{project}} information system:
-
-        a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with }}project.system_basics.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
-
-        b.  Implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by configuring different security groups to establish logically separated subnetworks; and
-
-        c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using }}project.system_basics.cloud_provider.text}} Security Groups which are required in }}project.system_basics.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
-
-        % endif %}
-
-        Status: Implemented
-
-        <!-- WRITE CONTROL DESCRIPTION HERE -->
-
-      }% else %}
-
-        The system is not using our enterprise DMZ. }}have_other_dmz.text}}
-
-        }% if have_other_dmz == 'ad_hoc_dmz' %}
-         Responsible for DMZ: }}who_responsible_for_dmz}}
-
-        }% if evidence %}
-        Evidence: }}evidence.type.text}} (}}evidence.description}})
-        }% endif %}
-        }% endif %}
-
-      }% endif %}
-
-  - title: Formatted Control Table
-    format: html
-    template: |
-      <h3>AU XXXX</h3>
-      <table class="table" style="margin-top: 1.5em">
-        <thead>
-          <th colspan="2">
-            <div class="row">
-              <div class="col-xs-3">
-                SC-7
-              </div>
-              <div class="col-xs-9">
-                Control Summary Information
-              </div>
-            </div>
-          </th>
-        </thead>
-        <tbody>
-          <tr>
-            <td width="30%">Responsible Role:</th>
-            <td>
-              }% if 0 and project.system_basics.application_where_hosted == "onpremesis" and have_other_dmz == 'ad_hoc_dmz' %}
-                }}who_responsible_for_dmz}}
-              }% else %}
-              N/A
-              }% endif %}
-            </td>
-          </tr>
-          <tr>
-            <td>Parameter:</th>
-            <td>
-              }% if 0 and project.system_basics.application_where_hosted != "onpremesis" %}
-                &nbsp;
-              }% elif using_enterprise_dmz == 'yes' %}
-              Enterprise DMZ.
-              }% else %}
-              System-specific DMZ.
-              }% endif %}
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <div style="margin-bottom: .5em">Implementation Status:</div>
-              }% for key, text in [
-      ["implemented", "Implemented"],
-      ["partially_implemented", "Partially Implemented"],
-      ["planned", "Planned"],
-      ["alternative_implementation", "Alternative Implementation"],
-      ["not_applicable", "Not Applicable"]] %}
-              <div class="radio">
-                <label>
-                  <input type="checkbox" disabled="disabled" }% if key == "implemented" %}checked="checked"}% endif %}> }}text}} 
-                </label>
-              </div>
-              }% endfor %}
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <div style="margin-bottom: .5em">Control Origination:</div>
-              }% for key, text in [["service_provider_corporate", "Service Provider Corporate"],
-      ["service_provider_system_specific", "Service Provider System Specific"],
-      ["service_provider_hybrid", "Service Provider Hybrid (Corporate and System Specific)"],
-      ["configured_by_customer", "Configured by Customer (Customer System Specific)"],
-      ["provided_by_customer", "Provided by Customer (Customer System Specific)"],
-      ["shared", "Shared (Service Provider and Customer Responsibility)"],
-      ["inherited", "Inherited from enterprise IT service"]] %}
-              <div class="radio">
-                <label>
-                  <input type="checkbox" disabled="disabled"
-                    }% if key == "service_provider_corporate" and using_enterprise_dmz == "no" %}checked="checked"}% endif %}
-                    }% if key == "inherited" and using_enterprise_dmz == "yes" %}checked="checked"}% endif %}
-
-                    }% if key == "shared" and 0 and project.system_basics.application_where_hosted and project.system_basics.application_where_hosted != "onpremesis" %}checked="checked"}% endif %}
-
-                    > }}text}}
-                </label>
-              </div>
-              }% endfor %}
-            </td>
-          </tr>
-        </body>
-      </table>
-      <table class="table">
-        <thead>
-          <th colspan="2">
-            SC-7 What is the solution and how is it implemented?
-          </th>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="2">
-
-              }% if 0 and project.system_basics.application_where_hosted and project.system_basics.application_where_hosted != "onpremesis" %}
-
-
-              <!-- Amazon stuff -->
-
-                }% if has_firewall %}
-                <p>Evidence: }evidence_that_firewall_is_configured.text}</p>
-                <p>Last Monitored: }firewall_log_date.text}</p>
-                }% else %}
-
-                <p>The {{project}} information system:</p>
-
-                <p>a.  Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system with }}project.system_basics.cloud_provider.text}} Security Groups that function as firewalls and actively monitor and control all communication interfaces to the internet and between defined internal system partitions.
-                </p>
-                <p>b.  Implements subnetworks for publicly accessible system components that are logically separated from internal organizational networks by configuring different security groups to establish logically separated subnetworks; and
-                </p>
-                <p>c.  Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture by using }}project.system_basics.cloud_provider.text}} Security Groups which are required in }}project.system_basics.cloud_provider.text}} to connect to external networks (e.g., Internet) and other information systems.
-                </p>
-
-                }% endif %}
-
-              <!-- Amazon stuff -->
-
-
-              }% else %}
-                <p>The system is not using our enterprise DMZ. }}have_other_dmz.text}}</p>
-
-                }}% if evidence %}
-                  <p>Evidence:</p>
-                  }}evidence.rendered_outputs()[0].html|safe}}
-                }% endif %}
-              }% endif %}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+- title: What's Next
+  format: markdown
+  template: "As a result of completing this task you now have access to some compliance\
+    \ outputs\nyou’ll be needing to submit. \n\nClick Control Text Segment to view\
+    \ whether enough information exists to prepare your\ncontrol implementation. Click\
+    \ Formatted Control Table to view a version that you can\ncopy/paste into your\
+    \ SSP.\n"
+- title: Control Text Segment
+  format: markdown
+  template: "\n# AU Audit Family\n\nFrom the NIST SP 800-53\n\n[//] comment: This\
+    \ is a comment - REWRITE the rule...\n<!-- COMMENT REWRITE the rule... -->\n\n\
+    > The information system:\n> \n> a. Monitors and controls communications at the\
+    \ external boundary of the system and at key internal boundaries within the system;\n\
+    > \n> b. Implements subnetworks for publicly accessible system components that\
+    \ are [Selection: physically; logically] separated from internal organizational\
+    \ networks; and\n> \n> c. Connects to external networks or information systems\
+    \ only through managed interfaces consisting of boundary protection devices arranged\
+    \ in accordance with an organizational security architecture.\n\n\n% if 0 and\
+    \ project.system_basics.application_where_hosted and project.system_basics.application_where_hosted\
+    \ != \"onpremesis\" %\n\n<!-- Amazon stuff -->\n\n  % if has_firewall %\n  <p>Evidence:\
+    \ }evidence_that_firewall_is_configured.text}</p>\n  <p>Last Monitored: }firewall_log_date.text}</p>\n\
+    \  % else %}\n\n  The {{project}} information system:\n\n  a.  Monitors and controls\
+    \ communications at the external boundary of the system and at key internal boundaries\
+    \ within the system with }}project.system_basics.cloud_provider.text}} Security\
+    \ Groups that function as firewalls and actively monitor and control all communication\
+    \ interfaces to the internet and between defined internal system partitions.\n\
+    \n  b.  Implements subnetworks for publicly accessible system components that\
+    \ are logically separated from internal organizational networks by configuring\
+    \ different security groups to establish logically separated subnetworks; and\n\
+    \n  c.  Connects to external networks or information systems only through managed\
+    \ interfaces consisting of boundary protection devices arranged in accordance\
+    \ with an organizational security architecture by using }}project.system_basics.cloud_provider.text}}\
+    \ Security Groups which are required in }}project.system_basics.cloud_provider.text}}\
+    \ to connect to external networks (e.g., Internet) and other information systems.\n\
+    \n  % endif %}\n\n  Status: Implemented\n\n  <!-- WRITE CONTROL DESCRIPTION HERE\
+    \ -->\n\n}% else %}\n\n  The system is not using our enterprise DMZ. }}have_other_dmz.text}}\n\
+    \n  }% if have_other_dmz == 'ad_hoc_dmz' %}\n   Responsible for DMZ: }}who_responsible_for_dmz}}\n\
+    \n  }% if evidence %}\n  Evidence: }}evidence.type.text}} (}}evidence.description}})\n\
+    \  }% endif %}\n  }% endif %}\n\n}% endif %}\n"
+- title: Formatted Control Table
+  format: html
+  template: "<h3>AU XXXX</h3>\n<table class=\"table\" style=\"margin-top: 1.5em\"\
+    >\n  <thead>\n    <th colspan=\"2\">\n      <div class=\"row\">\n        <div\
+    \ class=\"col-xs-3\">\n          SC-7\n        </div>\n        <div class=\"col-xs-9\"\
+    >\n          Control Summary Information\n        </div>\n      </div>\n    </th>\n\
+    \  </thead>\n  <tbody>\n    <tr>\n      <td width=\"30%\">Responsible Role:</th>\n\
+    \      <td>\n        }% if 0 and project.system_basics.application_where_hosted\
+    \ == \"onpremesis\" and have_other_dmz == 'ad_hoc_dmz' %}\n          }}who_responsible_for_dmz}}\n\
+    \        }% else %}\n        N/A\n        }% endif %}\n      </td>\n    </tr>\n\
+    \    <tr>\n      <td>Parameter:</th>\n      <td>\n        }% if 0 and project.system_basics.application_where_hosted\
+    \ != \"onpremesis\" %}\n          &nbsp;\n        }% elif using_enterprise_dmz\
+    \ == 'yes' %}\n        Enterprise DMZ.\n        }% else %}\n        System-specific\
+    \ DMZ.\n        }% endif %}\n      </td>\n    </tr>\n    <tr>\n      <td colspan=\"\
+    2\">\n        <div style=\"margin-bottom: .5em\">Implementation Status:</div>\n\
+    \        }% for key, text in [\n[\"implemented\", \"Implemented\"],\n[\"partially_implemented\"\
+    , \"Partially Implemented\"],\n[\"planned\", \"Planned\"],\n[\"alternative_implementation\"\
+    , \"Alternative Implementation\"],\n[\"not_applicable\", \"Not Applicable\"]]\
+    \ %}\n        <div class=\"radio\">\n          <label>\n            <input type=\"\
+    checkbox\" disabled=\"disabled\" }% if key == \"implemented\" %}checked=\"checked\"\
+    }% endif %}> }}text}} \n          </label>\n        </div>\n        }% endfor\
+    \ %}\n      </td>\n    </tr>\n    <tr>\n      <td colspan=\"2\">\n        <div\
+    \ style=\"margin-bottom: .5em\">Control Origination:</div>\n        }% for key,\
+    \ text in [[\"service_provider_corporate\", \"Service Provider Corporate\"],\n\
+    [\"service_provider_system_specific\", \"Service Provider System Specific\"],\n\
+    [\"service_provider_hybrid\", \"Service Provider Hybrid (Corporate and System\
+    \ Specific)\"],\n[\"configured_by_customer\", \"Configured by Customer (Customer\
+    \ System Specific)\"],\n[\"provided_by_customer\", \"Provided by Customer (Customer\
+    \ System Specific)\"],\n[\"shared\", \"Shared (Service Provider and Customer Responsibility)\"\
+    ],\n[\"inherited\", \"Inherited from enterprise IT service\"]] %}\n        <div\
+    \ class=\"radio\">\n          <label>\n            <input type=\"checkbox\" disabled=\"\
+    disabled\"\n              }% if key == \"service_provider_corporate\" and using_enterprise_dmz\
+    \ == \"no\" %}checked=\"checked\"}% endif %}\n              }% if key == \"inherited\"\
+    \ and using_enterprise_dmz == \"yes\" %}checked=\"checked\"}% endif %}\n\n   \
+    \           }% if key == \"shared\" and 0 and project.system_basics.application_where_hosted\
+    \ and project.system_basics.application_where_hosted != \"onpremesis\" %}checked=\"\
+    checked\"}% endif %}\n\n              > }}text}}\n          </label>\n       \
+    \ </div>\n        }% endfor %}\n      </td>\n    </tr>\n  </body>\n</table>\n\
+    <table class=\"table\">\n  <thead>\n    <th colspan=\"2\">\n      SC-7 What is\
+    \ the solution and how is it implemented?\n    </th>\n  </thead>\n  <tbody>\n\
+    \    <tr>\n      <td colspan=\"2\">\n\n        }% if 0 and project.system_basics.application_where_hosted\
+    \ and project.system_basics.application_where_hosted != \"onpremesis\" %}\n\n\n\
+    \        <!-- Amazon stuff -->\n\n          }% if has_firewall %}\n          <p>Evidence:\
+    \ }evidence_that_firewall_is_configured.text}</p>\n          <p>Last Monitored:\
+    \ }firewall_log_date.text}</p>\n          }% else %}\n\n          <p>The {{project}}\
+    \ information system:</p>\n\n          <p>a.  Monitors and controls communications\
+    \ at the external boundary of the system and at key internal boundaries within\
+    \ the system with }}project.system_basics.cloud_provider.text}} Security Groups\
+    \ that function as firewalls and actively monitor and control all communication\
+    \ interfaces to the internet and between defined internal system partitions.\n\
+    \          </p>\n          <p>b.  Implements subnetworks for publicly accessible\
+    \ system components that are logically separated from internal organizational\
+    \ networks by configuring different security groups to establish logically separated\
+    \ subnetworks; and\n          </p>\n          <p>c.  Connects to external networks\
+    \ or information systems only through managed interfaces consisting of boundary\
+    \ protection devices arranged in accordance with an organizational security architecture\
+    \ by using }}project.system_basics.cloud_provider.text}} Security Groups which\
+    \ are required in }}project.system_basics.cloud_provider.text}} to connect to\
+    \ external networks (e.g., Internet) and other information systems.\n        \
+    \  </p>\n\n          }% endif %}\n\n        <!-- Amazon stuff -->\n\n\n      \
+    \  }% else %}\n          <p>The system is not using our enterprise DMZ. }}have_other_dmz.text}}</p>\n\
+    \n          }}% if evidence %}\n            <p>Evidence:</p>\n            }}evidence.rendered_outputs()[0].html|safe}}\n\
+    \          }% endif %}\n        }% endif %}\n      </td>\n    </tr>\n  </tbody>\n\
+    </table>\n"

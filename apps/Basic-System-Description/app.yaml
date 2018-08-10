@@ -4,7 +4,7 @@ type: project
 version: 5
 icon: app.png
 protocol:
-  - govready.com/apps/compliance/2018/basic-system-description
+- govready.com/apps/compliance/2018/basic-system-description
 catalog:
   category: Technology Components
   vendor: GovReady
@@ -17,7 +17,6 @@ catalog:
       Prepare a re-usable, basic system descriptions
     long: |
       Gather system name, descriptions and other basic details of your information system.
-
 interstitial:
   format: markdown
   template: |
@@ -29,12 +28,10 @@ interstitial:
     - Gather basic facts about the type of system
 
     Are you ready?
-
 introduction:
   format: markdown
   template: |
     This project will guide you through giving your system a unique name and preparing basic system descriptions.
-
 invitation_to_task_interstitial:
   format: markdown
   template: |
@@ -43,49 +40,42 @@ invitation_to_task_interstitial:
     You've been asked to help with {{task.title}} for {{project}}.
 
     We'll tell {{invitation.from_user}} you're getting started.
-
 export_button_label: Export System Description and Control Information
-
 questions:
-
 - id: system_basics
   title: Document official system name and type
   type: module
   module-id: system_name_and_details
   tab: System Profile
   group: System Description
-
 - id: system_description
   title: Prepare re-usable system descriptions
   type: module
   module-id: system_description
   tab: System Profile
   group: System Description
-
 - id: system_basics_technical
   title: Document basic technical details
   type: module
   module-id: system_basics_technical
   tab: System Profile
   group: System Description
-
 - id: system_description
   title: Prepare re-usable system descriptions
   type: module
   module-id: system_description
   tab: System Profile
   group: System Description
-
 output:
-  - tab: System Profile
-    format: markdown
-    template: |
-      <div style="text-align:center;">
+- tab: System Profile
+  format: markdown
+  template: |
+    <div style="text-align:center;">
 
-      ## Create a profile for your system
+    ## Create a profile for your system
 
-      ![](app.png)
+    ![](app.png)
 
-      ### No sweat! We'll capture the details quickly.
+    ### No sweat! We'll capture the details quickly.
 
-      </div>
+    </div>

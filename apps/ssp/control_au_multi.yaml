@@ -9,94 +9,89 @@ introduction:
     <p>Completing this section will document the auditing you have in place for {{project}}</p>
 
     <a href="#">FCC System and Communications Audit and Accountability Policy and Procedures</a>
-
 questions:
-  - id: using_enterprise_dmz
-    title: Using Enterprise DMZ?
-    type: yesno
-    prompt: |
-      Since your system is hosted in your agency's internal data center, your
-      communications boundary protection is provided your enterprise IT organization.
+- id: using_enterprise_dmz
+  title: Using Enterprise DMZ?
+  type: yesno
+  prompt: |
+    Since your system is hosted in your agency's internal data center, your
+    communications boundary protection is provided your enterprise IT organization.
 
-      Do you plan for your system to use the enterprise boundary protection services
-      provided by your agency's internal data center?
-    impute:
-      - condition: project.system_stack.application_where_hosted and not(project.system_stack.application_where_hosted == "onpremesis")
-        value: ~
+    Do you plan for your system to use the enterprise boundary protection services
+    provided by your agency's internal data center?
+  impute:
+  - condition: project.system_stack.application_where_hosted and not(project.system_stack.application_where_hosted
+      == "onpremesis")
+    value: ~
+- id: using_enterprise_dmz_yes
+  title: Using Enterprise DMZ (Yes)
+  type: interstitial
+  prompt: |
+    Since your system is hosted in your agency's internal data center, your
+    communications boundary protection is provided your enterprise IT organization.
 
-  - id: using_enterprise_dmz_yes
-    title: Using Enterprise DMZ (Yes)
-    type: interstitial
-    prompt: |
-      Since your system is hosted in your agency's internal data center, your
-      communications boundary protection is provided your enterprise IT organization.
+    You are able to inherit this control from your enterprise service.
+  impute:
+  - condition: not(using_enterprise_dmz == "yes")
+    value: ~
+- id: using_enterprise_dmz_no
+  title: Using Enterprise DMZ (No)
+  type: interstitial
+  prompt: |
+    You know, hey, it's organization policy to have boundary protections. You said you are not using your enterprise services.
 
-      You are able to inherit this control from your enterprise service.
-    impute:
-      - condition: not(using_enterprise_dmz == "yes")
-        value: ~
+    Let's talk about why not.
+- id: have_other_dmz
+  title: Do You Have Another DMZ?
+  type: choice
+  prompt: |
+    It's organization policy to have boundary protections, but you said you are not using your enterprise services.
 
-  - id: using_enterprise_dmz_no
-    title: Using Enterprise DMZ (No)
-    type: interstitial
-    prompt: |
-      You know, hey, it's organization policy to have boundary protections. You said you are not using your enterprise services.
+    Why not?
+  choices:
+  - key: ad_hoc_dmz
+    text: The system has its own DMZ.
+  - key: na
+    text: The system does not need a DMZ.
+  - key: wavier
+    text: We are requesting a waiver for this requirement.
+  ask-first:
+  - using_enterprise_dmz_no
+  impute:
+  - condition: not(using_enterprise_dmz == "no")
+    value: ~
+- id: who_responsible_for_dmz
+  title: Who Is Responsible for the DMZ?
+  type: module
+  module-id: point_of_contact
+  prompt: |
+    A secure system is protected by a properly configured firewall.
 
-      Let's talk about why not.
-
-  - id: have_other_dmz
-    title: Do You Have Another DMZ?
-    type: choice
-    prompt: |
-      It's organization policy to have boundary protections, but you said you are not using your enterprise services.
-
-      Why not?
-    choices:
-      - key: ad_hoc_dmz
-        text: The system has its own DMZ.
-      - key: na
-        text: The system does not need a DMZ.
-      - key: wavier
-        text: We are requesting a waiver for this requirement.
-    ask-first:
-      - using_enterprise_dmz_no
-    impute:
-      - condition: not(using_enterprise_dmz == "no")
-        value: ~
-
-  - id: who_responsible_for_dmz
-    title: Who Is Responsible for the DMZ?
-    type: module
-    module-id: point_of_contact
-    prompt: |
-      A secure system is protected by a properly configured firewall.
-
-      Who in your organization is responsible for configuring your system's firewall?
-    impute:
-      - condition: not(have_other_dmz == 'ad_hoc_dmz')
-        value: ~
-
+    Who in your organization is responsible for configuring your system's firewall?
+  impute:
+  - condition: not(have_other_dmz == 'ad_hoc_dmz')
+    value: ~
 output:
-  - title: SSP Control Template
-    format: markdown
-    template: |
-      {% if project.system_stack.application_where_hosted and project.system_stack.application_where_hosted != "onpremesis" %}
-        The system is not hosted on premesis and so it does not need a DMZ.
+- title: SSP Control Template
+  format: markdown
+  template: |
+    {% if project.system_stack.application_where_hosted and project.system_stack.application_where_hosted != "onpremesis" %}
+      The system is not hosted on premesis and so it does not need a DMZ.
 
-      {% elif using_enterprise_dmz == 'yes' %}
-        {% if 0 %}
-        {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
-        {{using_enterprise_dmz_yes}}
-        {% endif %}
-      
-        The system is using our enterprise DMZ.
-
-      {% else %}
-
-        The system is not using our enterprise DMZ. {{have_other_dmz.text}}
-
-        {% if have_other_dmz == 'ad_hoc_dmz' %}
-         Responsible for DMZ: {{who_responsible_for_dmz}}
-        {% endif %}
-
+    {% elif using_enterprise_dmz == 'yes' %}
+      {% if 0 %}
+      {# using_enterprise_dmz_yes is here just to trigger it as something to be answered #}
+      {{using_enterprise_dmz_yes}}
       {% endif %}
+
+      The system is using our enterprise DMZ.
+
+    {% else %}
+
+      The system is not using our enterprise DMZ. {{have_other_dmz.text}}
+
+      {% if have_other_dmz == 'ad_hoc_dmz' %}
+       Responsible for DMZ: {{who_responsible_for_dmz}}
+      {% endif %}
+
+    {% endif %}

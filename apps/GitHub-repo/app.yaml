@@ -4,8 +4,8 @@ type: project
 version: 2
 icon: app.png
 protocol:
-  - govready.com/apps/compliance/2018/source-code-repository
-  - govready.com/apps/compliance/2018/github-source-code-repository
+- govready.com/apps/compliance/2018/source-code-repository
+- govready.com/apps/compliance/2018/github-source-code-repository
 catalog:
   category: Technology Components
   vendor: GovReady
@@ -22,7 +22,6 @@ introduction:
   format: markdown
   template: |
     Primary GitHub source code repository.
-
 invitation_to_task_interstitial:
   format: markdown
   template: |
@@ -31,16 +30,11 @@ invitation_to_task_interstitial:
     You've been asked to help with {{task.title}} for {{project}}.
 
     We'll tell {{invitation.from_user}} you're getting started.
-
 export_button_label: Export System Description and Control Information
-
 questions:
-
 - id: github_repo
   title: Document GitHub source code repository
   type: module
   module-id: github_repo
   tab: Technical Profile
   group: Technical Summary
-
-

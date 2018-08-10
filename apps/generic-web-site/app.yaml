@@ -4,8 +4,8 @@ type: project
 version: 0.4.0
 icon: app.png
 protocol:
-  - govready.com/apps/compliance/2018/information-technology-system
-instance-name: "{{system_profile.system_basics.system_name}}"
+- govready.com/apps/compliance/2018/information-technology-system
+instance-name: '{{system_profile.system_basics.system_name}}'
 catalog:
   category: IT System Templates
   vendor: GovReady
@@ -16,10 +16,9 @@ catalog:
   description:
     short: |
       Compliance under NIST RMF for a generic web site
-    long: |
-      This compliance app will help you achieve compliance for a generic web site. 
-      The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
-      and NIST SP 800-171 Rev 1.
+    long: "This compliance app will help you achieve compliance for a generic web\
+      \ site. \nThe app will produce compliance documents and artifacts for NIST SP\
+      \ 800-53 Rev 5\nand NIST SP 800-171 Rev 1.\n"
   recommended_for:
   - key_short: Org
     value: Small
@@ -30,11 +29,10 @@ catalog:
 introduction:
   format: markdown
   template: |
-      This compliance app will help you achieve compliance for a generic web site.
-      The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
-      and NIST SP 800-171 Rev 1.
+    This compliance app will help you achieve compliance for a generic web site.
+    The app will produce compliance documents and artifacts for NIST SP 800-53 Rev 5
+    and NIST SP 800-171 Rev 1.
 questions:
-# System Overview
 - id: system_profile
   title: System Profile
   type: module
@@ -50,28 +48,21 @@ questions:
   type: module
   module-id: control_selection
   group: System Overview
-# Technical Overview
 - id: source_code_repo
   title: Source Code Repository
   type: module
   protocol: govready.com/apps/compliance/2018/source-code-repository
   group: Technical Overview
-
-# Technology
 - id: web_server
   title: Web Server
   type: module
   protocol: web_server
   group: Technology
-
 - id: infrastructure
   title: Infrastructure
   type: module
   protocol: opencontrol
   group: Technology
-
-
-# Tasks
 - id: actvitity
   title: Actvitity
   group: Tasks
@@ -85,56 +76,47 @@ questions:
   protocol:
   - govready.com/apps/compliance/2018/POAM
   icon: app.png
-
-# People
 - id: fed_poc_pm
   title: PM
   type: module
   protocol: fed_poc_pm
   icon: person-3.png
   group: People
-
 - id: fed_poc_developer
   title: Developer
   type: module
   protocol: fed_poc_developer
   icon: person-3.png
   group: People
-
 - id: fed_poc_issm
   title: ISSM
   type: module
   protocol: fed_poc_issm
   icon: person-3.png
   group: People
-
 - id: fed_poc_isso
   title: ISSO
   type: module
   protocol: fed_poc_isso
   icon: person-3.png
   group: People
-
 - id: fed_poc_ciso
   title: CISO
   type: module
   protocol: fed_poc_ciso
   icon: person-3.png
   group: People
-
 - id: fed_poc_ao
   title: AO
   type: module
   protocol: fed_poc_ao
   icon: person-3.png
   group: People
-# Policy
 - id: sm_policy_privacy
   title: Privacy Policy
   type: module
   protocol: sm_policy_privacy
   group: Policy
-# Artifacts
 - id: ssp
   title: View SSP
   type: module
@@ -142,13 +124,13 @@ questions:
   icon: checkmark.png
   placement: action-buttons
 output:
-  - id: govready_lifecycle_stage_code
-    format: text
-    template: |
-      {% if not system_profile.is_finished() or not system_categorization.is_finished() %}
-        us_nist_rmf_1_categorize
-      {% elif not control_selection.is_finished() %}
-        us_nist_rmf_2_select
-      {% else %}
-        us_nist_rmf_3_implement
-      {% endif %}
+- id: govready_lifecycle_stage_code
+  format: text
+  template: |
+    {% if not system_profile.is_finished() or not system_categorization.is_finished() %}
+      us_nist_rmf_1_categorize
+    {% elif not control_selection.is_finished() %}
+      us_nist_rmf_2_select
+    {% else %}
+      us_nist_rmf_3_implement
+    {% endif %}

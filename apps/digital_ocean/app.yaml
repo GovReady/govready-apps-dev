@@ -4,7 +4,6 @@ type: project
 version: 1
 protocol: govready.com/apps/compliance/2017/data-center
 icon: app.png
-
 catalog:
   category: People, Places, and Things
   vendor: GovReady PBC
@@ -18,24 +17,18 @@ catalog:
     long: |
       Provides information about Digital Ocean's cloud data center.
   recommended_for:
-    - key_short: Org
-      value: Large
-    - key_short: Tech
-      value: Sophisticated
-    - key_short: Role
-      value: PM
-
+  - key_short: Org
+    value: Large
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
 questions:
 - id: name_and_location
   title: Name and Location
   type: text
   impute:
-    - value: DigitalOcean's Cloud Data Center
-
+  - value: DigitalOcean's Cloud Data Center
 output:
-- id: ssp_nistsp800171r1_3_1_1
-  format: markdown
-  template: "(Digital Ocean NIST SP 800-171r1 3.1.1 Control Text)"
-- id: ssp_nistsp800171r1_poams
-  format: markdown
-  template: "(Digital Ocean NIST SP 800-171r1 POAMs)"
+- ssp_nistsp800171r1_3_1_1.md
+- ssp_nistsp800171r1_poams.md

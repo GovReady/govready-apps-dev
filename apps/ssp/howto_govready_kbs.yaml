@@ -1,5 +1,5 @@
 id: howto_govready_kbs
-title: "How to use the GovReady Knowledge Base"
+title: How to use the GovReady Knowledge Base
 introduction:
   format: html
   template: |
@@ -10,26 +10,22 @@ introduction:
     <p>(more details)</p>
 
     <p>Visit the <a href="http://kbs.govready.com" target="_blank">GovReady Knowledge Base</a>.</p>
-
 questions:
-  - id: dummy
-    title: dummy
-    type: raw
-    prompt: dummy
-    impute:
-      - condition: "true"
-        value: ~
-
+- id: dummy
+  title: dummy
+  type: raw
+  prompt: dummy
+  impute:
+  - condition: 'true'
+    value: ~
 output:
-  - title: How to use the GovReady Knowledge Base
-    format: html
-    template: |
-      <p>
-      The GovReady Knoweldge Base provides easy searching of FISMA concepts and authoriative documents.
-      </p>
+- title: How to use the GovReady Knowledge Base
+  format: html
+  template: |
+    <p>
+    The GovReady Knoweldge Base provides easy searching of FISMA concepts and authoriative documents.
+    </p>
 
-      <p>(more details)</p>
+    <p>(more details)</p>
 
-      <p>Visit the <a href="http://kbs.govready.com" target="_blank">GovReady Knowledge Base</a>.</p>
-
-
+    <p>Visit the <a href="http://kbs.govready.com" target="_blank">GovReady Knowledge Base</a>.</p>

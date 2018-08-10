@@ -15,9 +15,9 @@ catalog:
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
   description:
     short: CUI (NIST SP 800-171) Compliance of Secondary Internet Drop.
-    long: Generates compliance documentation of Secondary Internet Drop 
-      as it pertains to managing the security of CUI (Controlled Unclassified
-      Information) as per NIST SP 800-171 controls.
+    long: Generates compliance documentation of Secondary Internet Drop as it pertains
+      to managing the security of CUI (Controlled Unclassified Information) as per
+      NIST SP 800-171 controls.
   recommended_for:
   - key_short: Org
     value: Small
@@ -40,12 +40,4 @@ questions:
   type: module
   module-id: questions
 output:
-- id: ssp_nist800171r1_3_1_1
-  title: NIST SP 800-171 3.1.1 Control Implementation
-  format: markdown
-  template: >+
-    A Secondary Internet Drop from {{questions.provider}} is used to limit access to authorized users, processes acting
-    on behalf of authorized users, or devices (including other systems). The drop is used for {{questions.usage}}.
-    {% if questions.cui_stored == "no" %}No systems that store Controlled Unclassified Information connect to the
-    Internet through the Secondary Internet Drop.{% endif %}
-
+- ssp_nist800171r1_3_1_1.md

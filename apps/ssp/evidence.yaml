@@ -1,6 +1,6 @@
 id: evidence
 title: Evidence Bag
-instance-name: "{{title.text}}"
+instance-name: '{{title.text}}'
 introduction:
   format: markdown
   template: |
@@ -8,135 +8,127 @@ introduction:
 
     In this module you will put evidence of the implementation of a control into a virtual evidence bag.
 questions:
-  - id: title
-    title: Title
-    prompt: Give this evidence bag a title.
-    type: text
-    placeholder: e.g., "Firewall configuration", "Security Policy", "Scan test results Mar 3, 2016"
+- id: title
+  title: Title
+  prompt: Give this evidence bag a title.
+  type: text
+  placeholder: e.g., "Firewall configuration", "Security Policy", "Scan test results
+    Mar 3, 2016"
+- id: description
+  title: Description
+  prompt: |
+    Briefly explain what the evidence verifies about the *{{project}}* system security and/or compliance.
+  type: text
+  help: |
+    Example: "The following excerpt verifies the content of our database audit files conforms to policy."
+- id: type
+  title: Evidence Type
+  prompt: What sort of evidence are you providing?
+  type: choice
+  choices:
+  - key: url
+    text: Persistent URL to piece of evidence
+  - key: document
+    text: An attached document
+    help: (e.g. policy, report)
+  - key: document_excerpt
+    text: Pasted excerpt from document
+  - key: code
+    text: Code, script, or code snippet
+  - key: screenshot
+    text: Screenshot
+  - key: media
+    text: Photograph, video, or other media
+  - key: other
+    text: Other
+- id: evidence_body_text
+  title: Paste Excerpt or Code
+  prompt: |
+    Paste document excerpt or code below.
+  type: longtext
+  impute:
+  - condition: not(type == "document_excerpt" or type == "code")
+    value: ~
+- id: media
+  title: Media Upload
+  prompt: |
+    {% if type == "screenshot" or type == "media" %}
+    Attach document (docx pdf md html) or media file (png jpg gif tiff mpeg).
 
-  - id: description
-    title: Description
-    prompt: |
-      Briefly explain what the evidence verifies about the *{{project}}* system security and/or compliance.
-    type: text
-    help: |
-      Example: "The following excerpt verifies the content of our database audit files conforms to policy."
+    If there is no file to upload, click Skip.
+    {% endif %}
+  type: file
+- id: link
+  title: Link
+  prompt: |
+    Enter the address to a web page where the evidence can be retrieved or validated, if applicable.
 
-
-  - id: type
-    title: Evidence Type
-    prompt: What sort of evidence are you providing?
-    type: choice
-    choices:
-    - key: url
-      text: Persistent URL to piece of evidence
-    - key: document
-      text: An attached document
-      help: (e.g. policy, report)
-    - key: document_excerpt
-      text: Pasted excerpt from document
-    - key: code
-      text: Code, script, or code snippet
-    - key: screenshot
-      text: Screenshot
-    - key: media
-      text: Photograph, video, or other media
-    - key: other
-      text: Other
-
-  - id: evidence_body_text
-    title: Paste Excerpt or Code
-    prompt: |
-      Paste document excerpt or code below.
-    type: longtext
-    impute:
-      - condition: not(type == "document_excerpt" or type == "code")
-        value: ~
-
-  - id: media
-    title: Media Upload
-    prompt: |
-      {% if type == "screenshot" or type == "media" %}
-      Attach document (docx pdf md html) or media file (png jpg gif tiff mpeg).
-
-      If there is no file to upload, click Skip.
-      {% endif %}
-    type: file
-
-  - id: link
-    title: Link
-    prompt: |
-      Enter the address to a web page where the evidence can be retrieved or validated, if applicable.
-
-      {% if media %}
-      If you took a screenshot of a web page, enter that page's address. If the file you uploaded can be downloaded from the web, enter the address the file can be downloaded from.
-      {% endif %}
-    type: url
-
+    {% if media %}
+    If you took a screenshot of a web page, enter that page's address. If the file you uploaded can be downloaded from the web, enter the address the file can be downloaded from.
+    {% endif %}
+  type: url
 output:
-  - title: Evidence Bag
-    format: html
-    template: |
-      <style type = "text/css" scoped>
-        table.gridtable {
-          border-width: 1px;
-          border-color: #666666;
-          border-collapse: collapse;
-        }
-        table.gridtable td.field {
-          border-width: 1px;
-          padding: 8px;
-          border-style: solid;
-          border-color: #666666;
-          background-color: #dedede;
-        }
-        table.gridtable td {
-          border-width: 1px;
-          padding: 8px;
-          border-style: solid;
-          border-color: #666666;
-          background-color: #ffffff;
-        }
-      </style>
+- title: Evidence Bag
+  format: html
+  template: |
+    <style type = "text/css" scoped>
+      table.gridtable {
+        border-width: 1px;
+        border-color: #666666;
+        border-collapse: collapse;
+      }
+      table.gridtable td.field {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #666666;
+        background-color: #dedede;
+      }
+      table.gridtable td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #666666;
+        background-color: #ffffff;
+      }
+    </style>
 
 
-      <table class="gridtable">
-        <tr>
-          <td class="field">title</td>
-          <td>{{title}}</td>
-        </tr>
-        <tr>
-          <td class="field">type</td>
-          <td>{{type.text}}</td>
-        </tr>
-        <tr>
-          <td class="field">description</td>
-          <td>{{description.text}}</td>
-        </tr>
-        <tr>
-          <td class="field">link</td>
-          <td>
-          {% if link %}
-            <a href="{{link.text}}">{{link.text}}</a>
-          {% else %}
-            none
-          {% endif %}
-          </td>
-        </tr>
-        <tr>
-          <td colspan=2>
-          {% if media and type=="screenshot" %}
-            <img src="{{media.url}}" width="100%" alt-text="screenshot {{description.text}}">
-          {% endif %}
-          </td>
-        </tr>
-        <tr>
-          <td colspan=2>
-          {% if type == "document_excerpt" or type == "code" %}
-          {{evidence_body_text.text}}
-          {% endif %}
-          </td>
-        </tr>
-      </table>
-
-
+    <table class="gridtable">
+      <tr>
+        <td class="field">title</td>
+        <td>{{title}}</td>
+      </tr>
+      <tr>
+        <td class="field">type</td>
+        <td>{{type.text}}</td>
+      </tr>
+      <tr>
+        <td class="field">description</td>
+        <td>{{description.text}}</td>
+      </tr>
+      <tr>
+        <td class="field">link</td>
+        <td>
+        {% if link %}
+          <a href="{{link.text}}">{{link.text}}</a>
+        {% else %}
+          none
+        {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td colspan=2>
+        {% if media and type=="screenshot" %}
+          <img src="{{media.url}}" width="100%" alt-text="screenshot {{description.text}}">
+        {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td colspan=2>
+        {% if type == "document_excerpt" or type == "code" %}
+        {{evidence_body_text.text}}
+        {% endif %}
+        </td>
+      </tr>
+    </table>

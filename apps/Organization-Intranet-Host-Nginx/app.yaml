@@ -35,28 +35,6 @@ introduction:
     controls.
 questions: []
 output:
-- id: ssp_nist800171r1_3_4_6
-  title: NIST SP 800-171 3.4.6 Control Implementation
-  format: markdown
-  template: >+
-    {{organization}} uses Organization Intranet Host (Nginx) to employ the principle
-    of least functionality by configuring organizational systems to provide only essential
-    capabilities. Organization Intranet Host is a serves web pages.
-
-- id: ssp_nist800171r1_3_4_7
-  title: NIST SP 800-171 3.4.7 Control Implementation
-  format: markdown
-  template: >+
-    {{organization}} uses Organization Intranet Host (Nginx) to restrict, disable,
-    and prevent the use of nonessential programs, functions, ports, protocols, and
-    services. Organization Intranet Host is a serves web pages.
-
-- id: ssp_nist800171r1_3_4_8
-  title: NIST SP 800-171 3.4.8 Control Implementation
-  format: markdown
-  template: >+
-    {{organization}} uses Organization Intranet Host (Nginx) to apply deny-by-exception
-    (blacklist) policy to prevent the use of unauthorized software or denyall, permit-by-exception
-    (whitelisting) policy to allow the execution of authorized software. Organization
-    Intranet Host is a serves web pages.
-
+- ssp_nist800171r1_3_4_6.md
+- ssp_nist800171r1_3_4_7.md
+- ssp_nist800171r1_3_4_8.md

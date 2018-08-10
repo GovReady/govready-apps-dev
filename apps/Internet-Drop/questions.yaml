@@ -1,6 +1,5 @@
 id: questions
 title: Questions
-
 questions:
 - id: provider
   title: Internet Drop Provider
@@ -10,8 +9,10 @@ questions:
   title: Usage of Drop
   prompt: What is the Internet Drop used for?
   type: text
-  help: e.g., workstations, development servers, production servers, mobile device wifi, guest Internet
+  help: e.g., workstations, development servers, production servers, mobile device
+    wifi, guest Internet
 - id: cui_stored
   title: CUI?
-  prompt: Do any devices connected to the Internet Drop store Controlled Unclassified Information?
+  prompt: Do any devices connected to the Internet Drop store Controlled Unclassified
+    Information?
   type: yesno

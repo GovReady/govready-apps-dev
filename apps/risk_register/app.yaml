@@ -22,25 +22,19 @@ catalog:
     value: Sophisticated
   - key_short: Role
     value: PM
-
 introduction:
   format: markdown
   template: |
     A simple Risk Register
-
 questions:
-
-  - id: risk_register
-    title: Risk Register
-    type: module-set
-    module-id: risk_register
-    icon: file_server.png
-    group: System Components
-
-
+- id: risk_register
+  title: Risk Register
+  type: module-set
+  module-id: risk_register
+  icon: file_server.png
+  group: System Components
 output:
-
-  - tab: Risk Register Tab
-    format: markdown
-    template: |
-      <h2>DNFSB Checklists</h2>
+- tab: Risk Register Tab
+  format: markdown
+  template: |
+    <h2>DNFSB Checklists</h2>

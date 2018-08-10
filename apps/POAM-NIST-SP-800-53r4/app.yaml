@@ -32,8 +32,7 @@ catalog:
     value: SysAdmin
 introduction:
   format: markdown
-  template: >-
-    This application will prepare a Plan of Action and Milestones (POAM) for
+  template: This application will prepare a Plan of Action and Milestones (POAM) for
     managing the security of NIST RMF as per NIST SP 800-53r4 controls.
 questions:
 - id: description
@@ -45,28 +44,4 @@ questions:
   type: module
   module-id: progress
 output:
-- id: complete_text
-  format: markdown
-  template: |
-    ## {{description.identifier}}
-
-    This is a {{description.poam_level.text}}, {{description.risk_level.text}} Risk POAM.
-
-    ### Description
-
-    {{description.problem_description.text}}
-
-    Controls Impacted: {{description.impacted_controls.text}}
-
-    {{description.source.text}}
-
-    ### Remediation
-
-    The estimated cost to addressing this deficiency is {{description.cost.text}} and is
-    scheduled to be addressed by {{description.scheduled_completion_date.text}}.
-
-    {{description.remediation}}
-
-    ### Milestones
-
-    {{description.milestones}}
+- complete_text.md

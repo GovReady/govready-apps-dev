@@ -2,114 +2,101 @@ id: system_urls
 title: System URLs
 introduction:
   format: html
-  template: |
-    
+  template: |2
+
     ## System URLs
 
     Let&rsquo;s document a few key URLs
 
     (Draft)
-
 questions:
-  - id: source_code_url
-    title: Source code URL
-    type: url
-    prompt: |
-      Great code is best managed in a code repository. We're sure your code is great.
+- id: source_code_url
+  title: Source code URL
+  type: url
+  prompt: |
+    Great code is best managed in a code repository. We're sure your code is great.
 
-      What is the URL to main source code repository for **{{project.system_basics.official_system_name}}**?
+    What is the URL to main source code repository for **{{project.system_basics.official_system_name}}**?
+- id: live_url
+  title: Live URL
+  type: url
+  prompt: |
+    What is the URL to the live (e.g., production) version of **{{project.system_basics.official_system_name}}**?
+- id: test_url
+  title: Test URL
+  type: url
+  prompt: |2
 
-  - id: live_url
-    title: Live URL
-    type: url
-    prompt: |
-      What is the URL to the live (e.g., production) version of **{{project.system_basics.official_system_name}}**?
-
-  - id: test_url
-    title: Test URL
-    type: url
-    prompt: |
-      
-      What is the URL to your organization's test (e.g., staging) version for **{{project.system_basics.official_system_name}}**?
-
-  - id: issue_tracker_app
-    title: Issue tracker app
-    type: choice
-    prompt: |
-      Which software are you using for tracking issues, bugs, and feature requests for **{{project.system_basics.official_system_name}}**?
-    choices:
-      - key: jira
-        text: Jira 
-      - key: github
-        text: GitHub Issues
-      - key: redmine
-        text: Redmine
-      - key: other
-        text: Other
-
-  - id: issue_tracker_url
-    title: Issue tracker URL
-    prompt: |
-      OK. What is the URL to **{{project.system_basics.official_system_name}}**'s {{issue_tracker_app.text}}?
-    type: url
-    help: "Example: https://github.com/GovReady/compliancelib-python"
-
+    What is the URL to your organization's test (e.g., staging) version for **{{project.system_basics.official_system_name}}**?
+- id: issue_tracker_app
+  title: Issue tracker app
+  type: choice
+  prompt: |
+    Which software are you using for tracking issues, bugs, and feature requests for **{{project.system_basics.official_system_name}}**?
+  choices:
+  - key: jira
+    text: Jira
+  - key: github
+    text: GitHub Issues
+  - key: redmine
+    text: Redmine
+  - key: other
+    text: Other
+- id: issue_tracker_url
+  title: Issue tracker URL
+  prompt: |
+    OK. What is the URL to **{{project.system_basics.official_system_name}}**'s {{issue_tracker_app.text}}?
+  type: url
+  help: 'Example: https://github.com/GovReady/compliancelib-python'
 output:
-  - title: Your Answers
-    format: markdown
-    template: |
-      Congratulations! You've document key URLs for your system!
+- title: Your Answers
+  format: markdown
+  template: |
+    Congratulations! You've document key URLs for your system!
 
-      Click "System Security Plan Preview" to see this section.
+    Click "System Security Plan Preview" to see this section.
+- title: System Security Plan Preview
+  format: markdown
+  template: |2
 
-  - title: System Security Plan Preview
-    format: markdown
-    template: |
-      
-      ## Information System URLs
+    ## Information System URLs
 
-      {{project.system_basics.official_system_name}} uses the following URLs.
-
-
-      <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
-      <thead>
-        <th style="text-align:center; background-color: rgb(214,225,239);">Primary Source Code Repository</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="{{source_code_url}}">{{source_code_url}}</a></td>
-        </tr>
-        </tbody>
-      </table>
-
-      <p>&nbsp;</p>
-
-      <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
-      <thead>
-        <th style="text-align:center; background-color: rgb(214,225,239);">Issue Tracker ({{issue_tracker_app.text}})</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="{{issue_tracker_url}}">{{issue_tracker_url}}</a></td>
-        </tr>
-        </tbody>
-      </table>
-
-      <p>&nbsp;</p>
-
-      <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
-      <thead>
-        <th style="text-align:center; background-color: rgb(214,225,239);">Test URL</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="{{test_url}}">{{test_url}}</a></td>
-        </tr>
-        </tbody>
-      </table>
+    {{project.system_basics.official_system_name}} uses the following URLs.
 
 
+    <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
+    <thead>
+      <th style="text-align:center; background-color: rgb(214,225,239);">Primary Source Code Repository</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="{{source_code_url}}">{{source_code_url}}</a></td>
+      </tr>
+      </tbody>
+    </table>
 
+    <p>&nbsp;</p>
 
+    <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
+    <thead>
+      <th style="text-align:center; background-color: rgb(214,225,239);">Issue Tracker ({{issue_tracker_app.text}})</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="{{issue_tracker_url}}">{{issue_tracker_url}}</a></td>
+      </tr>
+      </tbody>
+    </table>
 
+    <p>&nbsp;</p>
 
+    <table class="table" style="width:600px; border:1px solid black;margin: 0 auto !important;float: none !important;">
+    <thead>
+      <th style="text-align:center; background-color: rgb(214,225,239);">Test URL</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="{{test_url}}">{{test_url}}</a></td>
+      </tr>
+      </tbody>
+    </table>

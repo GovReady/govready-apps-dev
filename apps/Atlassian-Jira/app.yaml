@@ -17,9 +17,9 @@ catalog:
     short: |
       CUI (800-171) Compliance of Atlassian Jira
     long: >
-      Generates the compliance documentation of Atlassian Jira as it pertains
-      to managing the security of CUI (Controlled Unclassified Information) as per
-      NIST 800-171 controls.
+      Generates the compliance documentation of Atlassian Jira as it pertains to managing
+      the security of CUI (Controlled Unclassified Information) as per NIST 800-171
+      controls.
   recommended_for:
   - key_short: Org
     value: Small
@@ -35,18 +35,6 @@ introduction:
     This application will make sure you are properly using Jira to support the protection of CUI.
 questions: []
 output:
-- id: ssp_nist800171r1_3_4_3
-  format: markdown
-  template: |+
-    {{organization}} uses Atlassian Jira issue tracker as part of its change management process to track, review, approve/disapprove all requested changes to organizational systems.
-
-- id: ssp_nist800171r1_3_6_2
-  format: markdown
-  template: |+
-    {{organization}} uses Atlassian Jira issue tracker as part of its incident management process to track and document incidents and the underlying issues associated with the incidents. This documentation is then used as part of internal and external reporting.
-
-- id: ssp_nist800171r1_3_14_1
-  format: markdown
-  template: |+
-    {{organization}} uses Atlassian Jira issue tracker to identify, report, and correct information and system flaws in a timely manner by creating Jira tickets for all reported issues. All reported issues are then tracked and prioritized in Jira to be corrected in a timely manner by appropriate individuals. This tracking in Jira helps maintain system and information integrity.
-
+- ssp_nist800171r1_3_4_3.md
+- ssp_nist800171r1_3_6_2.md
+- ssp_nist800171r1_3_14_1.md

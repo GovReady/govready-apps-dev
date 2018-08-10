@@ -1,19 +1,18 @@
 id: questions
 title: Questions about Atlassian Bitbucket
-
 questions:
 - id: what_is_stored
   title: What do you store in Atlassian Bitbucket?
   prompt: What do you store in Atlassian Bitbucket?
   type: text
   help: e.g. software source code, data files
-
 - id: cui_stored
   title: Is any CUI stored in Atlassian Bitbucket?
   prompt: Is any Controlled Unclassified Information stored in Atlassian Bitbucket?
   type: yesno
-
 - id: describe_baseline_configurations
-  title: Describe how Atlassian Bitbucket is used to store baseline configurations and inventories of organizational systems.
-  prompt: Describe how Atlassian Bitbucket is used to store baseline configurations and inventories of organizational systems.
+  title: Describe how Atlassian Bitbucket is used to store baseline configurations
+    and inventories of organizational systems.
+  prompt: Describe how Atlassian Bitbucket is used to store baseline configurations
+    and inventories of organizational systems.
   type: text

@@ -4,7 +4,6 @@ type: project
 version: 1
 protocol: govready.com/apps/compliance/2017/system-description
 icon: app.png
-
 catalog:
   category: People, Places, and Things
   vendor: GovReady PBC
@@ -18,26 +17,21 @@ catalog:
     long: |
       Enter the name, a description, a technical overview, and status of a system.
   recommended_for:
-    - key_short: Org
-      value: Large
-    - key_short: Tech
-      value: Sophisticated
-    - key_short: Role
-      value: PM
-
+  - key_short: Org
+    value: Large
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
 snippet:
   format: html
   template: |
     {{system_name_and_details}}
-
 introduction:
   format: markdown
-  template: |
-    Welcome to the System Name and Details app. 
-
-    Use this app to enter the name and a description of a system and provide a technical overview
-    and its implementation status.
-
+  template: "Welcome to the System Name and Details app. \n\nUse this app to enter\
+    \ the name and a description of a system and provide a technical overview\nand\
+    \ its implementation status.\n"
 questions:
 - id: system_name_and_details
   title: Enter Information

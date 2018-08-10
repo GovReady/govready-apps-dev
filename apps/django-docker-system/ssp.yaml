@@ -1,1666 +1,579 @@
 id: ssp
 title: System Security Plan Preview
 version: 2
-
 questions:
 - id: dummy
   title: dummy
   prompt: dummy
   type: raw
   impute:
-    - condition: "true"
-      value: ~
-
+  - condition: 'true'
+    value: ~
 output:
 - format: markdown
   title: System Security Plan
-  template: |
-    <style type="text/css" scoped>
-      h2 { border-bottom:1px solid #888; }
-      h3 { border-bottom:0.5px solid #aaa; }
-      h4 { font-weight:bold; font-size:0.9em; }
-      blockquote { color: #666; font-size:0.8em;}
-      .notice {color: red; font-size:3.0em; text-align:center; transform: scaleY(.85); font-weight: bold;}
-      font-weight: bold;}
-      table, th, td { border: 1px solid #888; }
-      th, td { padding: 15px; text-align: left;}
-    </style>
-
-    <center>
-
-    FOR OFFICIAL USE ONLY
-
-    DEPARTMENT OF SOBRIETY
-
-    **System Name:**
-    System Security Plan (SSP)
-
-    Version 4.2
-
-    **FIPS 199 Categorization: Low**
-
-    **Updated October 30, 2017**
-
-    **System Name:**  
-    **<system name>**
-
-    **System’s Unique Identifier:**  
-    **Identifier - XXX-XX-XX-XX-XX-XXXX-00**
-
-    <table border='3' width="400">
-    <tr><td>
-    <p>This document contains <ORGANIZATIONAL>
-    and is exempted from release under the Freedom of Information Act
-    by Exemption b(2).</p>
-    </tr></td>
-    </table> 
-
-    </center>
-
-
-    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-
-
-
-    <h2>System Categorization</h2>
-
-    {% if not project.system_categorization %}
-      The system impact level has not yet been determined.
-    {% else %}
-      {{project.system_categorization.output_documents.ssp_template|safe}}
-    {% endif %}
-
-
-    <h2>Web Server</h2>
-
-    {% if not project.web_server %}
-      There will be a web server.
-    {% else %}
-      {{project.web_server.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    <h2>Points of Contact</h2>
-
-    {% if not project.fed_poc_ciso %}
-      There will be a CISO.
-    {% else %}
-      {{project.fed_poc_ciso.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    {% if not project.fed_poc_isso %}
-      There will be a ISSO.
-    {% else %}
-      {{project.fed_poc_isso.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    {% if not project.fed_poc_issm %}
-      There will be a ISSM.
-    {% else %}
-      {{project.fed_poc_issm.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    {% if not project.fed_poc_developer %}
-      There will be a Developer.
-    {% else %}
-      {{project.fed_poc_developer.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    {% if not project.fed_poc_pm %}
-      There will be a Project Manager.
-    {% else %}
-      {{project.fed_poc_pm.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    {% if not project.fed_poc_ao %}
-      There will be a Authorizing Official.
-    {% else %}
-      {{project.fed_poc_ao.output_documents.ssp_template|safe}}
-    {% endif %}
-
-    <h2>Polices</h2>
-
-    <h2>AC-2</h2>
-
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_AC_2' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_AC_2|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-
-    <h2>AC-2 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_2__1|safe}}
-    {% endif %}
-
-    <h2>AC-2 (10)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_2__10|safe}}
-    {% endif %}
-
-    <h2>AC-2 (12)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_2__12|safe}}
-    {% endif %}
-
-    <h2>AC-2 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_2__2|safe}}
-    {% endif %}
-
-    <h2>AC-2 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_2__3|safe}}
-    {% endif %}
-
-    <h2>AC-2 (4)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_2__4|safe}}
-    {% endif %}
-
-    <h2>AC-2 (5)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_2__5|safe}}
-    {% endif %}
-
-    <h2>AC-2 (7)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_2__7|safe}}
-    {% endif %}
-
-    <h2>AC-2 (9)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_2__9|safe}}
-    {% endif %}
-
-    <h2>AC-20</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_20|safe}}
-    {% endif %}
-
-    <h2>AC-20 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_20__1|safe}}
-    {% endif %}
-
-    <h2>AC-20 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_20__2|safe}}
-    {% endif %}
-
-    <h2>AC-21</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_21|safe}}
-    {% endif %}
-
-    <h2>AC-22</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_22|safe}}
-    {% endif %}
-
-    <h2>AC-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_3|safe}}
-    {% endif %}
-
-    <h2>AC-4</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_4|safe}}
-    {% endif %}
-
-    <h2>AC-4 (21)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_4__21|safe}}
-    {% endif %}
-
-    <h2>AC-5</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_5|safe}}
-    {% endif %}
-
-    <h2>AC-6</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_6|safe}}
-    {% endif %}
-
-    <h2>AC-6 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_6__1|safe}}
-    {% endif %}
-
-    <h2>AC-6 (10)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_6__10|safe}}
-    {% endif %}
-
-    <h2>AC-6 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_6__2|safe}}
-    {% endif %}
-
-    <h2>AC-6 (5)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_6__5|safe}}
-    {% endif %}
-
-    <h2>AC-6 (9)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_6__9|safe}}
-    {% endif %}
-
-    <h2>AC-7</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_7|safe}}
-    {% endif %}
-
-    <h2>AC-8</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_8|safe}}
-    {% endif %}
-
-    <h2>AC-10</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_10|safe}}
-    {% endif %}
-
-    <h2>AC-11</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_11|safe}}
-    {% endif %}
-
-    <h2>AC-11 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_11__1|safe}}
-    {% endif %}
-
-    <h2>AC-12</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_12|safe}}
-    {% endif %}
-
-    <h2>AC-14</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_14|safe}}
-    {% endif %}
-
-    <h2>AC-17</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_17|safe}}
-    {% endif %}
-
-    <h2>AC-17 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_17__1|safe}}
-    {% endif %}
-
-    <h2>AC-17 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_17__2|safe}}
-    {% endif %}
-
-    <h2>AC-17 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_17__3|safe}}
-    {% endif %}
-
-    <h2>AC-17 (4)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_17__4|safe}}
-    {% endif %}
-
-    <h2>AC-17 (9)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_17__9|safe}}
-    {% endif %}
-
-    <h2>AC-18</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_18|safe}}
-    {% endif %}
-
-    <h2>AC-19</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_19|safe}}
-    {% endif %}
-
-    <h2>AC-19 (5)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ac_19__5|safe}}
-    {% endif %}
-
-
-
-    <h2>AT-1</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_at_1|safe}}
-    {% endif %}
-
-    <h2>AT-2</h2>
-
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_AT_2' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_AT_2|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-
-
-    <h2>AT-2 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_at_2__2|safe}}
-    {% endif %}
-
-    <h2>AT-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_at_3|safe}}
-    {% endif %}
-
-    <h2>AT-4</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_at_4|safe}}
-    {% endif %}
-
-    <h2>AU-1</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_1|safe}}
-    {% endif %}
-
-    <h2>AU-11</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_11|safe}}
-    {% endif %}
-
-    <h2>AU-12</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_12|safe}}
-    {% endif %}
-
-    <h2>AU-2</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_2|safe}}
-    {% endif %}
-
-    <h2>AU-2 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_2__3|safe}}
-    {% endif %}
-
-    <h2>AU-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_3|safe}}
-    {% endif %}
-
-    <h2>AU-3 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_3__1|safe}}
-    {% endif %}
-
-    <h2>AU-4</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_4|safe}}
-    {% endif %}
-
-    <h2>AU-5</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_5|safe}}
-    {% endif %}
-
-    <h2>AU-6</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_6|safe}}
-    {% endif %}
-
-    <h2>AU-6 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_6__1|safe}}
-    {% endif %}
-
-    <h2>AU-6 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_6__3|safe}}
-    {% endif %}
-
-    <h2>AU-7</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_7|safe}}
-    {% endif %}
-
-    <h2>AU-7 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_7__1|safe}}
-    {% endif %}
-
-    <h2>AU-8</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_8|safe}}
-    {% endif %}
-
-    <h2>AU-8 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_8__1|safe}}
-    {% endif %}
-
-    <h2>AU-9</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_9|safe}}
-    {% endif %}
-
-    <h2>AU-9 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_9__2|safe}}
-    {% endif %}
-
-    <h2>AU-9 (4)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_au_9__4|safe}}
-    {% endif %}
-
-    <h2>CA-1</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_1|safe}}
-    {% endif %}
-
-    <h2>CA-2</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_2|safe}}
-    {% endif %}
-
-    <h2>CA-2 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_2__1|safe}}
-    {% endif %}
-
-    <h2>CA-2 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_2__2|safe}}
-    {% endif %}
-
-    <h2>CA-2 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_2__3|safe}}
-    {% endif %}
-
-    <h2>CA-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_3|safe}}
-    {% endif %}
-
-    <h2>CA-3 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_3__3|safe}}
-    {% endif %}
-
-    <h2>CA-3 (5)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_3__5|safe}}
-    {% endif %}
-
-    <h2>CA-5</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_5|safe}}
-    {% endif %}
-
-    <h2>CA-6</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_6|safe}}
-    {% endif %}
-
-    <h2>CA-7</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_7|safe}}
-    {% endif %}
-
-    <h2>CA-7 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_7__1|safe}}
-    {% endif %}
-
-    <h2>CA-8</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_8|safe}}
-    {% endif %}
-
-    <h2>CA-8 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_8__1|safe}}
-    {% endif %}
-
-    <h2>CA-9</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ca_9|safe}}
-    {% endif %}
-
-    <h2>CM-1</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cm_1|safe}}
-    {% endif %}
-
-    <h2>CM-2</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cm_2|safe}}
-    {% endif %}
-
-    <h2>CM-2 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cm_2__1|safe}}
-    {% endif %}
-
-    <h2>CM-2 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cm_2__2|safe}}
-    {% endif %}
-
-    <h2>CM-2 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cm_2__3|safe}}
-    {% endif %}
-
-    <h2>CM-2 (7)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cm_2__7|safe}}
-    {% endif %}
-
-    <h2>CM-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cm_3|safe}}
-    {% endif %}
-
-    <h2>CM-6</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cm_6|safe}}
-    {% endif %}
-
-    <h2>CM-8</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cm_8|safe}}
-    {% endif %}
-
-    <h2>CP-1</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_1|safe}}
-    {% endif %}
-
-    <h2>CP-10</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_10|safe}}
-    {% endif %}
-
-    <h2>CP-10 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_10__2|safe}}
-    {% endif %}
-
-    <h2>CP-2</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_2|safe}}
-    {% endif %}
-
-    <h2>CP-2 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_2__1|safe}}
-    {% endif %}
-
-    <h2>CP-2 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_2__2|safe}}
-    {% endif %}
-
-    <h2>CP-2 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_2__3|safe}}
-    {% endif %}
-
-    <h2>CP-2 (8)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_2__8|safe}}
-    {% endif %}
-
-    <h2>CP-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_3|safe}}
-    {% endif %}
-
-    <h2>CP-4</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_4|safe}}
-    {% endif %}
-
-    <h2>CP-4 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_4__1|safe}}
-    {% endif %}
-
-    <h2>CP-6</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_6|safe}}
-    {% endif %}
-
-    <h2>CP-6 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_6__1|safe}}
-    {% endif %}
-
-    <h2>CP-6 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_6__3|safe}}
-    {% endif %}
-
-    <h2>CP-7</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_7|safe}}
-    {% endif %}
-
-    <h2>CP-7 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_7__1|safe}}
-    {% endif %}
-
-    <h2>CP-7 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_7__2|safe}}
-    {% endif %}
-
-    <h2>CP-7 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_7__3|safe}}
-    {% endif %}
-
-    <h2>CP-8</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_8|safe}}
-    {% endif %}
-
-    <h2>CP-8 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_8__1|safe}}
-    {% endif %}
-
-    <h2>CP-9</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_9|safe}}
-    {% endif %}
-
-    <h2>CP-9 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_9__1|safe}}
-    {% endif %}
-
-    <h2>CP-9 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_cp_9__3|safe}}
-    {% endif %}
-
-    <h2>IA-1</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_1|safe}}
-    {% endif %}
-
-    <h2>IA-2</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_2|safe}}
-    {% endif %}
-
-    <h2>IA-2 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_2__1|safe}}
-    {% endif %}
-
-    <h2>IA-2 (11)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_2__11|safe}}
-    {% endif %}
-
-    <h2>IA-2 (12)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_2__12|safe}}
-    {% endif %}
-
-    <h2>IA-2 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_2__2|safe}}
-    {% endif %}
-
-    <h2>IA-2 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_2__3|safe}}
-    {% endif %}
-
-    <h2>IA-2 (5)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_2__5|safe}}
-    {% endif %}
-
-    <h2>IA-2 (8)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_2__8|safe}}
-    {% endif %}
-
-    <h2>IA-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_3|safe}}
-    {% endif %}
-
-    <h2>IA-4</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_4|safe}}
-    {% endif %}
-
-    <h2>IA-4 (4)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_4__4|safe}}
-    {% endif %}
-
-    <h2>IA-5</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_5|safe}}
-    {% endif %}
-
-    <h2>IA-5 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_5__1|safe}}
-    {% endif %}
-
-    <h2>IA-5 (11)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_5__11|safe}}
-    {% endif %}
-
-    <h2>IA-5 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_5__2|safe}}
-    {% endif %}
-
-    <h2>IA-5 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_5__3|safe}}
-    {% endif %}
-
-    <h2>IA-5 (4)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_5__4|safe}}
-    {% endif %}
-
-    <h2>IA-5 (6)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_5__6|safe}}
-    {% endif %}
-
-    <h2>IA-5 (7)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_5__7|safe}}
-    {% endif %}
-
-    <h2>IA-7</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_7|safe}}
-    {% endif %}
-
-    <h2>IA-8</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_8|safe}}
-    {% endif %}
-
-    <h2>IA-8 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_8__1|safe}}
-    {% endif %}
-
-    <h2>IA-8 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_8__2|safe}}
-    {% endif %}
-
-    <h2>IA-8 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_8__3|safe}}
-    {% endif %}
-
-    <h2>IA-8 (4)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ia_8__4|safe}}
-    {% endif %}
-
-    <h2>IR-1</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_1|safe}}
-    {% endif %}
-
-    <h2>IR-2</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_2|safe}}
-    {% endif %}
-
-    <h2>IR-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_3|safe}}
-    {% endif %}
-
-    <h2>IR-3 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_3__2|safe}}
-    {% endif %}
-
-    <h2>IR-4</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_4|safe}}
-    {% endif %}
-
-    <h2>IR-4 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_4__1|safe}}
-    {% endif %}
-
-    <h2>IR-5</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_5|safe}}
-    {% endif %}
-
-    <h2>IR-6</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_6|safe}}
-    {% endif %}
-
-    <h2>IR-6 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_6__1|safe}}
-    {% endif %}
-
-    <h2>IR-7</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_7|safe}}
-    {% endif %}
-
-    <h2>IR-7 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_7__1|safe}}
-    {% endif %}
-
-    <h2>IR-7 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_7__2|safe}}
-    {% endif %}
-
-    <h2>IR-8</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_8|safe}}
-    {% endif %}
-
-    <h2>IR-9</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_9|safe}}
-    {% endif %}
-
-    <h2>IR-9 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_9__1|safe}}
-    {% endif %}
-
-    <h2>IR-9 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_9__2|safe}}
-    {% endif %}
-
-    <h2>IR-9 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_9__3|safe}}
-    {% endif %}
-
-    <h2>IR-9 (4)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ir_9__4|safe}}
-    {% endif %}
-
-    <h2>MA-1</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_1|safe}}
-    {% endif %}
-
-    <h2>MA-2</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_2|safe}}
-    {% endif %}
-
-    <h2>MA-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_3|safe}}
-    {% endif %}
-
-    <h2>MA-3 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_3__1|safe}}
-    {% endif %}
-
-    <h2>MA-3 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_3__2|safe}}
-    {% endif %}
-
-    <h2>MA-3 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_3__3|safe}}
-    {% endif %}
-
-    <h2>MA-4</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_4|safe}}
-    {% endif %}
-
-    <h2>MA-4 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_4__2|safe}}
-    {% endif %}
-
-    <h2>MA-5</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_5|safe}}
-    {% endif %}
-
-    <h2>MA-5 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_5__1|safe}}
-    {% endif %}
-
-    <h2>MA-6</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_ma_6|safe}}
-    {% endif %}
-
-    <h2>MP-1</h2>
-
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_MP_1' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_MP_1|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-
-
-    <h2>MP-2</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_mp_2|safe}}
-    {% endif %}
-
-    <h2>MP-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_mp_3|safe}}
-    {% endif %}
-
-    <h2>MP-4</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_mp_4|safe}}
-    {% endif %}
-
-    <h2>MP-5</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_mp_5|safe}}
-    {% endif %}
-
-    <h2>MP-5 (4)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_mp_5__4|safe}}
-    {% endif %}
-
-    <h2>MP-6</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_mp_6|safe}}
-    {% endif %}
-
-    <h2>MP-6 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_mp_6__2|safe}}
-    {% endif %}
-
-    <h2>MP-7</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_mp_7|safe}}
-    {% endif %}
-
-    <h2>MP-7 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_mp_7__1|safe}}
-    {% endif %}
-
-    <h2>PE-1</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_1|safe}}
-    {% endif %}
-
-    <h2>PE-10</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_10|safe}}
-    {% endif %}
-
-    <h2>PE-11</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_11|safe}}
-    {% endif %}
-
-    <h2>PE-12</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_12|safe}}
-    {% endif %}
-
-    <h2>PE-13</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_13|safe}}
-    {% endif %}
-
-    <h2>PE-13 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_13__2|safe}}
-    {% endif %}
-
-    <h2>PE-13 (3)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_13__3|safe}}
-    {% endif %}
-
-    <h2>PE-14</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_14|safe}}
-    {% endif %}
-
-    <h2>PE-14 (2)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_14__2|safe}}
-    {% endif %}
-
-    <h2>PE-15</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_15|safe}}
-    {% endif %}
-
-    <h2>PE-16</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_16|safe}}
-    {% endif %}
-
-    <h2>PE-17</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_17|safe}}
-    {% endif %}
-
-    <h2>PE-2</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_2|safe}}
-    {% endif %}
-
-    <h2>PE-3</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_3|safe}}
-    {% endif %}
-
-    <h2>PE-4</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_4|safe}}
-    {% endif %}
-
-    <h2>PE-5</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_5|safe}}
-    {% endif %}
-
-    <h2>PE-6</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_6|safe}}
-    {% endif %}
-
-    <h2>PE-6 (1)</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_6__1|safe}}
-    {% endif %}
-
-    <h2>PE-8</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_8|safe}}
-    {% endif %}
-
-    <h2>PE-9</h2>
-    {% if not project.infrastructure %}
-      There will be infrastructure.
-    {% else %}
-      {{project.infrastructure.output_documents.ssp_template_pe_9|safe}}
-    {% endif %}
-
-    <h3>PL-1: Security Planning Policy And Procedures</h3>
-
-    <blockquote>The organization:
-    a. Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]:
-    a.1. A security planning policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and
-    a.2. Procedures to facilitate the implementation of the security planning policy and associated security planning controls; and
-    b. Reviews and updates the current:
-    b.1. Security planning policy [Assignment: organization-defined frequency]; and
-    b.2. Security planning procedures [Assignment: organization-defined frequency].</blockquote>
-
-
-    The Department develops, disseminates, and periodically reviews/updates: (i) a formal, documented, security planning policy that addresses purpose, scope, roles, responsibilities, and compliance; and (ii) formal, documented procedures to facilitate the implementation of the security planning policy and associated security planning controls.
-
-    **In-Place Controls:**
-
-    The TACR System developed its security policy planning and procedures based on the Department of Sobriety, Office of the Chief Information Officer, Handbook for Information Assurance Security Policy, Information Assurance Program (Handbook -01), guidance from NIST, the Office of Management and Budget and industry best practices. Security policies and procedures are formally documented within the TACR SSP, which provides the roles and responsibilities as it pertains to security planning. It provides guidance on all aspects of security for the protection of TACR information technology resources. It defines responsibilities for the implementation and oversight of the guidance contained herein. The plan was last updated in November, 2015.
-
-    **Control Type:** Common
-
-
-    <!--component_content
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_PL_1' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_PL_1|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-    component_content -->
-
-    <h3>PL-2: System Security Plan</h3>
-
-    <blockquote>The organization:
-    a. Develops a security plan for the information system that:
-    a.1. Is consistent with the organization�s enterprise architecture;
-    a.2. Explicitly defines the authorization boundary for the system;
-    a.3. Describes the operational context of the information system in terms of missions and business processes;
-    a.4. Provides the security categorization of the information system including supporting rationale;
-    a.5. Describes the operational environment for the information system and relationships with or connections to other information systems;
-    a.6. Provides an overview of the security requirements for the system;
-    a.7. Identifies any relevant overlays, if applicable;
-    a.8. Describes the security controls in place or planned for meeting those requirements including a rationale for the tailoring decisions; and
-    a.9. Is reviewed and approved by the authorizing official or designated representative prior to plan implementation;
-    b. Distributes copies of the security plan and communicates subsequent changes to the plan to [Assignment: organization-defined personnel or roles];
-    c. Reviews the security plan for the information system [Assignment: organization-defined frequency];
-    d. Updates the plan to address changes to the information system/environment of operation or problems identified during plan implementation or security control assessments; and
-    e. Protects the security plan from unauthorized disclosure and modification.</blockquote>
-
-
-    The system personnel develop and implement a security plan for the information system that provides an overview of the security requirements for the system and a description of the security controls in place or planned for meeting those requirements. The system security plan clearly identifies the system owner and who is responsible for managing access to the system, and assigns, in writing, the individual responsible for the security of the system. Designated officials within the Principal Office review and approve the plan.
-
-    **In-Place Controls:**
-
-    The System Security Plan (SSP) was developed and implemented for TACR System system in accordance with the Department of Sobriety, Office of the Chief Information Officer, Handbook for Information Assurance Security Policy, Information Assurance Program (Handbook -01), Department of Sobriety Information Technology Security, Guide Material for Information Technology Security, Certification and Accreditation Procedures (Handbook -05), NIST SP 800-18 and NIST SP 800-37. The SSP includes a description of the management, operational, and technical controls in place or planned for the application. The SSP is included as a key document in an application’s C&A package and is reviewed and approved by designated officials. The SSP identifies the system owner and responsible parties for managing system access and the overall security of the system. The Chief Information Security Officer reviews and approves the SSP. The SSP will be reviewed at least annually and updated to account for any changes to the TACR system and to address any changes in security controls.
-
-    **Control Type:** System Specific
-
-    <!--component_content
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_PL_2' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_PL_2|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-    component_content -->
-
-    <h3>PL-4: Rules Of Behavior</h3>
-
-    <blockquote>The organization:
-    a. Establishes and makes readily available to individuals requiring access to the information system, the rules that describe their responsibilities and expected behavior with regard to information and information system usage;
-    b. Receives a signed acknowledgment from such individuals, indicating that they have read, understand, and agree to abide by the rules of behavior, before authorizing access to information and the information system;
-    c. Reviews and updates the rules of behavior [Assignment: organization-defined frequency]; and
-    d. Requires individuals who have signed a previous version of the rules of behavior to read and re-sign when the rules of behavior are revised/updated.</blockquote>
-
-
-    Rules of Behavior will be established and made available to all information system users that describes their responsibilities and expected behavior with regard to information system usage, and the consequences of inconsistent behavior or noncompliance. In addition, confidentiality or security agreements are required for employees assigned to work with sensitive information. Signed acknowledgement from users indicating that they have read, understand, and agree to abide by the rules of behavior, confidentiality and security agreements must be provided to system personnel before authorizing access to the information system.
-
-    **In-Place Controls:**
-
-    All users (privileged and program account users) requesting access to the TACR System system are required to read the TACR’ Rules of Behaviors, complete an account request form and sign both documents. The Security Manager will maintain completed forms. Appendix B includes the Rules of Behavior, describing the user’s responsibilities and expected behavior when using the application and also includes the User REDACTED form. Account management procedures are described in detail in the SSP.
-
-    ??? Seeing output below ???
-    
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_PL_4' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_PL_4|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-
-    **Control Type:** organization
-
-    <h3>PL-5: Privacy Impact Assessment</h3>
-
-    <blockquote>None</blockquote>
-
-
-    The organization conducts a privacy impact assessment on the information system.
-
-    Supplemental Guidance: OMB Memorandum 03-22 provides guidance for implementing the privacy provisions of the E-Government Act of 2002.
-
-    **In-Place Controls:**
-
-    An updated version of the TACR System Privacy Policy has been approved by the Department of ED.
-
-    Scoping Guidance Applied:
-
-    The TACR System does not collect, use, store, and/or disclose information that is personally identifiable from or about members of the public or agency employees.
-
-    **Control Type:** System Specific
-
-    <!--component_content
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_PL_5' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_PL_5|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-    component_content -->
-
-    <h3>PS-6</h3>
-
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_PS_6' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_PS_6|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-
-    <h3>PS-7: Third-Party Personnel Security</h3>
-
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_PS_7' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_PS_7|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-
-    <h3>SA-7: User-Installed Software</h3>
-
-    {# BEGIN COMPONENTS #}
-        {% for question, answer in project.questions %}
-                {% if "protocol" in question and "govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp" in question.protocol and answer and 'ssp_nist80053r4_SA_7' in answer.output_documents %}
-                   {{answer.output_documents.ssp_nist80053r4_SA_7|safe}}
-                {% endif %}
-        {% endfor %}
-    {# END COMPONENTS #}
-
+  template: "<style type=\"text/css\" scoped>\n  h2 { border-bottom:1px solid #888;\
+    \ }\n  h3 { border-bottom:0.5px solid #aaa; }\n  h4 { font-weight:bold; font-size:0.9em;\
+    \ }\n  blockquote { color: #666; font-size:0.8em;}\n  .notice {color: red; font-size:3.0em;\
+    \ text-align:center; transform: scaleY(.85); font-weight: bold;}\n  font-weight:\
+    \ bold;}\n  table, th, td { border: 1px solid #888; }\n  th, td { padding: 15px;\
+    \ text-align: left;}\n</style>\n\n<center>\n\nFOR OFFICIAL USE ONLY\n\nDEPARTMENT\
+    \ OF SOBRIETY\n\n**System Name:**\nSystem Security Plan (SSP)\n\nVersion 4.2\n\
+    \n**FIPS 199 Categorization: Low**\n\n**Updated October 30, 2017**\n\n**System\
+    \ Name:**  \n**<system name>**\n\n**System’s Unique Identifier:**  \n**Identifier\
+    \ - XXX-XX-XX-XX-XX-XXXX-00**\n\n<table border='3' width=\"400\">\n<tr><td>\n\
+    <p>This document contains <ORGANIZATIONAL>\nand is exempted from release under\
+    \ the Freedom of Information Act\nby Exemption b(2).</p>\n</tr></td>\n</table>\
+    \ \n\n</center>\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
+    \ * * * * * * \n\n\n\n<h2>System Categorization</h2>\n\n{% if not project.system_categorization\
+    \ %}\n  The system impact level has not yet been determined.\n{% else %}\n  {{project.system_categorization.output_documents.ssp_template|safe}}\n\
+    {% endif %}\n\n\n<h2>Web Server</h2>\n\n{% if not project.web_server %}\n  There\
+    \ will be a web server.\n{% else %}\n  {{project.web_server.output_documents.ssp_template|safe}}\n\
+    {% endif %}\n\n<h2>Points of Contact</h2>\n\n{% if not project.fed_poc_ciso %}\n\
+    \  There will be a CISO.\n{% else %}\n  {{project.fed_poc_ciso.output_documents.ssp_template|safe}}\n\
+    {% endif %}\n\n{% if not project.fed_poc_isso %}\n  There will be a ISSO.\n{%\
+    \ else %}\n  {{project.fed_poc_isso.output_documents.ssp_template|safe}}\n{% endif\
+    \ %}\n\n{% if not project.fed_poc_issm %}\n  There will be a ISSM.\n{% else %}\n\
+    \  {{project.fed_poc_issm.output_documents.ssp_template|safe}}\n{% endif %}\n\n\
+    {% if not project.fed_poc_developer %}\n  There will be a Developer.\n{% else\
+    \ %}\n  {{project.fed_poc_developer.output_documents.ssp_template|safe}}\n{% endif\
+    \ %}\n\n{% if not project.fed_poc_pm %}\n  There will be a Project Manager.\n\
+    {% else %}\n  {{project.fed_poc_pm.output_documents.ssp_template|safe}}\n{% endif\
+    \ %}\n\n{% if not project.fed_poc_ao %}\n  There will be a Authorizing Official.\n\
+    {% else %}\n  {{project.fed_poc_ao.output_documents.ssp_template|safe}}\n{% endif\
+    \ %}\n\n<h2>Polices</h2>\n\n<h2>AC-2</h2>\n\n{# BEGIN COMPONENTS #}\n    {% for\
+    \ question, answer in project.questions %}\n            {% if \"protocol\" in\
+    \ question and \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\" in\
+    \ question.protocol and answer and 'ssp_nist80053r4_AC_2' in answer.output_documents\
+    \ %}\n               {{answer.output_documents.ssp_nist80053r4_AC_2|safe}}\n \
+    \           {% endif %}\n    {% endfor %}\n{# END COMPONENTS #}\n\n<h2>AC-2 (1)</h2>\n\
+    {% if not project.infrastructure %}\n  There will be infrastructure.\n{% else\
+    \ %}\n  {{project.infrastructure.output_documents.ssp_template_ac_2__1|safe}}\n\
+    {% endif %}\n\n<h2>AC-2 (10)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_2__10|safe}}\n\
+    {% endif %}\n\n<h2>AC-2 (12)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_2__12|safe}}\n\
+    {% endif %}\n\n<h2>AC-2 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_2__2|safe}}\n\
+    {% endif %}\n\n<h2>AC-2 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_2__3|safe}}\n\
+    {% endif %}\n\n<h2>AC-2 (4)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_2__4|safe}}\n\
+    {% endif %}\n\n<h2>AC-2 (5)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_2__5|safe}}\n\
+    {% endif %}\n\n<h2>AC-2 (7)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_2__7|safe}}\n\
+    {% endif %}\n\n<h2>AC-2 (9)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_2__9|safe}}\n\
+    {% endif %}\n\n<h2>AC-20</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_20|safe}}\n\
+    {% endif %}\n\n<h2>AC-20 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_20__1|safe}}\n\
+    {% endif %}\n\n<h2>AC-20 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_20__2|safe}}\n\
+    {% endif %}\n\n<h2>AC-21</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_21|safe}}\n\
+    {% endif %}\n\n<h2>AC-22</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_22|safe}}\n\
+    {% endif %}\n\n<h2>AC-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_3|safe}}\n\
+    {% endif %}\n\n<h2>AC-4</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_4|safe}}\n\
+    {% endif %}\n\n<h2>AC-4 (21)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_4__21|safe}}\n\
+    {% endif %}\n\n<h2>AC-5</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_5|safe}}\n\
+    {% endif %}\n\n<h2>AC-6</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_6|safe}}\n\
+    {% endif %}\n\n<h2>AC-6 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_6__1|safe}}\n\
+    {% endif %}\n\n<h2>AC-6 (10)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_6__10|safe}}\n\
+    {% endif %}\n\n<h2>AC-6 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_6__2|safe}}\n\
+    {% endif %}\n\n<h2>AC-6 (5)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_6__5|safe}}\n\
+    {% endif %}\n\n<h2>AC-6 (9)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_6__9|safe}}\n\
+    {% endif %}\n\n<h2>AC-7</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_7|safe}}\n\
+    {% endif %}\n\n<h2>AC-8</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_8|safe}}\n\
+    {% endif %}\n\n<h2>AC-10</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_10|safe}}\n\
+    {% endif %}\n\n<h2>AC-11</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_11|safe}}\n\
+    {% endif %}\n\n<h2>AC-11 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_11__1|safe}}\n\
+    {% endif %}\n\n<h2>AC-12</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_12|safe}}\n\
+    {% endif %}\n\n<h2>AC-14</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_14|safe}}\n\
+    {% endif %}\n\n<h2>AC-17</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_17|safe}}\n\
+    {% endif %}\n\n<h2>AC-17 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_17__1|safe}}\n\
+    {% endif %}\n\n<h2>AC-17 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_17__2|safe}}\n\
+    {% endif %}\n\n<h2>AC-17 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_17__3|safe}}\n\
+    {% endif %}\n\n<h2>AC-17 (4)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_17__4|safe}}\n\
+    {% endif %}\n\n<h2>AC-17 (9)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_17__9|safe}}\n\
+    {% endif %}\n\n<h2>AC-18</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_18|safe}}\n\
+    {% endif %}\n\n<h2>AC-19</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_19|safe}}\n\
+    {% endif %}\n\n<h2>AC-19 (5)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ac_19__5|safe}}\n\
+    {% endif %}\n\n\n\n<h2>AT-1</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_at_1|safe}}\n\
+    {% endif %}\n\n<h2>AT-2</h2>\n\n{# BEGIN COMPONENTS #}\n    {% for question, answer\
+    \ in project.questions %}\n            {% if \"protocol\" in question and \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\"\
+    \ in question.protocol and answer and 'ssp_nist80053r4_AT_2' in answer.output_documents\
+    \ %}\n               {{answer.output_documents.ssp_nist80053r4_AT_2|safe}}\n \
+    \           {% endif %}\n    {% endfor %}\n{# END COMPONENTS #}\n\n\n<h2>AT-2\
+    \ (2)</h2>\n{% if not project.infrastructure %}\n  There will be infrastructure.\n\
+    {% else %}\n  {{project.infrastructure.output_documents.ssp_template_at_2__2|safe}}\n\
+    {% endif %}\n\n<h2>AT-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_at_3|safe}}\n\
+    {% endif %}\n\n<h2>AT-4</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_at_4|safe}}\n\
+    {% endif %}\n\n<h2>AU-1</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_1|safe}}\n\
+    {% endif %}\n\n<h2>AU-11</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_11|safe}}\n\
+    {% endif %}\n\n<h2>AU-12</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_12|safe}}\n\
+    {% endif %}\n\n<h2>AU-2</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_2|safe}}\n\
+    {% endif %}\n\n<h2>AU-2 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_2__3|safe}}\n\
+    {% endif %}\n\n<h2>AU-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_3|safe}}\n\
+    {% endif %}\n\n<h2>AU-3 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_3__1|safe}}\n\
+    {% endif %}\n\n<h2>AU-4</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_4|safe}}\n\
+    {% endif %}\n\n<h2>AU-5</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_5|safe}}\n\
+    {% endif %}\n\n<h2>AU-6</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_6|safe}}\n\
+    {% endif %}\n\n<h2>AU-6 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_6__1|safe}}\n\
+    {% endif %}\n\n<h2>AU-6 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_6__3|safe}}\n\
+    {% endif %}\n\n<h2>AU-7</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_7|safe}}\n\
+    {% endif %}\n\n<h2>AU-7 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_7__1|safe}}\n\
+    {% endif %}\n\n<h2>AU-8</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_8|safe}}\n\
+    {% endif %}\n\n<h2>AU-8 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_8__1|safe}}\n\
+    {% endif %}\n\n<h2>AU-9</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_9|safe}}\n\
+    {% endif %}\n\n<h2>AU-9 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_9__2|safe}}\n\
+    {% endif %}\n\n<h2>AU-9 (4)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_au_9__4|safe}}\n\
+    {% endif %}\n\n<h2>CA-1</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_1|safe}}\n\
+    {% endif %}\n\n<h2>CA-2</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_2|safe}}\n\
+    {% endif %}\n\n<h2>CA-2 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_2__1|safe}}\n\
+    {% endif %}\n\n<h2>CA-2 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_2__2|safe}}\n\
+    {% endif %}\n\n<h2>CA-2 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_2__3|safe}}\n\
+    {% endif %}\n\n<h2>CA-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_3|safe}}\n\
+    {% endif %}\n\n<h2>CA-3 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_3__3|safe}}\n\
+    {% endif %}\n\n<h2>CA-3 (5)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_3__5|safe}}\n\
+    {% endif %}\n\n<h2>CA-5</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_5|safe}}\n\
+    {% endif %}\n\n<h2>CA-6</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_6|safe}}\n\
+    {% endif %}\n\n<h2>CA-7</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_7|safe}}\n\
+    {% endif %}\n\n<h2>CA-7 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_7__1|safe}}\n\
+    {% endif %}\n\n<h2>CA-8</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_8|safe}}\n\
+    {% endif %}\n\n<h2>CA-8 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_8__1|safe}}\n\
+    {% endif %}\n\n<h2>CA-9</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ca_9|safe}}\n\
+    {% endif %}\n\n<h2>CM-1</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cm_1|safe}}\n\
+    {% endif %}\n\n<h2>CM-2</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cm_2|safe}}\n\
+    {% endif %}\n\n<h2>CM-2 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cm_2__1|safe}}\n\
+    {% endif %}\n\n<h2>CM-2 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cm_2__2|safe}}\n\
+    {% endif %}\n\n<h2>CM-2 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cm_2__3|safe}}\n\
+    {% endif %}\n\n<h2>CM-2 (7)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cm_2__7|safe}}\n\
+    {% endif %}\n\n<h2>CM-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cm_3|safe}}\n\
+    {% endif %}\n\n<h2>CM-6</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cm_6|safe}}\n\
+    {% endif %}\n\n<h2>CM-8</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cm_8|safe}}\n\
+    {% endif %}\n\n<h2>CP-1</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_1|safe}}\n\
+    {% endif %}\n\n<h2>CP-10</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_10|safe}}\n\
+    {% endif %}\n\n<h2>CP-10 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_10__2|safe}}\n\
+    {% endif %}\n\n<h2>CP-2</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_2|safe}}\n\
+    {% endif %}\n\n<h2>CP-2 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_2__1|safe}}\n\
+    {% endif %}\n\n<h2>CP-2 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_2__2|safe}}\n\
+    {% endif %}\n\n<h2>CP-2 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_2__3|safe}}\n\
+    {% endif %}\n\n<h2>CP-2 (8)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_2__8|safe}}\n\
+    {% endif %}\n\n<h2>CP-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_3|safe}}\n\
+    {% endif %}\n\n<h2>CP-4</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_4|safe}}\n\
+    {% endif %}\n\n<h2>CP-4 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_4__1|safe}}\n\
+    {% endif %}\n\n<h2>CP-6</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_6|safe}}\n\
+    {% endif %}\n\n<h2>CP-6 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_6__1|safe}}\n\
+    {% endif %}\n\n<h2>CP-6 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_6__3|safe}}\n\
+    {% endif %}\n\n<h2>CP-7</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_7|safe}}\n\
+    {% endif %}\n\n<h2>CP-7 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_7__1|safe}}\n\
+    {% endif %}\n\n<h2>CP-7 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_7__2|safe}}\n\
+    {% endif %}\n\n<h2>CP-7 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_7__3|safe}}\n\
+    {% endif %}\n\n<h2>CP-8</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_8|safe}}\n\
+    {% endif %}\n\n<h2>CP-8 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_8__1|safe}}\n\
+    {% endif %}\n\n<h2>CP-9</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_9|safe}}\n\
+    {% endif %}\n\n<h2>CP-9 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_9__1|safe}}\n\
+    {% endif %}\n\n<h2>CP-9 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_cp_9__3|safe}}\n\
+    {% endif %}\n\n<h2>IA-1</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_1|safe}}\n\
+    {% endif %}\n\n<h2>IA-2</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_2|safe}}\n\
+    {% endif %}\n\n<h2>IA-2 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_2__1|safe}}\n\
+    {% endif %}\n\n<h2>IA-2 (11)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_2__11|safe}}\n\
+    {% endif %}\n\n<h2>IA-2 (12)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_2__12|safe}}\n\
+    {% endif %}\n\n<h2>IA-2 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_2__2|safe}}\n\
+    {% endif %}\n\n<h2>IA-2 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_2__3|safe}}\n\
+    {% endif %}\n\n<h2>IA-2 (5)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_2__5|safe}}\n\
+    {% endif %}\n\n<h2>IA-2 (8)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_2__8|safe}}\n\
+    {% endif %}\n\n<h2>IA-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_3|safe}}\n\
+    {% endif %}\n\n<h2>IA-4</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_4|safe}}\n\
+    {% endif %}\n\n<h2>IA-4 (4)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_4__4|safe}}\n\
+    {% endif %}\n\n<h2>IA-5</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_5|safe}}\n\
+    {% endif %}\n\n<h2>IA-5 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_5__1|safe}}\n\
+    {% endif %}\n\n<h2>IA-5 (11)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_5__11|safe}}\n\
+    {% endif %}\n\n<h2>IA-5 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_5__2|safe}}\n\
+    {% endif %}\n\n<h2>IA-5 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_5__3|safe}}\n\
+    {% endif %}\n\n<h2>IA-5 (4)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_5__4|safe}}\n\
+    {% endif %}\n\n<h2>IA-5 (6)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_5__6|safe}}\n\
+    {% endif %}\n\n<h2>IA-5 (7)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_5__7|safe}}\n\
+    {% endif %}\n\n<h2>IA-7</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_7|safe}}\n\
+    {% endif %}\n\n<h2>IA-8</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_8|safe}}\n\
+    {% endif %}\n\n<h2>IA-8 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_8__1|safe}}\n\
+    {% endif %}\n\n<h2>IA-8 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_8__2|safe}}\n\
+    {% endif %}\n\n<h2>IA-8 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_8__3|safe}}\n\
+    {% endif %}\n\n<h2>IA-8 (4)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ia_8__4|safe}}\n\
+    {% endif %}\n\n<h2>IR-1</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_1|safe}}\n\
+    {% endif %}\n\n<h2>IR-2</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_2|safe}}\n\
+    {% endif %}\n\n<h2>IR-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_3|safe}}\n\
+    {% endif %}\n\n<h2>IR-3 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_3__2|safe}}\n\
+    {% endif %}\n\n<h2>IR-4</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_4|safe}}\n\
+    {% endif %}\n\n<h2>IR-4 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_4__1|safe}}\n\
+    {% endif %}\n\n<h2>IR-5</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_5|safe}}\n\
+    {% endif %}\n\n<h2>IR-6</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_6|safe}}\n\
+    {% endif %}\n\n<h2>IR-6 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_6__1|safe}}\n\
+    {% endif %}\n\n<h2>IR-7</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_7|safe}}\n\
+    {% endif %}\n\n<h2>IR-7 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_7__1|safe}}\n\
+    {% endif %}\n\n<h2>IR-7 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_7__2|safe}}\n\
+    {% endif %}\n\n<h2>IR-8</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_8|safe}}\n\
+    {% endif %}\n\n<h2>IR-9</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_9|safe}}\n\
+    {% endif %}\n\n<h2>IR-9 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_9__1|safe}}\n\
+    {% endif %}\n\n<h2>IR-9 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_9__2|safe}}\n\
+    {% endif %}\n\n<h2>IR-9 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_9__3|safe}}\n\
+    {% endif %}\n\n<h2>IR-9 (4)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ir_9__4|safe}}\n\
+    {% endif %}\n\n<h2>MA-1</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_1|safe}}\n\
+    {% endif %}\n\n<h2>MA-2</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_2|safe}}\n\
+    {% endif %}\n\n<h2>MA-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_3|safe}}\n\
+    {% endif %}\n\n<h2>MA-3 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_3__1|safe}}\n\
+    {% endif %}\n\n<h2>MA-3 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_3__2|safe}}\n\
+    {% endif %}\n\n<h2>MA-3 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_3__3|safe}}\n\
+    {% endif %}\n\n<h2>MA-4</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_4|safe}}\n\
+    {% endif %}\n\n<h2>MA-4 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_4__2|safe}}\n\
+    {% endif %}\n\n<h2>MA-5</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_5|safe}}\n\
+    {% endif %}\n\n<h2>MA-5 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_5__1|safe}}\n\
+    {% endif %}\n\n<h2>MA-6</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_ma_6|safe}}\n\
+    {% endif %}\n\n<h2>MP-1</h2>\n\n{# BEGIN COMPONENTS #}\n    {% for question, answer\
+    \ in project.questions %}\n            {% if \"protocol\" in question and \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\"\
+    \ in question.protocol and answer and 'ssp_nist80053r4_MP_1' in answer.output_documents\
+    \ %}\n               {{answer.output_documents.ssp_nist80053r4_MP_1|safe}}\n \
+    \           {% endif %}\n    {% endfor %}\n{# END COMPONENTS #}\n\n\n<h2>MP-2</h2>\n\
+    {% if not project.infrastructure %}\n  There will be infrastructure.\n{% else\
+    \ %}\n  {{project.infrastructure.output_documents.ssp_template_mp_2|safe}}\n{%\
+    \ endif %}\n\n<h2>MP-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_mp_3|safe}}\n\
+    {% endif %}\n\n<h2>MP-4</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_mp_4|safe}}\n\
+    {% endif %}\n\n<h2>MP-5</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_mp_5|safe}}\n\
+    {% endif %}\n\n<h2>MP-5 (4)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_mp_5__4|safe}}\n\
+    {% endif %}\n\n<h2>MP-6</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_mp_6|safe}}\n\
+    {% endif %}\n\n<h2>MP-6 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_mp_6__2|safe}}\n\
+    {% endif %}\n\n<h2>MP-7</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_mp_7|safe}}\n\
+    {% endif %}\n\n<h2>MP-7 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_mp_7__1|safe}}\n\
+    {% endif %}\n\n<h2>PE-1</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_1|safe}}\n\
+    {% endif %}\n\n<h2>PE-10</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_10|safe}}\n\
+    {% endif %}\n\n<h2>PE-11</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_11|safe}}\n\
+    {% endif %}\n\n<h2>PE-12</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_12|safe}}\n\
+    {% endif %}\n\n<h2>PE-13</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_13|safe}}\n\
+    {% endif %}\n\n<h2>PE-13 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_13__2|safe}}\n\
+    {% endif %}\n\n<h2>PE-13 (3)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_13__3|safe}}\n\
+    {% endif %}\n\n<h2>PE-14</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_14|safe}}\n\
+    {% endif %}\n\n<h2>PE-14 (2)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_14__2|safe}}\n\
+    {% endif %}\n\n<h2>PE-15</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_15|safe}}\n\
+    {% endif %}\n\n<h2>PE-16</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_16|safe}}\n\
+    {% endif %}\n\n<h2>PE-17</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_17|safe}}\n\
+    {% endif %}\n\n<h2>PE-2</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_2|safe}}\n\
+    {% endif %}\n\n<h2>PE-3</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_3|safe}}\n\
+    {% endif %}\n\n<h2>PE-4</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_4|safe}}\n\
+    {% endif %}\n\n<h2>PE-5</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_5|safe}}\n\
+    {% endif %}\n\n<h2>PE-6</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_6|safe}}\n\
+    {% endif %}\n\n<h2>PE-6 (1)</h2>\n{% if not project.infrastructure %}\n  There\
+    \ will be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_6__1|safe}}\n\
+    {% endif %}\n\n<h2>PE-8</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_8|safe}}\n\
+    {% endif %}\n\n<h2>PE-9</h2>\n{% if not project.infrastructure %}\n  There will\
+    \ be infrastructure.\n{% else %}\n  {{project.infrastructure.output_documents.ssp_template_pe_9|safe}}\n\
+    {% endif %}\n\n<h3>PL-1: Security Planning Policy And Procedures</h3>\n\n<blockquote>The\
+    \ organization:\na. Develops, documents, and disseminates to [Assignment: organization-defined\
+    \ personnel or roles]:\na.1. A security planning policy that addresses purpose,\
+    \ scope, roles, responsibilities, management commitment, coordination among organizational\
+    \ entities, and compliance; and\na.2. Procedures to facilitate the implementation\
+    \ of the security planning policy and associated security planning controls; and\n\
+    b. Reviews and updates the current:\nb.1. Security planning policy [Assignment:\
+    \ organization-defined frequency]; and\nb.2. Security planning procedures [Assignment:\
+    \ organization-defined frequency].</blockquote>\n\n\nThe Department develops,\
+    \ disseminates, and periodically reviews/updates: (i) a formal, documented, security\
+    \ planning policy that addresses purpose, scope, roles, responsibilities, and\
+    \ compliance; and (ii) formal, documented procedures to facilitate the implementation\
+    \ of the security planning policy and associated security planning controls.\n\
+    \n**In-Place Controls:**\n\nThe TACR System developed its security policy planning\
+    \ and procedures based on the Department of Sobriety, Office of the Chief Information\
+    \ Officer, Handbook for Information Assurance Security Policy, Information Assurance\
+    \ Program (Handbook -01), guidance from NIST, the Office of Management and Budget\
+    \ and industry best practices. Security policies and procedures are formally documented\
+    \ within the TACR SSP, which provides the roles and responsibilities as it pertains\
+    \ to security planning. It provides guidance on all aspects of security for the\
+    \ protection of TACR information technology resources. It defines responsibilities\
+    \ for the implementation and oversight of the guidance contained herein. The plan\
+    \ was last updated in November, 2015.\n\n**Control Type:** Common\n\n\n<!--component_content\n\
+    {# BEGIN COMPONENTS #}\n    {% for question, answer in project.questions %}\n\
+    \            {% if \"protocol\" in question and \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\"\
+    \ in question.protocol and answer and 'ssp_nist80053r4_PL_1' in answer.output_documents\
+    \ %}\n               {{answer.output_documents.ssp_nist80053r4_PL_1|safe}}\n \
+    \           {% endif %}\n    {% endfor %}\n{# END COMPONENTS #}\ncomponent_content\
+    \ -->\n\n<h3>PL-2: System Security Plan</h3>\n\n<blockquote>The organization:\n\
+    a. Develops a security plan for the information system that:\na.1. Is consistent\
+    \ with the organization�s enterprise architecture;\na.2. Explicitly defines the\
+    \ authorization boundary for the system;\na.3. Describes the operational context\
+    \ of the information system in terms of missions and business processes;\na.4.\
+    \ Provides the security categorization of the information system including supporting\
+    \ rationale;\na.5. Describes the operational environment for the information system\
+    \ and relationships with or connections to other information systems;\na.6. Provides\
+    \ an overview of the security requirements for the system;\na.7. Identifies any\
+    \ relevant overlays, if applicable;\na.8. Describes the security controls in place\
+    \ or planned for meeting those requirements including a rationale for the tailoring\
+    \ decisions; and\na.9. Is reviewed and approved by the authorizing official or\
+    \ designated representative prior to plan implementation;\nb. Distributes copies\
+    \ of the security plan and communicates subsequent changes to the plan to [Assignment:\
+    \ organization-defined personnel or roles];\nc. Reviews the security plan for\
+    \ the information system [Assignment: organization-defined frequency];\nd. Updates\
+    \ the plan to address changes to the information system/environment of operation\
+    \ or problems identified during plan implementation or security control assessments;\
+    \ and\ne. Protects the security plan from unauthorized disclosure and modification.</blockquote>\n\
+    \n\nThe system personnel develop and implement a security plan for the information\
+    \ system that provides an overview of the security requirements for the system\
+    \ and a description of the security controls in place or planned for meeting those\
+    \ requirements. The system security plan clearly identifies the system owner and\
+    \ who is responsible for managing access to the system, and assigns, in writing,\
+    \ the individual responsible for the security of the system. Designated officials\
+    \ within the Principal Office review and approve the plan.\n\n**In-Place Controls:**\n\
+    \nThe System Security Plan (SSP) was developed and implemented for TACR System\
+    \ system in accordance with the Department of Sobriety, Office of the Chief Information\
+    \ Officer, Handbook for Information Assurance Security Policy, Information Assurance\
+    \ Program (Handbook -01), Department of Sobriety Information Technology Security,\
+    \ Guide Material for Information Technology Security, Certification and Accreditation\
+    \ Procedures (Handbook -05), NIST SP 800-18 and NIST SP 800-37. The SSP includes\
+    \ a description of the management, operational, and technical controls in place\
+    \ or planned for the application. The SSP is included as a key document in an\
+    \ application’s C&A package and is reviewed and approved by designated officials.\
+    \ The SSP identifies the system owner and responsible parties for managing system\
+    \ access and the overall security of the system. The Chief Information Security\
+    \ Officer reviews and approves the SSP. The SSP will be reviewed at least annually\
+    \ and updated to account for any changes to the TACR system and to address any\
+    \ changes in security controls.\n\n**Control Type:** System Specific\n\n<!--component_content\n\
+    {# BEGIN COMPONENTS #}\n    {% for question, answer in project.questions %}\n\
+    \            {% if \"protocol\" in question and \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\"\
+    \ in question.protocol and answer and 'ssp_nist80053r4_PL_2' in answer.output_documents\
+    \ %}\n               {{answer.output_documents.ssp_nist80053r4_PL_2|safe}}\n \
+    \           {% endif %}\n    {% endfor %}\n{# END COMPONENTS #}\ncomponent_content\
+    \ -->\n\n<h3>PL-4: Rules Of Behavior</h3>\n\n<blockquote>The organization:\na.\
+    \ Establishes and makes readily available to individuals requiring access to the\
+    \ information system, the rules that describe their responsibilities and expected\
+    \ behavior with regard to information and information system usage;\nb. Receives\
+    \ a signed acknowledgment from such individuals, indicating that they have read,\
+    \ understand, and agree to abide by the rules of behavior, before authorizing\
+    \ access to information and the information system;\nc. Reviews and updates the\
+    \ rules of behavior [Assignment: organization-defined frequency]; and\nd. Requires\
+    \ individuals who have signed a previous version of the rules of behavior to read\
+    \ and re-sign when the rules of behavior are revised/updated.</blockquote>\n\n\
+    \nRules of Behavior will be established and made available to all information\
+    \ system users that describes their responsibilities and expected behavior with\
+    \ regard to information system usage, and the consequences of inconsistent behavior\
+    \ or noncompliance. In addition, confidentiality or security agreements are required\
+    \ for employees assigned to work with sensitive information. Signed acknowledgement\
+    \ from users indicating that they have read, understand, and agree to abide by\
+    \ the rules of behavior, confidentiality and security agreements must be provided\
+    \ to system personnel before authorizing access to the information system.\n\n\
+    **In-Place Controls:**\n\nAll users (privileged and program account users) requesting\
+    \ access to the TACR System system are required to read the TACR’ Rules of Behaviors,\
+    \ complete an account request form and sign both documents. The Security Manager\
+    \ will maintain completed forms. Appendix B includes the Rules of Behavior, describing\
+    \ the user’s responsibilities and expected behavior when using the application\
+    \ and also includes the User REDACTED form. Account management procedures are\
+    \ described in detail in the SSP.\n\n??? Seeing output below ???\n\n{# BEGIN COMPONENTS\
+    \ #}\n    {% for question, answer in project.questions %}\n            {% if \"\
+    protocol\" in question and \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\"\
+    \ in question.protocol and answer and 'ssp_nist80053r4_PL_4' in answer.output_documents\
+    \ %}\n               {{answer.output_documents.ssp_nist80053r4_PL_4|safe}}\n \
+    \           {% endif %}\n    {% endfor %}\n{# END COMPONENTS #}\n\n**Control Type:**\
+    \ organization\n\n<h3>PL-5: Privacy Impact Assessment</h3>\n\n<blockquote>None</blockquote>\n\
+    \n\nThe organization conducts a privacy impact assessment on the information system.\n\
+    \nSupplemental Guidance: OMB Memorandum 03-22 provides guidance for implementing\
+    \ the privacy provisions of the E-Government Act of 2002.\n\n**In-Place Controls:**\n\
+    \nAn updated version of the TACR System Privacy Policy has been approved by the\
+    \ Department of ED.\n\nScoping Guidance Applied:\n\nThe TACR System does not collect,\
+    \ use, store, and/or disclose information that is personally identifiable from\
+    \ or about members of the public or agency employees.\n\n**Control Type:** System\
+    \ Specific\n\n<!--component_content\n{# BEGIN COMPONENTS #}\n    {% for question,\
+    \ answer in project.questions %}\n            {% if \"protocol\" in question and\
+    \ \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\" in question.protocol\
+    \ and answer and 'ssp_nist80053r4_PL_5' in answer.output_documents %}\n      \
+    \         {{answer.output_documents.ssp_nist80053r4_PL_5|safe}}\n            {%\
+    \ endif %}\n    {% endfor %}\n{# END COMPONENTS #}\ncomponent_content -->\n\n\
+    <h3>PS-6</h3>\n\n{# BEGIN COMPONENTS #}\n    {% for question, answer in project.questions\
+    \ %}\n            {% if \"protocol\" in question and \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\"\
+    \ in question.protocol and answer and 'ssp_nist80053r4_PS_6' in answer.output_documents\
+    \ %}\n               {{answer.output_documents.ssp_nist80053r4_PS_6|safe}}\n \
+    \           {% endif %}\n    {% endfor %}\n{# END COMPONENTS #}\n\n<h3>PS-7: Third-Party\
+    \ Personnel Security</h3>\n\n{# BEGIN COMPONENTS #}\n    {% for question, answer\
+    \ in project.questions %}\n            {% if \"protocol\" in question and \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\"\
+    \ in question.protocol and answer and 'ssp_nist80053r4_PS_7' in answer.output_documents\
+    \ %}\n               {{answer.output_documents.ssp_nist80053r4_PS_7|safe}}\n \
+    \           {% endif %}\n    {% endfor %}\n{# END COMPONENTS #}\n\n<h3>SA-7: User-Installed\
+    \ Software</h3>\n\n{# BEGIN COMPONENTS #}\n    {% for question, answer in project.questions\
+    \ %}\n            {% if \"protocol\" in question and \"govready.com/apps/compliance/2017/nist-sp-800-53-r4-ssp\"\
+    \ in question.protocol and answer and 'ssp_nist80053r4_SA_7' in answer.output_documents\
+    \ %}\n               {{answer.output_documents.ssp_nist80053r4_SA_7|safe}}\n \
+    \           {% endif %}\n    {% endfor %}\n{# END COMPONENTS #}\n"

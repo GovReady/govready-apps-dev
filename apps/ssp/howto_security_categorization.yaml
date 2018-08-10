@@ -1,19 +1,19 @@
 id: howto_security_categorization
-title: "FIPS 199 and categorizing your system security sensitivity"
+title: FIPS 199 and categorizing your system security sensitivity
 introduction:
   format: html
   template: |
     Intro text goes here!
 questions:
-  - id: dummy_question
-    title: Dummy question
-    type: yesno
-    prompt: |
-      This is a dummy question.
-      Is your favorite color blue?
+- id: dummy_question
+  title: Dummy question
+  type: yesno
+  prompt: |
+    This is a dummy question.
+    Is your favorite color blue?
 output:
-  - title: SSP Control Template
-    format: html
-    template: |
-      ## Template
-      {{dummy_question}}
+- title: SSP Control Template
+  format: html
+  template: |-
+    ## Template
+    {{dummy_question}}

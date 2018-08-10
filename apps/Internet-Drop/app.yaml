@@ -15,9 +15,9 @@ catalog:
   source_url: https://github.com/GovReady/test-making-apps-from-matrix/tree/master/out/generic/AWS-Glacier-Backup
   description:
     short: CUI (NIST SP 800-171) Compliance of Internet Drop
-    long: Generates compliance documentation of Internet Drop as it pertains
-      to managing the security of CUI (Controlled Unclassified Information) as per
-      NIST SP 800-171 controls.
+    long: Generates compliance documentation of Internet Drop as it pertains to managing
+      the security of CUI (Controlled Unclassified Information) as per NIST SP 800-171
+      controls.
   recommended_for:
   - key_short: Org
     value: Small
@@ -30,18 +30,12 @@ introduction:
   template: >-
     Internet Drop provides a broadband connection to the public internet.
 
-    This application will make sure you are properly using Internet Drop
-    to protect CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
+    This application will make sure you are properly using Internet Drop to protect
+    CUI (Controlled Unclassified Information) as per NIST SP 800-171 controls.
 questions:
 - id: questions
   title: Questions
   type: module
   module-id: questions
 output:
-- id: ssp_nist800171r1_3_13_6
-  title: NIST SP 800-171 3.13.6 Control Implementation
-  format: markdown
-  template: >+
-    {{questions.provider}} provides the primary Internet drop for {{organization}}, providing
-    a broadband connection to the public internet.
-
+- ssp_nist800171r1_3_13_6.md

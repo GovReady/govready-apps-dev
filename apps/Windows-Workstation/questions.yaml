@@ -6,17 +6,17 @@ questions:
   prompt: How is login restricted?
   type: choice
   choices:
-    - key: local_user
-      text: local user account with a username and password
-    - key: domain
-      text: connecting to a Windows domain server
-    - key: other
-      text: another method
+  - key: local_user
+    text: local user account with a username and password
+  - key: domain
+    text: connecting to a Windows domain server
+  - key: other
+    text: another method
 - id: login_method_other
   title: How is login restricted (other)?
   prompt: Ok, how is login restricted?
   type: text
   help: 'Finish the sentence: "The workstations limit access to authorized users by..."'
   impute:
-    - condition: login_method != "other"
-      value: ~
+  - condition: login_method != "other"
+    value: ~

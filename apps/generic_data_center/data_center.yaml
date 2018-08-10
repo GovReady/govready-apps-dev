@@ -1,129 +1,102 @@
 id: data_center
 title: Data Center Details
 questions:
-  - id: name
-    title: Name
-    type: text
-    prompt: |
-      What is the name of the data center?
+- id: name
+  title: Name
+  type: text
+  prompt: |
+    What is the name of the data center?
 
-      Enter the name as you would refer to it to other members of your organization.
+    Enter the name as you would refer to it to other members of your organization.
+- id: abbreviation_exists
+  title: Abbreviation exists
+  type: yesno
+  prompt: |
+    Does <b>{{name}}</b> have a nickname or acronym?
 
-  - id: abbreviation_exists
-    title: Abbreviation exists
-    type: yesno
-    prompt: |
-      Does <b>{{name}}</b> have a nickname or acronym?
+    It’s common for organizations to use a nickname or acronym to refer to a data center.
+- id: abbreviation
+  type: text
+  title: Data center abbreviation
+  prompt: |
+    What is the preferred nickname or acronym for <b>{{name}}</b>?
+  impute:
+  - condition: abbreviation_exists == 'no'
+    value: n/a
+- id: location
+  type: text
+  title: Data center location
+  prompt: |
+    Where is <b>{{name}}</b> located?
 
-      It’s common for organizations to use a nickname or acronym to refer to a data center.
+    Provide the name of the office, building, or city where the data center is located.
+- id: name_and_abbreviation
+  title: Data Center Name and Abbreviation
+  type: text
+  prompt: not used
+  impute:
+  - value: '{{name}}{% if abbreviation_exists %} ({{abbreviation}}){% endif %}'
+    value-mode: template
+- id: name_and_location
+  title: Data Center Name and Abbreviation
+  type: text
+  prompt: not used
+  impute:
+  - value: '{{name_and_abbreviation}} at {{location}}'
+    value-mode: template
+- id: address
+  type: longtext
+  title: Data center address
+  prompt: |
+    Where is the street address <b>{{name}}</b>?
 
-  - id: abbreviation
-    type: text
-    title: Data center abbreviation
-    prompt: |
-      What is the preferred nickname or acronym for <b>{{name}}</b>?
-    impute:
-    - condition: abbreviation_exists == 'no'
-      value: n/a
+    Provide the address you would give to someone who wants driving directions.
+- id: access_types
+  type: multiple-choice
+  title: Physical access
+  prompt: |
+    Which of the following physical access controls are currently in place at {{name}}?
+  choices:
+  - key: locked_door
+    text: Physically locked door
+  - key: padlock
+    text: Electronic padlock
+  - key: acl
+    text: Different keys or padlock codes for each person authorized to enter
+  - key: logs
+    text: Entry logging, including the identity of the person authorized to enter
+- id: access_description
+  title: Physical access controls
+  type: longtext
+  prompt: |
+    Describe the physical access controls that are in place at {{name}}.
 
-  - id: location
-    type: text
-    title: Data center location
-    prompt: |
-      Where is <b>{{name}}</b> located?
+    {% if access_types|length > 0 %}
+    You said {{access_types.text}} are in place. That’s great. Make sure you describe each below.
+    {% endif %}
+- id: access_poam
+  title: Physical access POAMs
+  type: longtext
+  prompt: |
+    Describe a plan of action and milestones (POAM) for completing physical access requirements at {{name}}.
 
-      Provide the name of the office, building, or city where the data center is located.
-    
-  - id: name_and_abbreviation
-    title: Data Center Name and Abbreviation
-    type: text
-    prompt: not used
-    impute:
-      - value: "{{name}}{% if abbreviation_exists %} ({{abbreviation}}){% endif %}"
-        value-mode: template
+    {% if access_types.choices_not_selected|length > 0 %}
+    You said that
 
-  - id: name_and_location
-    title: Data Center Name and Abbreviation
-    type: text
-    prompt: not used
-    impute:
-      - value: "{{name_and_abbreviation}} at {{location}}"
-        value-mode: template
+    {% for choice in access_types.choices_not_selected %}
+    * {{choice.text}}
 
-  - id: address
-    type: longtext
-    title: Data center address
-    prompt: |
-      Where is the street address <b>{{name}}</b>?
+    {% endfor %}
 
-      Provide the address you would give to someone who wants driving directions.
-
-  - id: access_types
-    type: multiple-choice
-    title: Physical access
-    prompt: |
-      Which of the following physical access controls are currently in place at {{name}}?
-    choices:
-      - key: locked_door
-        text: Physically locked door
-      - key: padlock
-        text: Electronic padlock
-      - key: acl
-        text: Different keys or padlock codes for each person authorized to enter
-      - key: logs
-        text: Entry logging, including the identity of the person authorized to enter
-
-  - id: access_description
-    title: Physical access controls
-    type: longtext
-    prompt: |
-      Describe the physical access controls that are in place at {{name}}.
-
-      {% if access_types|length > 0 %}
-      You said {{access_types.text}} are in place. That’s great. Make sure you describe each below.
-      {% endif %}
-
-  - id: access_poam
-    title: Physical access POAMs
-    type: longtext
-    prompt: |
-      Describe a plan of action and milestones (POAM) for completing physical access requirements at {{name}}.
-
-      {% if access_types.choices_not_selected|length > 0 %}
-      You said that
-      
-      {% for choice in access_types.choices_not_selected %}
-      * {{choice.text}}
-      
-      {% endfor %}
-      
-      {% if access_types.choices_not_selected|length == 1 %}is{% else %}are{% endif %}
-      not yet implemented. For each, describe what needs to be done and when key milestones will be
-      completed.
-      {% else %}
-      Skip this question if you have no POAM for physical access to {{name}}.
-      {% endif %}
-
-
+    {% if access_types.choices_not_selected|length == 1 %}is{% else %}are{% endif %}
+    not yet implemented. For each, describe what needs to be done and when key milestones will be
+    completed.
+    {% else %}
+    Skip this question if you have no POAM for physical access to {{name}}.
+    {% endif %}
 output:
 - title: Your Answers
   format: markdown
   template: |
     Congratulations! You've created a basic profile of a data center!
-
-- id: ssp_nistsp800171r1_3_1_1
-  title: NIST SP 800-171r1 3.1.1
-  format: markdown
-  template: |
-    ### {{name}}
-
-    {{name_and_location}} is a data center{% if access_types|length > 0 %} with the following access controls:{% else %}.{% endif %}
-
-    {% for choice in access_types.choices_selected %}
-    * {{choice.text}}
-    
-    {% endfor %}
-    
-    {{access_description}}
-
-    {{access_poam}}
+- ssp_nistsp800171r1_3_1_1.md

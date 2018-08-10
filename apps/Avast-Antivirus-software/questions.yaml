@@ -1,33 +1,44 @@
 id: questions
 title: Example Module
-
 questions:
 - id: installed_on_systems_blacklisting
-  title: What organization systems is Avast installed on and configured to prevent the use of unauthorized software and malicious code using a blacklist (e.g. a virus database)?
-  prompt: What organization systems is Avast installed on and configured to prevent the use of unauthorized software and malicious code using a blacklist (e.g. a virus database)?
+  title: What organization systems is Avast installed on and configured to prevent
+    the use of unauthorized software and malicious code using a blacklist (e.g. a
+    virus database)?
+  prompt: What organization systems is Avast installed on and configured to prevent
+    the use of unauthorized software and malicious code using a blacklist (e.g. a
+    virus database)?
   type: text
   help: e.g., workstations, file server
-
 - id: installed_on_systems_for_software_monitoring
-  title: What organization systems is Avast installed on for controling and monitoring user-installed software?
-  prompt: What organization systems is Avast installed on for controling and monitoring user-installed software?
+  title: What organization systems is Avast installed on for controling and monitoring
+    user-installed software?
+  prompt: What organization systems is Avast installed on for controling and monitoring
+    user-installed software?
   type: text
   help: e.g., workstations, file server
-
 - id: installed_on_systems_for_communications
-  title: What organization systems is Avast installed on for monitoring, controling, and protecting communications and to detect attacks and indicators of potential attacks?
-  prompt: What organization systems is Avast installed on for monitoring, controling, and protecting communications and to detect attacks and indicators of potential attacks?
+  title: What organization systems is Avast installed on for monitoring, controling,
+    and protecting communications and to detect attacks and indicators of potential
+    attacks?
+  prompt: What organization systems is Avast installed on for monitoring, controling,
+    and protecting communications and to detect attacks and indicators of potential
+    attacks?
   type: text
   help: e.g., workstations, file server
-
 - id: installed_on_systems_periodic_scanning
-  title: What organization systems is Avast installed on and configured to perform periodic scans?
-  prompt: What organization systems is Avast installed on and configured to perform periodic scans?
+  title: What organization systems is Avast installed on and configured to perform
+    periodic scans?
+  prompt: What organization systems is Avast installed on and configured to perform
+    periodic scans?
   type: text
   help: e.g., workstations, file server
-
 - id: installed_on_systems_realtime_scanning
-  title: What organization systems is Avast installed on and configured to perform real-time scans of files from external sources as files are downloaded, opened, or executed?
-  prompt: What organization systems is Avast installed on and configured to perform real-time scans of files from external sources as files are downloaded, opened, or executed?
+  title: What organization systems is Avast installed on and configured to perform
+    real-time scans of files from external sources as files are downloaded, opened,
+    or executed?
+  prompt: What organization systems is Avast installed on and configured to perform
+    real-time scans of files from external sources as files are downloaded, opened,
+    or executed?
   type: text
   help: e.g., workstations, file server

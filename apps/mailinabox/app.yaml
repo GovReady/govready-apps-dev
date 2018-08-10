@@ -27,34 +27,34 @@ introduction:
   template: |
     Compliance for a Mail-in-a-Box email server.
 questions:
-  - id: system_description
-    title: System Description
-    type: module
-    protocol: govready.com/apps/compliance/2017/system-description
-    icon: system_description.png
-    group: About the System
-  - id: data_center
-    title: Data Center
-    type: module
-    protocol: govready.com/apps/compliance/2017/data-center
-    icon: data_center.png
-    group: System Components
-  - id: network
-    title: Network
-    type: module
-    protocol: govready.com/apps/compliance/2017/network
-    icon: network.png
-    group: System Components
-  - id: mailinabox
-    title: Mail Server
-    type: module
-    module-id: mailinabox
-    icon: file_server.png
-    group: System Components
-  - id: system_administrator
-    title: System Administrator
-    type: module
-    protocol: govready.com/apps/compliance/2017/point-of-contact
-    icon: point_of_contact.png
-    app_overrides_name_and_icon: false
-    group: System Components
+- id: system_description
+  title: System Description
+  type: module
+  protocol: govready.com/apps/compliance/2017/system-description
+  icon: system_description.png
+  group: About the System
+- id: data_center
+  title: Data Center
+  type: module
+  protocol: govready.com/apps/compliance/2017/data-center
+  icon: data_center.png
+  group: System Components
+- id: network
+  title: Network
+  type: module
+  protocol: govready.com/apps/compliance/2017/network
+  icon: network.png
+  group: System Components
+- id: mailinabox
+  title: Mail Server
+  type: module
+  module-id: mailinabox
+  icon: file_server.png
+  group: System Components
+- id: system_administrator
+  title: System Administrator
+  type: module
+  protocol: govready.com/apps/compliance/2017/point-of-contact
+  icon: point_of_contact.png
+  app_overrides_name_and_icon: false
+  group: System Components

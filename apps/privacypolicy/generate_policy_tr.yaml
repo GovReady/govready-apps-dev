@@ -10,61 +10,68 @@ introduction:
 questions:
 - id: organization
   title: What is your organization's name?
-  prompt: " "
+  prompt: ' '
   type: text
-
 - id: website_url
   title: Website domain that will use this privacy policy?
-  prompt: "Examples: mycompany.com, the dailystuff.net, c2e2.com"
+  prompt: 'Examples: mycompany.com, the dailystuff.net, c2e2.com'
   type: text
-
 - id: privacy_policy_url
   title: What is the full URL at which you will publish your site's Privacy Policy?
-  prompt: "http://mycompany.com/privacy"
+  prompt: http://mycompany.com/privacy
   type: url
-
 - id: info_email
   title: Enter an email address for additional questions
-  prompt: " "
+  prompt: ' '
   type: text
-
 - id: principles
   title: Select those fundamental issues that apply
-  prompt: " "
+  prompt: ' '
   type: multiple-choice
   choices:
-    - key: truly_need
-      text: We don’t ask you for personal information unless we truly need it.
-    - key: no_share_except_law
-      text: We don’t share your personal information with anyone except to comply with the law, develop our products, or protect our rights.
-    - key: no_store_unless_required
-      text: We don’t store personal information on our servers unless required for the ongoing operation of one of our services.
-    - key: simple_as_possible
-      text: we aim to make it as simple as possible for you to control what’s visible to the public, seen by search engines, kept private, and permanently deleted.
-    - key: gov_ip_may_collect
-      text: If you access this website from a federal government IP address, we may record your browsing history and may make all of the information we have collected about you, except your password, available to the general public.
-    - key: only_obvious
-      text: We do not use any of the information we collect in ways that would not be obvious to you.
-
+  - key: truly_need
+    text: We don’t ask you for personal information unless we truly need it.
+  - key: no_share_except_law
+    text: We don’t share your personal information with anyone except to comply with
+      the law, develop our products, or protect our rights.
+  - key: no_store_unless_required
+    text: We don’t store personal information on our servers unless required for the
+      ongoing operation of one of our services.
+  - key: simple_as_possible
+    text: we aim to make it as simple as possible for you to control what’s visible
+      to the public, seen by search engines, kept private, and permanently deleted.
+  - key: gov_ip_may_collect
+    text: If you access this website from a federal government IP address, we may
+      record your browsing history and may make all of the information we have collected
+      about you, except your password, available to the general public.
+  - key: only_obvious
+    text: We do not use any of the information we collect in ways that would not be
+      obvious to you.
 - id: log_files_collected
   title: Does your website collect log files?
-  prompt: " "
+  prompt: ' '
   type: yesno
-
 - id: log_files_text
   title: Does your website collect log files?
-  prompt: "Your site collects log files. Read and modify as needed the sample text describing your site's use of log files."
+  prompt: Your site collects log files. Read and modify as needed the sample text
+    describing your site's use of log files.
   type: longtext
-  default: |
-    The site follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services’ analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users’ movement on the website, and gathering demographic information.
+  default: >
+    The site follows a standard procedure of using log files. These files log visitors
+    when they visit websites. All hosting companies do this and a part of hosting
+    services’ analytics. The information collected by log files include internet protocol
+    (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp,
+    referring/exit pages, and possibly the number of clicks. These are not linked
+    to any information that is personally identifiable. The purpose of the information
+    is for analyzing trends, administering the site, tracking users’ movement on the
+    website, and gathering demographic information.
   impute:
-    - condition: not(log_files_collected)
-      value: ~
-
+  - condition: not(log_files_collected)
+    value: ~
 output:
 - format: markdown
   title: Generate privacy policy
-  template: |
+  template: |2
 
     _Below is your draft Privacy Policy for {{website_url}}. After making any final changes, publish this policy at {{privacy_policy_url}}_
 

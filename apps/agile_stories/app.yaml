@@ -1,66 +1,62 @@
 id: app
-title: "Agile Security Stories"
+title: Agile Security Stories
 type: project
 control_index:
-  - standard: NIST RMF
-    controls: 
-      - id: AT-3
-      - id: AT-4
-
+- standard: NIST RMF
+  controls:
+  - id: AT-3
+  - id: AT-4
 catalog:
-    org: small web team
-    tech: website
-    role: scrum master, ciso, project manager, web master, manager
-    source_url: https://github.com/GovReady/govready-q-basic-assessments
-    version: 0.4
-    status: Beta
-    vendor: GovReady PBC
-    vendor_url: http://www.govready.com
-    description:
-      short: |
-        Bake security in with security-related user stories (v0.4)
+  org: small web team
+  tech: website
+  role: scrum master, ciso, project manager, web master, manager
+  source_url: https://github.com/GovReady/govready-q-basic-assessments
+  version: 0.4
+  status: Beta
+  vendor: GovReady PBC
+  vendor_url: http://www.govready.com
+  description:
+    short: |
+      Bake security in with security-related user stories (v0.4)
+    long: |
+      # Automatically add batch of security stories to Jira or GitHub project issues
 
-      long: |
-        # Automatically add batch of security stories to Jira or GitHub project issues
+      Tired of developers doing securiy just before deployment?
 
-        Tired of developers doing securiy just before deployment?
+      Wouldn't it be great to start every project with user stories addressing key security controls?
 
-        Wouldn't it be great to start every project with user stories addressing key security controls?
+      Agile Security Stories adds a collection of security and compliance related user stories to your Jira or GitHub issues repository. With a few clicks you can almost two dozen stories to you issues to make sure you bake-in security from the start.
 
-        Agile Security Stories adds a collection of security and compliance related user stories to your Jira or GitHub issues repository. With a few clicks you can almost two dozen stories to you issues to make sure you bake-in security from the start.
+      ## Status
 
-        ## Status
+      Beta (version 0.4)
 
-        Beta (version 0.4)
+      ## Who Should Use:
+      - SCRUM masters and Project managers to pre-configure agile back-log of new projects with security stories
+      - ISSO, Deputy-CISO to make sure all project bake security in at the start
 
-        ## Who Should Use:
-        - SCRUM masters and Project managers to pre-configure agile back-log of new projects with security stories
-        - ISSO, Deputy-CISO to make sure all project bake security in at the start
+      ## How This Aids Compliance
 
-        ## How This Aids Compliance
+      This version of Agile Security Stories contains almost two dozen user stories related Low Impact FISMA sysyems. Each story is tagged with related NIST SP 800-53 control identifier:
 
-        This version of Agile Security Stories contains almost two dozen user stories related Low Impact FISMA sysyems. Each story is tagged with related NIST SP 800-53 control identifier:
+      ## What We Do:
+      - Ask you to specify target issue repository
+      - Temporarily store an ecrypted version of your Jira password to access Jira's API
+      - Batch add user stories to your Jira
 
-        ## What We Do:
-        - Ask you to specify target issue repository
-        - Temporarily store an ecrypted version of your Jira password to access Jira's API
-        - Batch add user stories to your Jira
+      ## What You Do:
+      - Have a Jira project already set up
+      - Specify target issue repository
+      - Assign issues to milestones, sprints, and team members
 
-        ## What You Do:
-        - Have a Jira project already set up
-        - Specify target issue repository
-        - Assign issues to milestones, sprints, and team members
+      ## Support
+      This task collection is maintained by GovReady PBC.
 
-        ## Support
-        This task collection is maintained by GovReady PBC.
-
-        Invite support@govready.com to any conversation for support. Charges may apply.
-        Alternatively, invite support@govready.com to a [Task.kiwi](https://task.kiwi).
-
+      Invite support@govready.com to any conversation for support. Charges may apply.
+      Alternatively, invite support@govready.com to a [Task.kiwi](https://task.kiwi).
 snippet:
   format: html
-  template: ""
-
+  template: ''
 interstitial:
   format: markdown
   template: |
@@ -75,7 +71,6 @@ interstitial:
     - Description of acceptance criteria
 
     Are you ready?
-
 introduction:
   format: markdown
   template: |
@@ -159,30 +154,24 @@ invitation_to_task_interstitial:
     You've been asked to help with {{task.title}} for {{project}}.
 
     We'll tell {{invitation.from_user}} you're getting started.
-
 export_button_label: Export User Stories
-
 questions:
-
 - id: issuepack
   title: Add security stories to your issue tracker
   type: module-set
   module-id: issuepack
   tab: Agile Security Stories
   group: Security User Stories
-
 output:
+- tab: Agile Security Stories
+  format: html
+  template: |
+    <div style="text-align:center;">
 
-  - tab: Agile Security Stories
-    format: html
-    template: |
-      <div style="text-align:center;">
+    <h3>Add security stories to your backlog</h3>
 
-      <h3>Add security stories to your backlog</h3>
+    <img src="{{static_asset_path_for('code-sprint.png')}}" />
 
-      <img src="{{static_asset_path_for('code-sprint.png')}}" />
+    <h4> Make your system more secure with every sprint</h4>
 
-      <h4> Make your system more secure with every sprint</h4>
-
-      </div>
-
+    </div>

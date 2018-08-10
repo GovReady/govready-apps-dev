@@ -1,16 +1,15 @@
 id: mailinabox
 title: Mail-in-a-Box Server Details
 questions:
-  - id: hostname
-    title: Hostname
-    type: text
-    prompt: |
-      What is the hostname of the server?
+- id: hostname
+  title: Hostname
+  type: text
+  prompt: |
+    What is the hostname of the server?
 
-      Enter the name of the server as it is recognized by network services.
-
+    Enter the name of the server as it is recognized by network services.
 output:
-  - title: Your Answers
-    format: markdown
-    template: |
-      Congratulations! You've created a basic profile of a server!
+- title: Your Answers
+  format: markdown
+  template: |
+    Congratulations! You've created a basic profile of a server!

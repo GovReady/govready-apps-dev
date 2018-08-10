@@ -4,7 +4,6 @@ type: project
 version: 1
 protocol: fed_poc_isso
 icon: app.png
-
 catalog:
   category: People and Roles
   vendor: GovReady
@@ -43,32 +42,17 @@ catalog:
 
       Invite support@govready.com to any conversation for support. Charges may apply.
       Alternatively, invite support@govready.com to a [Task.kiwi](https://task.kiwi).
-
   recommended_for:
-    - key_short: Org
-      value: federal
-    - key_short: Tech
-      value: Drupal
-    - key_short: Role
-      value: Project Manager
-
+  - key_short: Org
+    value: federal
+  - key_short: Tech
+    value: Drupal
+  - key_short: Role
+    value: Project Manager
 questions:
-  - id: poc
-    title: ISSO
-    module-id: poc
-    type: module
-
+- id: poc
+  title: ISSO
+  module-id: poc
+  type: module
 output:
-  - title: Document
-    format: markdown
-    id: ssp_template
-    template: |
-
-      {% if not poc.q1_name %}
-        The system will have a ISSO.
-      {% else %}
-
-        The Information System Security Officer for the system is {{poc.q1_name}} ({{poc.q5_email}}).
-
-      {% endif %}
-
+- ssp_template.md

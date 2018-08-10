@@ -1,16 +1,14 @@
 id: matrix
 title: Control Matrix
 version: 1
-
 questions:
 - id: dummy
   title: dummy
   prompt: dummy
   type: raw
   impute:
-    - condition: "true"
-      value: ~
-
+  - condition: 'true'
+    value: ~
 output:
 - format: html
   title: Control Matrix
@@ -55,4 +53,3 @@ output:
     </tbody>
     </table>
     </div>
-

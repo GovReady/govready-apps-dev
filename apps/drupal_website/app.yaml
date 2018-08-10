@@ -3,7 +3,6 @@ title: Drupal Website
 type: project
 version: 0.4.0
 icon: app.png
-
 catalog:
   category: Web Frameworks
   vendor: GovReady
@@ -17,79 +16,66 @@ catalog:
     long: |
       This app will help you operate a Drupal website so you can get an Interim Authority to Operate.
   recommended_for:
-    - key_short: Org
-      value: Large
-    - key_short: Tech
-      value: Sophisticated
-    - key_short: Role
-      value: PM
-
+  - key_short: Org
+    value: Large
+  - key_short: Tech
+    value: Sophisticated
+  - key_short: Role
+    value: PM
 questions:
-  - id: fisma_system_categorization
-    title: System Categorization
-    type: module
-    protocol: govready.com/apps/compliance/2018/fisma/system-categorization
-
-  - id: web_server
-    title: Web Server
-    type: module
-    protocol: web_server
-
-  - id: infrastructure
-    title: Infrastructure
-    type: module
-    protocol: opencontrol
-
-  - id: sm_policy_privacy
-    title: Privacy Policy
-    type: module
-    protocol: sm_policy_privacy
-
-  - id: fed_poc_pm
-    title: PM
-    type: module
-    protocol: fed_poc_pm
-    icon: person-3.png
-
-  - id: fed_poc_developer
-    title: Developer
-    type: module
-    protocol: fed_poc_developer
-    icon: person-3.png
-
-  - id: fed_poc_issm
-    title: ISSM
-    type: module
-    protocol: fed_poc_issm
-    icon: person-3.png
-
-  - id: fed_poc_isso
-    title: ISSO
-    type: module
-    protocol: fed_poc_isso
-    icon: person-3.png
-
-  - id: fed_poc_ciso
-    title: CISO
-    type: module
-    protocol: fed_poc_ciso
-    icon: person-3.png
-
-  - id: fed_poc_ao
-    title: AO
-    type: module
-    protocol: fed_poc_ao
-    icon: person-3.png
-
-  - id: ssp
-    title: View Simple SSP
-    type: module
-    module-id: ssp
-    icon: checkmark.png
-
-  - id: ssp2
-    title: View FISMA-Style SSP
-    type: module
-    module-id: ssp2
-    icon: checkmark.png
-
+- id: fisma_system_categorization
+  title: System Categorization
+  type: module
+  protocol: govready.com/apps/compliance/2018/fisma/system-categorization
+- id: web_server
+  title: Web Server
+  type: module
+  protocol: web_server
+- id: infrastructure
+  title: Infrastructure
+  type: module
+  protocol: opencontrol
+- id: sm_policy_privacy
+  title: Privacy Policy
+  type: module
+  protocol: sm_policy_privacy
+- id: fed_poc_pm
+  title: PM
+  type: module
+  protocol: fed_poc_pm
+  icon: person-3.png
+- id: fed_poc_developer
+  title: Developer
+  type: module
+  protocol: fed_poc_developer
+  icon: person-3.png
+- id: fed_poc_issm
+  title: ISSM
+  type: module
+  protocol: fed_poc_issm
+  icon: person-3.png
+- id: fed_poc_isso
+  title: ISSO
+  type: module
+  protocol: fed_poc_isso
+  icon: person-3.png
+- id: fed_poc_ciso
+  title: CISO
+  type: module
+  protocol: fed_poc_ciso
+  icon: person-3.png
+- id: fed_poc_ao
+  title: AO
+  type: module
+  protocol: fed_poc_ao
+  icon: person-3.png
+- id: ssp
+  title: View Simple SSP
+  type: module
+  module-id: ssp
+  icon: checkmark.png
+- id: ssp2
+  title: View FISMA-Style SSP
+  type: module
+  module-id: ssp2
+  icon: checkmark.png

@@ -1,114 +1,104 @@
 id: questions
 title: Questions about the Server Room
-
 questions:
-  - id: name
-    title: Name
-    type: text
-    prompt: |
-      What do you call the server room?
+- id: name
+  title: Name
+  type: text
+  prompt: |
+    What do you call the server room?
 
-      Enter the name as you would refer to it to other members of your organization.
+    Enter the name as you would refer to it to other members of your organization.
+- id: abbreviation_exists
+  title: Abbreviation exists
+  type: yesno
+  prompt: |
+    Does <b>{{name}}</b> have a nickname or acronym?
 
-  - id: abbreviation_exists
-    title: Abbreviation exists
-    type: yesno
-    prompt: |
-      Does <b>{{name}}</b> have a nickname or acronym?
+    It’s common for organizations to use a nickname or acronym to refer to a server room.
+- id: abbreviation
+  type: text
+  title: Server room abbreviation
+  prompt: |
+    What is the preferred nickname or acronym for <b>{{name}}</b>?
+  impute:
+  - condition: abbreviation_exists == 'no'
+    value: n/a
+- id: location
+  type: text
+  title: Server room location
+  prompt: |
+    Where is <b>{{name}}</b> located?
 
-      It’s common for organizations to use a nickname or acronym to refer to a server room.
+    Provide the name of the office, building, or city where {{name}} is located.
+- id: name_and_abbreviation
+  title: Name and abbreviation
+  type: text
+  prompt: not used
+  impute:
+  - value: '{{name}}{% if abbreviation_exists %} ({{abbreviation}}){% endif %}'
+    value-mode: template
+- id: abbreviation_or_name
+  title: Abbreviation or name, if no abbreviation
+  type: text
+  prompt: not used
+  impute:
+  - value: '{% if abbreviation_exists %}{{abbreviation}}{% else %}{{name}}{% endif
+      %}'
+    value-mode: template
+- id: name_and_location
+  title: Name and location
+  type: text
+  prompt: not used
+  impute:
+  - value: '{{name_and_abbreviation}} at {{location}}'
+    value-mode: template
+- id: address
+  type: longtext
+  title: Server room address
+  prompt: |
+    What is the street address of <b>{{name}}</b>?
 
-  - id: abbreviation
-    type: text
-    title: Server room abbreviation
-    prompt: |
-      What is the preferred nickname or acronym for <b>{{name}}</b>?
-    impute:
-    - condition: abbreviation_exists == 'no'
-      value: n/a
+    Provide the address you would give to someone who wants driving directions.
+- id: physical_access_controls
+  type: multiple-choice
+  title: Physical access
+  prompt: |
+    Which of the following physical access controls are currently in place at {{name}}?
+  choices:
+  - key: locked_door
+    text: Physically locked door
+  - key: padlock
+    text: Electronic padlock
+  - key: acl
+    text: Different keys or padlock codes for each person authorized to enter
+  - key: logs
+    text: Entry logging, including the identity of the person authorized to enter
+- id: physical_access_controls_description
+  title: Physical access controls
+  type: longtext
+  prompt: |
+    Describe the physical access controls that are in place at {{name}}.
 
-  - id: location
-    type: text
-    title: Server room location
-    prompt: |
-      Where is <b>{{name}}</b> located?
+    {% if physical_access_controls|length > 0 %}
+    You said {{physical_access_controls.text}} are in place. Describe each below.
+    {% endif %}
+- id: access_poam
+  title: Physical access POAMs
+  type: longtext
+  prompt: |
+    Describe a plan of action and milestones (POAM) for completing physical access requirements at {{name}}.
 
-      Provide the name of the office, building, or city where {{name}} is located.
-    
-  - id: name_and_abbreviation
-    title: Name and abbreviation
-    type: text
-    prompt: not used
-    impute:
-      - value: "{{name}}{% if abbreviation_exists %} ({{abbreviation}}){% endif %}"
-        value-mode: template
+    {% if physical_access_controls.choices_not_selected|length > 0 %}
+    You said that
 
-  - id: abbreviation_or_name
-    title: Abbreviation or name, if no abbreviation
-    type: text
-    prompt: not used
-    impute:
-      - value: "{% if abbreviation_exists %}{{abbreviation}}{% else %}{{name}}{% endif %}"
-        value-mode: template
+    {% for choice in physical_access_controls.choices_not_selected %}
+    * {{choice.text}}
 
-  - id: name_and_location
-    title: Name and location
-    type: text
-    prompt: not used
-    impute:
-      - value: "{{name_and_abbreviation}} at {{location}}"
-        value-mode: template
+    {% endfor %}
 
-  - id: address
-    type: longtext
-    title: Server room address
-    prompt: |
-      What is the street address of <b>{{name}}</b>?
-
-      Provide the address you would give to someone who wants driving directions.
-
-  - id: physical_access_controls
-    type: multiple-choice
-    title: Physical access
-    prompt: |
-      Which of the following physical access controls are currently in place at {{name}}?
-    choices:
-      - key: locked_door
-        text: Physically locked door
-      - key: padlock
-        text: Electronic padlock
-      - key: acl
-        text: Different keys or padlock codes for each person authorized to enter
-      - key: logs
-        text: Entry logging, including the identity of the person authorized to enter
-
-  - id: physical_access_controls_description
-    title: Physical access controls
-    type: longtext
-    prompt: |
-      Describe the physical access controls that are in place at {{name}}.
-
-      {% if physical_access_controls|length > 0 %}
-      You said {{physical_access_controls.text}} are in place. Describe each below.
-      {% endif %}
-
-  - id: access_poam
-    title: Physical access POAMs
-    type: longtext
-    prompt: |
-      Describe a plan of action and milestones (POAM) for completing physical access requirements at {{name}}.
-
-      {% if physical_access_controls.choices_not_selected|length > 0 %}
-      You said that
-      
-      {% for choice in physical_access_controls.choices_not_selected %}
-      * {{choice.text}}
-      
-      {% endfor %}
-      
-      {% if physical_access_controls.choices_not_selected|length == 1 %}is{% else %}are{% endif %}
-      not yet implemented. For each, describe what needs to be done and when key milestones will be
-      completed.
-      {% else %}
-      Skip this question if you have no POAM for physical access to {{name}}.
-      {% endif %}
+    {% if physical_access_controls.choices_not_selected|length == 1 %}is{% else %}are{% endif %}
+    not yet implemented. For each, describe what needs to be done and when key milestones will be
+    completed.
+    {% else %}
+    Skip this question if you have no POAM for physical access to {{name}}.
+    {% endif %}

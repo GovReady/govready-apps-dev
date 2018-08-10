@@ -5,28 +5,25 @@ access: public
 protocol: sm_policy_privacy
 icon: app.png
 control_index:
-  - standard: NIST RMF
-    controls:
-      - id: TR-1
-      - id: TR-2
-      - id: TR-3
-
+- standard: NIST RMF
+  controls:
+  - id: TR-1
+  - id: TR-2
+  - id: TR-3
 catalog:
   category: Processes
   vendor: GovReady PBC
   vendor_url: http://www.govready.com
-  status: Operational
+  status: Beta
   version: 0.3
   icon: app.png
   source_url: https://github.com/GovReady/govready-q-tr-small-web
   role: project manager, web master, manager
   tech: website
   org: small web team
-  status: Beta
   description:
     short: |
       Create and publish Privacy Policy for web site transparency for a small web team
-
     long: |
       # Ideal for a Small Web Team
 
@@ -35,7 +32,7 @@ catalog:
       We'll help you develop, maintain and dissiminate a Privacy Policy for your web site.
 
       ## Who Should Use:
-      
+
       - Managers of small web sites
       - Small businesses that need to develop a Privacy Policy for their web site
 
@@ -65,7 +62,6 @@ catalog:
 
       Invite support@govready.com to any conversation for support. Charges may apply.
       Alternatively, invite support@govready.com to a [Task.kiwi](https://task.kiwi).
-
 interstitial:
   format: markdown
   template: |
@@ -74,12 +70,10 @@ interstitial:
     This task collection helps a small web team create and maintain a privacy policy.
 
     Are you ready?
-
 introduction:
   format: markdown
   template: |
     This task collection helps a small web team create and maintain a privacy policy.
-
 invitation_to_task_interstitial:
   format: markdown
   template: |
@@ -88,53 +82,24 @@ invitation_to_task_interstitial:
     You've been asked to help with {{task.title}} for {{project}}.
 
     We'll tell {{invitation.from_user}} you're getting started.
-
 questions:
-  - id: generate_policy_tr
-    title: Generate privacy policy
-    type: module
-    module-id: generate_policy_tr
-    tab: Privacy Policy
-    group: Policy
-
-  - id: maintain_policy_tr
-    title: Periodically review and update transparency policy
-    type: module-set
-    module-id: maintain_policy_tr
-    tab: Privacy Policy
-    group: Maintenance
-
-  - id: accept_policy_tr
-    title: Ask users to agree to privacy policy
-    type: module
-    module-id: accept_policy_by_users_tr
-    tab: Privacy Policy
-    group: Acceptance
-
+- id: generate_policy_tr
+  title: Generate privacy policy
+  type: module
+  module-id: generate_policy_tr
+  tab: Privacy Policy
+  group: Policy
+- id: maintain_policy_tr
+  title: Periodically review and update transparency policy
+  type: module-set
+  module-id: maintain_policy_tr
+  tab: Privacy Policy
+  group: Maintenance
+- id: accept_policy_tr
+  title: Ask users to agree to privacy policy
+  type: module
+  module-id: accept_policy_by_users_tr
+  tab: Privacy Policy
+  group: Acceptance
 output:
-  - tab: transparency Policy
-    format: markdown
-    template: |
-      
-      ## transparency Policy
-
-      ![](icon_system_capital.png)
-
-  - tab: transparency
-    format: markdown
-    template: |
-      
-      ## transparency
-
-      ![](icon_system_capital.png)
-
-output:
-- id: ssp_template
-  format: markdown
-  template: |
-    % if not ???.??? %
-      The system will have a privacy policy published on the web site.
-    % else %
-      The privacy policy is published at...
-    % endif %
-  
+- ssp_template.md

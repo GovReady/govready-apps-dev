@@ -1,5 +1,5 @@
 id: howto_ssp
-title: "SSP 101: What's a System Security Plan"
+title: 'SSP 101: What''s a System Security Plan'
 introduction:
   format: markdown
   template: |
@@ -8,19 +8,17 @@ introduction:
     No worries. This module will introduce the why's and wherefore's of a System Security Plan.
 
     Ready to get started?
-
 questions:
-  - id: sample_question
-    title: Sample question
-    type: yesno
-    prompt: |
-      Do you now feel like you understands the basic of what a System Security Plan?
-
+- id: sample_question
+  title: Sample question
+  type: yesno
+  prompt: |
+    Do you now feel like you understands the basic of what a System Security Plan?
 output:
-  - title: SSP Control Template
-    format: html
-    template: |
-      Congratulations! You've passed SSP 101!
+- title: SSP Control Template
+  format: html
+  template: |-
+    Congratulations! You've passed SSP 101!
 
-      You've learned System Security Plan basics.
-      <!-- {{sample_question}} -->
+    You've learned System Security Plan basics.
+    <!-- {{sample_question}} -->
